@@ -1,5 +1,11 @@
 APP
 ===
+
+Acompanhamento de Projetos Parlamentares irá permitir que cidadãos acompanhem o andamento de projetos parlamentares
+via aondroid de maneira simples e efetiva.
+
+Time:
+
 Nome                                 Matricula        Disciplina
 Caio Nardelli Maranhão	             12/0044773	        MDS
 Marco William Paulo da Silva	     12/0037416	        MDS
