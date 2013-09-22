@@ -1,0 +1,19 @@
+package modelo;
+
+public class Parlamento {
+
+	private String sigla;
+	
+	public Parlamento(){}
+
+	public String getSigla() {
+		return sigla;
+	}
+
+	public void setSigla(String sigla) {
+		this.sigla = sigla;
+	}
+	
+	
+	
+}
