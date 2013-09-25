@@ -3,6 +3,7 @@ package com.mds.app.view;
 import com.mds.app.R;
 import com.mds.app.R.layout;
 import com.mds.app.R.menu;
+import com.mds.app.controller.ProjetoController;
 
 import android.os.Bundle;
 import android.app.Activity;
@@ -21,8 +22,8 @@ public class MainActivity extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		
-		EditText textSigla = new EditText(this);
-		EditText textAno = new EditText(this);
+		final EditText textSigla = new EditText(this);
+		final EditText textAno = new EditText(this);
 		textSigla.setHint("Insira um tipo de projeto");
 		textAno.setHint("Insira um ano");
 		Button button = new Button(this);
@@ -36,11 +37,12 @@ public class MainActivity extends Activity {
        
         setContentView(layout);
         
-        Dialog d = new Dialog(this);
+        final ProjetoController projC = new ProjetoController();
         
         button.setOnClickListener(new View.OnClickListener(){
         	public void onClick(View arg0) {
-        		
+        		projC.atualizaDadosPesquisa(textAno.getText().toString(),
+        				textSigla.getText().toString());
         	}
         });
 

@@ -4,42 +4,42 @@ import java.sql.Date;
 
 public abstract class ProcuraProjetoModel {
 
-	int ano;
-	int id;
-	String sigla;
-	Date dataInicio;
-	ParlamentarModel autor;
+	private static int ano;
+	private static int id;
+	private static String sigla;
+	private static Date dataInicio;
+	private static ParlamentarModel autor;
 	
 	
-	public int getAno() {
+	public static int getAno() {
 		return ano;
 	}
-	public void setAno(int ano) {
-		this.ano = ano;
+	public static void setAno(int ano) {
+		ProcuraProjetoModel.ano = ano;
 	}
-	public int getId() {
+	public static int getId() {
 		return id;
 	}
-	public void setId(int id) {
-		this.id = id;
+	public static void setId(int id) {
+		ProcuraProjetoModel.id = id;
 	}
-	public String getSigla() {
+	public static String getSigla() {
 		return sigla;
 	}
-	public void setSigla(String sigla) {
-		this.sigla = sigla;
+	public static void setSigla(String sigla) {
+		ProcuraProjetoModel.sigla = sigla;
 	}
-	public Date getDataInicio() {
+	public static Date getDataInicio() {
 		return dataInicio;
 	}
-	public void setDataInicio(Date dataInicio) {
-		this.dataInicio = dataInicio;
+	public static void setDataInicio(Date dataInicio) {
+		ProcuraProjetoModel.dataInicio = dataInicio;
 	}
-	public ParlamentarModel getAutor() {
+	public static ParlamentarModel getAutor() {
 		return autor;
 	}
-	public void setAutor(ParlamentarModel autor) {
-		this.autor = autor;
+	public static void setAutor(ParlamentarModel autor) {
+		ProcuraProjetoModel.autor = autor;
 	}
 	
 	
