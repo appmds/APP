@@ -2,13 +2,15 @@ package com.mds.app.model;
 
 import java.sql.Date;
 
-public class ProcuraProjetoModel {
+public abstract class ProcuraProjetoModel {
 
 	int ano;
 	int id;
 	String sigla;
 	Date dataInicio;
 	ParlamentarModel autor;
+	
+	
 	public int getAno() {
 		return ano;
 	}

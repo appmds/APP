@@ -4,6 +4,16 @@ public class ParlamentarModel {
 
 	String nome;
 	PartidoModel partido;
+	
+	public ParlamentarModel(String nome, PartidoModel partido){
+		this.nome = nome;
+		this.partido = partido;
+	}
+	
+	public ParlamentarModel(){
+		
+	}
+	
 	public String getNome() {
 		return nome;
 	}

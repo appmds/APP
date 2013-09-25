@@ -9,6 +9,19 @@ public class ProjetoModel {
 	String sigla;
 	Date dataInicio;
 	ParlamentarModel autor;
+	
+	public ProjetoModel(int ano, int id, String sigla, Date dataInicio, ParlamentarModel autor){
+		
+		this.ano = ano;
+		this.id = id;
+		this.sigla = sigla;
+		this.dataInicio = dataInicio;
+		this.autor = autor;
+	}
+	
+	public ProjetoModel(){
+			
+	}
 	public int getAno() {
 		return ano;
 	}

@@ -1,9 +1,10 @@
 package com.mds.app.model;
 
-public class ProcuraParlamentarModel {
+public abstract class ProcuraParlamentarModel {
 
 	String nome;
 	PartidoModel partido;
+	
 	public String getNome() {
 		return nome;
 	}
