@@ -1,6 +1,10 @@
 package com.mds.app.services;
 
 import java.net.URLEncoder;
+import java.util.ArrayList;
+
+
+import com.mds.app.model.ProjetoModel;
 
 public abstract class Endereco {
 	
@@ -21,7 +25,12 @@ public abstract class Endereco {
 	private final static String CODIGO_ORGAO_ESTADO = "codOrgaoEstado";
 	private final static String TRAMITACAO = "emTramitacao";
 	
-	protected String constroirEndereco() {
+	protected RecebeHTTP recebeHTTP = new RecebeHTTP();
+	protected XMLParser xmlParser = new XMLParser();
+	public abstract ArrayList<ProjetoModel> procurar();
+	public abstract ArrayList<ProjetoModel> procurar(int maxResultados);
+	
+	protected String construirEndereco() {
 		StringBuffer sb = new StringBuffer();
 		sb.append(BASE_URL);
 		sb.append(SIGLA);
@@ -67,4 +76,12 @@ public abstract class Endereco {
 		return sb.toString();
 	}
 	
+	public ArrayList<ProjetoModel> ReceberPrimeirosResultados(ArrayList<ProjetoModel> lista, int maxResultados) {
+		ArrayList<ProjetoModel> novaLista = new ArrayList<ProjetoModel>();
+		int count = Math.min(lista.size(), maxResultados);
+		for (int i=0; i<count; i++) {
+			novaLista.add(lista.get(i));
+		}
+		return novaLista;
+	}
 }
