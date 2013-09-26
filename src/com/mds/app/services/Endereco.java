@@ -1,13 +1,11 @@
 package com.mds.app.services;
 
-import java.net.URLEncoder;
 import java.util.ArrayList;
-
 
 import com.mds.app.model.ProjetoModel;
 
 public abstract class Endereco {
-	
+
 	private final static String BASE_URL = "http://www.camara.gov.br/SitCamaraWS/Proposicoes.asmx/ListarProposicoes?";
 	private final static String IGUAL = "=";
 	private final static String E = "&";
@@ -24,12 +22,14 @@ public abstract class Endereco {
 	private final static String CODIGO_ESTADO = "codEstado";
 	private final static String CODIGO_ORGAO_ESTADO = "codOrgaoEstado";
 	private final static String TRAMITACAO = "emTramitacao";
-	
+
 	protected RecebeHTTP recebeHTTP = new RecebeHTTP();
 	protected XMLParser xmlParser = new XMLParser();
+
 	public abstract ArrayList<ProjetoModel> procurar();
+
 	public abstract ArrayList<ProjetoModel> procurar(int maxResultados);
-	
+
 	protected String construirEndereco() {
 		StringBuffer sb = new StringBuffer();
 		sb.append(BASE_URL);
@@ -75,11 +75,11 @@ public abstract class Endereco {
 		sb.append(IGUAL);
 		return sb.toString();
 	}
-	
+
 	public ArrayList<ProjetoModel> ReceberPrimeirosResultados(ArrayList<ProjetoModel> lista, int maxResultados) {
 		ArrayList<ProjetoModel> novaLista = new ArrayList<ProjetoModel>();
 		int count = Math.min(lista.size(), maxResultados);
-		for (int i=0; i<count; i++) {
+		for (int i = 0; i < count; i++) {
 			novaLista.add(lista.get(i));
 		}
 		return novaLista;

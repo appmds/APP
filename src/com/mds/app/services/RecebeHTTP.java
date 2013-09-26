@@ -10,38 +10,36 @@ import org.apache.http.util.EntityUtils;
 
 import android.util.Log;
 
-
 public class RecebeHTTP {
-	
-	private DefaultHttpClient cliente = new DefaultHttpClient();	
-	
+
+	private DefaultHttpClient cliente = new DefaultHttpClient();
+
 	public String recebe(String url) {
-		
-        HttpGet getRequisicao = new HttpGet(url);
-        
+
+		HttpGet getRequisicao = new HttpGet(url);
+
 		try {
-			
+
 			HttpResponse getResponse = cliente.execute(getRequisicao);
 			final int estadoCodigo = getResponse.getStatusLine().getStatusCode();
-			
-			if (estadoCodigo != HttpStatus.SC_OK) { 
-	            Log.w(getClass().getSimpleName(), "Error " + estadoCodigo + " for URL " + url); 
-	            return null;
-	        }
-			
+
+			if (estadoCodigo != HttpStatus.SC_OK) {
+				Log.w(getClass().getSimpleName(), "Error " + estadoCodigo + " for URL " + url);
+				return null;
+			}
+
 			HttpEntity getEntidadeResponsavel = getResponse.getEntity();
-			
+
 			if (getEntidadeResponsavel != null) {
 				return EntityUtils.toString(getEntidadeResponsavel);
 			}
-			
-		} 
-		catch (IOException e) {
+
+		} catch (IOException e) {
 			getRequisicao.abort();
-	        Log.w(getClass().getSimpleName(), "Error for URL " + url, e);
+			Log.w(getClass().getSimpleName(), "Error for URL " + url, e);
 		}
-		
+
 		return null;
-		
+
 	}
 }

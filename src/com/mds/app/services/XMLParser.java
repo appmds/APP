@@ -15,7 +15,7 @@ import com.mds.app.controller.ProjetoController;
 import com.mds.app.model.ProjetoModel;
 
 public class XMLParser {
-	
+
 	private XMLReader initializeReader() throws ParserConfigurationException, SAXException {
 		SAXParserFactory factory = SAXParserFactory.newInstance();
 		// create a parser
@@ -24,28 +24,27 @@ public class XMLParser {
 		XMLReader xmlreader = parser.getXMLReader();
 		return xmlreader;
 	}
-	
+
 	public ArrayList<ProjetoModel> parseProjeto(String xml) {
-		
+
 		try {
-			
+
 			XMLReader xmlreader = initializeReader();
-			
+
 			ProjetoController projeto = new ProjetoController();
 
 			// assign our handler
 			xmlreader.setContentHandler(projeto);
 			// perform the synchronous parse
 			xmlreader.parse(new InputSource(new StringReader(xml)));
-			
+
 			return projeto.getListaProjetos();
-			
-		} 
-		catch (Exception e) {
+
+		} catch (Exception e) {
 			e.printStackTrace();
 			return null;
 		}
-		
+
 	}
 
 }
