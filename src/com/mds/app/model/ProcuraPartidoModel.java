@@ -1,17 +1,17 @@
 package com.mds.app.model;
 
-import java.util.List;
+import java.util.ArrayList;
 
 public abstract class ProcuraPartidoModel {
 
-	List<ParlamentarModel> parlamentares;
+	private ArrayList<ParlamentarModel> parlamentares;
 
-	public List<ParlamentarModel> getParlamentares() {
+	public ArrayList<ParlamentarModel> getParlamentares() {
 		return parlamentares;
 	}
 
-	public void setParlamentares(List<ParlamentarModel> parlamentares) {
+	public void setParlamentares(ArrayList<ParlamentarModel> parlamentares) {
 		this.parlamentares = parlamentares;
 	}
-	
+
 }
