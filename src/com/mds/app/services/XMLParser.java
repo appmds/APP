@@ -38,7 +38,7 @@ public class XMLParser {
 			// perform the synchronous parse
 			xmlreader.parse(new InputSource(new StringReader(xml)));
 			
-			return projeto.receberListaProjeto();
+			return projeto.getListaProjetos();
 			
 		} 
 		catch (Exception e) {
