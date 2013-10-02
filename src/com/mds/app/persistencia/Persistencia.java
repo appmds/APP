@@ -6,13 +6,13 @@ import com.mds.app.model.ParlamentarModel;
 import com.mds.app.model.PartidoModel;
 import com.mds.app.model.ProjetoModel;
 
-public abstract class Persistencia {
+public class Persistencia {
 
 	public Persistencia() {
 		
 	}
 	
-	public ArrayList<ParlamentarModel> instanciarParlamentares(){
+	public static ArrayList<ParlamentarModel> instanciarParlamentares(){
 		
 		ArrayList<ParlamentarModel> arrayParlamentar = new ArrayList<ParlamentarModel>();
 		
@@ -28,7 +28,7 @@ public abstract class Persistencia {
 		return arrayParlamentar;
 	}
 	
-	public ArrayList<PartidoModel> instanciarPartidos(){
+	public static ArrayList<PartidoModel> instanciarPartidos(){
 		
 		ArrayList<PartidoModel> arrayPartido = new ArrayList<PartidoModel>();
 		
@@ -44,7 +44,7 @@ public abstract class Persistencia {
 		return arrayPartido;
 	}
 	
-	public ArrayList<ProjetoModel> instanciarProjetos(){
+	public static ArrayList<ProjetoModel> instanciarProjetos(){
 		
 		ArrayList<ProjetoModel> arrayProjeto = new ArrayList<ProjetoModel>();
 		
