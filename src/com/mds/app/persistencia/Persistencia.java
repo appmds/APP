@@ -12,12 +12,9 @@ public abstract class Persistencia {
 		
 	}
 	
-	public ArrayList<ArrayList> instanciar(){
-	
+	public ArrayList<ParlamentarModel> instanciarParlamentares(){
+		
 		ArrayList<ParlamentarModel> arrayParlamentar = new ArrayList<ParlamentarModel>();
-		ArrayList<PartidoModel> arrayPartido = new ArrayList<PartidoModel>();
-		ArrayList<ProjetoModel> arrayProjeto = new ArrayList<ProjetoModel>();
-		ArrayList<ArrayList> arrayFinal = new ArrayList<ArrayList>();
 		
 		ParlamentarModel parlamentar1 = new ParlamentarModel();
 		ParlamentarModel parlamentar2 = new ParlamentarModel();
@@ -28,6 +25,13 @@ public abstract class Persistencia {
 		arrayParlamentar.add(parlamentar3);
 		arrayParlamentar.add(parlamentar4);
 		
+		return arrayParlamentar;
+	}
+	
+	public ArrayList<PartidoModel> instanciarPartidos(){
+		
+		ArrayList<PartidoModel> arrayPartido = new ArrayList<PartidoModel>();
+		
 		PartidoModel partido1 = new PartidoModel();
 		PartidoModel partido2 = new PartidoModel();
 		PartidoModel partido3 = new PartidoModel();
@@ -36,6 +40,13 @@ public abstract class Persistencia {
 		arrayPartido.add(partido2);
 		arrayPartido.add(partido3);
 		arrayPartido.add(partido4);
+		
+		return arrayPartido;
+	}
+	
+	public ArrayList<ProjetoModel> instanciarProjetos(){
+		
+		ArrayList<ProjetoModel> arrayProjeto = new ArrayList<ProjetoModel>();
 		
 		ProjetoModel projeto1 = new ProjetoModel();
 		ProjetoModel projeto2 = new ProjetoModel();
@@ -46,12 +57,7 @@ public abstract class Persistencia {
 		arrayProjeto.add(projeto3);
 		arrayProjeto.add(projeto4);
 		
-		arrayFinal.add(arrayParlamentar);
-		arrayFinal.add(arrayPartido);
-		arrayFinal.add(arrayProjeto);
-		
-		return arrayFinal;
-		
+		return arrayProjeto;
 	}
 
 }
