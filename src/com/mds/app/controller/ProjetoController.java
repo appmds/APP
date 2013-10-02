@@ -2,6 +2,7 @@ package com.mds.app.controller;
 
 import com.mds.app.model.ProcuraProjetoModel;
 import com.mds.app.model.ProjetoModel;
+import com.mds.app.persistencia.Persistencia;
 
 import java.util.ArrayList;
 
@@ -19,6 +20,8 @@ public class ProjetoController extends DefaultHandler {
 	public ProjetoController() {
 
 	}
+	
+	ArrayList<ProjetoModel> projetosInstanciados = Persistencia.instanciarProjetos();
 
 	@Override
 	public void startElement(String namespaceURI, String localName, String qName, Attributes atts) throws SAXException {

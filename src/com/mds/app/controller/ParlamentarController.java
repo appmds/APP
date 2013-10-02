@@ -12,12 +12,6 @@ public class ParlamentarController {
 	
 	}
 	
-	
-	ArrayList<ParlamentarModel> parlamentares = new ArrayList<ParlamentarModel>();
-	Persistencia.
-	
-	
-	
-
+	ArrayList<ParlamentarModel> parlamentaresInstanciados = Persistencia.instanciarParlamentares();
 	
 }

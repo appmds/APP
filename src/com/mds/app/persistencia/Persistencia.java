@@ -6,12 +6,16 @@ import com.mds.app.model.ParlamentarModel;
 import com.mds.app.model.PartidoModel;
 import com.mds.app.model.ProjetoModel;
 
-public class Persistencia {
+public abstract class Persistencia {
 
 	public Persistencia() {
 		
 	}
 	
+	/* 
+	 * Falta ver quais serão os Parlamentares, os Partidos e os Projetos que vamos inicializar
+	 * e passar como parâmetro os dados nos construtores.
+	 */
 	public static ArrayList<ParlamentarModel> instanciarParlamentares(){
 		
 		ArrayList<ParlamentarModel> arrayParlamentar = new ArrayList<ParlamentarModel>();
