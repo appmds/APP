@@ -21,5 +21,9 @@ public class PartidoModel {
 	public void setParlamentares(ArrayList<ParlamentarModel> parlamentares) {
 		this.parlamentares = parlamentares;
 	}
+	
+	public void addParlamentar(ParlamentarModel parlamentar) {
+		parlamentares.add(parlamentar);
+	}
 
 }

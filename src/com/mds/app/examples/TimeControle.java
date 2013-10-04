@@ -47,7 +47,7 @@ public class TimeControle {
 
 	private static void listar() {
 		
-		Iterator percorre = montarTime.iterator();
+		Iterator<Time> percorre = montarTime.iterator();
 		
 		//Enquanto tiver próximo objeto na lista
 		while(percorre.hasNext()){
