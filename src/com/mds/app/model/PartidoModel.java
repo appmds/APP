@@ -23,7 +23,7 @@ public class PartidoModel {
 	}
 	
 	public void addParlamentar(ParlamentarModel parlamentar) {
-		parlamentares.add(parlamentar);
+		this.parlamentares.add(parlamentar);
 	}
 
 }
