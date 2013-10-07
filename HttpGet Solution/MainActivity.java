@@ -12,16 +12,17 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 public class MainActivity extends Activity {
-
 	TextView httpStuff;
 	
-	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
+		
+		// Criando permissão para a thread, para poder usar a internet
 		StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder() .detectAll().penaltyLog().build();	
 		StrictMode.setThreadPolicy(policy);
+		
 		setContentView(R.layout.activity_main);
-        httpStuff = (TextView) findViewById(R.id.texto);
+		httpStuff = (TextView) findViewById(R.id.texto);
         
         GetMethodEx g = new GetMethodEx();
 		String retorno;
@@ -29,14 +30,12 @@ public class MainActivity extends Activity {
 			retorno = g.getInternetData();
 			httpStuff.setText(retorno);
 		}
-		catch(Exception e){
+		catch(Exception e){	
 			e.printStackTrace();
 		}
 	}
 
-	@Override
-	public boolean onCreateOptionsMenu(Menu menu) {
-		// Inflate the menu; this adds items to the action bar if it is present.
+	public boolean onCreateOptionsMenu(Menu menu){
 		getMenuInflater().inflate(R.menu.main, menu);
 		return true;
 	}
