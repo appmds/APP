@@ -57,7 +57,7 @@ public class MainActivity extends Activity {
         
         button.setOnClickListener(new View.OnClickListener(){
         	public void onClick(View arg0) {
-        		projC.atualizaDadosPesquisa(textAno.getText().toString(),
+        		projC.atualizarDadosDaPesquisa(textAno.getText().toString(),
         				textSigla.getText().toString());
         		executarPesquisa("");
         	}
