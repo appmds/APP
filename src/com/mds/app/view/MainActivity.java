@@ -3,8 +3,6 @@ package com.mds.app.view;
 import java.util.List;
 
 import com.mds.app.R;
-import com.mds.app.R.layout;
-import com.mds.app.R.menu;
 import com.mds.app.controller.ProjetoController;
 import com.mds.app.model.ProjetoModel;
 import com.mds.app.services.ProcuraProjeto;
@@ -13,20 +11,14 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.StrictMode;
 import android.app.Activity;
-import android.app.Dialog;
 import android.app.ProgressDialog;
 import android.content.DialogInterface;
 import android.content.DialogInterface.OnCancelListener;
 import android.view.Menu;
 import android.view.View;
-import android.view.View.OnClickListener;
-import android.view.View.OnFocusChangeListener;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
-import android.widget.RadioButton;
-import android.widget.RelativeLayout;
-import android.widget.TextView;
 import android.widget.Toast;
 
 public class MainActivity extends Activity {
@@ -38,6 +30,7 @@ public class MainActivity extends Activity {
 		super.onCreate(savedInstanceState);
 		StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder() .detectAll().penaltyLog().build();	
 		StrictMode.setThreadPolicy(policy);
+		
 		final EditText textSigla = new EditText(this);
 		final EditText textAno = new EditText(this);
 		textSigla.setHint("Insira um tipo de projeto");
