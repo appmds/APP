@@ -134,7 +134,7 @@ public class Busca extends Activity {
 					}
 					if (result != null) {
 						for (ProjetoModel projeto : result) {
-							longToast(projeto.getNome() + " - " + projeto.getNumero());
+							longToast(projeto.getExplicacao() + " - " + projeto.getNumero());
 						}
 					}
 					else {
