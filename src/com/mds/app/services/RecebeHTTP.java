@@ -10,7 +10,7 @@ import org.apache.http.client.methods.HttpGet;
 import org.apache.http.impl.client.DefaultHttpClient;
 
 
-public class RecebeHTTP {
+public class RecebeHTTP{
 
 	public String recebe(String url) {
 
@@ -18,7 +18,7 @@ public class RecebeHTTP {
 		String data = null;
 		try{
 			HttpClient client = new DefaultHttpClient();
-			URI website = new URI("http://www.camara.gov.br/SitCamaraWS/Proposicoes.asmx/ListarProposicoes?sigla=PL&numero=&ano=2011&datApresentacaoIni=14/11/2011&datApresentacaoFim=16/11/2011&autor=&parteNomeAutor=&siglaPartidoAutor=&siglaUFAutor=&generoAutor=&codEstado=&codOrgaoEstado=&emTramitacao=");
+			URI website = new URI("");
 			HttpGet request = new HttpGet();
 			request.setURI(website);
 			HttpResponse response = client.execute(request);

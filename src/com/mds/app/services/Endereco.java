@@ -30,46 +30,57 @@ public abstract class Endereco {
 
 	public abstract ArrayList<ProjetoModel> procurar(int maxResultados);
 
-	protected String construirEndereco() {
+	protected String construirEndereco(String sigla, String numero, String ano, String dataInicio, String dataFinal, String autor,
+			String nomeAutor, String siglaPartido, String siglaUF, String generoAutor, String codigoEstado, String codigoOrgaoEstado) {
 		StringBuffer sb = new StringBuffer();
 		sb.append(BASE_URL);
 		sb.append(SIGLA);
 		sb.append(IGUAL);
-		sb.append("PL");
+		sb.append(sigla);
 		sb.append(E);
 		sb.append(NUMERO);
 		sb.append(IGUAL);
+		sb.append(numero);
 		sb.append(E);
 		sb.append(ANO);
 		sb.append(IGUAL);
-		sb.append("2013");
+		sb.append(ano);
 		sb.append(E);
 		sb.append(DATA_INICIO);
 		sb.append(IGUAL);
+		sb.append(dataInicio);
 		sb.append(E);
 		sb.append(DATA_FINAL);
 		sb.append(IGUAL);
+		sb.append(dataFinal);
 		sb.append(E);
 		sb.append(AUTOR);
 		sb.append(IGUAL);
+		sb.append(autor);
 		sb.append(E);
 		sb.append(NOME_AUTOR);
 		sb.append(IGUAL);
+		sb.append(nomeAutor);
 		sb.append(E);
 		sb.append(SIGLA_PARTIDO);
 		sb.append(IGUAL);
+		sb.append(siglaPartido);
 		sb.append(E);
 		sb.append(SIGLA_UF);
 		sb.append(IGUAL);
+		sb.append(siglaUF);
 		sb.append(E);
 		sb.append(GENERO_AUTOR);
 		sb.append(IGUAL);
+		sb.append(generoAutor);
 		sb.append(E);
 		sb.append(CODIGO_ESTADO);
 		sb.append(IGUAL);
+		sb.append(codigoEstado);
 		sb.append(E);
 		sb.append(CODIGO_ORGAO_ESTADO);
 		sb.append(IGUAL);
+		sb.append(codigoOrgaoEstado);
 		sb.append(E);
 		sb.append(TRAMITACAO);
 		sb.append(IGUAL);

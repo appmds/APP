@@ -64,7 +64,9 @@ public class Busca extends Activity {
 		ok.setOnClickListener(new OnClickListener() {
 
 			EditText textSigla = (EditText) findViewById(R.id.textSigla);
+			EditText textNumero = (EditText) findViewById(R.id.textNumero);
 			EditText textAno = (EditText) findViewById(R.id.textAno);
+			
 
 			@Override
 			public void onClick(View v) {

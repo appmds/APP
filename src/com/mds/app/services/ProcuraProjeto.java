@@ -19,7 +19,7 @@ public class ProcuraProjeto extends Endereco {
 	}
 
 	private ArrayList<ProjetoModel> receberListaProjetos() {
-		String url = construirEndereco();
+		String url = construirEndereco("","","","","","","","","","","","");
 		String response = recebeHTTP.recebe(url);
 		Log.d(getClass().getSimpleName(), response);
 		return xmlParser.parseProjeto(response);
