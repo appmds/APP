@@ -7,42 +7,6 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context=".Busca" >
-    
-    <ImageButton
-        android:id="@+id/voltar"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentLeft="true"
-        android:src="@drawable/voltar" />
-
-    <EditText
-        android:id="@+id/textSigla"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:ems="10"
-        android:hint="@string/hint1" />
-
-    <ImageButton
-        android:id="@+id/okbutton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentRight="true"
-        android:layout_alignTop="@+id/voltar"
-        android:layout_marginRight="22dp"
-        android:src="@drawable/okbutton" />
-
-    <EditText
-        android:id="@+id/textAno"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/textSigla"
-        android:layout_below="@+id/textSigla"
-        android:layout_marginTop="56dp"
-        android:ems="10"
-        android:hint="@string/hint2" />
 
     <EditText
         android:id="@+id/textNumero"
@@ -51,9 +15,97 @@
         android:layout_alignLeft="@+id/textSigla"
         android:layout_below="@+id/textSigla"
         android:ems="10"
-        android:hint="@string/hint2" >
+        android:hint="Insira o número" >
 
         <requestFocus />
     </EditText>
+
+    <EditText
+        android:id="@+id/textAno"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/textNumero"
+        android:layout_below="@+id/textNumero"
+        android:ems="10"
+        android:hint="@string/hint2" />
+
+    <EditText
+        android:id="@+id/textDataIni"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/textAno"
+        android:layout_below="@+id/textAno"
+        android:ems="10" 
+        android:hint="Insira a data de Início" />
+    
+    <EditText
+        android:id="@+id/textDataFinal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/textAno"
+        android:layout_below="@+id/textDataIni"
+        android:ems="10" 
+        android:hint="Inisira a data final" />
+    
+    <EditText
+        android:id="@+id/textAutor"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/textAno"
+        android:layout_below="@+id/textDataFinal"
+        android:ems="10" 
+        android:hint="Inisira o autor ??" />
+    
+    <EditText
+        android:id="@+id/textNomeAutor"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/textAno"
+        android:layout_below="@+id/textAutor"
+        android:ems="10" 
+        android:hint="Inisira o nome do autor" />
+    
+    <EditText
+        android:id="@+id/textSiglaPartido"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/textAno"
+        android:layout_below="@+id/textNomeAutor"
+        android:ems="10" 
+        android:hint="Inisira a Silga do Partido" />
+    
+     <EditText
+        android:id="@+id/textUF"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/textAno"
+        android:layout_below="@+id/textSiglaPartido"
+        android:ems="10" 
+        android:hint="Inisira a UF" />
+
+     <EditText
+         android:id="@+id/textSigla"
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:layout_alignParentLeft="true"
+         android:layout_alignParentTop="true"
+         android:ems="10"
+         android:hint="@string/hint1" />
+
+     <ImageButton
+         android:id="@+id/okbutton"
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:layout_alignParentBottom="true"
+         android:layout_toRightOf="@+id/textUF"
+         android:src="@drawable/okbutton" />
+
+     <ImageButton
+         android:id="@+id/voltar"
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:layout_alignLeft="@+id/textUF"
+         android:layout_alignParentBottom="true"
+         android:src="@drawable/voltar" />
 
 </RelativeLayout>

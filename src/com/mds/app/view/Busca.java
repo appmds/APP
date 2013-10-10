@@ -66,14 +66,23 @@ public class Busca extends Activity {
 			EditText textSigla = (EditText) findViewById(R.id.textSigla);
 			EditText textNumero = (EditText) findViewById(R.id.textNumero);
 			EditText textAno = (EditText) findViewById(R.id.textAno);
-			
+			EditText textDataIni = (EditText) findViewById(R.id.textDataIni);
+			EditText textDataFinal = (EditText) findViewById(R.id.textDataFinal);
+			EditText textAutor = (EditText) findViewById(R.id.textAutor);
+			EditText textNomeAutor = (EditText) findViewById(R.id.textNomeAutor);
+			EditText textSiglaPartido = (EditText) findViewById(R.id.textSiglaPartido);
+			EditText textUF = (EditText) findViewById(R.id.textUF);
+		
 
 			@Override
 			public void onClick(View v) {
 				Toast.makeText(Busca.this, "OK!", Toast.LENGTH_SHORT).show();
 
 				final ProjetoController projC = new ProjetoController();
-				projC.atualizarDadosDaPesquisa(textAno.getText().toString(), textSigla.getText().toString());
+				projC.atualizarDadosDaPesquisa(textAno.getText().toString(), textSigla.getText().toString(),
+						textNumero.getText().toString(), textDataIni.getText().toString(), textDataFinal.getText().toString(),
+						textAutor.getText().toString(), textNomeAutor.getText().toString(), textSiglaPartido.getText().toString(),
+						textUF.getText().toString());
 				executarPesquisa("");
 
 			}
@@ -93,7 +102,7 @@ public class Busca extends Activity {
 
 	private void executarPesquisa(String query) {
 
-		progressDialog = ProgressDialog.show(Busca.this, "Please wait...", "Retrieving data...", true, true);
+		progressDialog = ProgressDialog.show(Busca.this, "Espere um momento...", "Recebendo dados...", true, true);
 
 		PerformMovieSearchTask task = new PerformMovieSearchTask();
 		task.execute(query);

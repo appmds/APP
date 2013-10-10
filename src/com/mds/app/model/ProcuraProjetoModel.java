@@ -4,17 +4,17 @@ import java.sql.Date;
 
 public abstract class ProcuraProjetoModel {
 
-	private static int ano;
+	private static String ano;
 	private static int id;
 	private static String sigla;
-	private static Date dataInicio;
+	private static String dataInicio;
 	private static ParlamentarModel parlamentarAutor;
 
-	public static int getAno() {
+	public static String getAno() {
 		return ano;
 	}
 
-	public static void setAno(int ano) {
+	public static void setAno(String ano) {
 		ProcuraProjetoModel.ano = ano;
 	}
 
@@ -34,11 +34,11 @@ public abstract class ProcuraProjetoModel {
 		ProcuraProjetoModel.sigla = sigla;
 	}
 
-	public static Date getDataInicio() {
+	public static String getDataInicio() {
 		return dataInicio;
 	}
 
-	public static void setDataInicio(Date dataInicio) {
+	public static void setDataInicio(String dataInicio) {
 		ProcuraProjetoModel.dataInicio = dataInicio;
 	}
 

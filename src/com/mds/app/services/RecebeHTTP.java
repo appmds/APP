@@ -18,7 +18,7 @@ public class RecebeHTTP{
 		String data = null;
 		try{
 			HttpClient client = new DefaultHttpClient();
-			URI website = new URI("");
+			URI website = new URI(url);
 			HttpGet request = new HttpGet();
 			request.setURI(website);
 			HttpResponse response = client.execute(request);
