@@ -17,31 +17,31 @@ public class RecebeHTTP {
 	public String recebe(String url) {
 
 		BufferedReader inputStream = null;
-		String data = null;
-		HttpClient httpClient = new DefaultHttpClient();
-		HttpGet httpRequest = null;
-		HttpResponse httpResponse = null;
+		String dado = null;
+		HttpClient cliente = new DefaultHttpClient();
+		HttpGet requisicao = null;
+		HttpResponse resposta = null;
 		URI website = null;
-		StringBuffer dataStringBuffer = null;
-		String toAppend = null;
+		StringBuffer dadoStringBuffer = null;
+		String anexar = null;
 
 		try {
 			website = new URI(url);
 			
-			httpRequest = new HttpGet();
-			httpRequest.setURI(website);
+			requisicao = new HttpGet();
+			requisicao.setURI(website);
 			
-			httpResponse = httpClient.execute(httpRequest);
+			resposta = cliente.execute(requisicao);
 			
-			inputStream = new BufferedReader(new InputStreamReader(httpResponse.getEntity().getContent()));
+			inputStream = new BufferedReader(new InputStreamReader(resposta.getEntity().getContent()));
 			
-			dataStringBuffer = new StringBuffer("");
-			toAppend = "";
-			while ((toAppend = inputStream.readLine()) != null) {
-				dataStringBuffer.append(toAppend);
+			dadoStringBuffer = new StringBuffer("");
+			anexar = "";
+			while ((anexar = inputStream.readLine()) != null) {
+				dadoStringBuffer.append(anexar);
 			}
 			
-			data = dataStringBuffer.toString();
+			dado = dadoStringBuffer.toString();
 
 		} catch (URISyntaxException urise) {
 			//
@@ -62,6 +62,6 @@ public class RecebeHTTP {
 			}
 		}
 
-		return data;
+		return dado;
 	}
 }
