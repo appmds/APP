@@ -24,14 +24,10 @@ public class ProcuraProjeto extends Endereco {
 		String ano = ProcuraProjetoModel.getAno();
 		String dataIni = ProcuraProjetoModel.getDataInicio();
 
-		//construindo URL
 		String url = construirEndereco(sigla, "", ano, dataIni, "", "", "", "", "", "", "", "");
-		
-		//receber XML do Http Get
+		System.out.println(url);
 		String response = recebeHTTP.recebe(url);
-		
 		Log.d(getClass().getSimpleName(), response);
-		
 		return xmlParser.parseProjeto(response);
 	}
 

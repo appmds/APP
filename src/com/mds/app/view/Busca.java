@@ -73,12 +73,8 @@ public class Busca extends Activity {
 				Toast.makeText(Busca.this, "OK!", Toast.LENGTH_SHORT).show();
 
 				final ProjetoController projC = new ProjetoController();
-				/*projC.atualizarDadosDaPesquisa(textAno.getText().toString(), textSigla.getText().toString(),
-						textNumero.getText().toString(), textDataIni.getText().toString(), textDataFinal.getText()
-								.toString(), textAutor.getText().toString(), textNomeAutor.getText().toString(),
-						textSiglaPartido.getText().toString(), textUF.getText().toString());*/
 				projC.atualizarDadosDaPesquisa(textAno.getText().toString(), textSigla.getText().toString(),
-						textNumero.getText().toString(), "14/11/2011", textDataFinal.getText()
+						textNumero.getText().toString(), textDataIni.getText().toString(), textDataFinal.getText()
 								.toString(), textAutor.getText().toString(), textNomeAutor.getText().toString(),
 						textSiglaPartido.getText().toString(), textUF.getText().toString());
 				executarPesquisa("");
