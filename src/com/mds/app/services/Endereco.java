@@ -86,6 +86,7 @@ public abstract class Endereco {
 		sb.append(E);
 		sb.append(TRAMITACAO);
 		sb.append(IGUAL);
+		sb.append("1");
 		return sb.toString();
 	}
 
