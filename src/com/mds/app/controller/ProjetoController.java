@@ -48,10 +48,7 @@ public class ProjetoController extends DefaultHandler {
 		}
 		
 		else if (localName.equals("nome")) {
-			contador++;
-			if(contador == 1){
-				projeto.setNome(buffer.toString());
-			}
+			projeto.setNome(buffer.toString());
 		}
 		
 		else if (localName.equals("sigla")) {

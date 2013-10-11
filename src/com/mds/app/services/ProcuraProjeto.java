@@ -24,7 +24,7 @@ public class ProcuraProjeto extends Endereco {
 		String ano = ProcuraProjetoModel.getAno();
 		String dataIni = ProcuraProjetoModel.getDataInicio();
 
-		String url = construirEndereco(sigla, "", ano, dataIni, "", "", "", "", "", "", "", "");
+		String url = construirEndereco(sigla, "", ano, "14/03/2013", "", "", "", "", "", "", "", "");
 		System.out.println(url);
 		String response = recebeHTTP.recebe(url);
 		Log.d(getClass().getSimpleName(), response);

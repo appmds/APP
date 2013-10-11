@@ -10,6 +10,7 @@ public class ProjetoModel {
 	private String data;
 	private String explicacao;
 	private ParlamentarModel parlamentarAutor;
+	private int cont = 1;
 
 	public ProjetoModel() {
 
@@ -52,7 +53,11 @@ public class ProjetoModel {
 	}
 
 	public void setNome(String nome) {
-		this.nome = nome;
+		
+		if(cont==1){
+			this.nome = nome;
+		}
+		cont++;
 	}
 
 	public String getSigla() {
