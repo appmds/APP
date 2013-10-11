@@ -20,7 +20,7 @@ public class ProcuraProjeto extends Endereco {
 	}
 
 	private ArrayList<ProjetoModel> receberListaProjetos() {
-		String sigla = ProcuraProjetoModel.getSigla();
+		String sigla = ProcuraProjetoModel.getSigla().toUpperCase();
 		String ano = ProcuraProjetoModel.getAno();
 		String dataIni = ProcuraProjetoModel.getDataInicio();
 
