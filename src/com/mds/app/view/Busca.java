@@ -121,7 +121,7 @@ public class Busca extends Activity {
 					}
 					if (result != null) {
 						for (ProjetoModel projeto : result) {
-							CharSequence mensagem = projeto.getExplicacao() + " - " + projeto.getNumero();
+							CharSequence mensagem = projeto.getExplicacao() + " - " + projeto.getNumero() + " - " + projeto.getNome();
 							longToast(mensagem);
 						}
 					}
