@@ -1,7 +1,5 @@
 package com.mds.app.model;
 
-import java.sql.Date;
-
 public abstract class ProcuraProjetoModel {
 
 	private static String ano;

@@ -6,8 +6,17 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    android:background="@drawable/sobre_prov"
+    android:background="@drawable/app_bg"
     tools:context=".Sobre" >
+
+    <ImageView
+        android:id="@+id/imgviewLogo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:contentDescription="@string/imgviewSOBREPROV"
+        android:src="@drawable/sobre_prov" />
 
     <ImageButton
         android:id="@+id/voltar"
@@ -15,6 +24,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_alignParentLeft="true"
+        android:contentDescription="@string/imgbuttonVoltar"
         android:src="@drawable/voltar" />
 
 </RelativeLayout>

@@ -30,8 +30,10 @@ public abstract class Endereco {
 
 	public abstract ArrayList<ProjetoModel> procurar(int maxResultados);
 
-	protected String construirEndereco(String sigla, String numero, String ano, String dataInicio, String dataFinal, String autor,
-			String nomeAutor, String siglaPartido, String siglaUF, String generoAutor, String codigoEstado, String codigoOrgaoEstado) {
+	protected String construirEndereco(String sigla, String numero, String ano, String dataInicio,
+			String dataFinal, String autor, String nomeAutor, String siglaPartido, String siglaUF,
+			String generoAutor, String codigoEstado, String codigoOrgaoEstado) {
+
 		StringBuffer sb = new StringBuffer();
 		sb.append(BASE_URL);
 		sb.append(SIGLA);
@@ -88,11 +90,14 @@ public abstract class Endereco {
 	}
 
 	public ArrayList<ProjetoModel> ReceberPrimeirosResultados(ArrayList<ProjetoModel> lista, int maxResultados) {
+
 		ArrayList<ProjetoModel> novaLista = new ArrayList<ProjetoModel>();
+
 		int count = Math.min(lista.size(), maxResultados);
 		for (int i = 0; i < count; i++) {
 			novaLista.add(lista.get(i));
 		}
 		return novaLista;
 	}
+
 }

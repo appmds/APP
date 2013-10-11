@@ -1,16 +1,14 @@
 package com.mds.app.controller;
 
-import com.mds.app.model.ParlamentarModel;
-import com.mds.app.model.ProcuraProjetoModel;
-import com.mds.app.model.ProjetoModel;
-import com.mds.app.persistencia.Persistencia;
-import com.mds.app.services.Endereco;
-import java.sql.Date;
 import java.util.ArrayList;
 
 import org.xml.sax.Attributes;
 import org.xml.sax.SAXException;
 import org.xml.sax.helpers.DefaultHandler;
+
+import com.mds.app.model.ProcuraProjetoModel;
+import com.mds.app.model.ProjetoModel;
+import com.mds.app.persistencia.Persistencia;
 
 public class ProjetoController extends DefaultHandler {
 
@@ -22,7 +20,7 @@ public class ProjetoController extends DefaultHandler {
 	public ProjetoController() {
 
 	}
-	
+
 	ArrayList<ProjetoModel> projetosInstanciados = Persistencia.instanciarProjetos();
 
 	@Override
@@ -63,7 +61,7 @@ public class ProjetoController extends DefaultHandler {
 			projeto.setExplicacao(buffer.toString());
 		}
 		else {
-			
+
 		}
 	}
 
@@ -78,13 +76,11 @@ public class ProjetoController extends DefaultHandler {
 
 	public void atualizarDadosDaPesquisa(String ano, String sigla, String numero, String dataIni,
 			String dataFinal, String autor, String nomeAutor, String siglaPartido, String uf) {
-		
+
 		ProcuraProjetoModel.setAno(ano);
 		ProcuraProjetoModel.setSigla(sigla);
 		ProcuraProjetoModel.setDataInicio(dataIni);
 
 	}
-	
-
 
 }

@@ -4,25 +4,22 @@ import java.util.List;
 
 import android.app.Activity;
 import android.app.ProgressDialog;
-import android.content.DialogInterface;
 import android.content.Intent;
-import android.content.DialogInterface.OnCancelListener;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.StrictMode;
 import android.view.Menu;
 import android.view.View;
 import android.view.View.OnClickListener;
-import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
-import android.widget.LinearLayout;
 import android.widget.Toast;
 
 import com.mds.app.R;
 import com.mds.app.controller.ProjetoController;
 import com.mds.app.model.ProjetoModel;
 import com.mds.app.services.ProcuraProjeto;
+import com.mds.app.util.CancelTaskOnCancelListener;
 
 public class Busca extends Activity {
 
@@ -35,31 +32,29 @@ public class Busca extends Activity {
 		super.onCreate(savedInstanceState);
 		StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().detectAll().penaltyLog().build();
 		StrictMode.setThreadPolicy(policy);
-		
 		setContentView(R.layout.activity_busca);
-		addListenerOnButtonOK();
-		addListenerOnButtonVoltar();
 
+		ok_addListener();
+		voltar_addListener();
 
 	}
-	
-	private void addListenerOnButtonVoltar() {
+
+	private void voltar_addListener() {
 		voltar = (ImageButton) findViewById(R.id.voltar);
 		voltar.setOnClickListener(new OnClickListener() {
-			
+
 			@Override
 			public void onClick(View v) {
-				Toast.makeText(Busca.this,
-						"Voltar!", Toast.LENGTH_SHORT).show();
-				
-				Intent i = new Intent(Busca.this, MainActivity.class);
-        		startActivity(i); 
-				
+				Toast.makeText(Busca.this, "Voltar!", Toast.LENGTH_SHORT).show();
+
+				Intent i = new Intent(Busca.this, MenuPrincipal.class);
+				startActivity(i);
+
 			}
 		});
 	}
 
-	private void addListenerOnButtonOK() {
+	private void ok_addListener() {
 		ok = (ImageButton) findViewById(R.id.okbutton);
 		ok.setOnClickListener(new OnClickListener() {
 
@@ -72,7 +67,6 @@ public class Busca extends Activity {
 			EditText textNomeAutor = (EditText) findViewById(R.id.textNomeAutor);
 			EditText textSiglaPartido = (EditText) findViewById(R.id.textSiglaPartido);
 			EditText textUF = (EditText) findViewById(R.id.textUF);
-		
 
 			@Override
 			public void onClick(View v) {
@@ -80,9 +74,9 @@ public class Busca extends Activity {
 
 				final ProjetoController projC = new ProjetoController();
 				projC.atualizarDadosDaPesquisa(textAno.getText().toString(), textSigla.getText().toString(),
-						textNumero.getText().toString(), textDataIni.getText().toString(), textDataFinal.getText().toString(),
-						textAutor.getText().toString(), textNomeAutor.getText().toString(), textSiglaPartido.getText().toString(),
-						textUF.getText().toString());
+						textNumero.getText().toString(), textDataIni.getText().toString(), textDataFinal.getText()
+								.toString(), textAutor.getText().toString(), textNomeAutor.getText().toString(),
+						textSiglaPartido.getText().toString(), textUF.getText().toString());
 				executarPesquisa("");
 
 			}
@@ -96,40 +90,22 @@ public class Busca extends Activity {
 		return true;
 	}
 
-	public void longToast(CharSequence message) {
-		Toast.makeText(this, message, Toast.LENGTH_LONG).show();
-	}
-
 	private void executarPesquisa(String query) {
 
-		progressDialog = ProgressDialog.show(Busca.this, "Espere um momento...", "Recebendo dados...", true, true);
+		progressDialog = ProgressDialog.show(Busca.this, "Aguarde...", "Recebendo dados...", true, true);
 
-		PerformMovieSearchTask task = new PerformMovieSearchTask();
+		PesquisarProjetoTask task = new PesquisarProjetoTask();
 		task.execute(query);
+
 		progressDialog.setOnCancelListener(new CancelTaskOnCancelListener(task));
 
 	}
 
-	private class CancelTaskOnCancelListener implements OnCancelListener {
-		private AsyncTask<?, ?, ?> task;
-
-		public CancelTaskOnCancelListener(AsyncTask<?, ?, ?> task) {
-			this.task = task;
-		}
-
-		@Override
-		public void onCancel(DialogInterface dialog) {
-			if (task != null) {
-				task.cancel(true);
-			}
-		}
-	}
-
-	private class PerformMovieSearchTask extends AsyncTask<String, Void, List<ProjetoModel>> {
+	private class PesquisarProjetoTask extends AsyncTask<String, Void, List<ProjetoModel>> {
 
 		@Override
 		protected List<ProjetoModel> doInBackground(String... params) {
-			String query = params[0];
+			// String query = params[0];
 			ProcuraProjeto procuraProjeto = new ProcuraProjeto();
 			return procuraProjeto.procurar();
 		}
@@ -145,14 +121,20 @@ public class Busca extends Activity {
 					}
 					if (result != null) {
 						for (ProjetoModel projeto : result) {
-							longToast(projeto.getExplicacao() + " - " + projeto.getNumero());
+							CharSequence mensagem = projeto.getExplicacao() + " - " + projeto.getNumero();
+							longToast(mensagem);
 						}
 					}
 					else {
-						System.out.println("Nao retornou nada!");
+						CharSequence mensagem = "Nenhum projeto encontrado.";
+						longToast(mensagem);
 					}
 				}
 			});
+		}
+
+		private void longToast(CharSequence message) {
+			Toast.makeText(Busca.this, message, Toast.LENGTH_LONG).show();
 		}
 
 	}

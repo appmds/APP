@@ -12,5 +12,5 @@ public class PartidoController {
 	}
 
 	ArrayList<PartidoModel> partidosInstanciados = Persistencia.instanciarPartidos();
-	
+
 }

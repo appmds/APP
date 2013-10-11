@@ -11,18 +11,18 @@ import android.widget.Toast;
 
 import com.mds.app.R;
 
-public class MainActivity extends Activity {
-	
+public class MenuPrincipal extends Activity {
+
 	ImageButton busca;
 	ImageButton sobre;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_main);
-		
-		addListenerOnButtonBusca();
-		addListenerOnButtonSobre();
+		setContentView(R.layout.activity_menu_principal);
+
+		busca_addListener();
+		sobre_addListener();
 	}
 
 	@Override
@@ -31,35 +31,33 @@ public class MainActivity extends Activity {
 		getMenuInflater().inflate(R.menu.main, menu);
 		return true;
 	}
-	
-	private void addListenerOnButtonBusca() {
+
+	private void busca_addListener() {
 		busca = (ImageButton) findViewById(R.id.imgbutton_busca);
 		busca.setOnClickListener(new OnClickListener() {
-			
+
 			@Override
 			public void onClick(View v) {
-				Toast.makeText(MainActivity.this,
-						"Busca!", Toast.LENGTH_SHORT).show();
-				
-				Intent i = new Intent(MainActivity.this, Busca.class);
-        		startActivity(i); 
-				
+				Toast.makeText(MenuPrincipal.this, "Busca!", Toast.LENGTH_SHORT).show();
+
+				Intent i = new Intent(MenuPrincipal.this, Busca.class);
+				startActivity(i);
+
 			}
 		});
 	}
-	
-	private void addListenerOnButtonSobre() {
+
+	private void sobre_addListener() {
 		sobre = (ImageButton) findViewById(R.id.imgbutton_sobre);
 		sobre.setOnClickListener(new OnClickListener() {
-			
+
 			@Override
 			public void onClick(View v) {
-				Toast.makeText(MainActivity.this,
-						"Sobre!", Toast.LENGTH_SHORT).show();
-				
-				Intent i = new Intent(MainActivity.this, Sobre.class);
-        		startActivity(i); 
-				
+				Toast.makeText(MenuPrincipal.this, "Sobre!", Toast.LENGTH_SHORT).show();
+
+				Intent i = new Intent(MenuPrincipal.this, Sobre.class);
+				startActivity(i);
+
 			}
 		});
 	}
