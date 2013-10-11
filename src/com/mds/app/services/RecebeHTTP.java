@@ -27,7 +27,6 @@ public class RecebeHTTP {
 
 		try {
 			website = new URI(url);
-			//website = new URI("http://www.camara.gov.br/SitCamaraWS/Proposicoes.asmx/ListarProposicoes?sigla=PL&numero=&ano=2011&datApresentacaoIni=14/11/2011&datApresentacaoFim=16/11/2011&autor=&parteNomeAutor=&siglaPartidoAutor=&siglaUFAutor=&generoAutor=&codEstado=&codOrgaoEstado=&emTramitacao=");
 			
 			httpRequest = new HttpGet();
 			httpRequest.setURI(website);
