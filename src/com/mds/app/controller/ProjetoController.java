@@ -41,7 +41,6 @@ public class ProjetoController extends DefaultHandler {
 
 	@Override
 	public void endElement(String uri, String localName, String qName) throws SAXException {
-		int contador = 0;
 		
 		if (localName.equals("proposicao")) {
 			listaProjetos.add(projeto);
