@@ -23,7 +23,7 @@ import com.mds.app.util.CancelTaskOnCancelListener;
 
 public class Busca extends Activity {
 
-	ProgressDialog progressDialog;
+	ProgressDialog dialogoProgresso;
 	ImageButton ok;
 	ImageButton voltar;
 
@@ -58,25 +58,25 @@ public class Busca extends Activity {
 		ok = (ImageButton) findViewById(R.id.okbutton);
 		ok.setOnClickListener(new OnClickListener() {
 
-			EditText textSigla = (EditText) findViewById(R.id.textSigla);
-			EditText textNumero = (EditText) findViewById(R.id.textNumero);
-			EditText textAno = (EditText) findViewById(R.id.textAno);
-			EditText textDataIni = (EditText) findViewById(R.id.textDataIni);
-			EditText textDataFinal = (EditText) findViewById(R.id.textDataFinal);
-			EditText textAutor = (EditText) findViewById(R.id.textAutor);
-			EditText textNomeAutor = (EditText) findViewById(R.id.textNomeAutor);
-			EditText textSiglaPartido = (EditText) findViewById(R.id.textSiglaPartido);
-			EditText textUF = (EditText) findViewById(R.id.textUF);
+			EditText siglaTexto = (EditText) findViewById(R.id.textSigla);
+			EditText numeroTexto = (EditText) findViewById(R.id.textNumero);
+			EditText anoTexto = (EditText) findViewById(R.id.textAno);
+			EditText dataInicialTexto = (EditText) findViewById(R.id.textDataIni);
+			EditText dataFinalTexto = (EditText) findViewById(R.id.textDataFinal);
+			EditText autorTexto = (EditText) findViewById(R.id.textAutor);
+			EditText nomeAutorTexto = (EditText) findViewById(R.id.textNomeAutor);
+			EditText siglaPartidoTexto = (EditText) findViewById(R.id.textSiglaPartido);
+			EditText UFTexto = (EditText) findViewById(R.id.textUF);
 
 			@Override
 			public void onClick(View v) {
 				Toast.makeText(Busca.this, "OK!", Toast.LENGTH_SHORT).show();
 
 				final ProjetoController projC = new ProjetoController();
-				projC.atualizarDadosDaPesquisa(textAno.getText().toString(), textSigla.getText().toString(),
-						textNumero.getText().toString(), textDataIni.getText().toString(), textDataFinal.getText()
-								.toString(), textAutor.getText().toString(), textNomeAutor.getText().toString(),
-						textSiglaPartido.getText().toString(), textUF.getText().toString());
+				projC.atualizarDadosDaPesquisa(anoTexto.getText().toString(), siglaTexto.getText().toString(),
+						numeroTexto.getText().toString(), dataInicialTexto.getText().toString(), dataFinalTexto.getText()
+								.toString(), autorTexto.getText().toString(), nomeAutorTexto.getText().toString(),
+								siglaPartidoTexto.getText().toString(), UFTexto.getText().toString());
 				executarPesquisa("");
 
 			}
@@ -92,12 +92,12 @@ public class Busca extends Activity {
 
 	private void executarPesquisa(String query) {
 
-		progressDialog = ProgressDialog.show(Busca.this, "Aguarde...", "Recebendo dados...", true, true);
+		dialogoProgresso = ProgressDialog.show(Busca.this, "Aguarde...", "Recebendo dados...", true, true);
 
 		PesquisarProjetoTask task = new PesquisarProjetoTask();
 		task.execute(query);
 
-		progressDialog.setOnCancelListener(new CancelTaskOnCancelListener(task));
+		dialogoProgresso.setOnCancelListener(new CancelTaskOnCancelListener(task));
 
 	}
 
@@ -115,9 +115,9 @@ public class Busca extends Activity {
 			runOnUiThread(new Runnable() {
 				@Override
 				public void run() {
-					if (progressDialog != null) {
-						progressDialog.dismiss();
-						progressDialog = null;
+					if (dialogoProgresso != null) {
+						dialogoProgresso.dismiss();
+						dialogoProgresso = null;
 					}
 					if (result != null) {
 						for (ProjetoModel projeto : result) {
