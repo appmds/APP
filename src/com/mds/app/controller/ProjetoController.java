@@ -6,7 +6,6 @@ import org.xml.sax.Attributes;
 import org.xml.sax.SAXException;
 import org.xml.sax.helpers.DefaultHandler;
 
-import com.mds.app.model.ProcuraProjetoModel;
 import com.mds.app.model.ProjetoModel;
 import com.mds.app.persistencia.Persistencia;
 
@@ -67,22 +66,8 @@ public class ProjetoController extends DefaultHandler {
 		}
 	}
 
-	@Override
-	public void characters(char[] ch, int start, int length) {
-		buffer.append(ch, start, length);
-	}
-
 	public ArrayList<ProjetoModel> getListaProjetos() {
 		return listaProjetos;
-	}
-
-	public void atualizarDadosDaPesquisa(String ano, String sigla, String numero, String dataIni,
-			String dataFinal, String autor, String nomeAutor, String siglaPartido, String uf) {
-
-		ProcuraProjetoModel.setAno(ano);
-		ProcuraProjetoModel.setSigla(sigla);
-		ProcuraProjetoModel.setDataInicio(dataIni);
-
 	}
 
 }

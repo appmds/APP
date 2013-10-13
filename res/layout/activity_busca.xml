@@ -19,66 +19,10 @@
 
         <EditText
             android:id="@+id/textSigla"
-            android:layout_width="254dp"
+            android:layout_width="235dp"
             android:layout_height="wrap_content"
             android:ems="10"
             android:hint="@string/hintProjeto" />
-
-        <EditText
-            android:id="@+id/textAno"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:hint="@string/hintAno" />
-
-        <EditText
-            android:id="@+id/textDataIni"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:hint="@string/hintDataInicio" />
-
-        <EditText
-            android:id="@+id/textDataFinal"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:hint="@string/hintDataFinal" />
-
-        <EditText
-            android:id="@+id/textUF"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:hint="@string/hintUF" />
-
-        <EditText
-            android:id="@+id/textAutor"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:hint="@string/hintAutor" />
-
-        <EditText
-            android:id="@+id/textNomeAutor"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:hint="@string/hintNomeAutor" />
-
-        <EditText
-            android:id="@+id/textSiglaPartido"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:hint="@string/hintSiglaPartido" />
-
-        <EditText
-            android:id="@+id/textNumero"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:hint="@string/hintNumero" />
     </LinearLayout>
 
     <ImageButton
@@ -98,5 +42,68 @@
         android:layout_alignTop="@+id/okbutton"
         android:contentDescription="@string/imgbuttonVoltar"
         android:src="@drawable/voltar" />
+
+    <EditText
+        android:id="@+id/textDataIni"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/textUF"
+        android:layout_alignLeft="@+id/textUF"
+        android:ems="10"
+        android:hint="@string/hintDataInicio" />
+
+    <EditText
+        android:id="@+id/textAno"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/linearLayout"
+        android:layout_below="@+id/linearLayout"
+        android:ems="10"
+        android:hint="@string/hintAno" />
+
+    <EditText
+        android:id="@+id/textNumero"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/linearLayout"
+        android:layout_below="@+id/textAno"
+        android:ems="10"
+        android:hint="@string/hintNumero" />
+
+    <EditText
+        android:id="@+id/EditText01"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/linearLayout"
+        android:layout_below="@+id/textNumero"
+        android:ems="10"
+        android:hint="@string/hintDataInicio" />
+
+    <EditText
+        android:id="@+id/textUF"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/linearLayout"
+        android:layout_below="@+id/EditText01"
+        android:ems="10"
+        android:hint="@string/hintUF" />
+
+    <EditText
+        android:id="@+id/textSiglaPartido"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/linearLayout"
+        android:layout_below="@+id/textUF"
+        android:ems="10"
+        android:hint="@string/hintSiglaPartido" />
+
+    <EditText
+        android:id="@+id/textNomeAutor"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/linearLayout"
+        android:layout_below="@+id/textSiglaPartido"
+        android:ems="10"
+        android:hint="@string/hintNomeAutor" />
 
 </RelativeLayout>

@@ -3,10 +3,9 @@ package com.mds.app.model;
 public abstract class ProcuraProjetoModel {
 
 	private static String ano;
-	private static int id;
+	private static String id;
 	private static String sigla;
 	private static String dataInicio;
-	private static ParlamentarModel parlamentarAutor;
 
 	public static String getAno() {
 		return ano;
@@ -16,11 +15,11 @@ public abstract class ProcuraProjetoModel {
 		ProcuraProjetoModel.ano = ano;
 	}
 
-	public static int getId() {
+	public static String getId() {
 		return id;
 	}
 
-	public static void setId(int id) {
+	public static void setId(String id) {
 		ProcuraProjetoModel.id = id;
 	}
 
@@ -38,14 +37,6 @@ public abstract class ProcuraProjetoModel {
 
 	public static void setDataInicio(String dataInicio) {
 		ProcuraProjetoModel.dataInicio = dataInicio;
-	}
-
-	public static ParlamentarModel getAutor() {
-		return parlamentarAutor;
-	}
-
-	public static void setAutor(ParlamentarModel autor) {
-		ProcuraProjetoModel.parlamentarAutor = autor;
 	}
 
 }

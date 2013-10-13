@@ -16,9 +16,8 @@ import android.widget.ImageButton;
 import android.widget.Toast;
 
 import com.mds.app.R;
-import com.mds.app.controller.ProjetoController;
+import com.mds.app.controller.BuscaController;
 import com.mds.app.model.ProjetoModel;
-import com.mds.app.services.ProcuraProjeto;
 import com.mds.app.util.CancelTaskOnCancelListener;
 
 public class Busca extends Activity {
@@ -26,6 +25,7 @@ public class Busca extends Activity {
 	ProgressDialog dialogoProgresso;
 	ImageButton ok;
 	ImageButton voltar;
+	BuscaController pesquisa = new BuscaController();
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -62,8 +62,6 @@ public class Busca extends Activity {
 			EditText numeroTexto = (EditText) findViewById(R.id.textNumero);
 			EditText anoTexto = (EditText) findViewById(R.id.textAno);
 			EditText dataInicialTexto = (EditText) findViewById(R.id.textDataIni);
-			EditText dataFinalTexto = (EditText) findViewById(R.id.textDataFinal);
-			EditText autorTexto = (EditText) findViewById(R.id.textAutor);
 			EditText nomeAutorTexto = (EditText) findViewById(R.id.textNomeAutor);
 			EditText siglaPartidoTexto = (EditText) findViewById(R.id.textSiglaPartido);
 			EditText UFTexto = (EditText) findViewById(R.id.textUF);
@@ -71,11 +69,9 @@ public class Busca extends Activity {
 			@Override
 			public void onClick(View v) {
 				Toast.makeText(Busca.this, "OK!", Toast.LENGTH_SHORT).show();
-
-				final ProjetoController projC = new ProjetoController();
-				projC.atualizarDadosDaPesquisa(anoTexto.getText().toString(), siglaTexto.getText().toString(),
-						numeroTexto.getText().toString(), dataInicialTexto.getText().toString(), dataFinalTexto.getText()
-								.toString(), autorTexto.getText().toString(), nomeAutorTexto.getText().toString(),
+				
+				pesquisa.atualizarDadosDaPesquisa(anoTexto.getText().toString(), siglaTexto.getText().toString(),
+						numeroTexto.getText().toString(), dataInicialTexto.getText().toString(), nomeAutorTexto.getText().toString(),
 								siglaPartidoTexto.getText().toString(), UFTexto.getText().toString());
 				executarPesquisa("");
 
@@ -105,9 +101,7 @@ public class Busca extends Activity {
 
 		@Override
 		protected List<ProjetoModel> doInBackground(String... params) {
-			// String query = params[0];
-			ProcuraProjeto procuraProjeto = new ProcuraProjeto();
-			return procuraProjeto.procurar();
+			 return pesquisa.procurar();
 		}
 
 		@Override
