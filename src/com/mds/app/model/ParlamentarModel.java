@@ -29,6 +29,7 @@ public class ParlamentarModel {
 
 	public void setPartido(PartidoModel partido) {
 		this.partido = partido;
+		partido.addParlamentar(this);
 	}
 
 }

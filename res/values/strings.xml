@@ -10,7 +10,6 @@
     <string name="hintNumero">Insira o numero do projeto</string>
     <string name="hintDataInicio">Insira a data de início</string>
     <string name="hintDataFinal">Insira a data final </string>
-    <string name="hintAutor">Insira o autor</string>
     <string name="hintNomeAutor">Insira o nome do autor</string>
     <string name="hintSiglaPartido">Insira a sigla do partido</string>
     <string name="hintUF">Insira a UF</string>

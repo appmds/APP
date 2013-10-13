@@ -2,33 +2,32 @@ package com.mds.app.model;
 
 public class ProjetoModel {
 
-	private int ano;
+	private String ano;
 	private int id;
-	private int numero;
+	private String numero;
 	private String nome;
 	private String sigla;
 	private String data;
 	private String explicacao;
-	private ParlamentarModel parlamentarAutor;
+	private ParlamentarModel parlamentar;
 	private int cont = 1;
 
-	public ProjetoModel() {
-
+	public ProjetoModel() {;
 	}
 
-	public ProjetoModel(int ano, int id, String sigla, String data, ParlamentarModel autor) {
+	public ProjetoModel(String ano, int id, String sigla, String data, ParlamentarModel parlamentar) {
 		this.ano = ano;
 		this.id = id;
 		this.sigla = sigla;
 		this.data = data;
-		this.parlamentarAutor = autor;
+		
 	}
 
-	public int getAno() {
+	public String getAno() {
 		return ano;
 	}
 
-	public void setAno(int ano) {
+	public void setAno(String ano) {
 		this.ano = ano;
 	}
 
@@ -40,12 +39,12 @@ public class ProjetoModel {
 		this.id = id;
 	}
 
-	public int getNumero() {
+	public String getNumero() {
 		return numero;
 	}
 
-	public void setNumero(int numero) {
-		this.numero = numero;
+	public void setNumero(String string) {
+		this.numero = string;
 	}
 
 	public String getNome() {
@@ -84,12 +83,12 @@ public class ProjetoModel {
 		this.explicacao = explicacao;
 	}
 
-	public ParlamentarModel getAutor() {
-		return parlamentarAutor;
+	public ParlamentarModel getParlamentar() {
+		return parlamentar;
 	}
 
-	public void setAutor(ParlamentarModel autor) {
-		this.parlamentarAutor = autor;
+	public void setParlamentar(ParlamentarModel parlamentar) {
+		this.parlamentar = parlamentar;
 	}
 
 }

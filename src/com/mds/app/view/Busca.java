@@ -8,6 +8,7 @@ import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.StrictMode;
+import android.util.Log;
 import android.view.Menu;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -73,7 +74,7 @@ public class Busca extends Activity {
 				pesquisa.atualizarDadosDaPesquisa(anoTexto.getText().toString(), siglaTexto.getText().toString(),
 						numeroTexto.getText().toString(), dataInicialTexto.getText().toString(), nomeAutorTexto.getText().toString(),
 								siglaPartidoTexto.getText().toString(), UFTexto.getText().toString());
-				executarPesquisa("");
+				executarPesquisa();
 
 			}
 		});
@@ -86,24 +87,27 @@ public class Busca extends Activity {
 		return true;
 	}
 
-	private void executarPesquisa(String query) {
+	private void executarPesquisa() {
 
-		dialogoProgresso = ProgressDialog.show(Busca.this, "Aguarde...", "Recebendo dados...", true, true);
-
-		PesquisarProjetoTask task = new PesquisarProjetoTask();
-		task.execute(query);
-
-		dialogoProgresso.setOnCancelListener(new CancelTaskOnCancelListener(task));
+		new PesquisarProjetoTask().execute();
 
 	}
 
-	private class PesquisarProjetoTask extends AsyncTask<String, Void, List<ProjetoModel>> {
+	private class PesquisarProjetoTask extends AsyncTask<Void, Void, List<ProjetoModel>> {
 
-		@Override
-		protected List<ProjetoModel> doInBackground(String... params) {
-			 return pesquisa.procurar();
+		protected void onPreExecute(){
+			
+			dialogoProgresso = ProgressDialog.show(Busca.this, "Aguarde...", "Recebendo dados", true, true);
+			dialogoProgresso.setOnCancelListener(new CancelTaskOnCancelListener(this));
+			
 		}
-
+		@Override
+		protected List<ProjetoModel> doInBackground(Void... params) {
+			//String query = params[0];
+			Log.i("LOGGER", "Starting...doInBackground loadList"); 
+			return pesquisa.procurar();
+		}
+		
 		@Override
 		protected void onPostExecute(final List<ProjetoModel> result) {
 			runOnUiThread(new Runnable() {
@@ -114,8 +118,8 @@ public class Busca extends Activity {
 						dialogoProgresso = null;
 					}
 					if (result != null) {
-						for (ProjetoModel projeto : result) {
-							CharSequence mensagem = projeto.getExplicacao() + " - " + projeto.getNumero() + " - " + projeto.getNome();
+						for (int i = 0; i<result.size(); i++) {
+							CharSequence mensagem = result.get(i).getExplicacao() + " - " + result.get(i).getNumero() + " - " + result.get(i).getNome();
 							longToast(mensagem);
 						}
 					}

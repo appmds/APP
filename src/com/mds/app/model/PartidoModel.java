@@ -5,13 +5,17 @@ import java.util.ArrayList;
 public class PartidoModel {
 
 	private ArrayList<ParlamentarModel> parlamentares;
+	private String siglaPartido;
+	private String uf;
 
 	public PartidoModel() {
 
 	}
 
-	public PartidoModel(ArrayList<ParlamentarModel> parlamentares) {
+	public PartidoModel(ArrayList<ParlamentarModel> parlamentares, String siglaPartido, String uf) {
 		this.parlamentares = parlamentares;
+		this.siglaPartido = siglaPartido;
+		this.uf = uf;
 	}
 
 	public ArrayList<ParlamentarModel> getParlamentares() {
@@ -23,7 +27,23 @@ public class PartidoModel {
 	}
 
 	public void addParlamentar(ParlamentarModel parlamentar) {
-		this.parlamentares.add(parlamentar);
+		parlamentares.add(parlamentar);
+	}
+
+	public String getSiglaPartido() {
+		return siglaPartido;
+	}
+
+	public void setSiglaPartido(String siglaPartido) {
+		this.siglaPartido = siglaPartido;
+	}
+
+	public String getUf() {
+		return uf;
+	}
+
+	public void setUf(String uf) {
+		this.uf = uf;
 	}
 
 }
