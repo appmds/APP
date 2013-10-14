@@ -12,6 +12,10 @@ import org.apache.http.client.HttpClient;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.impl.client.DefaultHttpClient;
 
+import android.content.Context;
+
+import com.mds.app.util.ConexaoInternet;
+
 public class RecebeHTTP {
 
 	public String recebe(String url) {

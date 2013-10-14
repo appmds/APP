@@ -20,6 +20,7 @@ import com.mds.app.R;
 import com.mds.app.controller.BuscaController;
 import com.mds.app.model.ProjetoModel;
 import com.mds.app.util.CancelTaskOnCancelListener;
+import com.mds.app.util.ConexaoInternet;
 
 public class Busca extends Activity {
 
@@ -27,6 +28,7 @@ public class Busca extends Activity {
 	ImageButton ok;
 	ImageButton voltar;
 	BuscaController pesquisa = new BuscaController();
+	ConexaoInternet conexao;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -37,6 +39,7 @@ public class Busca extends Activity {
 
 		ok_addListener();
 		voltar_addListener();
+		conexao = new ConexaoInternet(this);
 
 	}
 
@@ -70,11 +73,17 @@ public class Busca extends Activity {
 			@Override
 			public void onClick(View v) {
 				Toast.makeText(Busca.this, "OK!", Toast.LENGTH_SHORT).show();
-				
+
 				pesquisa.atualizarDadosDaPesquisa(anoTexto.getText().toString(), siglaTexto.getText().toString(),
-						numeroTexto.getText().toString(), dataInicialTexto.getText().toString(), nomeAutorTexto.getText().toString(),
-								siglaPartidoTexto.getText().toString(), UFTexto.getText().toString());
-				executarPesquisa();
+						numeroTexto.getText().toString(), dataInicialTexto.getText().toString(), nomeAutorTexto
+								.getText().toString(), siglaPartidoTexto.getText().toString(), UFTexto.getText()
+								.toString());
+				if (conexao.ChecarConexaoInternet()) {
+					executarPesquisa();
+				}
+				else {
+					Toast.makeText(Busca.this, "NOK", Toast.LENGTH_SHORT).show();
+				}
 
 			}
 		});
@@ -95,19 +104,20 @@ public class Busca extends Activity {
 
 	private class PesquisarProjetoTask extends AsyncTask<Void, Void, List<ProjetoModel>> {
 
-		protected void onPreExecute(){
-			
+		protected void onPreExecute() {
+
 			dialogoProgresso = ProgressDialog.show(Busca.this, "Aguarde...", "Recebendo dados", true, true);
 			dialogoProgresso.setOnCancelListener(new CancelTaskOnCancelListener(this));
-			
+
 		}
+
 		@Override
 		protected List<ProjetoModel> doInBackground(Void... params) {
-			//String query = params[0];
-			Log.i("LOGGER", "Starting...doInBackground loadList"); 
+			// String query = params[0];
+			Log.i("LOGGER", "Starting...doInBackground loadList");
 			return pesquisa.procurar();
 		}
-		
+
 		@Override
 		protected void onPostExecute(final List<ProjetoModel> result) {
 			runOnUiThread(new Runnable() {
@@ -118,8 +128,9 @@ public class Busca extends Activity {
 						dialogoProgresso = null;
 					}
 					if (result != null) {
-						for (int i = 0; i<result.size(); i++) {
-							CharSequence mensagem = result.get(i).getExplicacao() + " - " + result.get(i).getNumero() + " - " + result.get(i).getNome();
+						for (int i = 0; i < result.size(); i++) {
+							CharSequence mensagem = result.get(i).getExplicacao() + " - "
+									+ result.get(i).getNumero() + " - " + result.get(i).getNome();
 							longToast(mensagem);
 						}
 					}
