@@ -11,6 +11,12 @@
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
+    <instrumentation
+        android:name="android.test.InstrumentationTestRunner"
+        android:functionalTest="false"
+        android:label="ModelTests"
+        android:targetPackage="com.mds.app.model" />
+
     <application
         android:allowBackup="true"
         android:icon="@drawable/ic_launcher"
@@ -34,6 +40,10 @@
             android:name="com.mds.app.view.Sobre"
             android:label="@string/title_activity_sobre" >
         </activity>
+
+        <uses-library
+            android:name="android.test.runner"
+            android:required="false" />
     </application>
 
 </manifest>
