@@ -36,8 +36,6 @@ public class Sobre extends Activity {
 
 			@Override
 			public void onClick(View v) {
-				Toast.makeText(Sobre.this, "Voltar!", Toast.LENGTH_SHORT).show();
-
 				Intent i = new Intent(Sobre.this, MenuPrincipal.class);
 				startActivity(i);
 

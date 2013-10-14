@@ -44,15 +44,6 @@
         android:src="@drawable/voltar" />
 
     <EditText
-        android:id="@+id/textDataIni"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_above="@+id/textUF"
-        android:layout_alignLeft="@+id/textUF"
-        android:ems="10"
-        android:hint="@string/hintDataInicio" />
-
-    <EditText
         android:id="@+id/textAno"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -71,7 +62,7 @@
         android:hint="@string/hintNumero" />
 
     <EditText
-        android:id="@+id/EditText01"
+        android:id="@+id/textDataIni"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignLeft="@+id/linearLayout"
@@ -84,7 +75,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignLeft="@+id/linearLayout"
-        android:layout_below="@+id/EditText01"
+        android:layout_below="@+id/textDataIni"
         android:ems="10"
         android:hint="@string/hintUF" />
 

@@ -38,8 +38,6 @@ public class MenuPrincipal extends Activity {
 
 			@Override
 			public void onClick(View v) {
-				Toast.makeText(MenuPrincipal.this, "Busca!", Toast.LENGTH_SHORT).show();
-
 				Intent i = new Intent(MenuPrincipal.this, Busca.class);
 				startActivity(i);
 
@@ -53,8 +51,6 @@ public class MenuPrincipal extends Activity {
 
 			@Override
 			public void onClick(View v) {
-				Toast.makeText(MenuPrincipal.this, "Sobre!", Toast.LENGTH_SHORT).show();
-
 				Intent i = new Intent(MenuPrincipal.this, Sobre.class);
 				startActivity(i);
 

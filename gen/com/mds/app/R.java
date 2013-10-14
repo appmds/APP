@@ -31,20 +31,19 @@ public final class R {
         public static final int voltar=0x7f020007;
     }
     public static final class id {
-        public static final int EditText01=0x7f080008;
-        public static final int action_settings=0x7f08000e;
-        public static final int imgbutton_busca=0x7f08000c;
-        public static final int imgbutton_sobre=0x7f08000d;
-        public static final int imgviewLogo=0x7f08000b;
+        public static final int action_settings=0x7f08000d;
+        public static final int imgbutton_busca=0x7f08000b;
+        public static final int imgbutton_sobre=0x7f08000c;
+        public static final int imgviewLogo=0x7f08000a;
         public static final int linearLayout=0x7f080000;
         public static final int okbutton=0x7f080002;
-        public static final int textAno=0x7f080006;
-        public static final int textDataIni=0x7f080004;
-        public static final int textNomeAutor=0x7f08000a;
-        public static final int textNumero=0x7f080007;
+        public static final int textAno=0x7f080004;
+        public static final int textDataIni=0x7f080006;
+        public static final int textNomeAutor=0x7f080009;
+        public static final int textNumero=0x7f080005;
         public static final int textSigla=0x7f080001;
-        public static final int textSiglaPartido=0x7f080009;
-        public static final int textUF=0x7f080005;
+        public static final int textSiglaPartido=0x7f080008;
+        public static final int textUF=0x7f080007;
         public static final int voltar=0x7f080003;
     }
     public static final class layout {
@@ -60,19 +59,18 @@ public final class R {
         public static final int action_settings=0x7f050001;
         public static final int app_name=0x7f050000;
         public static final int hintAno=0x7f050004;
-        public static final int hintDataFinal=0x7f050007;
         public static final int hintDataInicio=0x7f050006;
-        public static final int hintNomeAutor=0x7f050008;
+        public static final int hintNomeAutor=0x7f050007;
         public static final int hintNumero=0x7f050005;
         public static final int hintProjeto=0x7f050003;
-        public static final int hintSiglaPartido=0x7f050009;
-        public static final int hintUF=0x7f05000a;
-        public static final int imgbuttonBUSCA=0x7f05000d;
-        public static final int imgbuttonOK=0x7f05000c;
-        public static final int imgbuttonSOBRE=0x7f05000e;
-        public static final int imgbuttonVoltar=0x7f05000b;
-        public static final int imgviewLOGO=0x7f05000f;
-        public static final int imgviewSOBREPROV=0x7f050010;
+        public static final int hintSiglaPartido=0x7f050008;
+        public static final int hintUF=0x7f050009;
+        public static final int imgbuttonBUSCA=0x7f05000c;
+        public static final int imgbuttonOK=0x7f05000b;
+        public static final int imgbuttonSOBRE=0x7f05000d;
+        public static final int imgbuttonVoltar=0x7f05000a;
+        public static final int imgviewLOGO=0x7f05000e;
+        public static final int imgviewSOBREPROV=0x7f05000f;
         public static final int title_activity_sobre=0x7f050002;
     }
     public static final class style {

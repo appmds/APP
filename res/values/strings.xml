@@ -8,8 +8,7 @@
     <string name="hintProjeto">Insira um tipo de projeto (PL, PLP, PEC, PDC, PRC)</string>
     <string name="hintAno">Insira o ano</string>
     <string name="hintNumero">Insira o numero do projeto</string>
-    <string name="hintDataInicio">Insira a data de início</string>
-    <string name="hintDataFinal">Insira a data final </string>
+    <string name="hintDataInicio">Insira a data de início (dd/mm/aaaa)</string>
     <string name="hintNomeAutor">Insira o nome do autor</string>
     <string name="hintSiglaPartido">Insira a sigla do partido</string>
     <string name="hintUF">Insira a UF</string>

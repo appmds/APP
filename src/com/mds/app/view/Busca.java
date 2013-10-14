@@ -27,9 +27,12 @@ public class Busca extends Activity {
 	ProgressDialog dialogoProgresso;
 	ImageButton ok;
 	ImageButton voltar;
-	BuscaController pesquisa = new BuscaController();
+	BuscaController pesquisa;
 	ConexaoInternet conexao;
 
+	public Busca(){
+		
+	}
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -37,6 +40,7 @@ public class Busca extends Activity {
 		StrictMode.setThreadPolicy(policy);
 		setContentView(R.layout.activity_busca);
 
+		pesquisa = new BuscaController();
 		ok_addListener();
 		voltar_addListener();
 		conexao = new ConexaoInternet(this);
@@ -49,8 +53,6 @@ public class Busca extends Activity {
 
 			@Override
 			public void onClick(View v) {
-				Toast.makeText(Busca.this, "Voltar!", Toast.LENGTH_SHORT).show();
-
 				Intent i = new Intent(Busca.this, MenuPrincipal.class);
 				startActivity(i);
 
@@ -72,13 +74,12 @@ public class Busca extends Activity {
 
 			@Override
 			public void onClick(View v) {
-				Toast.makeText(Busca.this, "OK!", Toast.LENGTH_SHORT).show();
 
-				pesquisa.atualizarDadosDaPesquisa(anoTexto.getText().toString(), siglaTexto.getText().toString(),
+				boolean validacao = pesquisa.atualizarDadosDaPesquisa(anoTexto.getText().toString(), siglaTexto.getText().toString(),
 						numeroTexto.getText().toString(), dataInicialTexto.getText().toString(), nomeAutorTexto
 								.getText().toString(), siglaPartidoTexto.getText().toString(), UFTexto.getText()
 								.toString());
-				if (conexao.ChecarConexaoInternet()) {
+				if (conexao.ChecarConexaoInternet() && validacao) {
 					executarPesquisa();
 				}
 				else {

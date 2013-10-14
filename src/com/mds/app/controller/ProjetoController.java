@@ -75,13 +75,4 @@ public class ProjetoController extends DefaultHandler {
 		return listaProjetos;
 	}
 
-	public void atualizarDadosDaPesquisa(String ano, String sigla, String numero, String dataIni,
-			String dataFinal, String autor, String nomeAutor, String siglaPartido, String uf) {
-
-		ProcuraProjetoModel.setAno(ano);
-		ProcuraProjetoModel.setSigla(sigla);
-		ProcuraProjetoModel.setDataInicio(dataIni);
-
-	}
-
 }
