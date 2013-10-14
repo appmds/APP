@@ -131,7 +131,9 @@ public class Busca extends Activity {
 					if (result != null) {
 						for (int i = 0; i < result.size(); i++) {
 							CharSequence mensagem = result.get(i).getExplicacao() + " - "
-									+ result.get(i).getNumero() + " - " + result.get(i).getNome();
+									+ result.get(i).getNumero() + " - " + result.get(i).getNome() + " - " + result.get(i).getParlamentar().getNome()
+									+ " - " + result.get(i).getParlamentar().getPartido().getSiglaPartido() + " - " + result.get(i).getParlamentar()
+									.getPartido().getUf();
 							longToast(mensagem);
 						}
 					}

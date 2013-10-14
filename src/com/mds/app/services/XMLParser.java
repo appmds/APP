@@ -11,7 +11,7 @@ import org.xml.sax.InputSource;
 import org.xml.sax.SAXException;
 import org.xml.sax.XMLReader;
 
-import com.mds.app.controller.ProjetoController;
+import com.mds.app.controller.ProposicaoController;
 import com.mds.app.model.ProjetoModel;
 
 public class XMLParser {
@@ -31,7 +31,7 @@ public class XMLParser {
 
 			XMLReader leitorXml = inicializarLeitor();
 
-			ProjetoController projeto = new ProjetoController();
+			ProposicaoController projeto = new ProposicaoController();
 
 			// atribuir o nosso manipulador
 			leitorXml.setContentHandler(projeto);

@@ -26,7 +26,6 @@ public class BuscaController {
 	
 	public boolean atualizarDadosDaPesquisa(String ano, String sigla, String numero, String dataIni, String nomeAutor, String siglaPartido, String uf) {	
 		
-		
 		if (ano==null)
 			ano = "";
 		if (sigla==null)
