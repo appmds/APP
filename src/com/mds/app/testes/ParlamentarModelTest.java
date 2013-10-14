@@ -20,8 +20,7 @@ public class ParlamentarModelTest extends TestCase{
 	public void setUp() throws Exception {
 		System.out.println("Comecando o teste...");
 		
-		ArrayList<ParlamentarModel> parlamentares = new ArrayList<ParlamentarModel>();
-		partidoModel = new PartidoModel(parlamentares, "PMDS", "DF");
+		partidoModel = new PartidoModel("PMDS", "DF");
 	}
 
 	@After

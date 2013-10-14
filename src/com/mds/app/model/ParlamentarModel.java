@@ -12,7 +12,6 @@ public class ParlamentarModel {
 	public ParlamentarModel(String nome, PartidoModel partido) {
 		this.nome = nome;
 		this.partido = partido;
-		partido.addParlamentar(this);
 	}
 
 	public String getNome() {
@@ -29,7 +28,6 @@ public class ParlamentarModel {
 
 	public void setPartido(PartidoModel partido) {
 		this.partido = partido;
-		partido.addParlamentar(this);
 	}
 
 }
