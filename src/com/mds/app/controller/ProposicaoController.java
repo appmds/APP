@@ -24,8 +24,6 @@ public class ProposicaoController extends DefaultHandler {
 
 	}
 
-	ArrayList<ProjetoModel> projetosInstanciados = Persistencia.instanciarProjetos();
-
 	@Override
 	public void startElement(String namespaceURI, String localName, String qName, Attributes atts)
 			throws SAXException {
