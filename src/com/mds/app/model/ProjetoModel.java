@@ -12,7 +12,7 @@ public class ProjetoModel {
 	private ParlamentarModel parlamentar;
 	private int cont = 1;
 
-	public ProjetoModel() {;
+	public ProjetoModel() {
 	}
 
 	public ProjetoModel(String ano, int id, String sigla, String data, ParlamentarModel parlamentar) {
@@ -20,7 +20,7 @@ public class ProjetoModel {
 		this.id = id;
 		this.sigla = sigla;
 		this.data = data;
-		
+		this.parlamentar = parlamentar;
 	}
 
 	public String getAno() {
