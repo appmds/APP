@@ -29,8 +29,6 @@ public class Busca extends Activity {
 	ImageButton voltar;
 	BuscaController pesquisa = new BuscaController();
 	ConexaoInternet conexao;
-	
-	
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -76,15 +74,12 @@ public class Busca extends Activity {
 			public void onClick(View v) {
 				Toast.makeText(Busca.this, "OK!", Toast.LENGTH_SHORT).show();
 
-				boolean verifica = pesquisa.atualizarDadosDaPesquisa(anoTexto.getText().toString(), siglaTexto.getText().toString(),
+				pesquisa.atualizarDadosDaPesquisa(anoTexto.getText().toString(), siglaTexto.getText().toString(),
 						numeroTexto.getText().toString(), dataInicialTexto.getText().toString(), nomeAutorTexto
 								.getText().toString(), siglaPartidoTexto.getText().toString(), UFTexto.getText()
 								.toString());
-				if (conexao.ChecarConexaoInternet() && verifica) {
+				if (conexao.ChecarConexaoInternet()) {
 					executarPesquisa();
-				}
-				else if(!verifica){
-					onCreate(null);
 				}
 				else {
 					Toast.makeText(Busca.this, "NOK", Toast.LENGTH_SHORT).show();
@@ -151,10 +146,6 @@ public class Busca extends Activity {
 			Toast.makeText(Busca.this, message, Toast.LENGTH_LONG).show();
 		}
 
-	}
-	
-	public void mostraErros(String erros){
-		Toast.makeText(Busca.this, erros, Toast.LENGTH_LONG).show();
 	}
 
 }
