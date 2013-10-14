@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 import android.util.Log;
 
+import com.mds.app.exception.ValidaEntrada;
 import com.mds.app.model.ProcuraParlamentarModel;
 import com.mds.app.model.ProcuraPartidoModel;
 import com.mds.app.model.ProcuraProjetoModel;
@@ -11,18 +12,23 @@ import com.mds.app.model.ProjetoModel;
 import com.mds.app.services.Endereco;
 import com.mds.app.services.RecebeHTTP;
 import com.mds.app.services.XMLParser;
+import com.mds.app.view.Busca;
 
 public class BuscaController {
 
 	private RecebeHTTP recebeHTTP = new RecebeHTTP();
 	private XMLParser xmlParser = new XMLParser();
+	private Busca buscaView = new Busca();
 	
 	public BuscaController() {
 		
 	}
 	
-	public void atualizarDadosDaPesquisa(String ano, String sigla, String numero, String dataIni, String nomeAutor, String siglaPartido, String uf) {
+	public boolean atualizarDadosDaPesquisa(String ano, String sigla, String numero, String dataIni, String nomeAutor, String siglaPartido, String uf) {
 
+		String erros;
+		erros = ValidaEntrada.identificarErros( ano, sigla, numero, dataIni, nomeAutor, siglaPartido, uf);
+		
 		if (ano==null)
 			ano = "";
 		if (sigla==null)
@@ -38,9 +44,17 @@ public class BuscaController {
 		if (uf==null)
 			uf = "";
 		
-		ProcuraProjetoController.atualizarDadosPesquisaProjeto(ano, sigla, numero, dataIni);
-		ProcuraPartidoController.atualizaDadosPesquisaPartido(uf, siglaPartido);
-		ProcuraParlamentarController.atualizarDadosPesquisaParlamentar(nomeAutor);
+		
+		if(erros==""){
+			ProcuraProjetoController.atualizarDadosPesquisaProjeto(ano, sigla, numero, dataIni);
+			ProcuraPartidoController.atualizaDadosPesquisaPartido(uf, siglaPartido);
+			ProcuraParlamentarController.atualizarDadosPesquisaParlamentar(nomeAutor);
+		}
+		else {
+			buscaView.mostraErros(erros);
+			return false;
+		}
+		return true;
 	}
 	
 	public ArrayList<ProjetoModel> procurar() {
