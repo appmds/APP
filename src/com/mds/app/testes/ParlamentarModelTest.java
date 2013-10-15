@@ -21,6 +21,7 @@ public class ParlamentarModelTest extends TestCase{
 		System.out.println("Comecando o teste...");
 		
 		partidoModel = new PartidoModel("PMDS", "DF");
+		parlamentarModel = new ParlamentarModel("NomeParlamentar", partidoModel);
 	}
 
 	@After
@@ -30,8 +31,21 @@ public class ParlamentarModelTest extends TestCase{
 
 	@Test
 	public void testGetNome() {
-		parlamentarModel = new ParlamentarModel("NomeParlamentar", partidoModel);
+		assertEquals("NomeParlamentar", parlamentarModel.getNome());
+	}
+	@Test
+	public void testSetNome() {
+		parlamentarModel.setNome("NomeParlamentar");
 		assertEquals("NomeParlamentar", parlamentarModel.getNome());
 	}
 
+	@Test
+	 public void testGetPartido(){
+	  assertSame(partidoModel, parlamentarModel.getPartido());
+	 }
+	@Test
+	 public void testSetPartido(){
+		parlamentarModel.setPartido(partidoModel);
+	  assertSame(partidoModel, parlamentarModel.getPartido());
+	 }
 }
