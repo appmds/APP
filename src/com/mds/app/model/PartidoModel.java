@@ -1,7 +1,5 @@
 package com.mds.app.model;
 
-import java.util.ArrayList;
-
 public class PartidoModel {
 
 	private String siglaPartido;

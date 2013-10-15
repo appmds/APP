@@ -1,6 +1,4 @@
-/*package com.mds.app.testes;
-
-import java.util.ArrayList;
+package com.mds.app.testes;
 
 import junit.framework.TestCase;
 
@@ -8,25 +6,18 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
-import com.mds.app.model.ParlamentarModel;
 import com.mds.app.model.PartidoModel;
 
 public class PartidoModelTest extends TestCase {
 
-	private ParlamentarModel parlamentarModel;
 	private PartidoModel partidoModel;
-	private ArrayList<ParlamentarModel> parlamentares;
-	private ArrayList<ParlamentarModel> outrosParlamentares;
 
 	@Before
 	public void setUp() throws Exception {
 		System.out.println("Comecando o teste...");
 
 		// Criando o partido de teste
-		parlamentares = new ArrayList<ParlamentarModel>();
-		partidoModel = new PartidoModel(parlamentares, "PMDS", "DF");
-		
-		outrosParlamentares = new ArrayList<ParlamentarModel>();
+		partidoModel = new PartidoModel("PMDS", "DF");
 	}
 
 	@After
@@ -35,46 +26,31 @@ public class PartidoModelTest extends TestCase {
 	}
 
 	@Test
-	public void testGetParlamentares() {
-		assertSame(parlamentares, partidoModel.getParlamentares());
+	public void testInstance(){
+		PartidoModel testInstancePartidoModel = new PartidoModel();
+		assertNotNull(testInstancePartidoModel);
 	}
 	
 	@Test
-	public void testGetSiglaPartido(){
+	public void testGetSiglaPartido() {
 		assertEquals("PMDS", partidoModel.getSiglaPartido());
 	}
-	
+
 	@Test
-	public void testGetUf(){
+	public void testGetUf() {
 		assertEquals("DF", partidoModel.getUf());
 	}
-	
+
 	@Test
-	public void testSetParlamentares() {
-		partidoModel.setParlamentares(outrosParlamentares);
-		assertSame(outrosParlamentares, partidoModel.getParlamentares());
-	}
-	
-	@Test
-	public void testSetSiglaPartido(){
+	public void testSetSiglaPartido() {
 		partidoModel.setSiglaPartido("PGPP");
 		assertEquals("PGPP", partidoModel.getSiglaPartido());
 	}
-	
+
 	@Test
-	public void testSetUf(){
+	public void testSetUf() {
 		partidoModel.setUf("MG");
 		assertEquals("MG", partidoModel.getUf());
 	}
 	
-	@Test
-	public void testAddParlamentar(){
-		parlamentarModel = new ParlamentarModel();
-		outrosParlamentares.add(parlamentarModel);
-		partidoModel.addParlamentar(parlamentarModel);
-		assertEquals(outrosParlamentares, partidoModel.getParlamentares());
-		
-	}
-
 }
-*/
