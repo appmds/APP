@@ -14,8 +14,8 @@
     <instrumentation
         android:name="android.test.InstrumentationTestRunner"
         android:functionalTest="false"
-        android:label="ModelTests"
-        android:targetPackage="com.mds.app.model" />
+        android:label="Tests"
+        android:targetPackage="com.mds.app" />
 
     <application
         android:allowBackup="true"
