@@ -18,6 +18,7 @@
     <string name="imgbuttonSOBRE">imgbuttonSOBRE</string>
     <string name="imgviewLOGO">imgviewLOGO</string>
     <string name="imgviewSOBREPROV">imgviewSOBREPROV</string>
+    <string name="hintNomeDoAPP">Acompanhamento de Projetos Parlamentares</string>
 
     
 </resources>

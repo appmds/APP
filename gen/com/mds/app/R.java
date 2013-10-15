@@ -31,7 +31,8 @@ public final class R {
         public static final int voltar=0x7f020007;
     }
     public static final class id {
-        public static final int action_settings=0x7f08000d;
+        public static final int NomeApk=0x7f08000d;
+        public static final int action_settings=0x7f08000e;
         public static final int imgbutton_busca=0x7f08000b;
         public static final int imgbutton_sobre=0x7f08000c;
         public static final int imgviewLogo=0x7f08000a;
@@ -61,6 +62,7 @@ public final class R {
         public static final int hintAno=0x7f050004;
         public static final int hintDataInicio=0x7f050006;
         public static final int hintNomeAutor=0x7f050007;
+        public static final int hintNomeDoAPP=0x7f050010;
         public static final int hintNumero=0x7f050005;
         public static final int hintProjeto=0x7f050003;
         public static final int hintSiglaPartido=0x7f050008;
