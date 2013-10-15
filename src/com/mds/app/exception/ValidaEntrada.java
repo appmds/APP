@@ -35,7 +35,6 @@ public abstract class ValidaEntrada {
 		if(uf.equals("")){
 			return true;
 		}		
-		System.out.println(uf);
 			return uf.matches("\\w{2}[a-zA-Z]*");
 		
 	}
