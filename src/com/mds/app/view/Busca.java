@@ -19,20 +19,23 @@ import android.widget.Toast;
 import com.mds.app.R;
 import com.mds.app.controller.BuscaController;
 import com.mds.app.model.ProjetoModel;
+import com.mds.app.persistencia.Persistencia;
 import com.mds.app.util.CancelTaskOnCancelListener;
 import com.mds.app.util.ConexaoInternet;
 
 public class Busca extends Activity {
 
-	ProgressDialog dialogoProgresso;
-	ImageButton ok;
-	ImageButton voltar;
-	BuscaController pesquisa;
-	ConexaoInternet conexao;
+	private ProgressDialog dialogoProgresso;
+	private ImageButton ok;
+	private ImageButton voltar;
+	private BuscaController pesquisa;
+	private ConexaoInternet conexao;
+	private Persistencia persistencia;
 
-	public Busca(){
-		
+	public Busca() {
+
 	}
+
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -45,6 +48,15 @@ public class Busca extends Activity {
 		voltar_addListener();
 		conexao = new ConexaoInternet(this);
 
+		if (conexao.ChecarConexaoInternet()) {
+			pesquisa.setTemConexao(true);
+		}
+		else {
+			persistencia = new Persistencia();
+			persistencia.lerPersistencia(this, "PL2013");
+			pesquisa.setTextoOffline(persistencia.getTxtContent());
+			pesquisa.setTemConexao(false);
+		}
 	}
 
 	private void voltar_addListener() {
@@ -75,17 +87,16 @@ public class Busca extends Activity {
 			@Override
 			public void onClick(View v) {
 
-				boolean validacao = pesquisa.atualizarDadosDaPesquisa(anoTexto.getText().toString(), siglaTexto.getText().toString(),
-						numeroTexto.getText().toString(), dataInicialTexto.getText().toString(), nomeAutorTexto
-								.getText().toString(), siglaPartidoTexto.getText().toString(), UFTexto.getText()
-								.toString());
-				if (conexao.ChecarConexaoInternet() && validacao) {
-					executarPesquisa();
+				boolean validacao = pesquisa.atualizarDadosDaPesquisa(anoTexto.getText().toString(), siglaTexto
+						.getText().toString(), numeroTexto.getText().toString(), dataInicialTexto.getText()
+						.toString(), nomeAutorTexto.getText().toString(), siglaPartidoTexto.getText().toString(),
+						UFTexto.getText().toString());
+				if (validacao) {
+					new PesquisarProjetoTask().execute();
 				}
 				else {
 					Toast.makeText(Busca.this, "NOK", Toast.LENGTH_SHORT).show();
 				}
-
 			}
 		});
 	}
@@ -95,12 +106,6 @@ public class Busca extends Activity {
 		// Inflate the menu; this adds items to the action bar if it is present.
 		getMenuInflater().inflate(R.menu.main, menu);
 		return true;
-	}
-
-	private void executarPesquisa() {
-
-		new PesquisarProjetoTask().execute();
-
 	}
 
 	private class PesquisarProjetoTask extends AsyncTask<Void, Void, List<ProjetoModel>> {
@@ -131,9 +136,10 @@ public class Busca extends Activity {
 					if (result != null) {
 						for (int i = 0; i < result.size(); i++) {
 							CharSequence mensagem = result.get(i).getExplicacao() + " - "
-									+ result.get(i).getNumero() + " - " + result.get(i).getNome() + " - " + result.get(i).getParlamentar().getNome()
-									+ " - " + result.get(i).getParlamentar().getPartido().getSiglaPartido() + " - " + result.get(i).getParlamentar()
-									.getPartido().getUf();
+									+ result.get(i).getNumero() + " - " + result.get(i).getNome() + " - "
+									+ result.get(i).getParlamentar().getNome() + " - "
+									+ result.get(i).getParlamentar().getPartido().getSiglaPartido() + " - "
+									+ result.get(i).getParlamentar().getPartido().getUf();
 							longToast(mensagem);
 						}
 					}

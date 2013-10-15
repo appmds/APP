@@ -23,8 +23,8 @@ public class Persistencia extends Activity {
 		txtContent = "";
 	}
 
-	public void lerPersistencia(Context context) {
-		final String txtPersistencia = "PL2013.txt";
+	public void lerPersistencia(Context context, String busca) {
+		final String txtPersistencia = busca + ".txt";
 		byte[] buffer = null;
 		InputStream is;
 		AssetManager manager;
@@ -32,7 +32,7 @@ public class Persistencia extends Activity {
 		try {
 			manager = context.getAssets();
 			is = manager.open(txtPersistencia);
-			int size = is.available(); // tamanho do arquivo em bytes
+			int size = 99818; //is.available(); // tamanho do arquivo em bytes
 			buffer = new byte[size];
 			is.read(buffer);
 			is.close();
@@ -41,7 +41,7 @@ public class Persistencia extends Activity {
 		}
 
 		String str_data = new String(buffer);
-
+		str_data += "</proposicoes>";
 		this.setTxtContent(str_data);
 	}
 

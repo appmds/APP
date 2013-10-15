@@ -19,6 +19,8 @@ public class BuscaController {
 	private RecebeHTTP recebeHTTP = new RecebeHTTP();
 	private XMLParser xmlParser = new XMLParser();
 	private Busca buscaView;
+	private boolean temConexao;
+	private String textoOffline;
 	
 	public BuscaController() {
 		this.buscaView = new Busca();
@@ -57,15 +59,9 @@ public class BuscaController {
 			return false;
 		}
 			
-			
-	}
-	
-	public ArrayList<ProjetoModel> procurar() {
-		ArrayList<ProjetoModel> listaProjetos = receberListaProjetos();
-		return listaProjetos;
 	}
 
-	private ArrayList<ProjetoModel> receberListaProjetos() {
+	public ArrayList<ProjetoModel> procurar() {
 		String sigla = ProcuraProjetoModel.getSigla().toUpperCase();
 		String ano = ProcuraProjetoModel.getAno();
 		String dataInicio = ProcuraProjetoModel.getDataInicio();
@@ -76,8 +72,11 @@ public class BuscaController {
 			
 		String url = Endereco.construirEndereco(sigla, numero, ano, dataInicio, "", "", nomeAutor, siglaPartido, siglaUF, "", "", "");
 		System.out.println(url);
-		String response = recebeHTTP.recebe(url);
-		Log.d(getClass().getSimpleName(), response);
+		String response;
+		if(temConexao)
+			response = recebeHTTP.recebe(url);
+		else
+			response = textoOffline;
 		return xmlParser.parseProjeto(response);
 	}
 
@@ -89,4 +88,20 @@ public class BuscaController {
 		this.buscaView = buscaView;
 	}
 
+	public boolean isTemConexao() {
+		return temConexao;
+	}
+
+	public void setTemConexao(boolean temConexao) {
+		this.temConexao = temConexao;
+	}
+
+	public String getTextoOffline() {
+		return textoOffline;
+	}
+
+	public void setTextoOffline(String textoOffline) {
+		this.textoOffline = textoOffline;
+	}
+	
 }
