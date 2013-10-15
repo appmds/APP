@@ -1,7 +1,5 @@
 package com.mds.app.testes;
 
-import java.util.ArrayList;
-
 import junit.framework.TestCase;
 
 import org.junit.After;
@@ -11,15 +9,15 @@ import org.junit.Test;
 import com.mds.app.model.ParlamentarModel;
 import com.mds.app.model.PartidoModel;
 
-public class ParlamentarModelTest extends TestCase{
-	
+public class ParlamentarModelTest extends TestCase {
+
 	private ParlamentarModel parlamentarModel;
 	private PartidoModel partidoModel;
 
 	@Before
 	public void setUp() throws Exception {
 		System.out.println("Comecando o teste...");
-		
+
 		partidoModel = new PartidoModel("PMDS", "DF");
 		parlamentarModel = new ParlamentarModel("NomeParlamentar", partidoModel);
 	}
@@ -33,6 +31,7 @@ public class ParlamentarModelTest extends TestCase{
 	public void testGetNome() {
 		assertEquals("NomeParlamentar", parlamentarModel.getNome());
 	}
+
 	@Test
 	public void testSetNome() {
 		parlamentarModel.setNome("NomeParlamentar");
@@ -40,12 +39,13 @@ public class ParlamentarModelTest extends TestCase{
 	}
 
 	@Test
-	 public void testGetPartido(){
-	  assertSame(partidoModel, parlamentarModel.getPartido());
-	 }
+	public void testGetPartido() {
+		assertSame(partidoModel, parlamentarModel.getPartido());
+	}
+
 	@Test
-	 public void testSetPartido(){
+	public void testSetPartido() {
 		parlamentarModel.setPartido(partidoModel);
-	  assertSame(partidoModel, parlamentarModel.getPartido());
-	 }
+		assertSame(partidoModel, parlamentarModel.getPartido());
+	}
 }
