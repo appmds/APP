@@ -13,7 +13,7 @@ public abstract class ValidaEntrada {
 		if(autor.equals(""))
 			return true;
 		
-		return autor.matches("[A-Z][a-z]*");
+		return autor.matches("[a-zA-Z]*");
 	}
 
 	public static boolean validaNumero(String numero) {
@@ -33,8 +33,6 @@ public abstract class ValidaEntrada {
 
 	public static boolean validaUf(String uf) {
 		if(uf.equals("")){
-			System.out.println("entrou no if");
-			System.out.println(uf);
 			return true;
 		}		
 		System.out.println(uf);
