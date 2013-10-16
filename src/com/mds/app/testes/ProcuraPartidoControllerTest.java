@@ -1,6 +1,7 @@
 package com.mds.app.testes;
 
-import junit.framework.TestCase;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
 
 import org.junit.After;
 import org.junit.Before;
@@ -9,7 +10,7 @@ import org.junit.Test;
 import com.mds.app.controller.ProcuraPartidoController;
 import com.mds.app.model.ProcuraPartidoModel;
 
-public class ProcuraPartidoControllerTest extends TestCase {
+public class ProcuraPartidoControllerTest {
 
 	@Before
 	public void setUp() throws Exception {

@@ -1,6 +1,7 @@
 package com.mds.app.testes;
 
-import junit.framework.TestCase;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertSame;
 
 import org.junit.After;
 import org.junit.Before;
@@ -9,7 +10,7 @@ import org.junit.Test;
 import com.mds.app.model.ParlamentarModel;
 import com.mds.app.model.PartidoModel;
 
-public class ParlamentarModelTest extends TestCase {
+public class ParlamentarModelTest {
 
 	private ParlamentarModel parlamentarModel;
 	private PartidoModel partidoModel;
