@@ -19,13 +19,13 @@ public class ProcuraPartidoModelTest {
 	public void tearDown() throws Exception {
 		System.out.println("Terminando...");
 	}
-	
+
 	@Test
 	public void testSetThenGetUf() {
 		ProcuraPartidoModel.setUf("DF");
 		assertEquals("DF", ProcuraPartidoModel.getUf());
 	}
-	
+
 	@Test
 	public void testSetThenGetSigla() {
 		ProcuraPartidoModel.setSigla("PMDS");

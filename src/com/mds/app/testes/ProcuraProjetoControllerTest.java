@@ -1,6 +1,7 @@
 package com.mds.app.testes;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
 
 import org.junit.After;
 import org.junit.Before;
@@ -20,33 +21,38 @@ public class ProcuraProjetoControllerTest {
 	public void tearDown() throws Exception {
 		System.out.println("Terminando...");
 	}
+
 	@Test
-	public void testInstance(){
+	public void testInstance() {
 		ProcuraProjetoController procuraProjetoController = new ProcuraProjetoController();
 		assertNotNull(procuraProjetoController);
 	}
+
 	@Test
 	public void testAtualizarDadosPesquisaProjeto_Ano() {
-		ProcuraProjetoController.atualizarDadosPesquisaProjeto("2013","PL","6555","14/03/2013");
-		assertEquals("2013",ProcuraProjetoModel.getAno());
-		
+		ProcuraProjetoController.atualizarDadosPesquisaProjeto("2013", "PL", "6555", "14/03/2013");
+		assertEquals("2013", ProcuraProjetoModel.getAno());
+
 	}
+
 	@Test
 	public void testAtualizarDadosPesquisaProjeto_Sigla() {
-		ProcuraProjetoController.atualizarDadosPesquisaProjeto("2013","PL","6555","14/03/2013");
-		assertEquals("PL",ProcuraProjetoModel.getSigla());
-		
+		ProcuraProjetoController.atualizarDadosPesquisaProjeto("2013", "PL", "6555", "14/03/2013");
+		assertEquals("PL", ProcuraProjetoModel.getSigla());
+
 	}
+
 	@Test
 	public void testAtualizarDadosPesquisaProjeto_Numero() {
-		ProcuraProjetoController.atualizarDadosPesquisaProjeto("2013","PL","6555","14/03/2013");
-		assertEquals("6555",ProcuraProjetoModel.getId());
-		
+		ProcuraProjetoController.atualizarDadosPesquisaProjeto("2013", "PL", "6555", "14/03/2013");
+		assertEquals("6555", ProcuraProjetoModel.getId());
+
 	}
+
 	@Test
 	public void testAtualizarDadosPesquisaProjeto_DataInicio() {
-		ProcuraProjetoController.atualizarDadosPesquisaProjeto("2013","PL","6555","14/03/2013");
-		assertEquals("14/03/2013",ProcuraProjetoModel.getDataInicio());
-		
+		ProcuraProjetoController.atualizarDadosPesquisaProjeto("2013", "PL", "6555", "14/03/2013");
+		assertEquals("14/03/2013", ProcuraProjetoModel.getDataInicio());
+
 	}
 }

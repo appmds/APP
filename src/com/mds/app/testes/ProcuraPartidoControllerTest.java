@@ -20,9 +20,9 @@ public class ProcuraPartidoControllerTest extends TestCase {
 	public void tearDown() throws Exception {
 		System.out.println("Terminando...");
 	}
-	
+
 	@Test
-	public void testInstance(){
+	public void testInstance() {
 		ProcuraPartidoController procuraPartidoController = new ProcuraPartidoController();
 		assertNotNull(procuraPartidoController);
 	}

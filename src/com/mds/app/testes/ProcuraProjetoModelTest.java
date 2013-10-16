@@ -25,19 +25,19 @@ public class ProcuraProjetoModelTest {
 		ProcuraProjetoModel.setAno("2013");
 		assertEquals("2013", ProcuraProjetoModel.getAno());
 	}
-	
+
 	@Test
 	public void testSetThenGetDataInicio() {
 		ProcuraProjetoModel.setDataInicio("16/10/2013");
 		assertEquals("16/10/2013", ProcuraProjetoModel.getDataInicio());
 	}
-	
+
 	@Test
 	public void testSetThenGetId() {
 		ProcuraProjetoModel.setId("99");
 		assertEquals("99", ProcuraProjetoModel.getId());
 	}
-	
+
 	@Test
 	public void testSetThenGetNome() {
 		ProcuraProjetoModel.setSigla("PL");

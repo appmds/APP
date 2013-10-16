@@ -26,11 +26,11 @@ public class PartidoModelTest extends TestCase {
 	}
 
 	@Test
-	public void testInstance(){
+	public void testInstance() {
 		PartidoModel testInstancePartidoModel = new PartidoModel();
 		assertNotNull(testInstancePartidoModel);
 	}
-	
+
 	@Test
 	public void testGetSiglaPartido() {
 		assertEquals("PMDS", partidoModel.getSiglaPartido());
@@ -52,5 +52,5 @@ public class PartidoModelTest extends TestCase {
 		partidoModel.setUf("MG");
 		assertEquals("MG", partidoModel.getUf());
 	}
-	
+
 }

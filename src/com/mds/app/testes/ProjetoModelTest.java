@@ -59,9 +59,9 @@ public class ProjetoModelTest extends TestCase {
 	public void testGetNumero() {
 		assertEquals("66", projetoModel.getNumero());
 	}
-	
+
 	@Test
-	public void testGetExplicacao(){
+	public void testGetExplicacao() {
 		assertEquals("ExplicacaoProjeto", projetoModel.getExplicacao());
 	}
 
@@ -81,7 +81,7 @@ public class ProjetoModelTest extends TestCase {
 		projetoModel.setNome("TesteCont");
 		assertEquals(2, projetoModel.getCont());
 	}
-	
+
 	@Test
 	public void testSetNome() {
 		projetoModel.setNome("SetNomeProjeto");
@@ -111,9 +111,9 @@ public class ProjetoModelTest extends TestCase {
 		projetoModel.setNumero("67");
 		assertEquals("67", projetoModel.getNumero());
 	}
-	
+
 	@Test
-	public void testSetExplicacao(){
+	public void testSetExplicacao() {
 		projetoModel.setExplicacao("SetExplicacaoProjeto");
 		assertEquals("SetExplicacaoProjeto", projetoModel.getExplicacao());
 	}

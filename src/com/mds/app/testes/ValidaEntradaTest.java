@@ -27,65 +27,67 @@ public class ValidaEntradaTest {
 	public void testValidaDataVazia() {
 		assertEquals(true, ValidaEntrada.validaData(""));
 	}
-	
+
 	@Test
 	public void testValidaData() {
 		assertEquals(true, ValidaEntrada.validaData("16/04/2013"));
 	}
-	
+
 	@Test
-	public void testValidaAutorVazio(){
+	public void testValidaAutorVazio() {
 		assertEquals(true, ValidaEntrada.validaAutor(""));
 	}
-	
+
 	@Test
-	public void testValidaAutor(){
+	public void testValidaAutor() {
 		assertEquals(true, ValidaEntrada.validaAutor("NomeDoAutor"));
 	}
-	
+
 	@Test
-	public void testValidaNumeroVazio(){
+	public void testValidaNumeroVazio() {
 		assertEquals(true, ValidaEntrada.validaNumero(""));
 	}
-	
+
 	@Test
-	public void testValidaNumero(){
+	public void testValidaNumero() {
 		assertEquals(true, ValidaEntrada.validaNumero("1234"));
 	}
-	
+
 	@Test
-	public void testValidaAno(){
+	public void testValidaAno() {
 		assertEquals(true, ValidaEntrada.validaAno("2013"));
 	}
-	
+
 	@Test
-	public void testValidaSigla(){
+	public void testValidaSigla() {
 		assertEquals(true, ValidaEntrada.validaSigla("PL"));
 	}
-	
+
 	@Test
-	public void testValidaUfVazia(){
+	public void testValidaUfVazia() {
 		assertEquals(true, ValidaEntrada.validaUf(""));
 	}
-	
+
 	@Test
-	public void testValidaUf(){
+	public void testValidaUf() {
 		assertEquals(false, ValidaEntrada.validaUf("abc"));
 	}
-	
+
 	@Test
-	public void testValidandoEntradas(){
+	public void testValidandoEntradas() {
 		boolean resultadoEsperado[] = { true, true, true, true, true, true, true };
-		boolean retornoDoMetodo []= ValidaEntrada.validandoEntradas("asd1 d12e ", "asd 1d12e ", "asd 1d12e ", "asd 1d12e ", "asd1d 12e ", "asd 1d12e ", "asd 1d12e ");		
+		boolean retornoDoMetodo[] = ValidaEntrada.validandoEntradas("asd1 d12e ", "asd 1d12e ", "asd 1d12e ",
+				"asd 1d12e ", "asd1d 12e ", "asd 1d12e ", "asd 1d12e ");
 		boolean teste = Arrays.equals(resultadoEsperado, retornoDoMetodo);
 		assertTrue(teste);
 	}
-	
+
 	@Test
-	public void testIdentificarErros(){
+	public void testIdentificarErros() {
 		String todosErradosEsperado = " Ano invalido  Sigla Invalida  Numero invalido  Data inicial invalida  Autor invalido  Partido invalido  UF invalida ";
-		String retornoDoMetodo = ValidaEntrada.identificarErros("asd1 d12e ", "asd 1d12e ", "asd 1d12e ", "asd 1d12e ", "asd1d 12e ", "asd 1d12e ", "asd 1d12e ");
+		String retornoDoMetodo = ValidaEntrada.identificarErros("asd1 d12e ", "asd 1d12e ", "asd 1d12e ",
+				"asd 1d12e ", "asd1d 12e ", "asd 1d12e ", "asd 1d12e ");
 		assertEquals(todosErradosEsperado, retornoDoMetodo);
 	}
-	
+
 }

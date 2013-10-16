@@ -1,6 +1,5 @@
 package com.mds.app.testes;
 
-import static org.junit.Assert.*;
 import junit.framework.TestCase;
 
 import org.junit.After;
@@ -20,9 +19,9 @@ public class ProcuraParlamentarControllerTest extends TestCase {
 	public void tearDown() throws Exception {
 		System.out.println("Terminando...");
 	}
-	
+
 	@Test
-	public void testInstance(){
+	public void testInstance() {
 		ProcuraParlamentarController procuraParlamentarController = new ProcuraParlamentarController();
 		assertNotNull(procuraParlamentarController);
 	}
@@ -30,8 +29,8 @@ public class ProcuraParlamentarControllerTest extends TestCase {
 	@Test
 	public void testAtualizarDadosPesquisaParlamentar() {
 		ProcuraParlamentarController.atualizarDadosPesquisaParlamentar("Joao");
-		assertEquals("Joao",ProcuraParlamentarModel.getNome());
-		
+		assertEquals("Joao", ProcuraParlamentarModel.getNome());
+
 	}
 
 }

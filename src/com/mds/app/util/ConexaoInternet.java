@@ -4,10 +4,10 @@ import android.content.Context;
 import android.net.ConnectivityManager;
 
 public class ConexaoInternet {
-	
+
 	private Context context;
-	
-	public ConexaoInternet(Context context){
+
+	public ConexaoInternet(Context context) {
 		this.context = context;
 	}
 

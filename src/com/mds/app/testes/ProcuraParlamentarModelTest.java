@@ -9,7 +9,7 @@ import org.junit.Test;
 import com.mds.app.model.ProcuraParlamentarModel;
 
 public class ProcuraParlamentarModelTest {
-	
+
 	@Before
 	public void setUp() throws Exception {
 		System.out.println("Comecando o teste...");
