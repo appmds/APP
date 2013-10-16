@@ -12,15 +12,14 @@ import com.mds.app.model.ProjetoModel;
 
 public class ProposicaoController extends DefaultHandler {
 
-	private StringBuffer buffer = new StringBuffer();
-
+	private StringBuffer buffer;
 	private ArrayList<ProjetoModel> listaProjetos;
 	private ProjetoModel projeto;
 	private ParlamentarModel parlamentar;
 	private PartidoModel partido;
 
 	public ProposicaoController() {
-
+		buffer = new StringBuffer();
 	}
 
 	@Override
@@ -75,7 +74,7 @@ public class ProposicaoController extends DefaultHandler {
 			partido.setUf(buffer.toString());
 		}
 		else {
-
+			//
 		}
 	}
 

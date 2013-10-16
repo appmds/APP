@@ -14,26 +14,44 @@ import com.mds.app.view.Busca;
 
 public class BuscaController {
 
-	private RecebeHTTP recebeHTTP = new RecebeHTTP();
-	private XMLParser xmlParser = new XMLParser();
+	private RecebeHTTP recebeHTTP;
+	private XMLParser xmlParser;
 	private Busca buscaView;
 	private boolean temConexao;
 	private String textoOffline;
 
 	public BuscaController() {
 		this.buscaView = new Busca();
+		this.recebeHTTP = new RecebeHTTP();
+		this.xmlParser = new XMLParser();
 	}
 
 	public boolean atualizarDadosDaPesquisa(String ano, String sigla, String numero, String dataIni,
 			String nomeAutor, String siglaPartido, String uf) {
 
-		if (ano == null) ano = "";
-		if (sigla == null) sigla = "";
-		if (numero == null) numero = "";
-		if (dataIni == null) dataIni = "";
-		if (nomeAutor == null) nomeAutor = "";
-		if (siglaPartido == null) siglaPartido = "";
-		if (uf == null) uf = "";
+		boolean atualizado = false;
+
+		if (ano == null) {
+			ano = "";
+		}
+		if (sigla == null) {
+			sigla = "";
+		}
+		if (numero == null) {
+			numero = "";
+		}
+		if (dataIni == null) {
+			dataIni = "";
+		}
+		if (nomeAutor == null) {
+			nomeAutor = "";
+		}
+		if (siglaPartido == null) {
+			siglaPartido = "";
+		}
+		if (uf == null) {
+			uf = "";
+		}
 
 		String erros = "";
 		erros = ValidaEntrada.identificarErros(ano, sigla, numero, dataIni, nomeAutor, siglaPartido, uf);
@@ -44,12 +62,13 @@ public class BuscaController {
 			ProcuraProjetoController.atualizarDadosPesquisaProjeto(ano, sigla, numero, dataIni);
 			ProcuraPartidoController.atualizaDadosPesquisaPartido(uf, siglaPartido);
 			ProcuraParlamentarController.atualizarDadosPesquisaParlamentar(nomeAutor);
-			return true;
+			atualizado = true;
 		}
 		else {
-
-			return false;
+			atualizado = false;
 		}
+
+		return atualizado;
 
 	}
 
@@ -65,9 +84,15 @@ public class BuscaController {
 		String url = Endereco.construirEndereco(sigla, numero, ano, dataInicio, "", "", nomeAutor, siglaPartido,
 				siglaUF, "", "", "");
 		System.out.println(url);
+
 		String response;
-		if (temConexao) response = recebeHTTP.recebe(url);
-		else response = textoOffline;
+		if (temConexao) {
+			response = recebeHTTP.recebe(url);
+		}
+		else {
+			response = textoOffline;
+		}
+
 		return xmlParser.parseProjeto(response);
 	}
 

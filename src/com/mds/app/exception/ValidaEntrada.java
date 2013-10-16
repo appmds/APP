@@ -3,19 +3,25 @@ package com.mds.app.exception;
 public abstract class ValidaEntrada {
 
 	public static boolean validaData(String data) {
-		if (data.equals("")) return true;
+		if (data.equals("")) {
+			return true;
+		}
 
 		return data.matches("\\d{2}/\\d{2}/\\d{4}");
 	}
 
 	public static boolean validaAutor(String autor) {
-		if (autor.equals("")) return true;
+		if (autor.equals("")) {
+			return true;
+		}
 
 		return autor.matches("[a-zA-Z]*");
 	}
 
 	public static boolean validaNumero(String numero) {
-		if (numero.equals("")) return true;
+		if (numero.equals("")) {
+			return true;
+		}
 
 		return numero.matches("\\d{4}");
 	}
@@ -38,6 +44,7 @@ public abstract class ValidaEntrada {
 
 	public static boolean[] validandoEntradas(String ano, String sigla, String numero, String dataIni,
 			String autor, String partido, String uf) {
+
 		boolean entradas[] = { false, false, false, false, false, false, false };
 
 		if (!validaAno(ano)) {
@@ -61,23 +68,39 @@ public abstract class ValidaEntrada {
 		if (!validaUf(uf)) {
 			entradas[6] = true;
 		}
+
 		return entradas;
 	}
 
 	public static String identificarErros(String ano, String sigla, String numero, String dataIni, String autor,
 			String partido, String uf) {
+
 		boolean recebeValidacao[];
 
 		recebeValidacao = validandoEntradas(ano, sigla, numero, dataIni, autor, partido, uf);
 		String erros = "";
 
-		if (recebeValidacao[0] == true) erros += " Ano invalido ";
-		if (recebeValidacao[1] == true) erros += " Sigla Invalida ";
-		if (recebeValidacao[2] == true) erros += " Numero invalido ";
-		if (recebeValidacao[3] == true) erros += " Data inicial invalida ";
-		if (recebeValidacao[4] == true) erros += " Autor invalido ";
-		if (recebeValidacao[5] == true) erros += " Partido invalido ";
-		if (recebeValidacao[6] == true) erros += " UF invalida ";
+		if (recebeValidacao[0] == true) {
+			erros += " Ano invalido ";
+		}
+		if (recebeValidacao[1] == true) {
+			erros += " Sigla Invalida ";
+		}
+		if (recebeValidacao[2] == true) {
+			erros += " Numero invalido ";
+		}
+		if (recebeValidacao[3] == true) {
+			erros += " Data inicial invalida ";
+		}
+		if (recebeValidacao[4] == true) {
+			erros += " Autor invalido ";
+		}
+		if (recebeValidacao[5] == true) {
+			erros += " Partido invalido ";
+		}
+		if (recebeValidacao[6] == true) {
+			erros += " UF invalida ";
+		}
 
 		return erros;
 	}
