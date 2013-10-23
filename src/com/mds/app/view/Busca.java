@@ -31,6 +31,13 @@ public class Busca extends Activity {
 	private BuscaController pesquisa;
 	private ConexaoInternet conexao;
 	private Persistencia persistencia;
+	private EditText siglaTexto = (EditText) findViewById(R.id.textSigla);
+	private EditText numeroTexto = (EditText) findViewById(R.id.textNumero);
+	private EditText anoTexto = (EditText) findViewById(R.id.textAno);
+	private EditText dataInicialTexto = (EditText) findViewById(R.id.textDataIni);
+	private EditText nomeAutorTexto = (EditText) findViewById(R.id.textNomeAutor);
+	private EditText siglaPartidoTexto = (EditText) findViewById(R.id.textSiglaPartido);
+	private EditText UFTexto = (EditText) findViewById(R.id.textUF);
 
 	public Busca() {
 
@@ -75,15 +82,7 @@ public class Busca extends Activity {
 	private void ok_addListener() {
 		ok = (ImageButton) findViewById(R.id.okbutton);
 		ok.setOnClickListener(new OnClickListener() {
-
-			EditText siglaTexto = (EditText) findViewById(R.id.textSigla);
-			EditText numeroTexto = (EditText) findViewById(R.id.textNumero);
-			EditText anoTexto = (EditText) findViewById(R.id.textAno);
-			EditText dataInicialTexto = (EditText) findViewById(R.id.textDataIni);
-			EditText nomeAutorTexto = (EditText) findViewById(R.id.textNomeAutor);
-			EditText siglaPartidoTexto = (EditText) findViewById(R.id.textSiglaPartido);
-			EditText UFTexto = (EditText) findViewById(R.id.textUF);
-
+			
 			@Override
 			public void onClick(View v) {
 
