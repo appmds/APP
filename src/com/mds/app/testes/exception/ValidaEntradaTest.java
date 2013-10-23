@@ -1,4 +1,4 @@
-package com.mds.app.testes;
+package com.mds.app.testes.exception;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
