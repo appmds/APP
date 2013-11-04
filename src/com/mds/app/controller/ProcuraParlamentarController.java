@@ -6,11 +6,11 @@ public class ProcuraParlamentarController {
 
 	public ProcuraParlamentarController() {
 	}
-
-	public static void atualizarDadosPesquisaParlamentar(String nomeAutor) {
-
+	
+	public static void atualizarDadosPesquisaParlamentar(String nomeAutor){
+		
 		ProcuraParlamentarModel.setNome(nomeAutor);
-
+			
 	}
 
 }

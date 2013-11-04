@@ -2,6 +2,8 @@ package com.mds.app.controller;
 
 import java.util.ArrayList;
 
+import android.util.Log;
+
 import com.mds.app.exception.ValidaEntrada;
 import com.mds.app.model.ProcuraParlamentarModel;
 import com.mds.app.model.ProcuraPartidoModel;
@@ -14,62 +16,49 @@ import com.mds.app.view.Busca;
 
 public class BuscaController {
 
-	private RecebeHTTP recebeHTTP;
-	private XMLParser xmlParser;
+	private RecebeHTTP recebeHTTP = new RecebeHTTP();
+	private XMLParser xmlParser = new XMLParser();
 	private Busca buscaView;
 	private boolean temConexao;
 	private String textoOffline;
-
+	
 	public BuscaController() {
 		this.buscaView = new Busca();
-		this.recebeHTTP = new RecebeHTTP();
-		this.xmlParser = new XMLParser();
 	}
-
-	public boolean atualizarDadosDaPesquisa(String ano, String sigla, String numero, String dataIni,
-			String nomeAutor, String siglaPartido, String uf) {
-
-		boolean atualizado = false;
-
-		if (ano == null) {
+	
+	public boolean atualizarDadosDaPesquisa(String ano, String sigla, String numero, String dataIni, String nomeAutor, String siglaPartido, String uf) {	
+		
+		if (ano==null)
 			ano = "";
-		}
-		if (sigla == null) {
+		if (sigla==null)
 			sigla = "";
-		}
-		if (numero == null) {
+		if (numero==null)
 			numero = "";
-		}
-		if (dataIni == null) {
+		if (dataIni==null)
 			dataIni = "";
-		}
-		if (nomeAutor == null) {
+		if (nomeAutor==null)
 			nomeAutor = "";
-		}
-		if (siglaPartido == null) {
+		if (siglaPartido==null)
 			siglaPartido = "";
-		}
-		if (uf == null) {
+		if (uf==null)
 			uf = "";
-		}
-
+		
 		String erros = "";
 		erros = ValidaEntrada.identificarErros(ano, sigla, numero, dataIni, nomeAutor, siglaPartido, uf);
 		System.out.println(erros);
 		System.out.println(dataIni);
-
-		if (erros == "") {
+		
+		if (erros==""){
 			ProcuraProjetoController.atualizarDadosPesquisaProjeto(ano, sigla, numero, dataIni);
 			ProcuraPartidoController.atualizaDadosPesquisaPartido(uf, siglaPartido);
 			ProcuraParlamentarController.atualizarDadosPesquisaParlamentar(nomeAutor);
-			atualizado = true;
+			return true;
 		}
-		else {
-			atualizado = false;
+		else{
+			
+			return false;
 		}
-
-		return atualizado;
-
+			
 	}
 
 	public ArrayList<ProjetoModel> procurar() {
@@ -80,19 +69,14 @@ public class BuscaController {
 		String nomeAutor = ProcuraParlamentarModel.getNome();
 		String siglaPartido = ProcuraPartidoModel.getSigla();
 		String siglaUF = ProcuraPartidoModel.getUf();
-
-		String url = Endereco.construirEndereco(sigla, numero, ano, dataInicio, "", "", nomeAutor, siglaPartido,
-				siglaUF, "", "", "");
+			
+		String url = Endereco.construirEndereco(sigla, numero, ano, dataInicio, "", "", nomeAutor, siglaPartido, siglaUF, "", "", "");
 		System.out.println(url);
-
 		String response;
-		if (temConexao) {
+		if(temConexao)
 			response = recebeHTTP.recebe(url);
-		}
-		else {
+		else
 			response = textoOffline;
-		}
-
 		return xmlParser.parseProjeto(response);
 	}
 
@@ -119,5 +103,5 @@ public class BuscaController {
 	public void setTextoOffline(String textoOffline) {
 		this.textoOffline = textoOffline;
 	}
-
+	
 }

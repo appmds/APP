@@ -32,7 +32,7 @@ public class Persistencia extends Activity {
 		try {
 			manager = context.getAssets();
 			is = manager.open(txtPersistencia);
-			int size = 99818; // is.available(); // tamanho do arquivo em bytes
+			int size = 99818; //is.available(); // tamanho do arquivo em bytes
 			buffer = new byte[size];
 			is.read(buffer);
 			is.close();

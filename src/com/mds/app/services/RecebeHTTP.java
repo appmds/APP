@@ -12,6 +12,10 @@ import org.apache.http.client.HttpClient;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.impl.client.DefaultHttpClient;
 
+import android.content.Context;
+
+import com.mds.app.util.ConexaoInternet;
+
 public class RecebeHTTP {
 
 	public String recebe(String url) {
@@ -27,20 +31,20 @@ public class RecebeHTTP {
 
 		try {
 			website = new URI(url);
-
+			
 			requisicao = new HttpGet();
 			requisicao.setURI(website);
-
+			
 			resposta = cliente.execute(requisicao);
-
+			
 			inputStream = new BufferedReader(new InputStreamReader(resposta.getEntity().getContent()));
-
+			
 			dadoStringBuffer = new StringBuffer("");
 			anexar = "";
 			while ((anexar = inputStream.readLine()) != null) {
 				dadoStringBuffer.append(anexar);
 			}
-
+			
 			dado = dadoStringBuffer.toString();
 
 		} catch (URISyntaxException urise) {

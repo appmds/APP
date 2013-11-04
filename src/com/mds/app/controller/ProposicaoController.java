@@ -9,17 +9,19 @@ import org.xml.sax.helpers.DefaultHandler;
 import com.mds.app.model.ParlamentarModel;
 import com.mds.app.model.PartidoModel;
 import com.mds.app.model.ProjetoModel;
+import com.mds.app.persistencia.Persistencia;
 
 public class ProposicaoController extends DefaultHandler {
 
-	private StringBuffer buffer;
+	private StringBuffer buffer = new StringBuffer();
+
 	private ArrayList<ProjetoModel> listaProjetos;
 	private ProjetoModel projeto;
 	private ParlamentarModel parlamentar;
 	private PartidoModel partido;
 
 	public ProposicaoController() {
-		buffer = new StringBuffer();
+
 	}
 
 	@Override
@@ -65,7 +67,7 @@ public class ProposicaoController extends DefaultHandler {
 			projeto.setExplicacao(buffer.toString());
 		}
 		else if (localName.equals("txtNomeAutor")) {
-			parlamentar.setNome(buffer.toString());
+			parlamentar.setNome(buffer.toString());		
 		}
 		else if (localName.equals("txtSiglaPartido")) {
 			partido.setSiglaPartido(buffer.toString());
@@ -74,7 +76,7 @@ public class ProposicaoController extends DefaultHandler {
 			partido.setUf(buffer.toString());
 		}
 		else {
-			//
+
 		}
 	}
 

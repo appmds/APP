@@ -31,13 +31,6 @@ public class Busca extends Activity {
 	private BuscaController pesquisa;
 	private ConexaoInternet conexao;
 	private Persistencia persistencia;
-	private EditText siglaTexto = (EditText) findViewById(R.id.textSigla);
-	private EditText numeroTexto = (EditText) findViewById(R.id.textNumero);
-	private EditText anoTexto = (EditText) findViewById(R.id.textAno);
-	private EditText dataInicialTexto = (EditText) findViewById(R.id.textDataIni);
-	private EditText nomeAutorTexto = (EditText) findViewById(R.id.textNomeAutor);
-	private EditText siglaPartidoTexto = (EditText) findViewById(R.id.textSiglaPartido);
-	private EditText UFTexto = (EditText) findViewById(R.id.textUF);
 
 	public Busca() {
 
@@ -82,7 +75,15 @@ public class Busca extends Activity {
 	private void ok_addListener() {
 		ok = (ImageButton) findViewById(R.id.okbutton);
 		ok.setOnClickListener(new OnClickListener() {
-			
+
+			EditText siglaTexto = (EditText) findViewById(R.id.textSigla);
+			EditText numeroTexto = (EditText) findViewById(R.id.textNumero);
+			EditText anoTexto = (EditText) findViewById(R.id.textAno);
+			EditText dataInicialTexto = (EditText) findViewById(R.id.textDataIni);
+			EditText nomeAutorTexto = (EditText) findViewById(R.id.textNomeAutor);
+			EditText siglaPartidoTexto = (EditText) findViewById(R.id.textSiglaPartido);
+			EditText UFTexto = (EditText) findViewById(R.id.textUF);
+
 			@Override
 			public void onClick(View v) {
 
@@ -128,24 +129,8 @@ public class Busca extends Activity {
 			runOnUiThread(new Runnable() {
 				@Override
 				public void run() {
-					if (dialogoProgresso != null) {
-						dialogoProgresso.dismiss();
-						dialogoProgresso = null;
-					}
-					if (result != null) {
-						for (int i = 0; i < result.size(); i++) {
-							CharSequence mensagem = result.get(i).getExplicacao() + " - "
-									+ result.get(i).getNumero() + " - " + result.get(i).getNome() + " - "
-									+ result.get(i).getParlamentar().getNome() + " - "
-									+ result.get(i).getParlamentar().getPartido().getSiglaPartido() + " - "
-									+ result.get(i).getParlamentar().getPartido().getUf();
-							longToast(mensagem);
-						}
-					}
-					else {
-						CharSequence mensagem = "Nenhum projeto encontrado.";
-						longToast(mensagem);
-					}
+					Intent i = new Intent(Busca.this, Lista.class);
+					startActivity(i);
 				}
 			});
 		}
