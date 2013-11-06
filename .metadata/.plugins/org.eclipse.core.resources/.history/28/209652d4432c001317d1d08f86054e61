@@ -1,0 +1,10 @@
+package treino1;
+
+public class TimeControle {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+
+}

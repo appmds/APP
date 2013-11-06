@@ -9,7 +9,6 @@ import org.xml.sax.helpers.DefaultHandler;
 import com.mds.app.model.ParlamentarModel;
 import com.mds.app.model.PartidoModel;
 import com.mds.app.model.ProjetoModel;
-import com.mds.app.persistencia.Persistencia;
 
 public class ProposicaoController extends DefaultHandler {
 
@@ -51,6 +50,9 @@ public class ProposicaoController extends DefaultHandler {
 			projeto.setParlamentar(parlamentar);
 			parlamentar.setPartido(partido);
 		}
+		else if(localName.equals("ano")){
+			projeto.setAno(buffer.toString());
+		}
 		else if (localName.equals("nome")) {
 			projeto.setNome(buffer.toString());
 		}
@@ -67,7 +69,7 @@ public class ProposicaoController extends DefaultHandler {
 			projeto.setExplicacao(buffer.toString());
 		}
 		else if (localName.equals("txtNomeAutor")) {
-			parlamentar.setNome(buffer.toString());		
+			parlamentar.setNome(buffer.toString());
 		}
 		else if (localName.equals("txtSiglaPartido")) {
 			partido.setSiglaPartido(buffer.toString());

@@ -18,6 +18,7 @@ import android.widget.Toast;
 
 import com.mds.app.R;
 import com.mds.app.controller.BuscaController;
+import com.mds.app.controller.ListaController;
 import com.mds.app.model.ProjetoModel;
 import com.mds.app.persistencia.Persistencia;
 import com.mds.app.util.CancelTaskOnCancelListener;
@@ -110,6 +111,7 @@ public class Busca extends Activity {
 
 	private class PesquisarProjetoTask extends AsyncTask<Void, Void, List<ProjetoModel>> {
 
+		@Override
 		protected void onPreExecute() {
 
 			dialogoProgresso = ProgressDialog.show(Busca.this, "Aguarde...", "Recebendo dados", true, true);
@@ -119,7 +121,6 @@ public class Busca extends Activity {
 
 		@Override
 		protected List<ProjetoModel> doInBackground(Void... params) {
-			// String query = params[0];
 			Log.i("LOGGER", "Starting...doInBackground loadList");
 			return pesquisa.procurar();
 		}
@@ -129,14 +130,15 @@ public class Busca extends Activity {
 			runOnUiThread(new Runnable() {
 				@Override
 				public void run() {
-					Intent i = new Intent(Busca.this, Lista.class);
-					startActivity(i);
+
+					ListaController listaController = new ListaController(result);
+
+					Intent intent = new Intent(Busca.this, Lista.class);
+					intent.putExtra("PROJETOS", listaController.getStringProjetos());
+					startActivity(intent);
+
 				}
 			});
-		}
-
-		private void longToast(CharSequence message) {
-			Toast.makeText(Busca.this, message, Toast.LENGTH_LONG).show();
 		}
 
 	}
