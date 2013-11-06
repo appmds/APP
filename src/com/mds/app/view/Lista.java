@@ -26,11 +26,11 @@ public class Lista extends Activity {
 	private ScrollView MainView;
 	private LinearLayout ViewLayout;
 	private LinearLayout ViewText;
-	private TextView text;
 	private ProposicaoController pesquisa;
 	private ListaController listar;
 	private ArrayList<String> stringProjetos;
-	
+	private ArrayList<TextView> textViews = new ArrayList<TextView>();
+
 	public Lista() {
 	}
 
@@ -43,11 +43,11 @@ public class Lista extends Activity {
 		ViewLayout.setOrientation(LinearLayout.VERTICAL);
 		ViewText = new LinearLayout(this);
 		ViewText.setOrientation(LinearLayout.VERTICAL);
-		
+
 		Intent intent = getIntent();
 		intent.getExtras().getStringArrayList("PROJETOS");
 		stringProjetos = intent.getStringArrayListExtra("PROJETOS");
-		
+
 		for (int i = 0; i < 9; i++) {
 			if (i % 2 == 0) {
 				elementos.add(new ListElement(this, "YELLOW"));
@@ -58,33 +58,29 @@ public class Lista extends Activity {
 			elementos.get(i).setLayoutParams(new LinearLayout.LayoutParams(LayoutParams.MATCH_PARENT, 100));
 		}
 
-		text = new TextView(this);
-		text.setText(stringProjetos.get(0));
-		
-		ViewText.addView(text);
+		for (int i = 0; i < stringProjetos.size(); i++) {
+			TextView text = new TextView(this);
+			text.setY(i * 50);
+			text.setText(stringProjetos.get(i));
+			textViews.add(text);
+		}
+
+		for(int i = 0; i<textViews.size(); i++){
+			ViewText.addView(textViews.get(i));
+		}
 
 		for (int i = 0; i < 9; i++) {
 			ViewLayout.addView(elementos.get(i));
 		}
-		
+
 		ViewLayout.setLayoutParams(new LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT));
 		ViewLayout.requestLayout();
-		ViewText.setLayoutParams(new LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT));
+		// ViewText.setLayoutParams(new LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT));
 		ViewText.requestLayout();
-		
+
 		MainView.addView(ViewText);
 		setContentView(MainView);
 
-	}
-
-	public void mostrarResultados(List<ProjetoModel> result) {
-
-		if (result.isEmpty()) {
-			System.out.println("Ta vazio");
-		}
-		else {
-			text.setText(result.get(0).getExplicacao());
-		}
 	}
 
 	class ListElement extends View {
@@ -111,7 +107,7 @@ public class Lista extends Activity {
 	private void longToast(CharSequence message) {
 		Toast.makeText(Lista.this, message, Toast.LENGTH_LONG).show();
 	}
-	
+
 	public ListaController getListaController() {
 		return listar;
 	}
