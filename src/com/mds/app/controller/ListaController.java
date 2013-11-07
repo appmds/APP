@@ -41,10 +41,10 @@ public class ListaController {
 	public void setStringProjetos(ArrayList<String> stringProjetos) {
 		this.stringProjetos = stringProjetos;
 	}
-	
-	//Transforma List<ProjetoModel> listaProjetos em um ArrayList<String>
-	private void transformarLista(){
-		for(int i = 0; i<listaProjetos.size(); i++){
+
+	// Transforma List<ProjetoModel> listaProjetos em um ArrayList<String>
+	private void transformarLista() {
+		for (int i = 0; i < listaProjetos.size(); i++) {
 			String stringProjeto = "";
 			stringProjeto += listaProjetos.get(i).getNome();
 			stringProjeto += " - ";

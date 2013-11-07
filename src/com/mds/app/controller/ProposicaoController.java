@@ -50,7 +50,7 @@ public class ProposicaoController extends DefaultHandler {
 			projeto.setParlamentar(parlamentar);
 			parlamentar.setPartido(partido);
 		}
-		else if(localName.equals("ano")){
+		else if (localName.equals("ano")) {
 			projeto.setAno(buffer.toString());
 		}
 		else if (localName.equals("nome")) {

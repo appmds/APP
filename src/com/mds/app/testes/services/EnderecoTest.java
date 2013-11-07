@@ -1,6 +1,6 @@
 package com.mds.app.testes.services;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
 
 import org.junit.After;
 import org.junit.Before;
@@ -19,10 +19,12 @@ public class EnderecoTest {
 	public void tearDown() throws Exception {
 		System.out.println("Terminando...");
 	}
-	
+
 	@Test
-	public void testConstruirEndereco(){
-		assertEquals("http://www.camara.gov.br/SitCamaraWS/Proposicoes.asmx/ListarProposicoes?sigla=PL&numero=&ano=2011&datApresentacaoIni=14/11/2011&datApresentacaoFim=16/11/2011&autor=&parteNomeAutor=&siglaPartidoAutor=&siglaUFAutor=&generoAutor=&codEstado=&codOrgaoEstado=&emTramitacao=1",
-				Endereco.construirEndereco("PL", "", "2011", "14/11/2011", "16/11/2011", "", "", "", "", "", "", ""));
+	public void testConstruirEndereco() {
+		assertEquals(
+				"http://www.camara.gov.br/SitCamaraWS/Proposicoes.asmx/ListarProposicoes?sigla=PL&numero=&ano=2011&datApresentacaoIni=14/11/2011&datApresentacaoFim=16/11/2011&autor=&parteNomeAutor=&siglaPartidoAutor=&siglaUFAutor=&generoAutor=&codEstado=&codOrgaoEstado=&emTramitacao=1",
+				Endereco.construirEndereco("PL", "", "2011", "14/11/2011", "16/11/2011", "", "", "", "", "", "",
+						""));
 	}
 }

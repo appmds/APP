@@ -14,7 +14,8 @@ public class ProjetoModel {
 	public ProjetoModel() {
 	}
 
-	public ProjetoModel(String ano, String nome, String sigla, String data, String numero, String explicacao, ParlamentarModel parlamentar) {
+	public ProjetoModel(String ano, String nome, String sigla, String data, String numero, String explicacao,
+			ParlamentarModel parlamentar) {
 		this.ano = ano;
 		this.nome = nome;
 		this.sigla = sigla;
@@ -22,7 +23,7 @@ public class ProjetoModel {
 		this.numero = numero;
 		this.explicacao = explicacao;
 		this.parlamentar = parlamentar;
-		
+
 		this.cont = 1;
 	}
 
@@ -96,6 +97,4 @@ public class ProjetoModel {
 				+ ", data=" + data + ", explicacao=" + explicacao + ", parlamentar=" + parlamentar.getNome() + "]";
 	}
 
-	
-	
 }
