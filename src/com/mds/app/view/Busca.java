@@ -135,6 +135,7 @@ public class Busca extends Activity {
 
 					Intent intent = new Intent(Busca.this, Lista.class);
 					intent.putExtra("PROJETOS", listaController.getStringProjetos());
+					intent.putExtra("PROJETOS_COMPLETO", listaController.getStringProjetosCompleto());
 					startActivity(intent);
 
 				}

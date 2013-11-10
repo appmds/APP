@@ -31,7 +31,7 @@ public final class R {
         public static final int voltar=0x7f020007;
     }
     public static final class id {
-        public static final int action_settings=0x7f08000d;
+        public static final int action_settings=0x7f08000e;
         public static final int imgbutton_busca=0x7f08000b;
         public static final int imgbutton_sobre=0x7f08000c;
         public static final int imgviewLogo=0x7f08000a;
@@ -44,6 +44,7 @@ public final class R {
         public static final int textSigla=0x7f080001;
         public static final int textSiglaPartido=0x7f080008;
         public static final int textUF=0x7f080007;
+        public static final int texto=0x7f08000d;
         public static final int voltar=0x7f080003;
     }
     public static final class layout {

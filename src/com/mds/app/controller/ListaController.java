@@ -10,12 +10,15 @@ public class ListaController {
 
 	private List<ProjetoModel> listaProjetos;
 	private ArrayList<String> stringProjetos;
+	private ArrayList<String> stringProjetosCompleto;
 	private Lista lista;
 
 	public ListaController(List<ProjetoModel> result) {
 		this.listaProjetos = result;
 		this.stringProjetos = new ArrayList<String>();
+		this.stringProjetosCompleto = new ArrayList<String>();
 		transformarLista();
+		transformarListaCompleto();
 	}
 
 	public ListaController(String string) {
@@ -45,6 +48,14 @@ public class ListaController {
 		this.stringProjetos = stringProjetos;
 	}
 
+	public ArrayList<String> getStringProjetosCompleto() {
+		return stringProjetosCompleto;
+	}
+
+	public void setStringProjetosCompleto(ArrayList<String> stringProjetosCompleto) {
+		this.stringProjetosCompleto = stringProjetosCompleto;
+	}
+
 	// Transforma List<ProjetoModel> listaProjetos em um ArrayList<String>
 	private void transformarLista() {
 		for (int i = 0; i < listaProjetos.size(); i++) {
@@ -55,6 +66,30 @@ public class ListaController {
 			stringProjeto += " - ";
 			stringProjeto += listaProjetos.get(i).getParlamentar().getNome();
 			stringProjetos.add(stringProjeto);
+		}
+	}
+	
+	private void transformarListaCompleto() {
+		for (int i = 0; i < listaProjetos.size(); i++) {
+			String stringProjeto = "";
+			stringProjeto += listaProjetos.get(i).getNome();
+			stringProjeto += "\nNumero: ";
+			stringProjeto += listaProjetos.get(i).getNumero();
+			stringProjeto += "\nAno:  ";
+			stringProjeto += listaProjetos.get(i).getAno();
+			stringProjeto += "\nSigla: ";
+			stringProjeto += listaProjetos.get(i).getSigla();
+			stringProjeto += "\nData de Apresentação: ";
+			stringProjeto += listaProjetos.get(i).getData();
+			stringProjeto += "\nDescrição: ";
+			stringProjeto += listaProjetos.get(i).getExplicacao();
+			stringProjeto += "\nParlamentar: ";
+			stringProjeto += listaProjetos.get(i).getParlamentar().getNome();
+			stringProjeto += "\nPartido: ";
+			stringProjeto += listaProjetos.get(i).getParlamentar().getPartido().getSiglaPartido();
+			stringProjeto += "\nEstado: ";
+			stringProjeto += listaProjetos.get(i).getParlamentar().getPartido().getUf();
+			stringProjetosCompleto.add(stringProjeto);
 		}
 	}
 
