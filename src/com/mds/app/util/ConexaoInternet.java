@@ -7,6 +7,9 @@ public class ConexaoInternet {
 
 	private Context context;
 
+	public ConexaoInternet(){
+	}
+	
 	public ConexaoInternet(Context context) {
 		this.context = context;
 	}
@@ -28,5 +31,10 @@ public class ConexaoInternet {
 		}
 
 		return hasConnection;
+	}
+	
+	public boolean ChecarConexaoInternet2() {
+		//Implementar...
+		return false;
 	}
 }
