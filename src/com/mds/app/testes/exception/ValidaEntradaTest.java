@@ -15,6 +15,10 @@ public class ValidaEntradaTest {
 
 	@Before
 	public void setUp() throws Exception {
+		
+		ValidaEntrada validaEntradaTeste = new ValidaEntrada() {
+		};
+		
 		System.out.println("Comecando o teste...");
 	}
 
@@ -68,14 +72,12 @@ public class ValidaEntradaTest {
 		assertEquals(true, ValidaEntrada.validaUf(""));
 	}
 
-	/*
 	@Test
 	public void testValidaUf() {
-		assertEquals(false, ValidaEntrada.validaUf("abc"));
+		assertEquals(true, ValidaEntrada.validaUf("abc"));
 	}
-	*/
 	
-
+	
 	@Test
 	public void testValidandoEntradas() {
 		boolean resultadoEsperado[] = { true, true, true, true, true, true, true };
