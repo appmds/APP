@@ -1,11 +1,13 @@
 package com.mds.app.testes.model;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
 
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
+import com.mds.app.model.PartidoModel;
 import com.mds.app.model.ProcuraPartidoModel;
 
 public class ProcuraPartidoModelTest {
@@ -23,6 +25,12 @@ public class ProcuraPartidoModelTest {
 	public void tearDown() throws Exception {
 		System.out.println("Terminando...");
 	}
+	
+	@Test
+	public void testIntanciaParlamentar() {
+		PartidoModel parlamentar = new PartidoModel();
+		assertNotNull(parlamentar);
+	}
 
 	@Test
 	public void testSetThenGetUf() {
@@ -34,6 +42,14 @@ public class ProcuraPartidoModelTest {
 	public void testSetThenGetSigla() {
 		ProcuraPartidoModel.setSigla("PMDS");
 		assertEquals("PMDS", ProcuraPartidoModel.getSigla());
+	}
+	
+	@Test
+	public void testIntanciaPartido() {
+		
+		ProcuraPartidoModel partido = new ProcuraPartidoModel() {
+		};
+		assertNotNull(partido);
 	}
 
 }

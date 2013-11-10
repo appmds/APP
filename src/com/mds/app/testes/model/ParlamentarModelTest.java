@@ -1,12 +1,14 @@
 package com.mds.app.testes.model;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertSame;
 
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
+import com.mds.app.controller.ListaController;
 import com.mds.app.model.ParlamentarModel;
 import com.mds.app.model.PartidoModel;
 
@@ -28,6 +30,18 @@ public class ParlamentarModelTest {
 		System.out.println("Terminando...");
 	}
 
+	@Test
+	public void testIntanciaPartido() {
+		PartidoModel partido = new PartidoModel();
+		assertNotNull(partido);
+	}
+	
+	@Test
+	public void testIntanciaParlamentar() {
+		PartidoModel parlamentar = new PartidoModel();
+		assertNotNull(parlamentar);
+	}
+	
 	@Test
 	public void testGetNome() {
 		assertEquals("NomeParlamentar", parlamentarModel.getNome());

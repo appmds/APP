@@ -1,11 +1,13 @@
 package com.mds.app.testes.model;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
 
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
+import com.mds.app.model.PartidoModel;
 import com.mds.app.model.ProcuraProjetoModel;
 
 public class ProcuraProjetoModelTest {
@@ -23,7 +25,15 @@ public class ProcuraProjetoModelTest {
 	public void tearDown() throws Exception {
 		System.out.println("Terminando...");
 	}
-
+	
+	@Test
+	public void testIntanciaProjeto() {
+		
+		ProcuraProjetoModel procuraProjeto = new ProcuraProjetoModel() {
+		};
+		
+		assertNotNull(procuraProjeto);
+	}
 	@Test
 	public void testSetThenGetAno() {
 		ProcuraProjetoModel.setAno("2013");
