@@ -12,6 +12,10 @@ public class ProcuraPartidoModelTest {
 
 	@Before
 	public void setUp() throws Exception {
+		
+		ProcuraPartidoModel partido = new ProcuraPartidoModel() {
+		};
+		
 		System.out.println("Comecando o teste...");
 	}
 
