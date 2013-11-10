@@ -12,6 +12,10 @@ public class ProcuraParlamentarModelTest {
 
 	@Before
 	public void setUp() throws Exception {
+		
+		ProcuraParlamentarModel p = new ProcuraParlamentarModel() {
+		};
+		
 		System.out.println("Comecando o teste...");
 	}
 

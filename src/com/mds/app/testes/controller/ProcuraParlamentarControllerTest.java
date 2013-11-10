@@ -13,6 +13,7 @@ import com.mds.app.model.ProcuraParlamentarModel;
 public class ProcuraParlamentarControllerTest {
 	@Before
 	public void setUp() throws Exception {
+		ProcuraParlamentarController procuraParlamentarControllerTeste = new ProcuraParlamentarController();
 		System.out.println("Comecando o teste...");
 	}
 
