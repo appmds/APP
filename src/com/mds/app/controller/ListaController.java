@@ -18,6 +18,9 @@ public class ListaController {
 		transformarLista();
 	}
 
+	public ListaController(String string) {
+	}
+
 	public List<ProjetoModel> getListaProjetos() {
 		return listaProjetos;
 	}
@@ -53,6 +56,13 @@ public class ListaController {
 			stringProjeto += listaProjetos.get(i).getParlamentar().getNome();
 			stringProjetos.add(stringProjeto);
 		}
+	}
+
+	public String getLista(String string) {
+		return string;
+	}
+	public void setLista(String string) {
+
 	}
 
 }
