@@ -12,6 +12,10 @@ public class ProcuraProjetoModelTest {
 
 	@Before
 	public void setUp() throws Exception {
+		
+		ProcuraProjetoModel procuraProjeto = new ProcuraProjetoModel() {
+		};
+		
 		System.out.println("Comecando o teste...");
 	}
 
