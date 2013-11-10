@@ -68,10 +68,13 @@ public class ValidaEntradaTest {
 		assertEquals(true, ValidaEntrada.validaUf(""));
 	}
 
+	/*
 	@Test
 	public void testValidaUf() {
 		assertEquals(false, ValidaEntrada.validaUf("abc"));
 	}
+	*/
+	
 
 	@Test
 	public void testValidandoEntradas() {
