@@ -49,4 +49,5 @@ public class ParlamentarModelTest {
 		parlamentarModel.setPartido(partidoModel);
 		assertSame(partidoModel, parlamentarModel.getPartido());
 	}
+
 }
