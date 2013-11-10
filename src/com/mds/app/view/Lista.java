@@ -53,7 +53,9 @@ public class Lista extends Activity {
 				});
 			}
 		});
-
+		
+		listview.setBackgroundResource(R.drawable.app_bg);
+		
 		setContentView(listview);
 
 	}
