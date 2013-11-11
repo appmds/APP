@@ -26,7 +26,7 @@ public class SobreTest extends ActivityInstrumentationTestCase2<Sobre> {
 
 	@Test
 	public void test() {
-		assertEquals(mActivity.voltar ,voltarTest);
+		assertEquals(mActivity.getVoltar() ,voltarTest);
 	}
 	
 

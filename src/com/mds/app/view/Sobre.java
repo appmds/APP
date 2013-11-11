@@ -42,4 +42,8 @@ public class Sobre extends Activity {
 		});
 	}
 
+	public ImageButton getVoltar() {
+		return voltar;
+	}
+
 }

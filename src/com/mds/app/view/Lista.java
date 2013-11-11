@@ -22,7 +22,7 @@ public class Lista extends Activity {
 	private ListaController listar;
 	private ArrayList<String> stringProjetos;
 	private ArrayList<String> stringProjetosCompleto;
-	
+
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -41,8 +41,7 @@ public class Lista extends Activity {
 		listview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
 
 			@Override
-			public void onItemClick(AdapterView<?> parent, final View view,final int position, long id) {
-				final String item = (String) parent.getItemAtPosition(position);
+			public void onItemClick(AdapterView<?> parent, final View view, final int position, long id) {
 				view.animate().setDuration(500).alpha(0).withEndAction(new Runnable() {
 					@Override
 					public void run() {
@@ -53,9 +52,9 @@ public class Lista extends Activity {
 				});
 			}
 		});
-		
+
 		listview.setBackgroundResource(R.drawable.app_bg);
-		
+
 		setContentView(listview);
 
 	}
