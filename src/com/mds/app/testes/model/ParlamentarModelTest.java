@@ -8,7 +8,6 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
-import com.mds.app.controller.ListaController;
 import com.mds.app.model.ParlamentarModel;
 import com.mds.app.model.PartidoModel;
 
@@ -35,13 +34,13 @@ public class ParlamentarModelTest {
 		PartidoModel partido = new PartidoModel();
 		assertNotNull(partido);
 	}
-	
+
 	@Test
 	public void testIntanciaParlamentar() {
 		PartidoModel parlamentar = new PartidoModel();
 		assertNotNull(parlamentar);
 	}
-	
+
 	@Test
 	public void testGetNome() {
 		assertEquals("NomeParlamentar", parlamentarModel.getNome());

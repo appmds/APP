@@ -125,11 +125,11 @@ public class ProjetoModelTest {
 		projetoModel.setParlamentar(outroParlamentar);
 		assertEquals(outroParlamentar, projetoModel.getParlamentar());
 	}
-	
+
 	@Test
 	public void testToString() {
 		ParlamentarModel outroParlamentar = new ParlamentarModel();
 		projetoModel.toString();
-		assertEquals(outroParlamentar.toString(), outroParlamentar.toString() );
+		assertEquals(outroParlamentar.toString(), outroParlamentar.toString());
 	}
 }

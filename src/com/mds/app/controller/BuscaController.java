@@ -14,13 +14,16 @@ import com.mds.app.view.Busca;
 
 public class BuscaController {
 
-	private RecebeHTTP recebeHTTP = new RecebeHTTP();
+	private RecebeHTTP recebeHTTP;
 	private XMLParser xmlParser = new XMLParser();
 	private Busca buscaView;
 	private boolean temConexao;
 	private String textoOffline;
 
 	public BuscaController() {
+	}
+	
+	public void instanciarBusca(){
 		this.buscaView = new Busca();
 	}
 
@@ -79,8 +82,13 @@ public class BuscaController {
 				siglaUF, "", "", "");
 		System.out.println(url);
 		String response;
-		if (temConexao) response = recebeHTTP.recebe(url);
-		else response = textoOffline;
+		recebeHTTP = new RecebeHTTP();
+		if (temConexao) {
+			response = recebeHTTP.recebe(url);
+		}
+		else {
+			response = textoOffline;
+		}
 		return xmlParser.parseProjeto(response);
 	}
 

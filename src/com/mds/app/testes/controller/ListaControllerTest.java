@@ -25,7 +25,7 @@ public class ListaControllerTest {
 
 	@Test
 	public void testFail() {
-		fail("failing test");
+		fail("implementar testes");
 	}
 
 }

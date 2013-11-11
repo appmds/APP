@@ -14,10 +14,10 @@ public class ProcuraPartidoModelTest {
 
 	@Before
 	public void setUp() throws Exception {
-		
+
 		ProcuraPartidoModel partido = new ProcuraPartidoModel() {
 		};
-		
+
 		System.out.println("Comecando o teste...");
 	}
 
@@ -25,7 +25,7 @@ public class ProcuraPartidoModelTest {
 	public void tearDown() throws Exception {
 		System.out.println("Terminando...");
 	}
-	
+
 	@Test
 	public void testIntanciaParlamentar() {
 		PartidoModel parlamentar = new PartidoModel();
@@ -43,10 +43,10 @@ public class ProcuraPartidoModelTest {
 		ProcuraPartidoModel.setSigla("PMDS");
 		assertEquals("PMDS", ProcuraPartidoModel.getSigla());
 	}
-	
+
 	@Test
 	public void testIntanciaPartido() {
-		
+
 		ProcuraPartidoModel partido = new ProcuraPartidoModel() {
 		};
 		assertNotNull(partido);

@@ -1,6 +1,6 @@
 package com.mds.app.testes.services;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.fail;
 
 import java.io.BufferedReader;
 
@@ -13,7 +13,7 @@ import org.junit.Test;
 import com.mds.app.services.RecebeHTTP;
 
 public class RecebeHTTPTest {
-	
+
 	RecebeHTTP recebeHTTP;
 	HttpGet httpGet;
 	BufferedReader buffer;
@@ -21,10 +21,10 @@ public class RecebeHTTPTest {
 
 	@Before
 	public void setUp() throws Exception {
-		
-		recebeHTTP = new RecebeHTTP(){
+
+		recebeHTTP = new RecebeHTTP() {
 		};
-		
+
 		System.out.println("Comecando o teste...");
 	}
 
@@ -33,20 +33,24 @@ public class RecebeHTTPTest {
 		System.out.println("Terminando...");
 	}
 
-	/*
 	@Test
-	public void testInstance() {
-		RecebeHTTP http = new RecebeHTTP();
-		assertNotNull(http);
+	public void testFail() {
+		fail("implementar testes");
 	}
 	
-	@Test
-	public void testResposta() {
-		String resposta = recebeHTTP.recebe("http://www.camara.gov.br");
-		assertEquals(recebeHTTP.recebe("http://www.camara.gov.b"), 
-				recebeHTTP.recebe("http://www.camara.gov.b"));
-	}
-	*/
-
+	/*
+	 * @Test
+	 * public void testInstance() {
+	 * RecebeHTTP http = new RecebeHTTP();
+	 * assertNotNull(http);
+	 * }
+	 * 
+	 * @Test
+	 * public void testResposta() {
+	 * String resposta = recebeHTTP.recebe("http://www.camara.gov.br");
+	 * assertEquals(recebeHTTP.recebe("http://www.camara.gov.b"),
+	 * recebeHTTP.recebe("http://www.camara.gov.b"));
+	 * }
+	 */
 
 }

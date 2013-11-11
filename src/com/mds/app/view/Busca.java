@@ -45,6 +45,7 @@ public class Busca extends Activity {
 		setContentView(R.layout.activity_busca);
 
 		pesquisa = new BuscaController();
+		pesquisa.instanciarBusca();
 		ok_addListener();
 		voltar_addListener();
 		conexao = new ConexaoInternet(this);
@@ -54,9 +55,7 @@ public class Busca extends Activity {
 		}
 		else {
 			persistencia = new Persistencia();
-			persistencia.lerPersistencia(this, "PL2013");
-			pesquisa.setTextoOffline(persistencia.getTxtContent());
-			pesquisa.setTemConexao(false);
+			/* implementar nova persistencia */
 		}
 	}
 

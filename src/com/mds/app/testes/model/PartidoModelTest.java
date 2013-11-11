@@ -15,7 +15,7 @@ public class PartidoModelTest {
 
 	@Before
 	public void setUp() throws Exception {
-		
+
 		System.out.println("Comecando o teste...");
 
 		partidoModel = new PartidoModel("PMDS", "DF");
