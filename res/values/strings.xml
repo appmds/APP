@@ -27,7 +27,39 @@
         <item>PDC</item>
         <item>PRC</item>
     </string-array>
+
      <string name="imgbuttonFavorito">imgbuttonFavorito</string>
+     <string name="imgbuttonPesquisar">imgbuttonPesquisar</string>
      <string name="imgbuttonNaoFavorito">imgbuttonNaoFavorito</string>
+
+        <string name="estadoFrase">Escolha um estado</string>
+     <string-array name="estados">
+        <item>Acre</item>
+        <item>Alagoas</item>
+        <item>Amapá</item>
+        <item>Amazonas</item>
+        <item>Bahia</item>
+        <item>Ceará</item>
+        <item>Distrito Federal</item>
+        <item>Espirito Santo</item>
+        <item>Goias</item>
+        <item>Maranhão</item>
+        <item>Mato Grosso</item>
+        <item>Mato Grosso do Sul</item>
+        <item>Minas Gerais</item>
+        <item>Pará</item>
+        <item>Paraíba</item>
+        <item>Pernambuco</item>
+        <item>Piauí</item>
+        <item>Rio de Janeiro</item>
+        <item>Rio Grande do Norte</item>
+        <item>Rio Grande do Sul</item>
+        <item>Rondônia</item>
+        <item>Roraima</item>
+        <item>Santa Catarina</item>
+        <item>São Paulo</item>
+        <item>Sergipe</item>
+        <item>Tocantins</item>
+    </string-array>
 
 </resources>

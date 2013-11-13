@@ -15,92 +15,92 @@
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:orientation="horizontal" >
-        
-     <TextView 
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Escolha um tipo de projeto:"
-         />
-     
-
-     <Spinner
-        android:id="@+id/spinner1"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:entries="@array/projetos"
-        android:prompt="@string/projetoFrase" />
     </LinearLayout>
-
-    <ImageButton
-        android:id="@+id/okbutton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/linearLayout"
-        android:layout_alignParentBottom="true"
-        android:contentDescription="@string/imgbuttonOK"
-        android:src="@drawable/okbutton" />
-
-    <ImageButton
-        android:id="@+id/voltar"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentRight="true"
-        android:layout_alignTop="@+id/okbutton"
-        android:contentDescription="@string/imgbuttonVoltar"
-        android:src="@drawable/voltar" />
-
-    <EditText
-        android:id="@+id/textAno"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/linearLayout"
-        android:layout_below="@+id/linearLayout"
-        android:ems="10"
-        android:hint="@string/hintAno" />
-
-    <EditText
-        android:id="@+id/textNumero"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/linearLayout"
-        android:layout_below="@+id/textAno"
-        android:ems="10"
-        android:hint="@string/hintNumero" />
-
-    <EditText
-        android:id="@+id/textDataIni"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/linearLayout"
-        android:layout_below="@+id/textNumero"
-        android:ems="10"
-        android:hint="@string/hintDataInicio" />
-
-    <EditText
-        android:id="@+id/textUF"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/linearLayout"
-        android:layout_below="@+id/textDataIni"
-        android:ems="10"
-        android:hint="@string/hintUF" />
-
-    <EditText
-        android:id="@+id/textSiglaPartido"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/linearLayout"
-        android:layout_below="@+id/textUF"
-        android:ems="10"
-        android:hint="@string/hintSiglaPartido" />
 
     <EditText
         android:id="@+id/textNomeAutor"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/linearLayout"
-        android:layout_below="@+id/textSiglaPartido"
+        android:layout_above="@+id/okbutton"
+        android:layout_alignLeft="@id/okbutton"
+        android:layout_marginBottom="15dp"
         android:ems="10"
-        android:hint="@string/hintNomeAutor" />
+        android:hint="@string/hintNomeAutor" >
+
+        <requestFocus />
+    </EditText>
+
+    <EditText
+        android:id="@+id/textSiglaPartido"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/textNomeAutor"
+        android:layout_alignLeft="@+id/textNomeAutor"
+        android:ems="10"
+        android:hint="@string/hintSiglaPartido" />
+
+    <EditText
+        android:id="@+id/textUF"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/textSiglaPartido"
+        android:layout_alignLeft="@+id/textSiglaPartido"
+        android:ems="10"
+        android:hint="@string/hintUF" />
+
+    <EditText
+        android:id="@+id/textDataIni"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/textUF"
+        android:layout_alignLeft="@+id/textUF"
+        android:ems="10"
+        android:hint="@string/hintDataInicio" />
+
+    <EditText
+        android:id="@+id/textNumero"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/textDataIni"
+        android:layout_alignLeft="@+id/textDataIni"
+        android:ems="10"
+        android:hint="@string/hintNumero" />
+
+    <EditText
+        android:id="@+id/textAno"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/textNumero"
+        android:layout_alignLeft="@+id/textNumero"
+        android:ems="10"
+        android:hint="@string/hintAno" />
+
+    <Spinner
+        android:id="@+id/spinner1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/textAno"
+        android:layout_alignLeft="@+id/textAno"
+        android:entries="@array/projetos"
+        android:prompt="@string/projetoFrase" />
+
+    <Spinner
+        android:id="@+id/spinner2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/linearLayout"
+        android:layout_alignParentTop="true"
+        android:entries="@array/estados"
+        android:prompt="@string/estadoFrase" />
+
+    <ImageButton
+        android:id="@+id/okbutton"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignRight="@+id/spinner2"
+        android:contentDescription="@string/imgbuttonOK"
+        android:src="@drawable/pesquisar2"
+        android:background="?android:attr/selectableItemBackground" />
 
 </RelativeLayout>

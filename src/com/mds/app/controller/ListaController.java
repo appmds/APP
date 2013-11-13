@@ -24,9 +24,9 @@ public class ListaController {
 	public ListaController() {
 	}
 
-	// Transforma List<ProjetoModel> listaProjetos em um ArrayList<String>
-	private void transformarLista(){
-		if(listaProjetos == null){
+	/* Transforma List<ProjetoModel> listaProjetos em um ArrayList<String> */
+	private void transformarLista() {
+		if (listaProjetos == null) {
 			stringProjetosCompleto.add("Nada encontrado.");
 			return;
 		}
@@ -42,7 +42,7 @@ public class ListaController {
 	}
 
 	private void transformarListaCompleto() {
-		if(listaProjetos == null){
+		if (listaProjetos == null) {
 			stringProjetosCompleto.add("Nada encontrado.");
 			return;
 		}

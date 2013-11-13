@@ -18,10 +18,13 @@ public class XMLParser {
 
 	public XMLReader inicializarLeitor() throws ParserConfigurationException, SAXException {
 		SAXParserFactory criaParser = SAXParserFactory.newInstance();
+		
 		// Instanciando e criando o parser
 		SAXParser parser = criaParser.newSAXParser();
+		
 		// Criando o método de entrada para ler o XML
 		XMLReader leitorXml = parser.getXMLReader();
+		
 		return leitorXml;
 	}
 

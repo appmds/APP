@@ -22,9 +22,98 @@ public class BuscaController {
 
 	public BuscaController() {
 	}
-	
-	public void instanciarBusca(){
+
+	public void instanciarBusca() {
 		this.buscaView = new Busca();
+	}
+
+	public String transformaUF(String uf) {
+		if (uf.equalsIgnoreCase("Acre")){
+			uf = "AC";
+		}
+		else if (uf.equalsIgnoreCase("Alagoas")){
+			uf = "AL";
+		}
+		else if (uf.equalsIgnoreCase("Amapá")){
+			uf = "AP";
+		}
+		else if (uf.equalsIgnoreCase("Amazonas")){
+			uf = "AM";
+		}
+		else if (uf.equalsIgnoreCase("Bahia")){
+			uf = "BA";
+		}
+		else if (uf.equalsIgnoreCase("Ceará")){
+			uf = "CE";
+		}
+		else if (uf.equalsIgnoreCase("Distrito Federal")){
+			uf = "DF";
+		}
+		else if (uf.equalsIgnoreCase("Espírito Santo")){
+			uf = "ES";
+		}
+		else if (uf.equalsIgnoreCase("Goiás")){
+			uf = "GO";
+		}
+		else if (uf.equalsIgnoreCase("Maranhão")){
+			uf = "MA";
+		}
+		else if (uf.equalsIgnoreCase("Mato Grosso")){
+			uf = "MT";
+		}
+		else if (uf.equalsIgnoreCase("Mato Grosso do Sul")){
+			uf = "MS";
+		}
+		else if (uf.equalsIgnoreCase("Minas Gerais")){
+			uf = "MG";
+		}
+		else if (uf.equalsIgnoreCase("Pará")){
+			uf = "PA";
+		}
+		else if (uf.equalsIgnoreCase("Paraíba")){
+			uf = "PB";
+		}
+		else if (uf.equalsIgnoreCase("Paraná")){
+			uf = "PR";
+		}
+		else if (uf.equalsIgnoreCase("Pernambuco")){
+			uf = "PE";
+		}
+		else if (uf.equalsIgnoreCase("Piauí")){
+			uf = "PI";
+		}
+		else if (uf.equalsIgnoreCase("Rio de Janeiro")){
+			uf = "RJ";
+		}
+		else if (uf.equalsIgnoreCase("Rio Grande do Norte")){
+			uf = "RN";
+		}
+		else if (uf.equalsIgnoreCase("Rio Grande do Sul")){
+			uf = "RS";
+		}
+		else if (uf.equalsIgnoreCase("Rondônia")){
+			uf = "RO";
+		}
+		else if (uf.equalsIgnoreCase("Roraima")){
+			uf = "RR";
+		}
+		else if (uf.equalsIgnoreCase("Santa Catarina")){
+			uf = "SC";
+		}
+		else if (uf.equalsIgnoreCase("São Paulo")){
+			uf = "SP";
+		}
+		else if (uf.equalsIgnoreCase("Sergipe")){
+			uf = "SE";
+		}
+		else if (uf.equalsIgnoreCase("Tocantins")){
+			uf = "TO";
+		}
+		else{
+			//Nao tem outras opcoes
+		}
+		
+		return uf;
 	}
 
 	public boolean atualizarDadosDaPesquisa(String ano, String sigla, String numero, String dataIni,
@@ -51,6 +140,7 @@ public class BuscaController {
 		if (uf == null) {
 			uf = "";
 		}
+		uf = transformaUF(uf);
 
 		String erros = "";
 		erros = ValidaEntrada.identificarErros(ano, sigla, numero, dataIni, nomeAutor, siglaPartido, uf);

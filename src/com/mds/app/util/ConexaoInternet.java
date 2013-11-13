@@ -33,8 +33,4 @@ public class ConexaoInternet {
 		return hasConnection;
 	}
 
-	public boolean ChecarConexaoInternet2() {
-		// Implementar...
-		return false;
-	}
 }

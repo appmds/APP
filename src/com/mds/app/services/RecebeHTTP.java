@@ -13,9 +13,9 @@ import org.apache.http.client.methods.HttpGet;
 import org.apache.http.impl.client.DefaultHttpClient;
 
 public class RecebeHTTP {
-	
 
-	public RecebeHTTP() {}
+	public RecebeHTTP() {
+	}
 
 	public String recebe(String url) {
 
