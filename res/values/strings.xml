@@ -19,5 +19,15 @@
     <string name="imgviewSOBREPROV">imgviewSOBREPROV</string>
     <string name="title_activity_perfil">Perfil</string>
     <string name="hello_world">Hello world!</string>
+    <string name="projetoFrase">Escolha um tipo</string>
+     <string-array name="projetos">
+        <item>PL</item>
+        <item>PEC</item>
+        <item>PLP</item>
+        <item>PDC</item>
+        <item>PRC</item>
+    </string-array>
+     <string name="imgbuttonFavorito">imgbuttonFavorito</string>
+     <string name="imgbuttonNaoFavorito">imgbuttonNaoFavorito</string>
 
 </resources>

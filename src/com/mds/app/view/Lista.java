@@ -42,7 +42,7 @@ public class Lista extends Activity {
 
 			@Override
 			public void onItemClick(AdapterView<?> parent, final View view, final int position, long id) {
-				view.animate().setDuration(500).alpha(0).withEndAction(new Runnable() {
+				view.animate().setDuration(1).alpha(1).withEndAction(new Runnable() {
 					@Override
 					public void run() {
 						Intent i = new Intent(Lista.this, Perfil.class);

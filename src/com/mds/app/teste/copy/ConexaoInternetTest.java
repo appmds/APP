@@ -1,4 +1,4 @@
-package com.mds.app.testes.util;
+package com.mds.app.teste.copy;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
@@ -27,13 +27,13 @@ public class ConexaoInternetTest {
 	}
 
 	@Test
-	public void testaInstancia() {
+	public void testInstancia() {
 		ConexaoInternet conexao = new ConexaoInternet();
 		assertNotNull(conexao);
 	}
 
 	@Test
-	public void testaChecarConexaoInternet() {
+	public void testChecarConexaoInternet() {
 
 		ConexaoInternet conexao = new ConexaoInternet();
 		boolean resposta = conexao.ChecarConexaoInternet2();

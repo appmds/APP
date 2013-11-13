@@ -14,6 +14,8 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.RadioGroup;
+import android.widget.Spinner;
 import android.widget.Toast;
 
 import com.mds.app.R;
@@ -76,19 +78,20 @@ public class Busca extends Activity {
 		ok = (ImageButton) findViewById(R.id.okbutton);
 		ok.setOnClickListener(new OnClickListener() {
 
-			EditText siglaTexto = (EditText) findViewById(R.id.textSigla);
+			Spinner spinner1 = (Spinner) findViewById(R.id.spinner1);
 			EditText numeroTexto = (EditText) findViewById(R.id.textNumero);
 			EditText anoTexto = (EditText) findViewById(R.id.textAno);
 			EditText dataInicialTexto = (EditText) findViewById(R.id.textDataIni);
 			EditText nomeAutorTexto = (EditText) findViewById(R.id.textNomeAutor);
 			EditText siglaPartidoTexto = (EditText) findViewById(R.id.textSiglaPartido);
 			EditText UFTexto = (EditText) findViewById(R.id.textUF);
+			
+
 
 			@Override
 			public void onClick(View v) {
 
-				boolean validacao = pesquisa.atualizarDadosDaPesquisa(anoTexto.getText().toString(), siglaTexto
-						.getText().toString(), numeroTexto.getText().toString(), dataInicialTexto.getText()
+				boolean validacao = pesquisa.atualizarDadosDaPesquisa(anoTexto.getText().toString(), String.valueOf(spinner1.getSelectedItem()), numeroTexto.getText().toString(), dataInicialTexto.getText()
 						.toString(), nomeAutorTexto.getText().toString(), siglaPartidoTexto.getText().toString(),
 						UFTexto.getText().toString());
 				if (validacao) {

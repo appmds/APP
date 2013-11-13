@@ -15,4 +15,14 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"/>
     
+    <ImageButton
+        android:id="@+id/naoFavorito"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_alignBottom="@+id/texto"
+        android:contentDescription="@string/imgbuttonNaoFavorito"
+        android:background="@drawable/naofavorito" />
+  
+    
 </RelativeLayout>

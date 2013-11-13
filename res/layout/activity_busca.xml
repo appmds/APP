@@ -14,15 +14,21 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:orientation="vertical" >
+        android:orientation="horizontal" >
+        
+     <TextView 
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Escolha um tipo de projeto:"
+         />
+     
 
-        <EditText
-            android:id="@+id/textSigla"
-            android:layout_width="235dp"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:hint="@string/hintProjeto" />
+     <Spinner
+        android:id="@+id/spinner1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:entries="@array/projetos"
+        android:prompt="@string/projetoFrase" />
     </LinearLayout>
 
     <ImageButton

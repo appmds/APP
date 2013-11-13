@@ -1,4 +1,4 @@
-package com.mds.app.testes.controller;
+package com.mds.app.teste.copy;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
