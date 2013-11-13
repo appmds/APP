@@ -49,7 +49,6 @@ public class Busca extends Activity {
 		pesquisa = new BuscaController();
 		pesquisa.instanciarBusca();
 		ok_addListener();
-		voltar_addListener();
 		conexao = new ConexaoInternet(this);
 
 		if (conexao.ChecarConexaoInternet()) {
@@ -61,24 +60,15 @@ public class Busca extends Activity {
 		}
 	}
 
-	private void voltar_addListener() {
-		voltar = (ImageButton) findViewById(R.id.voltar);
-		voltar.setOnClickListener(new OnClickListener() {
-
-			@Override
-			public void onClick(View v) {
-				Intent i = new Intent(Busca.this, MenuPrincipal.class);
-				startActivity(i);
-
-			}
-		});
-	}
-
 	private void ok_addListener() {
 		ok = (ImageButton) findViewById(R.id.okbutton);
 		ok.setOnClickListener(new OnClickListener() {
 
 			Spinner spinner1 = (Spinner) findViewById(R.id.spinner1);
+<<<<<<< HEAD
+=======
+			Spinner spinner2 = (Spinner) findViewById(R.id.spinner2);
+>>>>>>> Melhorando a interface
 			EditText numeroTexto = (EditText) findViewById(R.id.textNumero);
 			EditText anoTexto = (EditText) findViewById(R.id.textAno);
 			EditText dataInicialTexto = (EditText) findViewById(R.id.textDataIni);
@@ -93,12 +83,12 @@ public class Busca extends Activity {
 
 				boolean validacao = pesquisa.atualizarDadosDaPesquisa(anoTexto.getText().toString(), String.valueOf(spinner1.getSelectedItem()), numeroTexto.getText().toString(), dataInicialTexto.getText()
 						.toString(), nomeAutorTexto.getText().toString(), siglaPartidoTexto.getText().toString(),
-						UFTexto.getText().toString());
+						String.valueOf(spinner2.getSelectedItem()));
 				if (validacao) {
 					new PesquisarProjetoTask().execute();
 				}
 				else {
-					Toast.makeText(Busca.this, "NOK", Toast.LENGTH_SHORT).show();
+					Toast.makeText(Busca.this, "Dados Invalidos", Toast.LENGTH_SHORT).show();
 				}
 			}
 		});
