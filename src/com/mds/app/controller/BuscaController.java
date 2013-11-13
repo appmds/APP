@@ -26,65 +26,6 @@ public class BuscaController {
 	public void instanciarBusca(){
 		this.buscaView = new Busca();
 	}
-	
-	public String transformaUF(String uf){
-		if(uf.equalsIgnoreCase("Acre"))
-			uf = "AC";
-		if(uf.equalsIgnoreCase("Alagoas"))
-			uf = "AL";
-		if(uf.equalsIgnoreCase("Amapá"))
-			uf = "AP";
-		if(uf.equalsIgnoreCase("Amazonas"))
-			uf = "AM";
-		if(uf.equalsIgnoreCase("Bahia"))
-			uf = "BA";
-		if(uf.equalsIgnoreCase("Ceará"))
-			uf = "CE";
-		if(uf.equalsIgnoreCase("Distrito Federal"))
-			uf = "DF";
-		if(uf.equalsIgnoreCase("Espírito Santo"))
-			uf = "ES";
-		if(uf.equalsIgnoreCase("Goiás"))
-			uf = "GO";
-		if(uf.equalsIgnoreCase("Maranhão"))
-			uf = "MA";
-		if(uf.equalsIgnoreCase("Mato Grosso"))
-			uf = "MT";
-		if(uf.equalsIgnoreCase("Mato Grosso do Sul"))
-			uf = "MS";
-		if(uf.equalsIgnoreCase("Minas Gerais"))
-			uf = "MG";
-		if(uf.equalsIgnoreCase("Pará"))
-			uf = "PA";
-		if(uf.equalsIgnoreCase("Paraíba"))
-			uf = "PB";
-		if(uf.equalsIgnoreCase("Paraná"))
-			uf = "PR";
-		if(uf.equalsIgnoreCase("Pernambuco"))
-			uf = "PE";
-		if(uf.equalsIgnoreCase("Piauí"))
-			uf = "PI";
-		if(uf.equalsIgnoreCase("Rio de Janeiro"))
-			uf = "RJ";
-		if(uf.equalsIgnoreCase("Rio Grande do Norte"))
-			uf = "RN";
-		if(uf.equalsIgnoreCase("Rio Grande do Sul"))
-			uf = "RS";
-		if(uf.equalsIgnoreCase("Rondônia"))
-			uf = "RO";
-		if(uf.equalsIgnoreCase("Roraima"))
-			uf = "RR";
-		if(uf.equalsIgnoreCase("Santa Catarina"))
-			uf = "SC";
-		if(uf.equalsIgnoreCase("São Paulo"))
-			uf = "SP";
-		if(uf.equalsIgnoreCase("Sergipe"))
-			uf = "SE";
-		if(uf.equalsIgnoreCase("Tocantins"))
-			uf = "TO";
-			return uf;
-		}
-	
 
 	public boolean atualizarDadosDaPesquisa(String ano, String sigla, String numero, String dataIni,
 			String nomeAutor, String siglaPartido, String uf) {
@@ -110,7 +51,6 @@ public class BuscaController {
 		if (uf == null) {
 			uf = "";
 		}
-		uf = transformaUF(uf);
 
 		String erros = "";
 		erros = ValidaEntrada.identificarErros(ano, sigla, numero, dataIni, nomeAutor, siglaPartido, uf);

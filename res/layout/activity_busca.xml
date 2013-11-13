@@ -14,7 +14,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
-<<<<<<< HEAD
         android:orientation="horizontal" >
         
      <TextView 
@@ -34,27 +33,28 @@
 
     <ImageButton
         android:id="@+id/okbutton"
-=======
-        android:orientation="vertical" >
-        
-     <TextView 
->>>>>>> Melhorando a interface
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Escolha um tipo de projeto:"
-         />
-    
-     <Spinner
-        android:id="@+id/spinner1"
-        android:layout_width="match_parent"
+        android:layout_alignLeft="@+id/linearLayout"
+        android:layout_alignParentBottom="true"
+        android:contentDescription="@string/imgbuttonOK"
+        android:src="@drawable/okbutton" />
+
+    <ImageButton
+        android:id="@+id/voltar"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:entries="@array/projetos"
-        android:prompt="@string/projetoFrase" />
-    
+        android:layout_alignParentRight="true"
+        android:layout_alignTop="@+id/okbutton"
+        android:contentDescription="@string/imgbuttonVoltar"
+        android:src="@drawable/voltar" />
+
     <EditText
         android:id="@+id/textAno"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/linearLayout"
+        android:layout_below="@+id/linearLayout"
         android:ems="10"
         android:hint="@string/hintAno" />
 
@@ -62,6 +62,8 @@
         android:id="@+id/textNumero"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/linearLayout"
+        android:layout_below="@+id/textAno"
         android:ems="10"
         android:hint="@string/hintNumero" />
 
@@ -69,20 +71,25 @@
         android:id="@+id/textDataIni"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/linearLayout"
+        android:layout_below="@+id/textNumero"
         android:ems="10"
         android:hint="@string/hintDataInicio" />
 
-	<Spinner
-        android:id="@+id/spinner2"
-        android:layout_width="match_parent"
+    <EditText
+        android:id="@+id/textUF"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:entries="@array/estados"
-        android:prompt="@string/estadoFrase" />
+        android:layout_alignLeft="@+id/linearLayout"
+        android:layout_below="@+id/textDataIni"
+        android:ems="10"
+        android:hint="@string/hintUF" />
 
     <EditText
         android:id="@+id/textSiglaPartido"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/linearLayout"
         android:layout_below="@+id/textUF"
         android:ems="10"
         android:hint="@string/hintSiglaPartido" />
@@ -91,17 +98,9 @@
         android:id="@+id/textNomeAutor"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/linearLayout"
         android:layout_below="@+id/textSiglaPartido"
         android:ems="10"
         android:hint="@string/hintNomeAutor" />
-    
-    
-    <ImageButton
-        android:id="@+id/okbutton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:contentDescription="@string/imgbuttonOK"
-        android:src="@drawable/okbutton" />
-    
-</LinearLayout>
+
 </RelativeLayout>

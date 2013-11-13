@@ -9,10 +9,6 @@ package com.mds.app;
 
 public final class R {
     public static final class array {
-<<<<<<< HEAD
-=======
-        public static final int estados=0x7f060001;
->>>>>>> Melhorando a interface
         public static final int projetos=0x7f060000;
     }
     public static final class attr {
@@ -45,7 +41,6 @@ public final class R {
         public static final int imgbutton_sobre=0x7f09000c;
         public static final int imgviewLogo=0x7f09000a;
         public static final int linearLayout=0x7f090000;
-<<<<<<< HEAD
         public static final int naoFavorito=0x7f09000e;
         public static final int okbutton=0x7f090002;
         public static final int spinner1=0x7f090001;
@@ -57,19 +52,6 @@ public final class R {
         public static final int textUF=0x7f090007;
         public static final int texto=0x7f09000d;
         public static final int voltar=0x7f090003;
-=======
-        public static final int okbutton=0x7f090009;
-        public static final int spinner1=0x7f090001;
-        public static final int spinner2=0x7f090005;
-        public static final int textAno=0x7f090002;
-        public static final int textDataIni=0x7f090004;
-        public static final int textNomeAutor=0x7f090008;
-        public static final int textNumero=0x7f090003;
-        public static final int textSiglaPartido=0x7f090006;
-        public static final int textUF=0x7f090007;
-        public static final int texto=0x7f09000d;
-        public static final int voltar=0x7f09000e;
->>>>>>> Melhorando a interface
     }
     public static final class layout {
         public static final int activity_busca=0x7f030000;
@@ -86,7 +68,6 @@ public final class R {
     public static final class string {
         public static final int action_settings=0x7f050001;
         public static final int app_name=0x7f050000;
-        public static final int estadoFrase=0x7f050013;
         public static final int hello_world=0x7f050011;
         public static final int hintAno=0x7f050004;
         public static final int hintDataInicio=0x7f050006;
