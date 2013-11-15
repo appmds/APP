@@ -48,11 +48,7 @@
         android:layout_alignLeft="@+id/textNumero"
         android:ems="10"
         android:hint="@string/hintDataInicio" />
-   	
-   	<CalendarView
-        android:id="@+id/calendar_view"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+    
 
     <EditText
         android:id="@+id/textNumero"
@@ -62,7 +58,7 @@
         android:layout_alignLeft="@+id/textAno"
         android:ems="10"
         android:hint="@string/hintNumero" />
-
+    
     <EditText
         android:id="@+id/textAno"
         android:layout_width="wrap_content"
@@ -99,5 +95,5 @@
         android:contentDescription="@string/imgbuttonOK"
         android:src="@drawable/pesquisar2"
         android:background="?android:attr/selectableItemBackground" />
-
+    
 </RelativeLayout>

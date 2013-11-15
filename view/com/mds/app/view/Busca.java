@@ -12,6 +12,7 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.Spinner;
@@ -24,6 +25,7 @@ import com.mds.app.model.ProjetoModel;
 import com.mds.app.persistencia.Persistencia;
 import com.mds.app.util.CancelTaskOnCancelListener;
 import com.mds.app.util.ConexaoInternet;
+import com.mds.app.util.DatePicker;
 
 public class Busca extends Activity {
 
@@ -43,6 +45,14 @@ public class Busca extends Activity {
 		StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().detectAll().penaltyLog().build();
 		StrictMode.setThreadPolicy(policy);
 		setContentView(R.layout.activity_busca);
+
+		/*Button datePickerButton = (Button) findViewById(R.id.date_picker_button);
+		datePickerButton.setOnClickListener(new OnClickListener() {
+			public void onClick(View v) {
+				DatePicker dt = new DatePicker();
+				dt.showDateDialog();
+			}
+		});*/
 
 		pesquisa = new BuscaController();
 		pesquisa.instanciarBusca();
@@ -69,6 +79,7 @@ public class Busca extends Activity {
 			EditText dataInicialTexto = (EditText) findViewById(R.id.textDataIni);
 			EditText nomeAutorTexto = (EditText) findViewById(R.id.textNomeAutor);
 			EditText siglaPartidoTexto = (EditText) findViewById(R.id.textSiglaPartido);
+			
 
 			@Override
 			public void onClick(View v) {
@@ -128,5 +139,4 @@ public class Busca extends Activity {
 		}
 
 	}
-
 }
