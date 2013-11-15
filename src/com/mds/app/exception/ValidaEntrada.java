@@ -1,4 +1,6 @@
 package com.mds.app.exception;
+import java.util.regex.Matcher;  
+import java.util.regex.Pattern;  
 
 public abstract class ValidaEntrada {
 
@@ -14,8 +16,9 @@ public abstract class ValidaEntrada {
 		if (autor.equals("")) {
 			return true;
 		}
-
-		return autor.matches("[a-zA-Z]*");
+		Pattern pattern = Pattern.compile("[0-9]");  
+        Matcher matcher = pattern.matcher(autor);  
+		return matcher.find();
 	}
 
 	public static boolean validaNumero(String numero) {

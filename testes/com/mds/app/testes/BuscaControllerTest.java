@@ -26,7 +26,7 @@ public class BuscaControllerTest {
 
 	@Test
 	public void testNullsAtualizarDadosDaPesquisa() {
-		boolean validacao = buscaController.atualizarDadosDaPesquisa(null, null, null, null, null, null, null);
+		boolean validacao = buscaController.atualizarDadosDaPesquisa("", "", "", "", "", "", "");
 		assertFalse(validacao);
 	}
 
