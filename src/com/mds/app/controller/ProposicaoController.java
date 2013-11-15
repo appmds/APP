@@ -12,7 +12,7 @@ import com.mds.app.model.ProjetoModel;
 
 public class ProposicaoController extends DefaultHandler {
 
-	private StringBuffer buffer = new StringBuffer();
+	private StringBuffer buffer;
 
 	private ArrayList<ProjetoModel> listaProjetos;
 	private ProjetoModel projeto;
@@ -20,7 +20,7 @@ public class ProposicaoController extends DefaultHandler {
 	private PartidoModel partido;
 
 	public ProposicaoController() {
-
+		buffer = new StringBuffer();
 	}
 
 	@Override
@@ -90,5 +90,43 @@ public class ProposicaoController extends DefaultHandler {
 	public ArrayList<ProjetoModel> getListaProjetos() {
 		return listaProjetos;
 	}
+
+	public StringBuffer getBuffer() {
+		return buffer;
+	}
+
+	public void setBuffer(StringBuffer buffer) {
+		this.buffer = buffer;
+	}
+
+	public ProjetoModel getProjeto() {
+		return projeto;
+	}
+
+	public void setProjeto(ProjetoModel projeto) {
+		this.projeto = projeto;
+	}
+
+	public ParlamentarModel getParlamentar() {
+		return parlamentar;
+	}
+
+	public void setParlamentar(ParlamentarModel parlamentar) {
+		this.parlamentar = parlamentar;
+	}
+
+	public PartidoModel getPartido() {
+		return partido;
+	}
+
+	public void setPartido(PartidoModel partido) {
+		this.partido = partido;
+	}
+
+	public void setListaProjetos(ArrayList<ProjetoModel> listaProjetos) {
+		this.listaProjetos = listaProjetos;
+	}
+	
+	
 
 }

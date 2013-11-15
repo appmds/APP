@@ -29,6 +29,12 @@ public class RecebeHTTPTest {
 	public void tearDown() throws Exception {
 		recebeHTTP = null;
 	}
+	
+	@Test
+	public void testRecebe(){
+		recebeHTTP.recebe(null);
+		fail("implementar");
+	}
 
 	@Test
 	public void testFail() {
