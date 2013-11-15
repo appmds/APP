@@ -70,8 +70,6 @@ public class Busca extends Activity {
 			EditText nomeAutorTexto = (EditText) findViewById(R.id.textNomeAutor);
 			EditText siglaPartidoTexto = (EditText) findViewById(R.id.textSiglaPartido);
 
-			// EditText UFTexto = (EditText) findViewById(R.id.textUF);
-
 			@Override
 			public void onClick(View v) {
 

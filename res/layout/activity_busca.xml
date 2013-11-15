@@ -48,6 +48,11 @@
         android:layout_alignLeft="@+id/textNumero"
         android:ems="10"
         android:hint="@string/hintDataInicio" />
+   	
+   	<CalendarView
+        android:id="@+id/calendar_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
 
     <EditText
         android:id="@+id/textNumero"

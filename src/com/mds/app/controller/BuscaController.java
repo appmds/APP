@@ -28,7 +28,10 @@ public class BuscaController {
 	}
 
 	public String transformaUF(String uf) {
-		if (uf.equalsIgnoreCase("Acre")){
+		if (uf.equalsIgnoreCase("Todos")){
+			uf = "";
+		}
+		else if (uf.equalsIgnoreCase("Acre")){
 			uf = "AC";
 		}
 		else if (uf.equalsIgnoreCase("Alagoas")){
@@ -118,26 +121,26 @@ public class BuscaController {
 
 	public boolean atualizarDadosDaPesquisa(String ano, String sigla, String numero, String dataIni,
 			String nomeAutor, String siglaPartido, String uf) {
-
-		if (ano == null) {
-			ano = "";
+		
+		if (ano.isEmpty()) {
+			ano = "2013";
 		}
-		if (sigla == null) {
+		if (sigla.isEmpty()) {
 			sigla = "";
 		}
-		if (numero == null) {
+		if (numero.isEmpty()) {
 			numero = "";
 		}
-		if (dataIni == null) {
+		if (dataIni.isEmpty()) {
 			dataIni = "";
 		}
-		if (nomeAutor == null) {
+		if (nomeAutor.isEmpty()) {
 			nomeAutor = "";
 		}
-		if (siglaPartido == null) {
+		if (siglaPartido.isEmpty()) {
 			siglaPartido = "";
 		}
-		if (uf == null) {
+		if (uf.isEmpty()) {
 			uf = "";
 		}
 		uf = transformaUF(uf);
