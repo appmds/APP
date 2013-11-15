@@ -91,4 +91,10 @@ public class ProjetoModel {
 		return cont;
 	}
 
+	@Override
+	public String toString() {
+		return "ProjetoModel [ano=" + ano + ", numero=" + numero + ", nome=" + nome + ", sigla=" + sigla
+				+ ", data=" + data + ", explicacao=" + explicacao + ", parlamentar=" + parlamentar.getNome() + "]";
+	}
+
 }

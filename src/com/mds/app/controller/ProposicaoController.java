@@ -13,6 +13,7 @@ import com.mds.app.model.ProjetoModel;
 public class ProposicaoController extends DefaultHandler {
 
 	private StringBuffer buffer;
+
 	private ArrayList<ProjetoModel> listaProjetos;
 	private ProjetoModel projeto;
 	private ParlamentarModel parlamentar;
@@ -49,6 +50,9 @@ public class ProposicaoController extends DefaultHandler {
 			projeto.setParlamentar(parlamentar);
 			parlamentar.setPartido(partido);
 		}
+		else if (localName.equals("ano")) {
+			projeto.setAno(buffer.toString());
+		}
 		else if (localName.equals("nome")) {
 			projeto.setNome(buffer.toString());
 		}
@@ -74,7 +78,7 @@ public class ProposicaoController extends DefaultHandler {
 			partido.setUf(buffer.toString());
 		}
 		else {
-			//
+
 		}
 	}
 
@@ -86,5 +90,43 @@ public class ProposicaoController extends DefaultHandler {
 	public ArrayList<ProjetoModel> getListaProjetos() {
 		return listaProjetos;
 	}
+
+	public StringBuffer getBuffer() {
+		return buffer;
+	}
+
+	public void setBuffer(StringBuffer buffer) {
+		this.buffer = buffer;
+	}
+
+	public ProjetoModel getProjeto() {
+		return projeto;
+	}
+
+	public void setProjeto(ProjetoModel projeto) {
+		this.projeto = projeto;
+	}
+
+	public ParlamentarModel getParlamentar() {
+		return parlamentar;
+	}
+
+	public void setParlamentar(ParlamentarModel parlamentar) {
+		this.parlamentar = parlamentar;
+	}
+
+	public PartidoModel getPartido() {
+		return partido;
+	}
+
+	public void setPartido(PartidoModel partido) {
+		this.partido = partido;
+	}
+
+	public void setListaProjetos(ArrayList<ProjetoModel> listaProjetos) {
+		this.listaProjetos = listaProjetos;
+	}
+	
+	
 
 }

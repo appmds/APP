@@ -7,26 +7,30 @@ public class ConexaoInternet {
 
 	private Context context;
 
+	public ConexaoInternet() {
+	}
+
 	public ConexaoInternet(Context context) {
 		this.context = context;
 	}
 
 	public boolean ChecarConexaoInternet() {
-
-		boolean temConexao = false;
+		boolean hasConnection = false;
 
 		ConnectivityManager conexao = (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
 		android.net.NetworkInfo wifi = conexao.getNetworkInfo(ConnectivityManager.TYPE_WIFI);
 		android.net.NetworkInfo mobile = conexao.getNetworkInfo(ConnectivityManager.TYPE_MOBILE);
 
 		if (wifi.isConnected() || mobile.isConnected()) {
-			System.out.println("Tem conexao com a internet!");
-			temConexao = true;
+			System.out.println("TEM CONEXAO COM A INTERNET");
+			hasConnection = true;
 		}
 		else {
-			temConexao = false;
+			System.out.println("DESCONECTADO DA INTERNET");
+			hasConnection = false;
 		}
 
-		return temConexao;
+		return hasConnection;
 	}
+
 }

@@ -44,7 +44,6 @@ public abstract class ValidaEntrada {
 
 	public static boolean[] validandoEntradas(String ano, String sigla, String numero, String dataIni,
 			String autor, String partido, String uf) {
-
 		boolean entradas[] = { false, false, false, false, false, false, false };
 
 		if (!validaAno(ano)) {
@@ -68,13 +67,11 @@ public abstract class ValidaEntrada {
 		if (!validaUf(uf)) {
 			entradas[6] = true;
 		}
-
 		return entradas;
 	}
 
 	public static String identificarErros(String ano, String sigla, String numero, String dataIni, String autor,
 			String partido, String uf) {
-
 		boolean recebeValidacao[];
 
 		recebeValidacao = validandoEntradas(ano, sigla, numero, dataIni, autor, partido, uf);

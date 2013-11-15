@@ -14,6 +14,9 @@ import org.apache.http.impl.client.DefaultHttpClient;
 
 public class RecebeHTTP {
 
+	public RecebeHTTP() {
+	}
+
 	public String recebe(String url) {
 
 		BufferedReader inputStream = null;
