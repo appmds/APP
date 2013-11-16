@@ -4,6 +4,7 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 
 import org.junit.After;
+import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -31,6 +32,16 @@ public class ProjetoModelTest {
 	@Test
 	public void testInstance() {
 		assertNotNull(projetoModel);
+	}
+	
+	@Test
+	public void testarNomeClasse(){
+		Assert.assertEquals("ParlamentarModel", parlamentarModel.getClass().getSimpleName());
+	}
+	
+	@Test
+	public void testarNomeClasse2(){
+		Assert.assertEquals("ProjetoModel", projetoModel.getClass().getSimpleName());
 	}
 
 	@Test

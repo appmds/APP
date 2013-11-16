@@ -192,7 +192,7 @@ public class ProposicaoControllerTest {
 			proposicaoController.endElement("a", "txtNomeAutor", "q");
 		}catch(SAXException saxe){
 		}
-		fail("implementar");
+		fail("");
 	}
 	
 	@Test

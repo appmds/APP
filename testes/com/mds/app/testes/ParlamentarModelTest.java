@@ -5,6 +5,7 @@ import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertSame;
 
 import org.junit.After;
+import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -34,6 +35,17 @@ public class ParlamentarModelTest {
 		assertNotNull(partido);
 	}
 
+	
+	@Test
+	public void testarNomeClasse(){
+		Assert.assertEquals("PartidoModel", partidoModel.getClass().getSimpleName());
+	}
+	
+	@Test
+	public void testarNomeClasse2(){
+		Assert.assertEquals("ParlamentarModel", parlamentarModel.getClass().getSimpleName());
+	}
+	
 	@Test
 	public void testIntanciaParlamentar() {
 		PartidoModel parlamentar = new PartidoModel();

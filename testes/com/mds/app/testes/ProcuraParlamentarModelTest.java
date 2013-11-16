@@ -3,6 +3,7 @@ package com.mds.app.testes;
 import static org.junit.Assert.assertEquals;
 
 import org.junit.After;
+import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 

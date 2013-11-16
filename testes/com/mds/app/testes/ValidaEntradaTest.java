@@ -6,6 +6,7 @@ import static org.junit.Assert.assertTrue;
 import java.util.Arrays;
 
 import org.junit.After;
+import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -25,7 +26,7 @@ public class ValidaEntradaTest {
 	public void tearDown() throws Exception {
 		validaEntradaTeste = null;
 	}
-
+	
 	@Test
 	public void testValidaDataVazia() {
 		assertEquals(true, ValidaEntrada.validaData(""));

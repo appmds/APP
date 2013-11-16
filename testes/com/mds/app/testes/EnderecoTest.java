@@ -3,6 +3,7 @@ package com.mds.app.testes;
 import static org.junit.Assert.assertEquals;
 
 import org.junit.After;
+import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -10,7 +11,7 @@ import com.mds.app.services.Endereco;
 
 public class EnderecoTest {
 
-	public Endereco endereco;
+	Endereco endereco;
 
 	@Before
 	public void setUp() throws Exception {

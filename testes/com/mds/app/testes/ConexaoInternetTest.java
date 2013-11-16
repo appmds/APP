@@ -2,11 +2,15 @@ package com.mds.app.testes;
 
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.fail;
+import junit.framework.Assert;
 
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
+import android.os.AsyncTask;
+
+import com.mds.app.util.CancelTaskOnCancelListener;
 import com.mds.app.util.ConexaoInternet;
 
 public class ConexaoInternetTest {
@@ -30,8 +34,12 @@ public class ConexaoInternetTest {
 	}
 
 	@Test
+	public void testNomeClasse(){
+		Assert.assertEquals("ConexaoInternet", conexaoInternet.getClass().getSimpleName());
+	}
+	@Test
 	public void testChecarConexaoInternet() {
-		fail("Implementar");
+		fail();
 	}
 
 }
