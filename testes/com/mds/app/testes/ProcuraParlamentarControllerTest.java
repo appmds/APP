@@ -2,11 +2,13 @@ package com.mds.app.testes;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
+import junit.framework.Assert;
 
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
+import com.mds.app.controller.BuscaController;
 import com.mds.app.controller.ProcuraParlamentarController;
 import com.mds.app.model.ProcuraParlamentarModel;
 
@@ -30,6 +32,11 @@ public class ProcuraParlamentarControllerTest {
 		assertNotNull(procuraParlamentarController);
 	}
 
+	@Test
+	public void testarNomeDaClasse(){
+		ProcuraParlamentarController procura = new ProcuraParlamentarController();
+		Assert.assertEquals("ProcuraParlamentarController", procura.getClass().getSimpleName());
+	}
 	@Test
 	public void testAtualizarDadosPesquisaParlamentar() {
 		ProcuraParlamentarController.atualizarDadosPesquisaParlamentar("Joao");

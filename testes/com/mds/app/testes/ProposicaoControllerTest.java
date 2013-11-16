@@ -7,11 +7,14 @@ import static org.junit.Assert.fail;
 
 import java.util.ArrayList;
 
+import junit.framework.Assert;
+
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import org.xml.sax.SAXException;
 
+import com.mds.app.controller.BuscaController;
 import com.mds.app.controller.ProposicaoController;
 import com.mds.app.model.ParlamentarModel;
 import com.mds.app.model.PartidoModel;
@@ -44,6 +47,12 @@ public class ProposicaoControllerTest {
 			
 		}
 		assertNotNull(proposicaoController.getParlamentar());
+	}
+	
+	@Test
+	public void testarNomeDaClasse(){
+		ProposicaoController p = new ProposicaoController();
+		Assert.assertEquals("ProposicaoController", p.getClass().getSimpleName());
 	}
 	
 	@Test

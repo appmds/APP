@@ -1,8 +1,8 @@
 package com.mds.app.testes;
 
+
 import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.fail;
+import junit.framework.Assert;
 
 import org.junit.After;
 import org.junit.Before;
@@ -24,13 +24,18 @@ public class BuscaControllerTest {
 	public void tearDown() throws Exception {
 		buscaController = null;
 	}
-
+	
 	@Test
 	public void testNullsAtualizarDadosDaPesquisa() {
 		boolean validacao = buscaController.atualizarDadosDaPesquisa("", "", "", "", "", "", "");
-		assertFalse(validacao);
+		assertEquals(true, validacao);
 	}
-
+	@Test
+	public void testarNomeDaClasse(){
+		BuscaController c = new BuscaController();
+		Assert.assertEquals("BuscaController", c.getClass().getSimpleName());
+	}
+	
 	@Test
 	public void testTransformaUfTodos(){
 		String ufEsperada = "";
@@ -199,13 +204,6 @@ public class BuscaControllerTest {
 		String ufEsperada = "TO";
 		String resultado = buscaController.transformaUF("Tocantins");
 		assertEquals(ufEsperada, resultado);
-	}
-	
-	
-
-	@Test
-	public void testFail() {
-		fail("implementar testes");
 	}
 
 }

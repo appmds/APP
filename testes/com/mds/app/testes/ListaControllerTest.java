@@ -6,10 +6,13 @@ import static org.junit.Assert.fail;
 
 import java.util.ArrayList;
 
+import junit.framework.Assert;
+
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
+import com.mds.app.controller.BuscaController;
 import com.mds.app.controller.ListaController;
 import com.mds.app.model.ParlamentarModel;
 import com.mds.app.model.PartidoModel;
@@ -45,6 +48,12 @@ public class ListaControllerTest {
 	@Test
 	public void testInstance(){
 		assertNotNull(listaController);
+	}
+	
+	@Test
+	public void testarNomeDaClasse(){
+		ListaController lista = new ListaController();
+		Assert.assertEquals("ListaController", lista.getClass().getSimpleName());
 	}
 	
 	@Test
