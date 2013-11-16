@@ -12,7 +12,6 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.View;
 import android.view.View.OnClickListener;
-import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.Spinner;
@@ -25,7 +24,6 @@ import com.mds.app.model.ProjetoModel;
 import com.mds.app.persistencia.Persistencia;
 import com.mds.app.util.CancelTaskOnCancelListener;
 import com.mds.app.util.ConexaoInternet;
-import com.mds.app.util.DatePicker;
 
 public class Busca extends Activity {
 
@@ -63,7 +61,6 @@ public class Busca extends Activity {
 			pesquisa.setTemConexao(true);
 		}
 		else {
-			persistencia = new Persistencia();
 			/* implementar nova persistencia */
 		}
 	}

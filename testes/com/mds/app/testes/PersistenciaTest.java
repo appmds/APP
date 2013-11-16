@@ -15,7 +15,8 @@ public class PersistenciaTest {
 
 	@Before
 	public void setUp() throws Exception {
-		persistencia = new Persistencia();
+		persistencia = new Persistencia(){
+		};
 	}
 
 	@After
