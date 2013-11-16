@@ -22,12 +22,15 @@ public class ListaController {
 	}
 
 	public ListaController() {
+		this.listaProjetos = null;
+		this.stringProjetos = new ArrayList<String>();
+		this.stringProjetosCompleto = new ArrayList<String>();
 	}
 
 	/* Transforma List<ProjetoModel> listaProjetos em um ArrayList<String> */
-	private void transformarLista() {
-		if (listaProjetos == null) {
-			stringProjetosCompleto.add("Nada encontrado.");
+	public void transformarLista() {
+		if (this.getListaProjetos() == null) {
+			stringProjetos.add("Nada encontrado.");
 			return;
 		}
 		for (int i = 0; i < listaProjetos.size(); i++) {
@@ -41,7 +44,7 @@ public class ListaController {
 		}
 	}
 
-	private void transformarListaCompleto() {
+	public void transformarListaCompleto() throws NullPointerException {
 		if (listaProjetos == null) {
 			stringProjetosCompleto.add("Nada encontrado.");
 			return;
