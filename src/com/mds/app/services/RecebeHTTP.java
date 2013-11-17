@@ -30,40 +30,50 @@ public class RecebeHTTP {
 
 		try {
 			website = new URI(url);
+		} catch (URISyntaxException urise) {
+			urise.printStackTrace();
+		} catch (NullPointerException npe) {
+			npe.printStackTrace();
+		}
 
-			requisicao = new HttpGet();
-			requisicao.setURI(website);
+		requisicao = new HttpGet();
+		requisicao.setURI(website);
 
+		try {
 			resposta = cliente.execute(requisicao);
+		} catch (ClientProtocolException cpe) {
+			cpe.printStackTrace();
+		} catch (IOException ioe) {
+			ioe.printStackTrace();
+		}
 
+		try {
 			inputStream = new BufferedReader(new InputStreamReader(resposta.getEntity().getContent()));
+		} catch (IllegalStateException ise) {
+			ise.printStackTrace();
+		} catch (IOException ioe) {
+			ioe.printStackTrace();
+		}
 
-			dadoStringBuffer = new StringBuffer("");
-			anexar = "";
+		dadoStringBuffer = new StringBuffer("");
+		anexar = "";
+		try {
 			while ((anexar = inputStream.readLine()) != null) {
 				dadoStringBuffer.append(anexar);
 			}
+		} catch (IOException ioe) {
+			ioe.printStackTrace();
+		}
 
-			dado = dadoStringBuffer.toString();
-
-		} catch (URISyntaxException urise) {
-			//
-		} catch (ClientProtocolException cpe) {
-			//
-		} catch (Exception e) {
-			//
-		} finally {
-			if (inputStream != null) {
-				try {
-					inputStream.close();
-				} catch (IOException e) {
-					//
-				}
-			}
-			else {
+		if (inputStream != null) {
+			try {
+				inputStream.close();
+			} catch (IOException e) {
 				//
 			}
 		}
+
+		dado = dadoStringBuffer.toString();
 
 		return dado;
 	}

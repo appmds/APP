@@ -29,45 +29,49 @@ public class ListaController {
 
 	/* Transforma List<ProjetoModel> listaProjetos em um ArrayList<String> */
 	public void transformarLista() {
-		if (this.getListaProjetos() == null) {
-			stringProjetos.add("Nada encontrado.");
-			return;
+		String stringProjeto = "";
+		if (this.getListaProjetos() != null) {
+			for (int i = 0; i < listaProjetos.size(); i++) {
+				stringProjeto += listaProjetos.get(i).getNome();
+				stringProjeto += " - ";
+				stringProjeto += listaProjetos.get(i).getNumero();
+				stringProjeto += " - ";
+				stringProjeto += listaProjetos.get(i).getParlamentar().getNome();
+				stringProjetos.add(stringProjeto);
+			}
 		}
-		for (int i = 0; i < listaProjetos.size(); i++) {
-			String stringProjeto = "";
-			stringProjeto += listaProjetos.get(i).getNome();
-			stringProjeto += " - ";
-			stringProjeto += listaProjetos.get(i).getNumero();
-			stringProjeto += " - ";
-			stringProjeto += listaProjetos.get(i).getParlamentar().getNome();
+		else {
+			stringProjeto = "Nada encontrado.";
 			stringProjetos.add(stringProjeto);
 		}
 	}
-
-	public void transformarListaCompleto() throws NullPointerException {
-		if (listaProjetos == null) {
-			stringProjetosCompleto.add("Nada encontrado.");
-			return;
+	
+	public void transformarListaCompleto() {
+		String stringProjeto = "";
+		if (this.getListaProjetos() != null) {
+			for (int i = 0; i < listaProjetos.size(); i++) {
+				stringProjeto += listaProjetos.get(i).getNome();
+				stringProjeto += "\nNumero: ";
+				stringProjeto += listaProjetos.get(i).getNumero();
+				stringProjeto += "\nAno:  ";
+				stringProjeto += listaProjetos.get(i).getAno();
+				stringProjeto += "\nSigla: ";
+				stringProjeto += listaProjetos.get(i).getSigla();
+				stringProjeto += "\nData de Apresentação: ";
+				stringProjeto += listaProjetos.get(i).getData();
+				stringProjeto += "\nDescrição: ";
+				stringProjeto += listaProjetos.get(i).getExplicacao();
+				stringProjeto += "\nParlamentar: ";
+				stringProjeto += listaProjetos.get(i).getParlamentar().getNome();
+				stringProjeto += "\nPartido: ";
+				stringProjeto += listaProjetos.get(i).getParlamentar().getPartido().getSiglaPartido();
+				stringProjeto += "\nEstado: ";
+				stringProjeto += listaProjetos.get(i).getParlamentar().getPartido().getUf();
+				stringProjetosCompleto.add(stringProjeto);
+			}
 		}
-		for (int i = 0; i < listaProjetos.size(); i++) {
-			String stringProjeto = "";
-			stringProjeto += listaProjetos.get(i).getNome();
-			stringProjeto += "\nNumero: ";
-			stringProjeto += listaProjetos.get(i).getNumero();
-			stringProjeto += "\nAno:  ";
-			stringProjeto += listaProjetos.get(i).getAno();
-			stringProjeto += "\nSigla: ";
-			stringProjeto += listaProjetos.get(i).getSigla();
-			stringProjeto += "\nData de Apresentação: ";
-			stringProjeto += listaProjetos.get(i).getData();
-			stringProjeto += "\nDescrição: ";
-			stringProjeto += listaProjetos.get(i).getExplicacao();
-			stringProjeto += "\nParlamentar: ";
-			stringProjeto += listaProjetos.get(i).getParlamentar().getNome();
-			stringProjeto += "\nPartido: ";
-			stringProjeto += listaProjetos.get(i).getParlamentar().getPartido().getSiglaPartido();
-			stringProjeto += "\nEstado: ";
-			stringProjeto += listaProjetos.get(i).getParlamentar().getPartido().getUf();
+		else {
+			stringProjeto = "Nada encontrado.";
 			stringProjetosCompleto.add(stringProjeto);
 		}
 	}
@@ -78,14 +82,6 @@ public class ListaController {
 
 	public void setListaProjetos(List<ProjetoModel> listaProjetos) {
 		this.listaProjetos = listaProjetos;
-	}
-
-	public Lista getLista() {
-		return lista;
-	}
-
-	public void setLista(Lista lista) {
-		this.lista = lista;
 	}
 
 	public ArrayList<String> getStringProjetos() {
