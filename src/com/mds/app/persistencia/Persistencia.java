@@ -11,9 +11,8 @@ import java.io.OutputStreamWriter;
 import android.app.Activity;
 import android.os.Environment;
 
-
 public abstract class Persistencia extends Activity {
-	
+
 	/*
 	 * Pros parametros "fileName" dos metodos, passar ou:
 	 * Persistencia.getFileFavoritos(), ou
@@ -23,9 +22,13 @@ public abstract class Persistencia extends Activity {
 	private static final String fileFavoritos = "favoritos.txt";
 	private static final String fileHistorico = "historico.txt";
 	private static final String testDir = "/ArquivosAPP";
-	
+
 	private static final File sdCard = Environment.getExternalStorageDirectory();
 	private static final File directory = new File(sdCard.getAbsolutePath() + getTestDir());
+
+	public Persistencia() {
+
+	}
 
 	public static void writeToFile(String fileName, String data) {
 		// This will get the SD Card directory and create a folder named MyFiles in it.
@@ -62,7 +65,7 @@ public abstract class Persistencia extends Activity {
 	}
 
 	public static String readFromFile(String fileName) {
-		
+
 		directory.mkdirs();
 
 		// Now create the file in the above directory and write the contents into it
