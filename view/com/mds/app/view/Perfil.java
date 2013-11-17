@@ -30,6 +30,12 @@ public class Perfil extends Activity {
 		texto = (TextView) findViewById(R.id.texto);
 		texto.setText(stringProjeto);
 		favoritar_addListener();
+		
+		//if tamanho menor que 10, gravar na primeira linha
+		//else gravar na primeira linha e apagar a ultima
+		//manipular arquivo
+		Persistencia.writeToFile("historico", stringProjeto);
+		
 	}
 
 	public boolean onCreateOptionsMenu(Menu menu) {
@@ -48,11 +54,12 @@ public class Perfil extends Activity {
 					naoFavorito.setImageResource(R.drawable.favorito);
 					contador = 1;
 					Persistencia.writeToFile("favoritos", stringProjeto);
-					System.out.println(Persistencia.readFromFile("favoritos"));
+					System.out.println(stringProjeto);
 				}
 				else {
 					naoFavorito.setImageResource(R.drawable.naofavorito);
 					contador = 0;
+					//deletar do arquivo
 				}
 			}
 		});

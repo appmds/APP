@@ -68,7 +68,7 @@ public class MenuPrincipal extends Activity {
 			
 			@Override
 			public void onClick(View v) {
-				Intent i = new Intent(MenuPrincipal.this, Favoritos.class);
+				Intent i = new Intent(MenuPrincipal.this, PerfilFavoritos.class);
 				startActivity(i);
 				
 			}
@@ -80,7 +80,7 @@ public class MenuPrincipal extends Activity {
 			
 			@Override
 			public void onClick(View v) {
-				Intent i = new Intent(MenuPrincipal.this, Historico.class);
+				Intent i = new Intent(MenuPrincipal.this, PerfilHistorico.class);
 				startActivity(i);
 				
 			}

@@ -7,25 +7,15 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context=".Favoritos" >
+    tools:context=".PerfilFavoritos" >
 
     <TextView
-        android:id="@+id/textView1"
+        android:id="@+id/historico"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
         android:layout_marginLeft="82dp"
-        android:text="Favoritos"
-        android:textAppearance="?android:attr/textAppearanceLarge" />
-
-    <TextView
-        android:id="@+id/texto1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_below="@+id/textView1"
-        android:layout_marginLeft="37dp"
-        android:layout_marginTop="83dp"
+        android:text="Historico"
         android:textAppearance="?android:attr/textAppearanceLarge" />
 
 </RelativeLayout>

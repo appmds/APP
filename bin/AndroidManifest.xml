@@ -36,11 +36,11 @@
             android:label="@string/app_name" >
         </activity>
         <activity
-            android:name="com.mds.app.view.Favoritos"
+            android:name="com.mds.app.view.PerfilFavoritos"
             android:label="@string/app_name" >
         </activity>
         <activity
-            android:name="com.mds.app.view.Historico"
+            android:name="com.mds.app.view.PerfilHistorico"
             android:label="@string/app_name" >
         </activity>
         <activity
