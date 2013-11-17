@@ -10,13 +10,14 @@ import android.widget.ImageButton;
 import android.widget.TextView;
 
 import com.mds.app.R;
+import com.mds.app.persistencia.Persistencia;
 
 public class Perfil extends Activity {
 
-	String stringProjeto;
-	TextView texto;
-	ImageButton naoFavorito;
-	int contador = 0;
+	private String stringProjeto;
+	private TextView texto;
+	private ImageButton naoFavorito;
+	private int contador = 0;
 
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -46,6 +47,8 @@ public class Perfil extends Activity {
 				if (contador == 0) {
 					naoFavorito.setImageResource(R.drawable.favorito);
 					contador = 1;
+					Persistencia.writeToFile("favoritos", stringProjeto);
+					System.out.println(Persistencia.readFromFile("favoritos"));
 				}
 				else {
 					naoFavorito.setImageResource(R.drawable.naofavorito);

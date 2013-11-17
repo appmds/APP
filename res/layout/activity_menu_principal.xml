@@ -38,4 +38,20 @@
         android:contentDescription="@string/imgbuttonSOBRE"
         android:src="@drawable/button_sobre_smaller" />
 
+    <Button
+        android:id="@+id/historico"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/imgbutton_sobre"
+        android:layout_below="@+id/imgbutton_busca"
+        android:text="Histórico" />
+
+    <Button
+        android:id="@+id/favoritos"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignRight="@+id/imgbutton_busca"
+        android:layout_below="@+id/imgbutton_busca"
+        android:text="Favoritos" />
+
 </RelativeLayout>

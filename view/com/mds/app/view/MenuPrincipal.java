@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.widget.Button;
 import android.widget.ImageButton;
 
 import com.mds.app.R;
@@ -14,6 +15,8 @@ public class MenuPrincipal extends Activity {
 
 	ImageButton busca;
 	ImageButton sobre;
+	Button favoritos;
+	Button historico;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -22,6 +25,8 @@ public class MenuPrincipal extends Activity {
 
 		busca_addListener();
 		sobre_addListener();
+		favoritos_addListener();
+		historico_addListener();
 	}
 
 	@Override
@@ -53,6 +58,31 @@ public class MenuPrincipal extends Activity {
 				Intent i = new Intent(MenuPrincipal.this, Sobre.class);
 				startActivity(i);
 
+			}
+		});
+	}
+	
+	private void favoritos_addListener() {
+		favoritos = (Button) findViewById(R.id.favoritos);
+		favoritos.setOnClickListener(new OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				Intent i = new Intent(MenuPrincipal.this, Favoritos.class);
+				startActivity(i);
+				
+			}
+		});
+	}
+	private void historico_addListener() {
+		historico = (Button) findViewById(R.id.historico);
+		historico.setOnClickListener(new OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				Intent i = new Intent(MenuPrincipal.this, Historico.class);
+				startActivity(i);
+				
 			}
 		});
 	}
