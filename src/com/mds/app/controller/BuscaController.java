@@ -15,12 +15,13 @@ import com.mds.app.view.Busca;
 public class BuscaController {
 
 	private RecebeHTTP recebeHTTP;
-	private XMLParser xmlParser = new XMLParser();
+	private XMLParser xmlParser;
 	private Busca buscaView;
 	private boolean temConexao;
 	private String textoOffline;
 
 	public BuscaController() {
+		xmlParser = new XMLParser();
 	}
 
 	public void instanciarBusca() {
@@ -28,100 +29,100 @@ public class BuscaController {
 	}
 
 	public String transformaUF(String uf) {
-		if (uf.equalsIgnoreCase("Todos")){
+		if (uf.equalsIgnoreCase("Todos")) {
 			uf = "";
 		}
-		else if (uf.equalsIgnoreCase("Acre")){
+		else if (uf.equalsIgnoreCase("Acre")) {
 			uf = "AC";
 		}
-		else if (uf.equalsIgnoreCase("Alagoas")){
+		else if (uf.equalsIgnoreCase("Alagoas")) {
 			uf = "AL";
 		}
-		else if (uf.equalsIgnoreCase("Amapá")){
+		else if (uf.equalsIgnoreCase("Amapá")) {
 			uf = "AP";
 		}
-		else if (uf.equalsIgnoreCase("Amazonas")){
+		else if (uf.equalsIgnoreCase("Amazonas")) {
 			uf = "AM";
 		}
-		else if (uf.equalsIgnoreCase("Bahia")){
+		else if (uf.equalsIgnoreCase("Bahia")) {
 			uf = "BA";
 		}
-		else if (uf.equalsIgnoreCase("Ceará")){
+		else if (uf.equalsIgnoreCase("Ceará")) {
 			uf = "CE";
 		}
-		else if (uf.equalsIgnoreCase("Distrito Federal")){
+		else if (uf.equalsIgnoreCase("Distrito Federal")) {
 			uf = "DF";
 		}
-		else if (uf.equalsIgnoreCase("Espírito Santo")){
+		else if (uf.equalsIgnoreCase("Espírito Santo")) {
 			uf = "ES";
 		}
-		else if (uf.equalsIgnoreCase("Goiás")){
+		else if (uf.equalsIgnoreCase("Goiás")) {
 			uf = "GO";
 		}
-		else if (uf.equalsIgnoreCase("Maranhão")){
+		else if (uf.equalsIgnoreCase("Maranhão")) {
 			uf = "MA";
 		}
-		else if (uf.equalsIgnoreCase("Mato Grosso")){
+		else if (uf.equalsIgnoreCase("Mato Grosso")) {
 			uf = "MT";
 		}
-		else if (uf.equalsIgnoreCase("Mato Grosso do Sul")){
+		else if (uf.equalsIgnoreCase("Mato Grosso do Sul")) {
 			uf = "MS";
 		}
-		else if (uf.equalsIgnoreCase("Minas Gerais")){
+		else if (uf.equalsIgnoreCase("Minas Gerais")) {
 			uf = "MG";
 		}
-		else if (uf.equalsIgnoreCase("Pará")){
+		else if (uf.equalsIgnoreCase("Pará")) {
 			uf = "PA";
 		}
-		else if (uf.equalsIgnoreCase("Paraíba")){
+		else if (uf.equalsIgnoreCase("Paraíba")) {
 			uf = "PB";
 		}
-		else if (uf.equalsIgnoreCase("Paraná")){
+		else if (uf.equalsIgnoreCase("Paraná")) {
 			uf = "PR";
 		}
-		else if (uf.equalsIgnoreCase("Pernambuco")){
+		else if (uf.equalsIgnoreCase("Pernambuco")) {
 			uf = "PE";
 		}
-		else if (uf.equalsIgnoreCase("Piauí")){
+		else if (uf.equalsIgnoreCase("Piauí")) {
 			uf = "PI";
 		}
-		else if (uf.equalsIgnoreCase("Rio de Janeiro")){
+		else if (uf.equalsIgnoreCase("Rio de Janeiro")) {
 			uf = "RJ";
 		}
-		else if (uf.equalsIgnoreCase("Rio Grande do Norte")){
+		else if (uf.equalsIgnoreCase("Rio Grande do Norte")) {
 			uf = "RN";
 		}
-		else if (uf.equalsIgnoreCase("Rio Grande do Sul")){
+		else if (uf.equalsIgnoreCase("Rio Grande do Sul")) {
 			uf = "RS";
 		}
-		else if (uf.equalsIgnoreCase("Rondônia")){
+		else if (uf.equalsIgnoreCase("Rondônia")) {
 			uf = "RO";
 		}
-		else if (uf.equalsIgnoreCase("Roraima")){
+		else if (uf.equalsIgnoreCase("Roraima")) {
 			uf = "RR";
 		}
-		else if (uf.equalsIgnoreCase("Santa Catarina")){
+		else if (uf.equalsIgnoreCase("Santa Catarina")) {
 			uf = "SC";
 		}
-		else if (uf.equalsIgnoreCase("São Paulo")){
+		else if (uf.equalsIgnoreCase("São Paulo")) {
 			uf = "SP";
 		}
-		else if (uf.equalsIgnoreCase("Sergipe")){
+		else if (uf.equalsIgnoreCase("Sergipe")) {
 			uf = "SE";
 		}
-		else if (uf.equalsIgnoreCase("Tocantins")){
+		else if (uf.equalsIgnoreCase("Tocantins")) {
 			uf = "TO";
 		}
-		else{
-			//Nao tem outras opcoes
+		else {
+			// Nao tem outras opcoes
 		}
-		
+
 		return uf;
 	}
 
 	public boolean atualizarDadosDaPesquisa(String ano, String sigla, String numero, String dataIni,
 			String nomeAutor, String siglaPartido, String uf) {
-		
+
 		if (ano.isEmpty()) {
 			ano = "2013";
 		}
@@ -162,7 +163,8 @@ public class BuscaController {
 
 	}
 
-	public ArrayList<ProjetoModel> procurar() {
+	public String receberXml() {
+
 		String sigla = ProcuraProjetoModel.getSigla().toUpperCase();
 		String ano = ProcuraProjetoModel.getAno();
 		String dataInicio = ProcuraProjetoModel.getDataInicio();
@@ -174,7 +176,8 @@ public class BuscaController {
 		String url = Endereco.construirEndereco(sigla, numero, ano, dataInicio, "", "", nomeAutor, siglaPartido,
 				siglaUF, "", "", "");
 		System.out.println(url);
-		String response;
+
+		String response = null;
 		recebeHTTP = new RecebeHTTP();
 		if (temConexao) {
 			response = recebeHTTP.recebe(url);
@@ -182,15 +185,14 @@ public class BuscaController {
 		else {
 			response = textoOffline;
 		}
-		return xmlParser.parseProjeto(response);
+
+		return response;
+
 	}
 
-	public Busca getBuscaView() {
-		return buscaView;
-	}
-
-	public void setBuscaView(Busca buscaView) {
-		this.buscaView = buscaView;
+	public ArrayList<ProjetoModel> procurar() {
+		String xmlProjeto = receberXml();
+		return xmlParser.parseProjeto(xmlProjeto);
 	}
 
 	public boolean isTemConexao() {
@@ -207,6 +209,14 @@ public class BuscaController {
 
 	public void setTextoOffline(String textoOffline) {
 		this.textoOffline = textoOffline;
+	}
+	
+	public XMLParser getXmlParser() {
+		return xmlParser;
+	}
+
+	public void setXmlParser(XMLParser xmlParser) {
+		this.xmlParser = xmlParser;
 	}
 
 }
