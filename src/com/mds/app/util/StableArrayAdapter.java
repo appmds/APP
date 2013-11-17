@@ -6,6 +6,7 @@ import java.util.HashMap;
 import android.content.Context;
 import android.widget.ArrayAdapter;
 
+
 public class StableArrayAdapter extends ArrayAdapter<String> {
 
 	HashMap<String, Integer> mIdMap;
