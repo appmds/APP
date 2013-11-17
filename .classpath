@@ -8,7 +8,5 @@
 	<classpathentry kind="src" path="gen"/>
 	<classpathentry kind="src" path="testes"/>
 	<classpathentry kind="src" path="view"/>
-	<classpathentry exported="true" kind="lib" path="C:/Users/cleitoncsg/Desktop/hamcrest-core-1.3.jar"/>
-	<classpathentry exported="true" kind="lib" path="C:/Users/cleitoncsg/Desktop/junit-4.11.jar"/>
 	<classpathentry kind="output" path="bin/classes"/>
 </classpath>
