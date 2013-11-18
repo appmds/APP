@@ -77,9 +77,10 @@ public class ProposicaoController extends DefaultHandler {
 		else if (localName.equals("txtSiglaUF")) {
 			partido.setUf(buffer.toString());
 		}
-		else {
-
+		else{
+			//lançar alguma exception
 		}
+
 	}
 
 	@Override

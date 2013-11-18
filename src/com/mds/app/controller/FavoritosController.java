@@ -6,7 +6,6 @@ import com.mds.app.persistencia.Persistencia;
 
 public class FavoritosController {
 
-	private static ArrayList<String> projetosFavoritados = new ArrayList<String>();
 	private static ArrayList<String> projetosFavoritadosCompleto = new ArrayList<String>();
 
 	public FavoritosController() {
@@ -14,8 +13,8 @@ public class FavoritosController {
 	}
 
 	public void adicionarFavorito(String conteudo) {
-		if (!projetosFavoritados.contains(conteudo)) {
-			projetosFavoritados.add(conteudo);
+		if (!projetosFavoritadosCompleto.contains(conteudo)) {
+			projetosFavoritadosCompleto.add(conteudo);
 			Persistencia.writeToFile(Persistencia.getFileFavoritos(), conteudo);
 		}
 		else {
@@ -24,8 +23,8 @@ public class FavoritosController {
 	}
 
 	public void removerFavorito(String stringProjeto) {
-		if(projetosFavoritados.contains(stringProjeto)){
-			projetosFavoritados.remove(stringProjeto);
+		if(projetosFavoritadosCompleto.contains(stringProjeto)){
+			projetosFavoritadosCompleto.remove(stringProjeto);
 			String conteudoArquivo = projetosFavoritadosEmString();
 			Persistencia.rewriteFile(Persistencia.getFileFavoritos(), conteudoArquivo);
 		}
@@ -37,19 +36,19 @@ public class FavoritosController {
 	private String projetosFavoritadosEmString() {
 		String conteudoProjetosFavoritados = "";
 		
-		for(int i = 0; i<projetosFavoritados.size(); i++){
-			conteudoProjetosFavoritados += projetosFavoritados.get(i);
+		for(int i = 0; i<projetosFavoritadosCompleto.size(); i++){
+			conteudoProjetosFavoritados += projetosFavoritadosCompleto.get(i);
 		}
 		
 		return conteudoProjetosFavoritados;
 	}
 
 	public static ArrayList<String> getProjetosFavoritados() {
-		return projetosFavoritados;
+		return projetosFavoritadosCompleto;
 	}
 
 	public static void setProjetosFavoritados(ArrayList<String> projetosFavoritados) {
-		FavoritosController.projetosFavoritados = projetosFavoritados;
+		FavoritosController.projetosFavoritadosCompleto = projetosFavoritados;
 	}
 
 	public static ArrayList<String> getProjetosFavoritadosCompleto() {

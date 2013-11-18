@@ -11,31 +11,33 @@ import android.widget.TextView;
 
 import com.mds.app.R;
 import com.mds.app.controller.FavoritosController;
+import com.mds.app.controller.ListaController;
 import com.mds.app.persistencia.Persistencia;
 
 public class Perfil extends Activity {
 
-	private String stringProjeto;
+	private ListaController listaController;
+	private String stringProjetoCompleto;
 	private TextView texto;
 	private ImageButton naoFavorito;
-	private boolean favoritado = false;
+	private boolean favoritado;
 
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_perfil);
+		
+		listaController = new ListaController();
 
-		Intent intent = getIntent();
-		intent.getExtras().getString("PROJETOS");
-		stringProjeto = intent.getStringExtra("PROJETO");
+		stringProjetoCompleto = listaController.transformarListaCompleto();
 
 		texto = (TextView) findViewById(R.id.texto);
-		texto.setText(stringProjeto);
+		texto.setText(stringProjetoCompleto);
 		favoritar_addListener();
 
 		// if tamanho menor que 10, gravar na primeira linha
 		// else gravar na primeira linha e apagar a ultima
 		// manipular arquivo
-		Persistencia.writeToFile(Persistencia.getFileHistorico(), stringProjeto);
+		Persistencia.writeToFile(Persistencia.getFileHistorico(), stringProjetoCompleto);
 
 	}
 
@@ -57,12 +59,12 @@ public class Perfil extends Activity {
 				if (!favoritado) {
 					naoFavorito.setImageResource(R.drawable.favorito);
 					favoritado = true;
-					favoritosController.adicionarFavorito(stringProjeto);
+					favoritosController.adicionarFavorito(stringProjetoCompleto);
 				}
 				else {
 					naoFavorito.setImageResource(R.drawable.naofavorito);
 					favoritado = false;
-					favoritosController.removerFavorito(stringProjeto);
+					favoritosController.removerFavorito(stringProjetoCompleto);
 				}
 			}
 		});

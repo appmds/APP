@@ -210,7 +210,7 @@ public class BuscaController {
 	public void setTextoOffline(String textoOffline) {
 		this.textoOffline = textoOffline;
 	}
-	
+
 	public XMLParser getXmlParser() {
 		return xmlParser;
 	}

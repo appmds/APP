@@ -4,39 +4,45 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.mds.app.model.ProjetoModel;
-import com.mds.app.view.Lista;
 
 public class ListaController {
 
-	private List<ProjetoModel> listaProjetos;
-	private ArrayList<String> stringProjetos;
-	private ArrayList<String> stringProjetosCompleto;
-	private Lista lista;
+	private static List<ProjetoModel> listaProjetos;
+	private static ProjetoModel projetoAtual;
 
-	public ListaController(List<ProjetoModel> result) {
-		this.listaProjetos = result;
-		this.stringProjetos = new ArrayList<String>();
-		this.stringProjetosCompleto = new ArrayList<String>();
-		transformarLista();
-		transformarListaCompleto();
+	public enum Tipo {
+		PESQUISA, FAVORITOS, HISTORICO;
+	}
+
+	public static Tipo tipoAtual = Tipo.PESQUISA;
+
+	public static Tipo getTipoAtual() {
+		return tipoAtual;
+	}
+
+	public static void setTipoAtual(Tipo novoTipoAtual) {
+		tipoAtual = novoTipoAtual;
 	}
 
 	public ListaController() {
-		this.listaProjetos = null;
-		this.stringProjetos = new ArrayList<String>();
-		this.stringProjetosCompleto = new ArrayList<String>();
+	}
+
+	public ListaController(List<ProjetoModel> result) {
+		setListaProjetos(result);
 	}
 
 	/* Transforma List<ProjetoModel> listaProjetos em um ArrayList<String> */
-	public void transformarLista() {
+	public ArrayList<String> transformarLista() {
+		ArrayList<String> stringProjetos = new ArrayList<String>();
 		String stringProjeto = "";
-		if (this.getListaProjetos() != null) {
-			for (int i = 0; i < listaProjetos.size(); i++) {
-				stringProjeto += listaProjetos.get(i).getNome();
+
+		if (getListaProjetos() != null) {
+			for (int i = 0; i < getListaProjetos().size(); i++) {
+				stringProjeto += getListaProjetos().get(i).getNome();
 				stringProjeto += " - ";
-				stringProjeto += listaProjetos.get(i).getNumero();
+				stringProjeto += getListaProjetos().get(i).getNumero();
 				stringProjeto += " - ";
-				stringProjeto += listaProjetos.get(i).getParlamentar().getNome();
+				stringProjeto += getListaProjetos().get(i).getParlamentar().getNome();
 				stringProjetos.add(stringProjeto);
 			}
 		}
@@ -44,60 +50,53 @@ public class ListaController {
 			stringProjeto = "Nada encontrado.";
 			stringProjetos.add(stringProjeto);
 		}
-	}
-	
-	public void transformarListaCompleto() {
-		String stringProjeto = "";
-		if (this.getListaProjetos() != null) {
-			for (int i = 0; i < listaProjetos.size(); i++) {
-				stringProjeto += listaProjetos.get(i).getNome();
-				stringProjeto += "\nNumero: ";
-				stringProjeto += listaProjetos.get(i).getNumero();
-				stringProjeto += "\nAno:  ";
-				stringProjeto += listaProjetos.get(i).getAno();
-				stringProjeto += "\nSigla: ";
-				stringProjeto += listaProjetos.get(i).getSigla();
-				stringProjeto += "\nData de Apresentação: ";
-				stringProjeto += listaProjetos.get(i).getData();
-				stringProjeto += "\nDescrição: ";
-				stringProjeto += listaProjetos.get(i).getExplicacao();
-				stringProjeto += "\nParlamentar: ";
-				stringProjeto += listaProjetos.get(i).getParlamentar().getNome();
-				stringProjeto += "\nPartido: ";
-				stringProjeto += listaProjetos.get(i).getParlamentar().getPartido().getSiglaPartido();
-				stringProjeto += "\nEstado: ";
-				stringProjeto += listaProjetos.get(i).getParlamentar().getPartido().getUf();
-				stringProjetosCompleto.add(stringProjeto);
-			}
-		}
-		else {
-			stringProjeto = "Nada encontrado.";
-			stringProjetosCompleto.add(stringProjeto);
-		}
-	}
 
-	public List<ProjetoModel> getListaProjetos() {
-		return listaProjetos;
-	}
-
-	public void setListaProjetos(List<ProjetoModel> listaProjetos) {
-		this.listaProjetos = listaProjetos;
-	}
-
-	public ArrayList<String> getStringProjetos() {
 		return stringProjetos;
 	}
 
-	public void setStringProjetos(ArrayList<String> stringProjetos) {
-		this.stringProjetos = stringProjetos;
+	public String transformarListaCompleto() {
+		String stringProjeto = "";
+
+		if (getProjetoAtual() != null) {
+			stringProjeto += getProjetoAtual().getNome();
+			stringProjeto += "\nNumero: ";
+			stringProjeto += getProjetoAtual().getNumero();
+			stringProjeto += "\nAno:  ";
+			stringProjeto += getProjetoAtual().getAno();
+			stringProjeto += "\nSigla: ";
+			stringProjeto += getProjetoAtual().getSigla();
+			stringProjeto += "\nData de Apresentação: ";
+			stringProjeto += getProjetoAtual().getData();
+			stringProjeto += "\nDescrição: ";
+			stringProjeto += getProjetoAtual().getExplicacao();
+			stringProjeto += "\nParlamentar: ";
+			stringProjeto += getProjetoAtual().getParlamentar().getNome();
+			stringProjeto += "\nPartido: ";
+			stringProjeto += getProjetoAtual().getParlamentar().getPartido().getSiglaPartido();
+			stringProjeto += "\nEstado: ";
+			stringProjeto += getProjetoAtual().getParlamentar().getPartido().getUf();
+		}
+		else {
+			stringProjeto = "Nada encontrado.";
+		}
+
+		return stringProjeto;
 	}
 
-	public ArrayList<String> getStringProjetosCompleto() {
-		return stringProjetosCompleto;
+	public static List<ProjetoModel> getListaProjetos() {
+		return listaProjetos;
 	}
 
-	public void setStringProjetosCompleto(ArrayList<String> stringProjetosCompleto) {
-		this.stringProjetosCompleto = stringProjetosCompleto;
+	public static void setListaProjetos(List<ProjetoModel> novaListaProjetos) {
+		listaProjetos = novaListaProjetos;
+	}
+
+	public static ProjetoModel getProjetoAtual() {
+		return projetoAtual;
+	}
+
+	public static void setProjetoAtual(ProjetoModel projetoAtual) {
+		ListaController.projetoAtual = projetoAtual;
 	}
 
 }

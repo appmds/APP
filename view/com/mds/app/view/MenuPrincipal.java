@@ -10,6 +10,8 @@ import android.widget.Button;
 import android.widget.ImageButton;
 
 import com.mds.app.R;
+import com.mds.app.controller.FavoritosController;
+import com.mds.app.controller.ListaController;
 
 public class MenuPrincipal extends Activity {
 
@@ -42,9 +44,9 @@ public class MenuPrincipal extends Activity {
 
 			@Override
 			public void onClick(View v) {
+				ListaController.setTipoAtual(ListaController.Tipo.PESQUISA);
 				Intent i = new Intent(MenuPrincipal.this, Busca.class);
 				startActivity(i);
-
 			}
 		});
 	}
@@ -57,32 +59,32 @@ public class MenuPrincipal extends Activity {
 			public void onClick(View v) {
 				Intent i = new Intent(MenuPrincipal.this, Sobre.class);
 				startActivity(i);
-
 			}
 		});
 	}
-	
+
 	private void favoritos_addListener() {
 		favoritos = (Button) findViewById(R.id.favoritos);
 		favoritos.setOnClickListener(new OnClickListener() {
-			
+
 			@Override
 			public void onClick(View v) {
-				Intent i = new Intent(MenuPrincipal.this, PerfilFavoritos.class);
+				ListaController.setTipoAtual(ListaController.Tipo.FAVORITOS);
+				Intent i = new Intent(MenuPrincipal.this, Lista.class);
 				startActivity(i);
-				
 			}
 		});
 	}
+
 	private void historico_addListener() {
 		historico = (Button) findViewById(R.id.historico);
 		historico.setOnClickListener(new OnClickListener() {
-			
+
 			@Override
 			public void onClick(View v) {
-				Intent i = new Intent(MenuPrincipal.this, PerfilHistorico.class);
+				ListaController.setTipoAtual(ListaController.Tipo.HISTORICO);
+				Intent i = new Intent(MenuPrincipal.this, Lista.class);
 				startActivity(i);
-				
 			}
 		});
 	}

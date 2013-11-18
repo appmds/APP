@@ -21,7 +21,6 @@ import com.mds.app.R;
 import com.mds.app.controller.BuscaController;
 import com.mds.app.controller.ListaController;
 import com.mds.app.model.ProjetoModel;
-import com.mds.app.persistencia.Persistencia;
 import com.mds.app.util.CancelTaskOnCancelListener;
 import com.mds.app.util.ConexaoInternet;
 
@@ -31,7 +30,6 @@ public class Busca extends Activity {
 	private ImageButton ok;
 	private BuscaController pesquisa;
 	private ConexaoInternet conexao;
-	private Persistencia persistencia;
 
 	public Busca() {
 
@@ -44,13 +42,15 @@ public class Busca extends Activity {
 		StrictMode.setThreadPolicy(policy);
 		setContentView(R.layout.activity_busca);
 
-		/*Button datePickerButton = (Button) findViewById(R.id.date_picker_button);
-		datePickerButton.setOnClickListener(new OnClickListener() {
-			public void onClick(View v) {
-				DatePicker dt = new DatePicker();
-				dt.showDateDialog();
-			}
-		});*/
+		/*
+		 * Button datePickerButton = (Button) findViewById(R.id.date_picker_button);
+		 * datePickerButton.setOnClickListener(new OnClickListener() {
+		 * public void onClick(View v) {
+		 * DatePicker dt = new DatePicker();
+		 * dt.showDateDialog();
+		 * }
+		 * });
+		 */
 
 		pesquisa = new BuscaController();
 		pesquisa.instanciarBusca();
@@ -76,7 +76,6 @@ public class Busca extends Activity {
 			EditText dataInicialTexto = (EditText) findViewById(R.id.textDataIni);
 			EditText nomeAutorTexto = (EditText) findViewById(R.id.textNomeAutor);
 			EditText siglaPartidoTexto = (EditText) findViewById(R.id.textSiglaPartido);
-			
 
 			@Override
 			public void onClick(View v) {
@@ -123,14 +122,10 @@ public class Busca extends Activity {
 			runOnUiThread(new Runnable() {
 				@Override
 				public void run() {
-
-					ListaController listaController = new ListaController(result);
-
+					ListaController.setListaProjetos(result);
+					ListaController.setTipoAtual(ListaController.Tipo.PESQUISA);
 					Intent intent = new Intent(Busca.this, Lista.class);
-					intent.putExtra("PROJETOS", listaController.getStringProjetos());
-					intent.putExtra("PROJETOS_COMPLETO", listaController.getStringProjetosCompleto());
 					startActivity(intent);
-
 				}
 			});
 		}
