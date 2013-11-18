@@ -10,6 +10,7 @@ import android.widget.ImageButton;
 import android.widget.TextView;
 
 import com.mds.app.R;
+import com.mds.app.controller.FavoritosController;
 import com.mds.app.persistencia.Persistencia;
 
 public class Perfil extends Activity {
@@ -17,7 +18,7 @@ public class Perfil extends Activity {
 	private String stringProjeto;
 	private TextView texto;
 	private ImageButton naoFavorito;
-	private int contador = 0;
+	private boolean favoritado = false;
 
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -30,12 +31,12 @@ public class Perfil extends Activity {
 		texto = (TextView) findViewById(R.id.texto);
 		texto.setText(stringProjeto);
 		favoritar_addListener();
-		
-		//if tamanho menor que 10, gravar na primeira linha
-		//else gravar na primeira linha e apagar a ultima
-		//manipular arquivo
-		Persistencia.writeToFile("historico", stringProjeto);
-		
+
+		// if tamanho menor que 10, gravar na primeira linha
+		// else gravar na primeira linha e apagar a ultima
+		// manipular arquivo
+		Persistencia.writeToFile(Persistencia.getFileHistorico(), stringProjeto);
+
 	}
 
 	public boolean onCreateOptionsMenu(Menu menu) {
@@ -50,16 +51,18 @@ public class Perfil extends Activity {
 
 			@Override
 			public void onClick(View v) {
-				if (contador == 0) {
+				
+				FavoritosController favoritosController = new FavoritosController();
+				
+				if (!favoritado) {
 					naoFavorito.setImageResource(R.drawable.favorito);
-					contador = 1;
-					Persistencia.writeToFile("favoritos", stringProjeto);
-					System.out.println(stringProjeto);
+					favoritado = true;
+					favoritosController.adicionarFavorito(stringProjeto);
 				}
 				else {
 					naoFavorito.setImageResource(R.drawable.naofavorito);
-					contador = 0;
-					//deletar do arquivo
+					favoritado = false;
+					favoritosController.removerFavorito(stringProjeto);
 				}
 			}
 		});

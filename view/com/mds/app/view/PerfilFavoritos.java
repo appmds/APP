@@ -14,7 +14,7 @@ import com.mds.app.persistencia.Persistencia;
 public class PerfilFavoritos extends Activity {
 
 	private TextView texto;
-	String texto1 = Persistencia.readFromFile("favoritos");
+	String texto1 = Persistencia.readFromFile(Persistencia.getFileFavoritos());
 	private ImageButton Favorito;
 	private int contador = 0;
 	
@@ -47,7 +47,7 @@ public class PerfilFavoritos extends Activity {
 					Favorito.setImageResource(R.drawable.naofavorito);
 					contador = 1;
 					//deletar do arquivo
-					Persistencia.writeToFile("favoritos", "stringProjeto");
+					Persistencia.writeToFile(Persistencia.getFileFavoritos(), "stringProjeto");
 				}
 				else {
 					Favorito.setImageResource(R.drawable.favorito);

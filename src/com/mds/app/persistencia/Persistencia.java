@@ -52,6 +52,19 @@ public abstract class Persistencia extends Activity {
 
 	}
 
+	public static void rewriteFile(String fileName, String conteudo) {
+		File file = new File(directory, fileName);
+		boolean deletado = file.delete();
+		if (deletado) {
+			writeToFile(fileName, conteudo);
+		}
+		else {
+			for (int i = 0; i < 30; i++) {
+				System.out.println("IH RAPAZ");
+			}
+		}
+	}
+
 	public static String getFileFavoritos() {
 		return fileFavoritos;
 	}
