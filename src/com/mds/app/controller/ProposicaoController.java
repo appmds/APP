@@ -77,8 +77,8 @@ public class ProposicaoController extends DefaultHandler {
 		else if (localName.equals("txtSiglaUF")) {
 			partido.setUf(buffer.toString());
 		}
-		else{
-			//lançar alguma exception
+		else {
+			// lançar alguma exception
 		}
 
 	}
@@ -127,7 +127,5 @@ public class ProposicaoController extends DefaultHandler {
 	public void setListaProjetos(ArrayList<ProjetoModel> listaProjetos) {
 		this.listaProjetos = listaProjetos;
 	}
-	
-	
 
 }

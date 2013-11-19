@@ -25,6 +25,8 @@ public class MenuPrincipal extends Activity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_menu_principal);
 
+		FavoritosController.popularProjetosFavoritados();
+
 		busca_addListener();
 		sobre_addListener();
 		favoritos_addListener();

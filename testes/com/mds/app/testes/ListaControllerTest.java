@@ -17,7 +17,7 @@ import com.mds.app.model.PartidoModel;
 import com.mds.app.model.ProjetoModel;
 
 public class ListaControllerTest {
-
+/*
 	public ListaController listaController;
 	public ArrayList<String> stringLista;
 	public ArrayList<ProjetoModel> projetos;
@@ -154,5 +154,5 @@ public class ListaControllerTest {
 		String nomeRetornado = listaController.getClass().getSimpleName();
 		assertEquals(nomeEsperado, nomeRetornado);
 	}
-
+*/
 }

@@ -27,21 +27,25 @@ public class Lista extends Activity {
 
 		ListView listView = new ListView(this);
 		listaController = new ListaController();
-		
+
 		if (ListaController.getTipoAtual() == ListaController.Tipo.PESQUISA) {
 			stringProjetos = listaController.transformarLista();
 		}
-		else if (ListaController.getTipoAtual() == ListaController.Tipo.FAVORITOS){
-			stringProjetos = FavoritosController.getProjetosFavoritados();
+		else if (ListaController.getTipoAtual() == ListaController.Tipo.FAVORITOS) {
+			// stringProjetos = FavoritosController.getProjetosFavoritadosCompletoStr();
+			ListaController.setListaProjetos(FavoritosController.getProjetosFavoritados());
+			stringProjetos = listaController.transformarLista();
 		}
-		else if (ListaController.getTipoAtual() == ListaController.Tipo.HISTORICO){
-			//implementar historico
-			stringProjetos = null;
+		else if (ListaController.getTipoAtual() == ListaController.Tipo.HISTORICO) {
+			// implementar historico
+			ArrayList<String> implementar = new ArrayList<String>();
+			implementar.add("Nada encontrado.");
+			stringProjetos = implementar;
 		}
 
 		final StableArrayAdapter adapter = new StableArrayAdapter(this, android.R.layout.simple_list_item_1,
 				stringProjetos);
-		
+
 		listView.setAdapter(adapter);
 		listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
 
@@ -50,9 +54,14 @@ public class Lista extends Activity {
 				view.animate().setDuration(1).alpha(1).withEndAction(new Runnable() {
 					@Override
 					public void run() {
-						ListaController.setProjetoAtual(ListaController.getListaProjetos().get(position));
-						Intent i = new Intent(Lista.this, Perfil.class);
-						startActivity(i);
+						if (!stringProjetos.get(position).equals("Nada encontrado.")) {
+							ListaController.setProjetoAtual(ListaController.getListaProjetos().get(position));
+							Intent i = new Intent(Lista.this, Perfil.class);
+							startActivity(i);
+						}
+						else {
+							longToast("Nenhuma proposicao encontrada.");
+						}
 					}
 				});
 			}

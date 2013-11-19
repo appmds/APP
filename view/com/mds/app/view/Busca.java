@@ -26,9 +26,9 @@ import com.mds.app.util.ConexaoInternet;
 
 public class Busca extends Activity {
 
-	private ProgressDialog dialogoProgresso;
-	private ImageButton ok;
-	private BuscaController pesquisa;
+	private ProgressDialog progressDialog;
+	private ImageButton botaoPesquisar;
+	private BuscaController buscaController;
 	private ConexaoInternet conexao;
 
 	public Busca() {
@@ -42,32 +42,22 @@ public class Busca extends Activity {
 		StrictMode.setThreadPolicy(policy);
 		setContentView(R.layout.activity_busca);
 
-		/*
-		 * Button datePickerButton = (Button) findViewById(R.id.date_picker_button);
-		 * datePickerButton.setOnClickListener(new OnClickListener() {
-		 * public void onClick(View v) {
-		 * DatePicker dt = new DatePicker();
-		 * dt.showDateDialog();
-		 * }
-		 * });
-		 */
-
-		pesquisa = new BuscaController();
-		pesquisa.instanciarBusca();
-		ok_addListener();
+		buscaController = new BuscaController();
 		conexao = new ConexaoInternet(this);
 
+		botaoPesquisar_addListener();
+
 		if (conexao.ChecarConexaoInternet()) {
-			pesquisa.setTemConexao(true);
+			buscaController.setTemConexao(true);
 		}
 		else {
 			/* implementar nova persistencia */
 		}
 	}
 
-	private void ok_addListener() {
-		ok = (ImageButton) findViewById(R.id.okbutton);
-		ok.setOnClickListener(new OnClickListener() {
+	private void botaoPesquisar_addListener() {
+		botaoPesquisar = (ImageButton) findViewById(R.id.okbutton);
+		botaoPesquisar.setOnClickListener(new OnClickListener() {
 
 			Spinner spinner1 = (Spinner) findViewById(R.id.spinner1);
 			Spinner spinner2 = (Spinner) findViewById(R.id.spinner2);
@@ -80,7 +70,7 @@ public class Busca extends Activity {
 			@Override
 			public void onClick(View v) {
 
-				boolean validacao = pesquisa.atualizarDadosDaPesquisa(anoTexto.getText().toString(),
+				boolean validacao = buscaController.atualizarDadosDaPesquisa(anoTexto.getText().toString(),
 						String.valueOf(spinner1.getSelectedItem()), numeroTexto.getText().toString(),
 						dataInicialTexto.getText().toString(), nomeAutorTexto.getText().toString(),
 						siglaPartidoTexto.getText().toString(), String.valueOf(spinner2.getSelectedItem()));
@@ -106,15 +96,15 @@ public class Busca extends Activity {
 		@Override
 		protected void onPreExecute() {
 
-			dialogoProgresso = ProgressDialog.show(Busca.this, "Aguarde...", "Recebendo dados", true, true);
-			dialogoProgresso.setOnCancelListener(new CancelTaskOnCancelListener(this));
+			progressDialog = ProgressDialog.show(Busca.this, "Aguarde...", "Recebendo dados", true, true);
+			progressDialog.setOnCancelListener(new CancelTaskOnCancelListener(this));
 
 		}
 
 		@Override
 		protected List<ProjetoModel> doInBackground(Void... params) {
 			Log.i("LOGGER", "Starting...doInBackground loadList");
-			return pesquisa.procurar();
+			return buscaController.procurar();
 		}
 
 		@Override

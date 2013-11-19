@@ -10,22 +10,16 @@ import com.mds.app.model.ProjetoModel;
 import com.mds.app.services.Endereco;
 import com.mds.app.services.RecebeHTTP;
 import com.mds.app.services.XMLParser;
-import com.mds.app.view.Busca;
 
 public class BuscaController {
 
 	private RecebeHTTP recebeHTTP;
 	private XMLParser xmlParser;
-	private Busca buscaView;
 	private boolean temConexao;
 	private String textoOffline;
 
 	public BuscaController() {
 		xmlParser = new XMLParser();
-	}
-
-	public void instanciarBusca() {
-		this.buscaView = new Busca();
 	}
 
 	public String transformaUF(String uf) {

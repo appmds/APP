@@ -7,6 +7,7 @@ import com.mds.app.model.ProjetoModel;
 
 public class ListaController {
 
+	private static final String SEPARADOR = "~";
 	private static List<ProjetoModel> listaProjetos;
 	private static ProjetoModel projetoAtual;
 
@@ -34,10 +35,10 @@ public class ListaController {
 	/* Transforma List<ProjetoModel> listaProjetos em um ArrayList<String> */
 	public ArrayList<String> transformarLista() {
 		ArrayList<String> stringProjetos = new ArrayList<String>();
-		String stringProjeto = "";
 
 		if (getListaProjetos() != null) {
 			for (int i = 0; i < getListaProjetos().size(); i++) {
+				String stringProjeto = "";
 				stringProjeto += getListaProjetos().get(i).getNome();
 				stringProjeto += " - ";
 				stringProjeto += getListaProjetos().get(i).getNumero();
@@ -47,14 +48,14 @@ public class ListaController {
 			}
 		}
 		else {
-			stringProjeto = "Nada encontrado.";
+			String stringProjeto = "Nada encontrado.";
 			stringProjetos.add(stringProjeto);
 		}
 
 		return stringProjetos;
 	}
 
-	public String transformarListaCompleto() {
+	public String getStringCompletaParaPerfil() {
 		String stringProjeto = "";
 
 		if (getProjetoAtual() != null) {
@@ -78,6 +79,37 @@ public class ListaController {
 		}
 		else {
 			stringProjeto = "Nada encontrado.";
+		}
+
+		return stringProjeto;
+
+	}
+
+	public String getStringCompletaParaFavoritos() {
+		String stringProjeto = "";
+
+		if (getProjetoAtual() != null) {
+			stringProjeto += getProjetoAtual().getNome();
+			stringProjeto += SEPARADOR;
+			stringProjeto += getProjetoAtual().getNumero();
+			stringProjeto += SEPARADOR;
+			stringProjeto += getProjetoAtual().getAno();
+			stringProjeto += SEPARADOR;
+			stringProjeto += getProjetoAtual().getSigla();
+			stringProjeto += SEPARADOR;
+			stringProjeto += getProjetoAtual().getData();
+			stringProjeto += SEPARADOR;
+			stringProjeto += getProjetoAtual().getExplicacao();
+			stringProjeto += SEPARADOR;
+			stringProjeto += getProjetoAtual().getParlamentar().getNome();
+			stringProjeto += SEPARADOR;
+			stringProjeto += getProjetoAtual().getParlamentar().getPartido().getSiglaPartido();
+			stringProjeto += SEPARADOR;
+			stringProjeto += getProjetoAtual().getParlamentar().getPartido().getUf();
+			stringProjeto += SEPARADOR;
+		}
+		else {
+			stringProjeto = null;
 		}
 
 		return stringProjeto;

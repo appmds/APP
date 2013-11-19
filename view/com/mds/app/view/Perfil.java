@@ -1,7 +1,6 @@
 package com.mds.app.view;
 
 import android.app.Activity;
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.View;
@@ -12,26 +11,30 @@ import android.widget.TextView;
 import com.mds.app.R;
 import com.mds.app.controller.FavoritosController;
 import com.mds.app.controller.ListaController;
+import com.mds.app.model.ProjetoModel;
 import com.mds.app.persistencia.Persistencia;
 
 public class Perfil extends Activity {
 
 	private ListaController listaController;
+	private ProjetoModel projetoAtual;
 	private String stringProjetoCompleto;
 	private TextView texto;
-	private ImageButton naoFavorito;
+	private ImageButton estrelaFavorito;
 	private boolean favoritado;
 
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_perfil);
-		
+
+		projetoAtual = ListaController.getProjetoAtual();
 		listaController = new ListaController();
 
-		stringProjetoCompleto = listaController.transformarListaCompleto();
+		stringProjetoCompleto = listaController.getStringCompletaParaPerfil();
 
 		texto = (TextView) findViewById(R.id.texto);
 		texto.setText(stringProjetoCompleto);
+
 		favoritar_addListener();
 
 		// if tamanho menor que 10, gravar na primeira linha
@@ -48,23 +51,34 @@ public class Perfil extends Activity {
 	}
 
 	private void favoritar_addListener() {
-		naoFavorito = (ImageButton) findViewById(R.id.naoFavorito);
-		naoFavorito.setOnClickListener(new OnClickListener() {
+		estrelaFavorito = (ImageButton) findViewById(R.id.naoFavorito);
+
+		if (FavoritosController.getProjetosFavoritadosCompletoStr().contains(stringProjetoCompleto)) {
+			estrelaFavorito.setImageResource(R.drawable.favorito);
+			favoritado = true;
+		}
+		else {
+			estrelaFavorito.setImageResource(R.drawable.naofavorito);
+			favoritado = false;
+		}
+
+		estrelaFavorito.setOnClickListener(new OnClickListener() {
 
 			@Override
 			public void onClick(View v) {
-				
+
 				FavoritosController favoritosController = new FavoritosController();
-				
+				String stringProjetoParaFavorito = listaController.getStringCompletaParaFavoritos();
+
 				if (!favoritado) {
-					naoFavorito.setImageResource(R.drawable.favorito);
+					estrelaFavorito.setImageResource(R.drawable.favorito);
 					favoritado = true;
-					favoritosController.adicionarFavorito(stringProjetoCompleto);
+					favoritosController.adicionarFavorito(projetoAtual, stringProjetoParaFavorito);
 				}
 				else {
-					naoFavorito.setImageResource(R.drawable.naofavorito);
+					estrelaFavorito.setImageResource(R.drawable.naofavorito);
 					favoritado = false;
-					favoritosController.removerFavorito(stringProjetoCompleto);
+					favoritosController.removerFavorito(projetoAtual, stringProjetoParaFavorito);
 				}
 			}
 		});
