@@ -113,7 +113,6 @@ public class Busca extends Activity {
 				@Override
 				public void run() {
 					ListaController.setListaProjetos(result);
-					ListaController.setTipoAtual(ListaController.Tipo.PESQUISA);
 					Intent intent = new Intent(Busca.this, Lista.class);
 					startActivity(intent);
 				}

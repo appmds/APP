@@ -12,7 +12,6 @@ import android.widget.ListView;
 import android.widget.Toast;
 
 import com.mds.app.R;
-import com.mds.app.controller.FavoritosController;
 import com.mds.app.controller.ListaController;
 import com.mds.app.util.StableArrayAdapter;
 
@@ -28,20 +27,7 @@ public class Lista extends Activity {
 		ListView listView = new ListView(this);
 		listaController = new ListaController();
 
-		if (ListaController.getTipoAtual() == ListaController.Tipo.PESQUISA) {
-			stringProjetos = listaController.transformarLista();
-		}
-		else if (ListaController.getTipoAtual() == ListaController.Tipo.FAVORITOS) {
-			// stringProjetos = FavoritosController.getProjetosFavoritadosCompletoStr();
-			ListaController.setListaProjetos(FavoritosController.getProjetosFavoritados());
-			stringProjetos = listaController.transformarLista();
-		}
-		else if (ListaController.getTipoAtual() == ListaController.Tipo.HISTORICO) {
-			// implementar historico
-			ArrayList<String> implementar = new ArrayList<String>();
-			implementar.add("Nada encontrado.");
-			stringProjetos = implementar;
-		}
+		stringProjetos = listaController.transformarLista();
 
 		final StableArrayAdapter adapter = new StableArrayAdapter(this, android.R.layout.simple_list_item_1,
 				stringProjetos);

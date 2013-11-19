@@ -11,20 +11,6 @@ public class ListaController {
 	private static List<ProjetoModel> listaProjetos;
 	private static ProjetoModel projetoAtual;
 
-	public enum Tipo {
-		PESQUISA, FAVORITOS, HISTORICO;
-	}
-
-	public static Tipo tipoAtual = Tipo.PESQUISA;
-
-	public static Tipo getTipoAtual() {
-		return tipoAtual;
-	}
-
-	public static void setTipoAtual(Tipo novoTipoAtual) {
-		tipoAtual = novoTipoAtual;
-	}
-
 	public ListaController() {
 	}
 
@@ -85,7 +71,7 @@ public class ListaController {
 
 	}
 
-	public String getStringCompletaParaFavoritos() {
+	public String getStringCompletaParaArquivo() {
 		String stringProjeto = "";
 
 		if (getProjetoAtual() != null) {

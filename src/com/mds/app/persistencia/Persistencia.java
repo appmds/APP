@@ -10,25 +10,25 @@ import java.io.OutputStreamWriter;
 
 import android.app.Activity;
 import android.os.Environment;
+import android.util.Log;
 
 public abstract class Persistencia extends Activity {
 
 	/*
 	 * Pros parametros "fileName" dos metodos, passar ou:
-	 * Persistencia.getFileFavoritos(), ou
-	 * Persistencia.getFileHistorico
+	 * Persistencia.getFileFavoritos() para gravar no arquivo dos favoritos, ou
+	 * Persistencia.getFileHistorico para gravar no arquivo do historico
 	 */
 
 	private static final String fileFavoritos = "favoritos.txt";
 	private static final String fileHistorico = "historico.txt";
-	private static final String testDir = "/ArquivosAPP";
+	private static final String directoryName = "/ArquivosAPP";
 
 	private static final File sdCard = Environment.getExternalStorageDirectory();
-	private static final File directory = new File(sdCard.getAbsolutePath() + getTestDir());
+	private static final File directory = new File(sdCard.getAbsolutePath() + getDirectoryName());
 
-	public Persistencia() {
-
-	}
+	private static final File favoritos = new File(directory, fileFavoritos);
+	private static final File historico = new File(directory, fileFavoritos);
 
 	public static void writeToFile(String fileName, String data) {
 		// This will get the SD Card directory and create a folder named MyFiles in it.
@@ -36,7 +36,13 @@ public abstract class Persistencia extends Activity {
 		directory.mkdirs();
 
 		// Now create the file in the above directory and write the contents into it
-		File file = new File(directory, fileName);
+		File file;
+		if(fileName.equals(fileFavoritos)){
+			file = favoritos;
+		}
+		else{
+			file = historico;
+		}
 		FileOutputStream fOut;
 		try {
 			fOut = new FileOutputStream(file);
@@ -59,9 +65,7 @@ public abstract class Persistencia extends Activity {
 			writeToFile(fileName, conteudo);
 		}
 		else {
-			for (int i = 0; i < 30; i++) {
-				System.out.println("IH RAPAZ");
-			}
+			Log.e("LOGGER", "Arquivo NAO deletado com sucesso!");
 		}
 	}
 
@@ -73,8 +77,8 @@ public abstract class Persistencia extends Activity {
 		return fileHistorico;
 	}
 
-	public static String getTestDir() {
-		return testDir;
+	public static String getDirectoryName() {
+		return directoryName;
 	}
 
 	public static String readFromFile(String fileName) {
@@ -82,7 +86,13 @@ public abstract class Persistencia extends Activity {
 		directory.mkdirs();
 
 		// Now create the file in the above directory and write the contents into it
-		File file = new File(directory, fileName);
+		File file;
+		if(fileName.equals(fileFavoritos)){
+			file = favoritos;
+		}
+		else{
+			file = historico;
+		}
 		FileInputStream fis = null;
 
 		String readString = "";

@@ -3,6 +3,7 @@ package com.mds.app.view;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -11,7 +12,9 @@ import android.widget.ImageButton;
 
 import com.mds.app.R;
 import com.mds.app.controller.FavoritosController;
+import com.mds.app.controller.HistoricoController;
 import com.mds.app.controller.ListaController;
+import com.mds.app.persistencia.Persistencia;
 
 public class MenuPrincipal extends Activity {
 
@@ -25,7 +28,11 @@ public class MenuPrincipal extends Activity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_menu_principal);
 
-		FavoritosController.popularProjetosFavoritados();
+		FavoritosController favoritosController = new FavoritosController();
+		favoritosController.popularProjetos();
+
+		HistoricoController historicoController = new HistoricoController();
+		historicoController.popularProjetos();
 
 		busca_addListener();
 		sobre_addListener();
@@ -46,7 +53,6 @@ public class MenuPrincipal extends Activity {
 
 			@Override
 			public void onClick(View v) {
-				ListaController.setTipoAtual(ListaController.Tipo.PESQUISA);
 				Intent i = new Intent(MenuPrincipal.this, Busca.class);
 				startActivity(i);
 			}
@@ -71,7 +77,10 @@ public class MenuPrincipal extends Activity {
 
 			@Override
 			public void onClick(View v) {
-				ListaController.setTipoAtual(ListaController.Tipo.FAVORITOS);
+				String strConteudoFavoritos = Persistencia.readFromFile(Persistencia.getFileFavoritos());
+				Log.i("LOGGER", "Conteudo historico: " + strConteudoFavoritos);
+				
+				ListaController.setListaProjetos(FavoritosController.getProjetosFavoritados());
 				Intent i = new Intent(MenuPrincipal.this, Lista.class);
 				startActivity(i);
 			}
@@ -84,7 +93,10 @@ public class MenuPrincipal extends Activity {
 
 			@Override
 			public void onClick(View v) {
-				ListaController.setTipoAtual(ListaController.Tipo.HISTORICO);
+				String strConteudoHistorico = Persistencia.readFromFile(Persistencia.getFileHistorico());
+				Log.i("LOGGER", "Conteudo historico: " + strConteudoHistorico);
+				
+				ListaController.setListaProjetos(HistoricoController.getProjetosHistorico());
 				Intent i = new Intent(MenuPrincipal.this, Lista.class);
 				startActivity(i);
 			}
