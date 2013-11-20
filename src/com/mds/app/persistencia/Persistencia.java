@@ -5,14 +5,13 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
-import java.io.InputStreamReader;
-import java.io.OutputStreamWriter;
 
 import android.app.Activity;
-import android.os.Environment;
+import android.content.Context;
+import android.content.ContextWrapper;
 import android.util.Log;
 
-public abstract class Persistencia extends Activity {
+public class Persistencia extends Activity {
 
 	/*
 	 * Pros parametros "fileName" dos metodos, passar ou:
@@ -20,104 +19,188 @@ public abstract class Persistencia extends Activity {
 	 * Persistencia.getFileHistorico para gravar no arquivo do historico
 	 */
 
-	private static final String fileFavoritos = "favoritos.txt";
-	private static final String fileHistorico = "historico.txt";
-	private static final String directoryName = "/ArquivosAPP";
+	private static final String fileNameFavoritos = "favoritos";
+	private static final String fileNameHistorico = "historico";
 
-	private static final File sdCard = Environment.getExternalStorageDirectory();
-	private static final File directory = new File(sdCard.getAbsolutePath() + getDirectoryName());
+	private Context context;
 
-	private static final File favoritos = new File(directory, fileFavoritos);
-	private static final File historico = new File(directory, fileFavoritos);
+	private FileOutputStream fileOutputStream;
+	private FileInputStream fileInputStream;
 
-	public static void writeToFile(String fileName, String data) {
-		// This will get the SD Card directory and create a folder named MyFiles in it.
+	private File fileFavoritos;
+	private File fileHistorico;
 
-		directory.mkdirs();
-
-		// Now create the file in the above directory and write the contents into it
-		File file;
-		if(fileName.equals(fileFavoritos)){
-			file = favoritos;
-		}
-		else{
-			file = historico;
-		}
-		FileOutputStream fOut;
-		try {
-			fOut = new FileOutputStream(file);
-			OutputStreamWriter osw = new OutputStreamWriter(fOut);
-			osw.write(data);
-			osw.flush();
-			osw.close();
-		} catch (FileNotFoundException e) {
-			e.printStackTrace();
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-
+	public Persistencia(Context context) {
+		this.context = context;
+		fileFavoritos = new File(this.context.getFilesDir(), fileNameFavoritos);
+		fileHistorico = new File(this.context.getFilesDir(), fileNameHistorico);
 	}
 
-	public static void rewriteFile(String fileName, String conteudo) {
-		File file = new File(directory, fileName);
-		boolean deletado = file.delete();
-		if (deletado) {
-			writeToFile(fileName, conteudo);
+	public void escreverNoArquivo(String fileName, String data) {
+		final String TAG = "WRITE";
+		
+		try{
+			verificarFileName(fileName);
+		}catch(IllegalArgumentException e){
+			Log.i(TAG, e.getMessage());
+			e.printStackTrace();
+		}
+		
+		int mode = 0;
+		if (!(new File(fileName)).exists()) {
+			mode = Context.MODE_APPEND;
 		}
 		else {
-			Log.e("LOGGER", "Arquivo NAO deletado com sucesso!");
+			mode = Context.MODE_PRIVATE;
 		}
+
+		try {
+			fileOutputStream = (new ContextWrapper(context)).openFileOutput(fileName, mode);
+		} catch (FileNotFoundException e) {
+			Log.i(TAG, e.getMessage());
+			e.printStackTrace();
+		}
+		try {
+			fileOutputStream.write(data.getBytes());
+		} catch (IOException e) {
+			Log.i(TAG, e.getMessage());
+			e.printStackTrace();
+		}
+		try {
+			fileOutputStream.close();
+		} catch (IOException e) {
+			Log.i(TAG, e.getMessage());
+			e.printStackTrace();
+		}
+
 	}
 
-	public static String getFileFavoritos() {
+	public void reescreverArquivo(String fileName, String novoConteudo) {
+		deletarArquivo(fileName);
+		escreverNoArquivo(fileName, novoConteudo);
+	}
+
+	public String lerDoArquivo(String fileName) {
+		final String TAG = "READ";
+		
+		try{
+			verificarFileName(fileName);
+		}catch(IllegalArgumentException e){
+			Log.i(TAG, e.getMessage());
+			e.printStackTrace();
+			return "ARQUIVO NAO IDENTIFICADO";
+		}
+		
+		String fileContent = "";
+
+		try {
+			fileInputStream = (new ContextWrapper(context)).openFileInput(fileName);
+		} catch (FileNotFoundException e) {
+			Log.i(TAG, e.getMessage());
+			e.printStackTrace();
+			return "ARQUIVO NAO EXISTE";
+		}
+
+		int data = 0;
+		try {
+			while ((data = fileInputStream.read()) != -1) {
+				char ch = (char) data;
+				String str = String.valueOf(ch);
+				fileContent += str;
+			}
+			Log.i(TAG, fileContent);
+		} catch (IOException e) {
+			Log.i(TAG, e.getMessage());
+			e.printStackTrace();
+		} catch (NullPointerException e) {
+			Log.i(TAG, e.getMessage());
+			e.printStackTrace();
+			return "ARQUIVO VAZIO";
+		}
+
+		try {
+			fileInputStream.close();
+		} catch (IOException e) {
+			Log.i(TAG, e.getMessage());
+			e.printStackTrace();
+		}
+
+		return fileContent;
+	}
+
+	private boolean deletarArquivo(String fileName) {
+		final String strPath;
+		if (fileName.equals(Persistencia.getFileNameFavoritos())) {
+			strPath = fileFavoritos.getAbsolutePath();
+		}
+		else if (fileName.equals(Persistencia.getFileNameHistorico())) {
+			strPath = fileHistorico.getAbsolutePath();
+		}
+		else{
+			throw new IllegalArgumentException("Deve ser passado o arquivo dos favoritos ou do historico!");
+		}
+
+		File file = new File(strPath);
+		boolean deleted = file.delete();
+		String deletedStr = (deleted) ? "deleted" : "NOTdeleted";
+		Log.i("DELETE", strPath + ": " + deletedStr);
+		return deleted;
+	}
+
+	private void verificarFileName(String fileName){
+		if(!fileName.equals(Persistencia.getFileNameFavoritos()) && !fileName.equals(Persistencia.getFileNameHistorico())){
+			throw new IllegalArgumentException("Deve ser passado o arquivo dos favoritos ou do historico!");
+		}
+	}
+	
+	// ////////////////////////////////
+
+	public Context getContext() {
+		return context;
+	}
+
+	public void setContext(Context context) {
+		this.context = context;
+	}
+
+	public FileOutputStream getFileOutputStream() {
+		return fileOutputStream;
+	}
+
+	public void setFileOutputStream(FileOutputStream fileOutputStream) {
+		this.fileOutputStream = fileOutputStream;
+	}
+
+	public FileInputStream getFileInputStream() {
+		return fileInputStream;
+	}
+
+	public void setFileInputStream(FileInputStream fileInputStream) {
+		this.fileInputStream = fileInputStream;
+	}
+
+	public File getFileFavoritos() {
 		return fileFavoritos;
 	}
 
-	public static String getFileHistorico() {
+	public void setFileFavoritos(File fileFavoritos) {
+		this.fileFavoritos = fileFavoritos;
+	}
+
+	public File getFileHistorico() {
 		return fileHistorico;
 	}
 
-	public static String getDirectoryName() {
-		return directoryName;
+	public void setFileHistorico(File fileHistorico) {
+		this.fileHistorico = fileHistorico;
 	}
 
-	public static String readFromFile(String fileName) {
-
-		directory.mkdirs();
-
-		// Now create the file in the above directory and write the contents into it
-		File file;
-		if(fileName.equals(fileFavoritos)){
-			file = favoritos;
-		}
-		else{
-			file = historico;
-		}
-		FileInputStream fis = null;
-
-		String readString = "";
-		try {
-			fis = new FileInputStream(file);
-			InputStreamReader isr = new InputStreamReader(fis);
-			// READ STRING OF UNKNOWN LENGTH
-			StringBuilder sb = new StringBuilder();
-			char[] inputBuffer = new char[2048];
-			int l;
-			// FILL BUFFER WITH DATA
-			while ((l = isr.read(inputBuffer)) != -1) {
-				sb.append(inputBuffer, 0, l);
-			}
-			// CONVERT BYTES TO STRING
-			readString = sb.toString();
-			fis.close();
-		} catch (FileNotFoundException e) {
-			e.printStackTrace();
-		} catch (IOException e) {
-			e.printStackTrace();
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-
-		return readString;
+	public static String getFileNameFavoritos() {
+		return fileNameFavoritos;
 	}
+
+	public static String getFileNameHistorico() {
+		return fileNameHistorico;
+	}
+
 }

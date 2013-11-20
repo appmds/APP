@@ -2,6 +2,7 @@ package com.mds.app.controller;
 
 import java.util.ArrayList;
 
+import android.content.Context;
 import android.util.Log;
 
 import com.mds.app.model.ParlamentarModel;
@@ -11,20 +12,35 @@ import com.mds.app.persistencia.Persistencia;
 
 public class HistoricoController implements AlteraArquivos {
 
-	private static final int MAX_PROJETOS = 2;
+	private static final int MAX_PROJETOS = 3;
 	private static ArrayList<ProjetoModel> projetosHistorico = new ArrayList<ProjetoModel>(MAX_PROJETOS);
 	private static ArrayList<String> projetosHistoricoCompletoStr = new ArrayList<String>();
+	private Persistencia persistencia;
+
+	public HistoricoController(Context context) {
+		persistencia = new Persistencia(context);
+	}
+
+	public HistoricoController() {
+
+	}
 
 	@Override
 	public void adicionar(ProjetoModel projeto, String conteudo) {
-		if (!projetosHistoricoCompletoStr.contains(conteudo) && !projetosHistorico.contains(projeto)) {
-			projetosHistoricoCompletoStr.add(conteudo);
-			projetosHistorico.add(projeto);
-			Persistencia.writeToFile(Persistencia.getFileHistorico(), conteudo);
+		if (!projetosHistoricoCompletoStr.contains(conteudo)) {
+			if (!projetosHistorico.contains(projeto)) {
+				projetosHistoricoCompletoStr.add(conteudo);
+				projetosHistorico.add(projeto);
+				persistencia.escreverNoArquivo(Persistencia.getFileNameHistorico(), conteudo);
+			}
+			else {
+				System.out.println("ELSE DENTRO ADICIONAR HISTORICO");
+			}
 		}
 		else {
 			// projeto que ja existe foi visto, e portanto pula pro "final da fila"
-			Log.i("LOGGER", "ELSE ADICIONAR HISTORICO");
+			// Log.i("LOGGER", "ELSE ADICIONAR HISTORICO");
+			System.out.println("ELSE FORA ADICIONAR HISTORICO");
 			projetosHistorico.remove(projeto);
 			ArrayList<ProjetoModel> atualizadaProjetosHistorico = new ArrayList<ProjetoModel>(MAX_PROJETOS);
 			atualizadaProjetosHistorico.add(0, projeto);
@@ -37,15 +53,20 @@ public class HistoricoController implements AlteraArquivos {
 
 	@Override
 	public void remover(ProjetoModel projeto, String stringProjeto) {
-		if (projetosHistoricoCompletoStr.contains(stringProjeto) && projetosHistorico.contains(projeto)) {
-			projetosHistoricoCompletoStr.remove(stringProjeto);
-			projetosHistorico.remove(projeto);
-			String conteudoArquivo = projetosEmString();
-			Persistencia.rewriteFile(Persistencia.getFileFavoritos(), conteudoArquivo);
+		if (projetosHistoricoCompletoStr.contains(stringProjeto)) {
+			if (projetosHistorico.contains(projeto)) {
+				projetosHistoricoCompletoStr.remove(stringProjeto);
+				projetosHistorico.remove(projeto);
+				String conteudoArquivo = projetosEmString();
+				persistencia.reescreverArquivo(Persistencia.getFileNameHistorico(), conteudoArquivo);
+			}
+			else {
+				System.out.println("ELSE DENTRO REMOVER HISTORICO");
+			}
 		}
 		else {
-			//
-			Log.i("LOGGER", "ELSE REMOVER HISTORICO");
+			// Log.i("LOGGER", "ELSE REMOVER HISTORICO");
+			System.out.println("ELSE FORA REMOVER HISTORICO");
 		}
 	}
 
@@ -63,12 +84,14 @@ public class HistoricoController implements AlteraArquivos {
 	@Override
 	public void popularProjetos() {
 		ArrayList<String> splitParts;
-		String strConteudoHistorico = Persistencia.readFromFile(Persistencia.getFileHistorico());
-		Log.i("LOGGER", "Conteudo historico: " + strConteudoHistorico);
+
+		Log.i("POPPROJ-H", "Conteudo historico:");
+		String strConteudoHistorico = persistencia.lerDoArquivo(Persistencia.getFileNameHistorico());
 
 		final int separadoresPorProjeto = 9;
 		final int numeroDeProjetosNoArquivo;
 		int numeroDeSeparadores = 0;
+		projetosHistorico = new ArrayList<ProjetoModel>();
 
 		if (strConteudoHistorico.contains("~")) {
 			for (int i = 0; i < strConteudoHistorico.length(); i++) {
@@ -76,17 +99,17 @@ public class HistoricoController implements AlteraArquivos {
 					numeroDeSeparadores++;
 				}
 			}
-			Log.i("LOGGER", "separators: " + numeroDeSeparadores);
-			Log.i("LOGGER", "MOD: " + (numeroDeSeparadores % separadoresPorProjeto));
-			numeroDeProjetosNoArquivo = 1 + (numeroDeSeparadores % separadoresPorProjeto);
-			Log.i("LOGGER", "Numero de projetos: " + numeroDeProjetosNoArquivo);
+			Log.i("POPPROJ-H", "Separadores: " + numeroDeSeparadores);
+
+			numeroDeProjetosNoArquivo = (numeroDeSeparadores / separadoresPorProjeto);
+			Log.i("POPPROJ-H", "Numero de projetos: " + numeroDeProjetosNoArquivo);
 
 			for (int i = 0; i < numeroDeProjetosNoArquivo; i++) {
 				splitParts = new ArrayList<String>(numeroDeSeparadores);
 				String[] parts = strConteudoHistorico.split("~");
 
 				for (int j = 0; j < separadoresPorProjeto; j++) {
-					splitParts.add(j, parts[j]);
+					splitParts.add(j, parts[j + (separadoresPorProjeto * i)]);
 				}
 
 				String siglaPartido = splitParts.get(7);
@@ -104,14 +127,13 @@ public class HistoricoController implements AlteraArquivos {
 				ProjetoModel projeto = new ProjetoModel(anoProjeto, nomeProjeto, siglaProjeto, dataProjeto,
 						numeroProjeto, explicacaoProjeto, parlamentar);
 
-				projetosHistorico = new ArrayList<ProjetoModel>();
-				projetosHistorico.add(i, projeto);
+				projetosHistorico.add(projeto);
 
-				Log.i("LOGGER", projeto.toString());
+				Log.i("POPPROJ-H", "Adicionando: " + projeto.toString());
 			}
 		}
 		else {
-			Log.i("LOGGER", "Historico esta vazio");
+			Log.i("POPPROJ-H", "Historico esta vazio");
 		}
 
 		popularListaComProjetos();
@@ -143,7 +165,7 @@ public class HistoricoController implements AlteraArquivos {
 			}
 		}
 		else {
-			Log.i("LOGGER", "Historico esta vazio");
+			Log.i("POPSTR-H", "Historico esta vazio");
 		}
 	}
 

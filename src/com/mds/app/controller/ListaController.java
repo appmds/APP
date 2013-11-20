@@ -117,4 +117,8 @@ public class ListaController {
 		ListaController.projetoAtual = projetoAtual;
 	}
 
+	public static String getSeparador() {
+		return SEPARADOR;
+	}
+
 }

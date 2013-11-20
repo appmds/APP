@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.View;
 import android.widget.AdapterView;
@@ -28,6 +29,7 @@ public class Lista extends Activity {
 		listaController = new ListaController();
 
 		stringProjetos = listaController.transformarLista();
+		Log.i("LISTA", stringProjetos.toString());
 
 		final StableArrayAdapter adapter = new StableArrayAdapter(this, android.R.layout.simple_list_item_1,
 				stringProjetos);

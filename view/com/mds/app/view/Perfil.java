@@ -1,6 +1,7 @@
 package com.mds.app.view;
 
 import android.app.Activity;
+import android.content.Context;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
@@ -23,6 +24,7 @@ public class Perfil extends Activity {
 	private TextView texto;
 	private ImageButton estrelaFavorito;
 	private boolean favoritado;
+	Context context = this;
 
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -41,7 +43,7 @@ public class Perfil extends Activity {
 		final int projetosNoHistorico = HistoricoController.getNumeroDeProjetosNoHistorico();
 		final int maxProjetos = HistoricoController.getMaxProjetos();
 		String stringProjetoParaHistorico = listaController.getStringCompletaParaArquivo();
-		HistoricoController historicoController = new HistoricoController();
+		HistoricoController historicoController = new HistoricoController(context);
 
 		/*
 		 * Arrumar a remocao, se acima do limite permitido na HistoricoController. E nao adicionar dois projetos iguais
@@ -68,7 +70,8 @@ public class Perfil extends Activity {
 	private void favoritar_addListener() {
 		estrelaFavorito = (ImageButton) findViewById(R.id.naoFavorito);
 
-		if (FavoritosController.getProjetosFavoritadosCompletoStr().contains(stringProjetoCompleto)) {
+		String stringProjetoParaFavorito = listaController.getStringCompletaParaArquivo();
+		if (FavoritosController.getProjetosFavoritadosCompletoStr().contains(stringProjetoParaFavorito)) {
 			estrelaFavorito.setImageResource(R.drawable.favorito);
 			favoritado = true;
 		}
@@ -82,7 +85,7 @@ public class Perfil extends Activity {
 			@Override
 			public void onClick(View v) {
 
-				FavoritosController favoritosController = new FavoritosController();
+				FavoritosController favoritosController = new FavoritosController(context);
 				String stringProjetoParaFavorito = listaController.getStringCompletaParaArquivo();
 
 				if (!favoritado) {

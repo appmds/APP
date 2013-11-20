@@ -95,10 +95,8 @@ public class Busca extends Activity {
 
 		@Override
 		protected void onPreExecute() {
-
 			progressDialog = ProgressDialog.show(Busca.this, "Aguarde...", "Recebendo dados", true, true);
 			progressDialog.setOnCancelListener(new CancelTaskOnCancelListener(this));
-
 		}
 
 		@Override
