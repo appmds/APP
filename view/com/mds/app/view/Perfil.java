@@ -40,22 +40,29 @@ public class Perfil extends Activity {
 
 		favoritar_addListener();
 
-		final int projetosNoHistorico = HistoricoController.getNumeroDeProjetosNoHistorico();
+		final int projetosNoHistorico = HistoricoController
+				.getNumeroDeProjetosNoHistorico();
 		final int maxProjetos = HistoricoController.getMaxProjetos();
-		String stringProjetoParaHistorico = listaController.getStringCompletaParaArquivo();
-		HistoricoController historicoController = new HistoricoController(context);
+		String stringProjetoParaHistorico = listaController
+				.getStringCompletaParaArquivo();
+		HistoricoController historicoController = new HistoricoController(
+				context);
 
 		/*
-		 * Arrumar a remocao, se acima do limite permitido na HistoricoController. E nao adicionar dois projetos iguais
+		 * Arrumar a remocao, se acima do limite permitido na
+		 * HistoricoController. E nao adicionar dois projetos iguais
 		 */
 		if (projetosNoHistorico < maxProjetos) {
-			historicoController.adicionar(projetoAtual, stringProjetoParaHistorico);
-		}
-		else {
-			Log.i("LOGGER", "Removendo do historico: " + HistoricoController.getProjetoMaisVelho().getNumero());
-			historicoController.remover(HistoricoController.getProjetoMaisVelho(),
+			historicoController.adicionar(projetoAtual,
+					stringProjetoParaHistorico);
+		} else {
+			Log.i("LOGGER", "Removendo do historico: "
+					+ HistoricoController.getProjetoMaisVelho().getNumero());
+			historicoController.remover(
+					HistoricoController.getProjetoMaisVelho(),
 					HistoricoController.getStringProjetoMaisVelho());
-			historicoController.adicionar(projetoAtual, stringProjetoParaHistorico);
+			historicoController.adicionar(projetoAtual,
+					stringProjetoParaHistorico);
 		}
 		Log.i("LOGGER", "Adicionando ao historico: " + projetoAtual.getNumero());
 
@@ -70,12 +77,13 @@ public class Perfil extends Activity {
 	private void favoritar_addListener() {
 		estrelaFavorito = (ImageButton) findViewById(R.id.naoFavorito);
 
-		String stringProjetoParaFavorito = listaController.getStringCompletaParaArquivo();
-		if (FavoritosController.getProjetosFavoritadosCompletoStr().contains(stringProjetoParaFavorito)) {
+		String stringProjetoParaFavorito = listaController
+				.getStringCompletaParaArquivo();
+		if (FavoritosController.getProjetosFavoritadosCompletoStr().contains(
+				stringProjetoParaFavorito)) {
 			estrelaFavorito.setImageResource(R.drawable.favorito);
 			favoritado = true;
-		}
-		else {
+		} else {
 			estrelaFavorito.setImageResource(R.drawable.naofavorito);
 			favoritado = false;
 		}
@@ -85,20 +93,24 @@ public class Perfil extends Activity {
 			@Override
 			public void onClick(View v) {
 
-				FavoritosController favoritosController = new FavoritosController(context);
-				String stringProjetoParaFavorito = listaController.getStringCompletaParaArquivo();
+				FavoritosController favoritosController = new FavoritosController(
+						context);
+				String stringProjetoParaFavorito = listaController
+						.getStringCompletaParaArquivo();
 
 				if (!favoritado) {
 					estrelaFavorito.setImageResource(R.drawable.favorito);
 					favoritado = true;
-					favoritosController.adicionar(projetoAtual, stringProjetoParaFavorito);
+					favoritosController.adicionar(projetoAtual,
+							stringProjetoParaFavorito);
 					Log.i("LOGGER", "Favoritando: " + projetoAtual.getNumero());
-				}
-				else {
+				} else {
 					estrelaFavorito.setImageResource(R.drawable.naofavorito);
 					favoritado = false;
-					favoritosController.remover(projetoAtual, stringProjetoParaFavorito);
-					Log.i("LOGGER", "Desfavoritando: " + projetoAtual.getNumero());
+					favoritosController.remover(projetoAtual,
+							stringProjetoParaFavorito);
+					Log.i("LOGGER",
+							"Desfavoritando: " + projetoAtual.getNumero());
 				}
 			}
 		});

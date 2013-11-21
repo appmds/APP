@@ -31,27 +31,33 @@ public class Lista extends Activity {
 		stringProjetos = listaController.transformarLista();
 		Log.i("LISTA", stringProjetos.toString());
 
-		final StableArrayAdapter adapter = new StableArrayAdapter(this, android.R.layout.simple_list_item_1,
-				stringProjetos);
+		final StableArrayAdapter adapter = new StableArrayAdapter(this,
+				android.R.layout.simple_list_item_1, stringProjetos);
 
 		listView.setAdapter(adapter);
 		listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
 
 			@Override
-			public void onItemClick(AdapterView<?> parent, final View view, final int position, long id) {
-				view.animate().setDuration(1).alpha(1).withEndAction(new Runnable() {
-					@Override
-					public void run() {
-						if (!stringProjetos.get(position).equals("Nada encontrado.")) {
-							ListaController.setProjetoAtual(ListaController.getListaProjetos().get(position));
-							Intent i = new Intent(Lista.this, Perfil.class);
-							startActivity(i);
-						}
-						else {
-							longToast("Nenhuma proposicao encontrada.");
-						}
-					}
-				});
+			public void onItemClick(AdapterView<?> parent, final View view,
+					final int position, long id) {
+				view.animate().setDuration(1).alpha(1)
+						.withEndAction(new Runnable() {
+							@Override
+							public void run() {
+								if (!stringProjetos.get(position).equals(
+										"Nada encontrado.")) {
+									ListaController
+											.setProjetoAtual(ListaController
+													.getListaProjetos().get(
+															position));
+									Intent i = new Intent(Lista.this,
+											Perfil.class);
+									startActivity(i);
+								} else {
+									longToast("Nenhuma proposicao encontrada.");
+								}
+							}
+						});
 			}
 		});
 

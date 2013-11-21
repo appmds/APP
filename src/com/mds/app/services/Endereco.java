@@ -19,8 +19,9 @@ public abstract class Endereco {
 	private final static String CODIGO_ORGAO_ESTADO = "codOrgaoEstado";
 	private final static String TRAMITACAO = "emTramitacao";
 
-	public static String construirEndereco(String sigla, String numero, String ano, String dataInicio,
-			String dataFinal, String autor, String nomeAutor, String siglaPartido, String siglaUF,
+	public static String construirEndereco(String sigla, String numero,
+			String ano, String dataInicio, String dataFinal, String autor,
+			String nomeAutor, String siglaPartido, String siglaUF,
 			String generoAutor, String codigoEstado, String codigoOrgaoEstado) {
 
 		StringBuffer sb = new StringBuffer();

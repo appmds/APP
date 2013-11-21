@@ -32,14 +32,14 @@ public class FavoritosController implements AlteraArquivos {
 				projetosFavoritadosCompletoStr.add(conteudo);
 				projetosFavoritados.add(projeto);
 
-				persistencia.escreverNoArquivo(Persistencia.getFileNameFavoritos(), conteudo);
-			}
-			else {
+				persistencia.escreverNoArquivo(
+						Persistencia.getFileNameFavoritos(), conteudo);
+			} else {
 				System.out.println("ELSE DENTRO ADICIONAR FAVORITOS");
 			}
-		}
-		else {
-			// Projeto ja existe no arquivo dos favoritos, nao tem como favoritar de novo
+		} else {
+			// Projeto ja existe no arquivo dos favoritos, nao tem como
+			// favoritar de novo
 			Log.i("ADICIONAR", "ELSE ADICIONAR FAVORITOS");
 		}
 	}
@@ -51,13 +51,12 @@ public class FavoritosController implements AlteraArquivos {
 				projetosFavoritadosCompletoStr.remove(stringProjeto);
 				projetosFavoritados.remove(projeto);
 				String conteudoArquivo = projetosEmString();
-				persistencia.reescreverArquivo(Persistencia.getFileNameFavoritos(), conteudoArquivo);
-			}
-			else {
+				persistencia.reescreverArquivo(
+						Persistencia.getFileNameFavoritos(), conteudoArquivo);
+			} else {
 				System.out.println("ELSE DENTRO REMOVER FAVORITOS");
 			}
-		}
-		else {
+		} else {
 			// mesma coisa
 			// Log.i("LOGGER", "ELSE REMOVER FAVORITOS");
 			System.out.println("ELSE REMOVER FAVORITOS");
@@ -69,7 +68,8 @@ public class FavoritosController implements AlteraArquivos {
 		String conteudoProjetosFavoritados = "";
 
 		for (int i = 0; i < projetosFavoritadosCompletoStr.size(); i++) {
-			conteudoProjetosFavoritados += projetosFavoritadosCompletoStr.get(i);
+			conteudoProjetosFavoritados += projetosFavoritadosCompletoStr
+					.get(i);
 		}
 
 		return conteudoProjetosFavoritados;
@@ -80,7 +80,8 @@ public class FavoritosController implements AlteraArquivos {
 		ArrayList<String> splitParts;
 
 		Log.i("POPPROJ-F", "Conteudo favoritos:");
-		String strConteudoFavoritos = persistencia.lerDoArquivo(Persistencia.getFileNameFavoritos());
+		String strConteudoFavoritos = persistencia.lerDoArquivo(Persistencia
+				.getFileNameFavoritos());
 
 		final int separadoresPorProjeto = 9;
 		final int numeroDeProjetosNoArquivo;
@@ -96,7 +97,8 @@ public class FavoritosController implements AlteraArquivos {
 			Log.i("POPPROJ-F", "Separadores: " + numeroDeSeparadores);
 
 			numeroDeProjetosNoArquivo = (numeroDeSeparadores / separadoresPorProjeto);
-			Log.i("POPPROJ-F", "Numero de projetos: " + numeroDeProjetosNoArquivo);
+			Log.i("POPPROJ-F", "Numero de projetos: "
+					+ numeroDeProjetosNoArquivo);
 
 			for (int i = 0; i < numeroDeProjetosNoArquivo; i++) {
 				splitParts = new ArrayList<String>(numeroDeSeparadores);
@@ -117,19 +119,20 @@ public class FavoritosController implements AlteraArquivos {
 				String explicacaoProjeto = splitParts.get(5);
 
 				PartidoModel partido = new PartidoModel(siglaPartido, ufPartido);
-				ParlamentarModel parlamentar = new ParlamentarModel(nomeParlamentar, partido);
-				ProjetoModel projeto = new ProjetoModel(anoProjeto, nomeProjeto, siglaProjeto, dataProjeto,
-						numeroProjeto, explicacaoProjeto, parlamentar);
+				ParlamentarModel parlamentar = new ParlamentarModel(
+						nomeParlamentar, partido);
+				ProjetoModel projeto = new ProjetoModel(anoProjeto,
+						nomeProjeto, siglaProjeto, dataProjeto, numeroProjeto,
+						explicacaoProjeto, parlamentar);
 
 				projetosFavoritados.add(projeto);
 
 				Log.i("POPPROJ-F", "Adicionando: " + projeto.toString());
 			}
-		}
-		else {
+		} else {
 			Log.i("POPPROJ-F", "Favoritos esta vazio");
 		}
-		
+
 		popularListaComProjetos();
 	}
 
@@ -150,15 +153,17 @@ public class FavoritosController implements AlteraArquivos {
 				stringProjeto += "\nDescrição: ";
 				stringProjeto += projetosFavoritados.get(i).getExplicacao();
 				stringProjeto += "\nParlamentar: ";
-				stringProjeto += projetosFavoritados.get(i).getParlamentar().getNome();
+				stringProjeto += projetosFavoritados.get(i).getParlamentar()
+						.getNome();
 				stringProjeto += "\nPartido: ";
-				stringProjeto += projetosFavoritados.get(i).getParlamentar().getPartido().getSiglaPartido();
+				stringProjeto += projetosFavoritados.get(i).getParlamentar()
+						.getPartido().getSiglaPartido();
 				stringProjeto += "\nEstado: ";
-				stringProjeto += projetosFavoritados.get(i).getParlamentar().getPartido().getUf();
+				stringProjeto += projetosFavoritados.get(i).getParlamentar()
+						.getPartido().getUf();
 				projetosFavoritadosCompletoStr.add(i, stringProjeto);
 			}
-		}
-		else {
+		} else {
 			Log.i("POPSTR-F", "Favoritos esta vazio");
 		}
 	}
@@ -167,7 +172,8 @@ public class FavoritosController implements AlteraArquivos {
 		return projetosFavoritados;
 	}
 
-	public static void setProjetosFavoritados(ArrayList<ProjetoModel> projetosFavoritados) {
+	public static void setProjetosFavoritados(
+			ArrayList<ProjetoModel> projetosFavoritados) {
 		FavoritosController.projetosFavoritados = projetosFavoritados;
 	}
 
@@ -175,7 +181,8 @@ public class FavoritosController implements AlteraArquivos {
 		return projetosFavoritadosCompletoStr;
 	}
 
-	public static void setProjetosFavoritadosCompletoStr(ArrayList<String> projetosFavoritadosCompletoStr) {
+	public static void setProjetosFavoritadosCompletoStr(
+			ArrayList<String> projetosFavoritadosCompletoStr) {
 		FavoritosController.projetosFavoritadosCompletoStr = projetosFavoritadosCompletoStr;
 	}
 

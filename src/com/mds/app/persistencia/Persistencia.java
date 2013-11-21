@@ -38,24 +38,24 @@ public class Persistencia extends Activity {
 
 	public void escreverNoArquivo(String fileName, String data) {
 		final String TAG = "WRITE";
-		
-		try{
+
+		try {
 			verificarFileName(fileName);
-		}catch(IllegalArgumentException e){
+		} catch (IllegalArgumentException e) {
 			Log.i(TAG, e.getMessage());
 			e.printStackTrace();
 		}
-		
+
 		int mode = 0;
 		if (!(new File(fileName)).exists()) {
 			mode = Context.MODE_APPEND;
-		}
-		else {
+		} else {
 			mode = Context.MODE_PRIVATE;
 		}
 
 		try {
-			fileOutputStream = (new ContextWrapper(context)).openFileOutput(fileName, mode);
+			fileOutputStream = (new ContextWrapper(context)).openFileOutput(
+					fileName, mode);
 		} catch (FileNotFoundException e) {
 			Log.i(TAG, e.getMessage());
 			e.printStackTrace();
@@ -82,19 +82,20 @@ public class Persistencia extends Activity {
 
 	public String lerDoArquivo(String fileName) {
 		final String TAG = "READ";
-		
-		try{
+
+		try {
 			verificarFileName(fileName);
-		}catch(IllegalArgumentException e){
+		} catch (IllegalArgumentException e) {
 			Log.i(TAG, e.getMessage());
 			e.printStackTrace();
 			return "ARQUIVO NAO IDENTIFICADO";
 		}
-		
+
 		String fileContent = "";
 
 		try {
-			fileInputStream = (new ContextWrapper(context)).openFileInput(fileName);
+			fileInputStream = (new ContextWrapper(context))
+					.openFileInput(fileName);
 		} catch (FileNotFoundException e) {
 			Log.i(TAG, e.getMessage());
 			e.printStackTrace();
@@ -132,12 +133,11 @@ public class Persistencia extends Activity {
 		final String strPath;
 		if (fileName.equals(Persistencia.getFileNameFavoritos())) {
 			strPath = fileFavoritos.getAbsolutePath();
-		}
-		else if (fileName.equals(Persistencia.getFileNameHistorico())) {
+		} else if (fileName.equals(Persistencia.getFileNameHistorico())) {
 			strPath = fileHistorico.getAbsolutePath();
-		}
-		else{
-			throw new IllegalArgumentException("Deve ser passado o arquivo dos favoritos ou do historico!");
+		} else {
+			throw new IllegalArgumentException(
+					"Deve ser passado o arquivo dos favoritos ou do historico!");
 		}
 
 		File file = new File(strPath);
@@ -147,12 +147,14 @@ public class Persistencia extends Activity {
 		return deleted;
 	}
 
-	private void verificarFileName(String fileName){
-		if(!fileName.equals(Persistencia.getFileNameFavoritos()) && !fileName.equals(Persistencia.getFileNameHistorico())){
-			throw new IllegalArgumentException("Deve ser passado o arquivo dos favoritos ou do historico!");
+	private void verificarFileName(String fileName) {
+		if (!fileName.equals(Persistencia.getFileNameFavoritos())
+				&& !fileName.equals(Persistencia.getFileNameHistorico())) {
+			throw new IllegalArgumentException(
+					"Deve ser passado o arquivo dos favoritos ou do historico!");
 		}
 	}
-	
+
 	// ////////////////////////////////
 
 	public Context getContext() {

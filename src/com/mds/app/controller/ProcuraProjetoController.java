@@ -7,7 +7,8 @@ public class ProcuraProjetoController {
 	public ProcuraProjetoController() {
 	}
 
-	public static void atualizarDadosPesquisaProjeto(String ano, String sigla, String numero, String dataIni) {
+	public static void atualizarDadosPesquisaProjeto(String ano, String sigla,
+			String numero, String dataIni) {
 
 		ProcuraProjetoModel.setAno(ano);
 		ProcuraProjetoModel.setSigla(sigla);

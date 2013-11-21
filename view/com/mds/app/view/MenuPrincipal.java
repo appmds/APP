@@ -30,10 +30,12 @@ public class MenuPrincipal extends Activity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_menu_principal);
 
-		FavoritosController favoritosController = new FavoritosController(context);
+		FavoritosController favoritosController = new FavoritosController(
+				context);
 		favoritosController.popularProjetos();
 
-		HistoricoController historicoController = new HistoricoController(context);
+		HistoricoController historicoController = new HistoricoController(
+				context);
 		historicoController.popularProjetos();
 
 		busca_addListener();
@@ -80,12 +82,15 @@ public class MenuPrincipal extends Activity {
 			@Override
 			public void onClick(View v) {
 				Persistencia persistencia = new Persistencia(context);
-				
-				String strConteudoFavoritos = persistencia.lerDoArquivo(Persistencia.getFileNameFavoritos());
+
+				String strConteudoFavoritos = persistencia
+						.lerDoArquivo(Persistencia.getFileNameFavoritos());
 				Log.i("LOGGER", "Conteudo historico: " + strConteudoFavoritos);
 
-				ListaController.setListaProjetos(FavoritosController.getProjetosFavoritados());
-				Log.i("ADDL-F", FavoritosController.getProjetosFavoritados().toString());
+				ListaController.setListaProjetos(FavoritosController
+						.getProjetosFavoritados());
+				Log.i("ADDL-F", FavoritosController.getProjetosFavoritados()
+						.toString());
 				Log.i("ADDL-F", ListaController.getListaProjetos().toString());
 				Intent i = new Intent(MenuPrincipal.this, Lista.class);
 				startActivity(i);
@@ -100,11 +105,13 @@ public class MenuPrincipal extends Activity {
 			@Override
 			public void onClick(View v) {
 				Persistencia persistencia = new Persistencia(context);
-				
-				String strConteudoHistorico = persistencia.lerDoArquivo(Persistencia.getFileNameHistorico());
+
+				String strConteudoHistorico = persistencia
+						.lerDoArquivo(Persistencia.getFileNameHistorico());
 				Log.i("LOGGER", "Conteudo historico: " + strConteudoHistorico);
 
-				ListaController.setListaProjetos(HistoricoController.getProjetosHistorico());
+				ListaController.setListaProjetos(HistoricoController
+						.getProjetosHistorico());
 				Intent i = new Intent(MenuPrincipal.this, Lista.class);
 				startActivity(i);
 			}

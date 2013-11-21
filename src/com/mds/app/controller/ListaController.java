@@ -29,11 +29,11 @@ public class ListaController {
 				stringProjeto += " - ";
 				stringProjeto += getListaProjetos().get(i).getNumero();
 				stringProjeto += " - ";
-				stringProjeto += getListaProjetos().get(i).getParlamentar().getNome();
+				stringProjeto += getListaProjetos().get(i).getParlamentar()
+						.getNome();
 				stringProjetos.add(stringProjeto);
 			}
-		}
-		else {
+		} else {
 			String stringProjeto = "Nada encontrado.";
 			stringProjetos.add(stringProjeto);
 		}
@@ -59,11 +59,12 @@ public class ListaController {
 			stringProjeto += "\nParlamentar: ";
 			stringProjeto += getProjetoAtual().getParlamentar().getNome();
 			stringProjeto += "\nPartido: ";
-			stringProjeto += getProjetoAtual().getParlamentar().getPartido().getSiglaPartido();
+			stringProjeto += getProjetoAtual().getParlamentar().getPartido()
+					.getSiglaPartido();
 			stringProjeto += "\nEstado: ";
-			stringProjeto += getProjetoAtual().getParlamentar().getPartido().getUf();
-		}
-		else {
+			stringProjeto += getProjetoAtual().getParlamentar().getPartido()
+					.getUf();
+		} else {
 			stringProjeto = "Nada encontrado.";
 		}
 
@@ -89,12 +90,13 @@ public class ListaController {
 			stringProjeto += SEPARADOR;
 			stringProjeto += getProjetoAtual().getParlamentar().getNome();
 			stringProjeto += SEPARADOR;
-			stringProjeto += getProjetoAtual().getParlamentar().getPartido().getSiglaPartido();
+			stringProjeto += getProjetoAtual().getParlamentar().getPartido()
+					.getSiglaPartido();
 			stringProjeto += SEPARADOR;
-			stringProjeto += getProjetoAtual().getParlamentar().getPartido().getUf();
+			stringProjeto += getProjetoAtual().getParlamentar().getPartido()
+					.getUf();
 			stringProjeto += SEPARADOR;
-		}
-		else {
+		} else {
 			stringProjeto = null;
 		}
 
