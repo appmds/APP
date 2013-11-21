@@ -14,7 +14,6 @@ import org.junit.Before;
 import org.junit.Test;
 import org.xml.sax.SAXException;
 
-import com.mds.app.controller.BuscaController;
 import com.mds.app.controller.ProposicaoController;
 import com.mds.app.model.ParlamentarModel;
 import com.mds.app.model.PartidoModel;

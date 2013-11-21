@@ -8,9 +8,6 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
-import android.os.AsyncTask;
-
-import com.mds.app.util.CancelTaskOnCancelListener;
 import com.mds.app.util.ConexaoInternet;
 
 public class ConexaoInternetTest {
