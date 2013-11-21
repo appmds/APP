@@ -20,7 +20,43 @@
     <string name="title_activity_perfil">Perfil</string>
     <string name="hello_world">Hello world!</string>
     <string name="projetoFrase">Escolha um tipo</string>
-     <string-array name="projetos">
+    <string name="partidos">Escolha um partido</string>
+    <string-array name="partidos">
+        <item>Todos</item>
+        <item>PMDB</item>
+        <item>PT</item>
+        <item>PP</item>
+        <item>PSDB</item>
+        <item>PDT</item>
+        <item>PTB</item>
+        <item>PTdoB</item>
+        <item>DEM</item>
+        <item>PR</item>
+        <item>PSB</item>
+        <item>PPS</item>
+        <item>PSC</item>
+        <item>PCdoB</item>
+        <item>PV</item>
+        <item>PRB</item>
+        <item>PRP</item>
+        <item>PMN</item>
+        <item>PSL</item>
+        <item>PSD</item>
+        <item>PTC</item>
+        <item>PSDC</item>
+        <item>PHS</item>
+        <item>PTN</item>
+        <item>PRTB</item>
+        <item>PSOL</item>
+        <item>PSTU</item>
+        <item>PCB</item>
+        <item>PPL</item>
+        <item>PCO</item>
+        <item>PPEN</item>
+        <item>PROS</item>
+        <item>SDD</item>
+    </string-array>
+    <string-array name="projetos">
         <item>PL</item>
         <item>PEC</item>
         <item>PLP</item>
@@ -28,12 +64,12 @@
         <item>PRC</item>
     </string-array>
 
-     <string name="imgbuttonFavorito">imgbuttonFavorito</string>
-     <string name="imgbuttonPesquisar">imgbuttonPesquisar</string>
-     <string name="imgbuttonNaoFavorito">imgbuttonNaoFavorito</string>
+    <string name="imgbuttonFavorito">imgbuttonFavorito</string>
+    <string name="imgbuttonPesquisar">imgbuttonPesquisar</string>
+    <string name="imgbuttonNaoFavorito">imgbuttonNaoFavorito</string>
+    <string name="estadoFrase">Escolha um estado</string>
 
-        <string name="estadoFrase">Escolha um estado</string>
-     <string-array name="estados">
+    <string-array name="estados">
         <item>Todos</item>
         <item>Acre</item>
         <item>Alagoas</item>

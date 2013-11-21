@@ -9,8 +9,9 @@ package com.mds.app;
 
 public final class R {
     public static final class array {
-        public static final int estados=0x7f060001;
-        public static final int projetos=0x7f060000;
+        public static final int estados=0x7f060002;
+        public static final int partidos=0x7f060000;
+        public static final int projetos=0x7f060001;
     }
     public static final class attr {
     }
@@ -73,7 +74,7 @@ public final class R {
     public static final class string {
         public static final int action_settings=0x7f050001;
         public static final int app_name=0x7f050000;
-        public static final int estadoFrase=0x7f050016;
+        public static final int estadoFrase=0x7f050017;
         public static final int hello_world=0x7f050011;
         public static final int hintAno=0x7f050004;
         public static final int hintDataInicio=0x7f050006;
@@ -83,14 +84,15 @@ public final class R {
         public static final int hintSiglaPartido=0x7f050008;
         public static final int hintUF=0x7f050009;
         public static final int imgbuttonBUSCA=0x7f05000c;
-        public static final int imgbuttonFavorito=0x7f050013;
-        public static final int imgbuttonNaoFavorito=0x7f050015;
+        public static final int imgbuttonFavorito=0x7f050014;
+        public static final int imgbuttonNaoFavorito=0x7f050016;
         public static final int imgbuttonOK=0x7f05000b;
-        public static final int imgbuttonPesquisar=0x7f050014;
+        public static final int imgbuttonPesquisar=0x7f050015;
         public static final int imgbuttonSOBRE=0x7f05000d;
         public static final int imgbuttonVoltar=0x7f05000a;
         public static final int imgviewLOGO=0x7f05000e;
         public static final int imgviewSOBREPROV=0x7f05000f;
+        public static final int partidos=0x7f050013;
         public static final int projetoFrase=0x7f050012;
         public static final int title_activity_perfil=0x7f050010;
         public static final int title_activity_sobre=0x7f050002;

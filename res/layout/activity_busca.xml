@@ -30,14 +30,14 @@
         <requestFocus />
     </EditText>
 
-    <EditText
+    <Spinner
         android:id="@+id/textSiglaPartido"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/textDataIni"
         android:layout_alignLeft="@+id/textDataIni"
-        android:ems="10"
-        android:hint="@string/hintSiglaPartido" />
+      	android:entries="@array/partidos"
+        android:prompt="@string/partidos" />
 
 
     <EditText

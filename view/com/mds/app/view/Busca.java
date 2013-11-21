@@ -65,7 +65,7 @@ public class Busca extends Activity {
 			EditText anoTexto = (EditText) findViewById(R.id.textAno);
 			EditText dataInicialTexto = (EditText) findViewById(R.id.textDataIni);
 			EditText nomeAutorTexto = (EditText) findViewById(R.id.textNomeAutor);
-			EditText siglaPartidoTexto = (EditText) findViewById(R.id.textSiglaPartido);
+			Spinner siglaPartidoTexto = (Spinner) findViewById(R.id.textSiglaPartido);
 
 			@Override
 			public void onClick(View v) {
@@ -73,7 +73,7 @@ public class Busca extends Activity {
 				boolean validacao = buscaController.atualizarDadosDaPesquisa(anoTexto.getText().toString(),
 						String.valueOf(spinner1.getSelectedItem()), numeroTexto.getText().toString(),
 						dataInicialTexto.getText().toString(), nomeAutorTexto.getText().toString(),
-						siglaPartidoTexto.getText().toString(), String.valueOf(spinner2.getSelectedItem()));
+						String.valueOf(siglaPartidoTexto.getSelectedItem()), String.valueOf(spinner2.getSelectedItem()));
 				if (validacao) {
 					new PesquisarProjetoTask().execute();
 				}

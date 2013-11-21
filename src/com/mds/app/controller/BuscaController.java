@@ -22,6 +22,7 @@ public class BuscaController {
 		xmlParser = new XMLParser();
 	}
 
+
 	public String transformaUF(String uf) {
 		if (uf.equalsIgnoreCase("Todos")) {
 			uf = "";
@@ -133,6 +134,9 @@ public class BuscaController {
 			nomeAutor = "";
 		}
 		if (siglaPartido.isEmpty()) {
+			siglaPartido = "";
+		}
+		if (siglaPartido.equals("Todos")) {
 			siglaPartido = "";
 		}
 		if (uf.isEmpty()) {

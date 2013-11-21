@@ -12,7 +12,7 @@ import com.mds.app.persistencia.Persistencia;
 
 public class HistoricoController implements AlteraArquivos {
 
-	private static final int MAX_PROJETOS = 3;
+	private static final int MAX_PROJETOS = 10;
 	private static ArrayList<ProjetoModel> projetosHistorico = new ArrayList<ProjetoModel>(MAX_PROJETOS);
 	private static ArrayList<String> projetosHistoricoCompletoStr = new ArrayList<String>();
 	private Persistencia persistencia;
