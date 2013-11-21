@@ -13,7 +13,8 @@ import com.mds.app.persistencia.Persistencia;
 public class HistoricoController implements AlteraArquivos {
 
 	private static final int MAX_PROJETOS = 10;
-	private static ArrayList<ProjetoModel> projetosHistorico = new ArrayList<ProjetoModel>(MAX_PROJETOS);
+	private static ArrayList<ProjetoModel> projetosHistorico = new ArrayList<ProjetoModel>(
+			MAX_PROJETOS);
 	private static ArrayList<String> projetosHistoricoCompletoStr = new ArrayList<String>();
 	private Persistencia persistencia;
 
@@ -31,21 +32,23 @@ public class HistoricoController implements AlteraArquivos {
 			if (!projetosHistorico.contains(projeto)) {
 				projetosHistoricoCompletoStr.add(conteudo);
 				projetosHistorico.add(projeto);
-				persistencia.escreverNoArquivo(Persistencia.getFileNameHistorico(), conteudo);
-			}
-			else {
+				persistencia.escreverNoArquivo(
+						Persistencia.getFileNameHistorico(), conteudo);
+			} else {
 				System.out.println("ELSE DENTRO ADICIONAR HISTORICO");
 			}
-		}
-		else {
-			// projeto que ja existe foi visto, e portanto pula pro "final da fila"
+		} else {
+			// projeto que ja existe foi visto, e portanto pula pro
+			// "final da fila"
 			// Log.i("LOGGER", "ELSE ADICIONAR HISTORICO");
 			System.out.println("ELSE FORA ADICIONAR HISTORICO");
 			projetosHistorico.remove(projeto);
-			ArrayList<ProjetoModel> atualizadaProjetosHistorico = new ArrayList<ProjetoModel>(MAX_PROJETOS);
+			ArrayList<ProjetoModel> atualizadaProjetosHistorico = new ArrayList<ProjetoModel>(
+					MAX_PROJETOS);
 			atualizadaProjetosHistorico.add(0, projeto);
 			for (int i = 1; i < projetosHistorico.size(); i++) {
-				atualizadaProjetosHistorico.add(i, projetosHistorico.get(i - 1));
+				atualizadaProjetosHistorico
+						.add(i, projetosHistorico.get(i - 1));
 			}
 			setProjetosHistorico(atualizadaProjetosHistorico);
 		}
@@ -58,13 +61,12 @@ public class HistoricoController implements AlteraArquivos {
 				projetosHistoricoCompletoStr.remove(stringProjeto);
 				projetosHistorico.remove(projeto);
 				String conteudoArquivo = projetosEmString();
-				persistencia.reescreverArquivo(Persistencia.getFileNameHistorico(), conteudoArquivo);
-			}
-			else {
+				persistencia.reescreverArquivo(
+						Persistencia.getFileNameHistorico(), conteudoArquivo);
+			} else {
 				System.out.println("ELSE DENTRO REMOVER HISTORICO");
 			}
-		}
-		else {
+		} else {
 			// Log.i("LOGGER", "ELSE REMOVER HISTORICO");
 			System.out.println("ELSE FORA REMOVER HISTORICO");
 		}
@@ -86,7 +88,8 @@ public class HistoricoController implements AlteraArquivos {
 		ArrayList<String> splitParts;
 
 		Log.i("POPPROJ-H", "Conteudo historico:");
-		String strConteudoHistorico = persistencia.lerDoArquivo(Persistencia.getFileNameHistorico());
+		String strConteudoHistorico = persistencia.lerDoArquivo(Persistencia
+				.getFileNameHistorico());
 
 		final int separadoresPorProjeto = 9;
 		final int numeroDeProjetosNoArquivo;
@@ -102,7 +105,8 @@ public class HistoricoController implements AlteraArquivos {
 			Log.i("POPPROJ-H", "Separadores: " + numeroDeSeparadores);
 
 			numeroDeProjetosNoArquivo = (numeroDeSeparadores / separadoresPorProjeto);
-			Log.i("POPPROJ-H", "Numero de projetos: " + numeroDeProjetosNoArquivo);
+			Log.i("POPPROJ-H", "Numero de projetos: "
+					+ numeroDeProjetosNoArquivo);
 
 			for (int i = 0; i < numeroDeProjetosNoArquivo; i++) {
 				splitParts = new ArrayList<String>(numeroDeSeparadores);
@@ -123,16 +127,17 @@ public class HistoricoController implements AlteraArquivos {
 				String explicacaoProjeto = splitParts.get(5);
 
 				PartidoModel partido = new PartidoModel(siglaPartido, ufPartido);
-				ParlamentarModel parlamentar = new ParlamentarModel(nomeParlamentar, partido);
-				ProjetoModel projeto = new ProjetoModel(anoProjeto, nomeProjeto, siglaProjeto, dataProjeto,
-						numeroProjeto, explicacaoProjeto, parlamentar);
+				ParlamentarModel parlamentar = new ParlamentarModel(
+						nomeParlamentar, partido);
+				ProjetoModel projeto = new ProjetoModel(anoProjeto,
+						nomeProjeto, siglaProjeto, dataProjeto, numeroProjeto,
+						explicacaoProjeto, parlamentar);
 
 				projetosHistorico.add(projeto);
 
 				Log.i("POPPROJ-H", "Adicionando: " + projeto.toString());
 			}
-		}
-		else {
+		} else {
 			Log.i("POPPROJ-H", "Historico esta vazio");
 		}
 
@@ -156,15 +161,17 @@ public class HistoricoController implements AlteraArquivos {
 				stringProjeto += "\nDescrição: ";
 				stringProjeto += projetosHistorico.get(i).getExplicacao();
 				stringProjeto += "\nParlamentar: ";
-				stringProjeto += projetosHistorico.get(i).getParlamentar().getNome();
+				stringProjeto += projetosHistorico.get(i).getParlamentar()
+						.getNome();
 				stringProjeto += "\nPartido: ";
-				stringProjeto += projetosHistorico.get(i).getParlamentar().getPartido().getSiglaPartido();
+				stringProjeto += projetosHistorico.get(i).getParlamentar()
+						.getPartido().getSiglaPartido();
 				stringProjeto += "\nEstado: ";
-				stringProjeto += projetosHistorico.get(i).getParlamentar().getPartido().getUf();
+				stringProjeto += projetosHistorico.get(i).getParlamentar()
+						.getPartido().getUf();
 				projetosHistoricoCompletoStr.add(i, stringProjeto);
 			}
-		}
-		else {
+		} else {
 			Log.i("POPSTR-H", "Historico esta vazio");
 		}
 	}
@@ -173,7 +180,8 @@ public class HistoricoController implements AlteraArquivos {
 		return projetosHistorico;
 	}
 
-	public static void setProjetosHistorico(ArrayList<ProjetoModel> projetosHistorico) {
+	public static void setProjetosHistorico(
+			ArrayList<ProjetoModel> projetosHistorico) {
 		HistoricoController.projetosHistorico = projetosHistorico;
 	}
 
@@ -181,7 +189,8 @@ public class HistoricoController implements AlteraArquivos {
 		return projetosHistoricoCompletoStr;
 	}
 
-	public static void setProjetosHistoricoCompletoStr(ArrayList<String> projetosHistoricoCompletoStr) {
+	public static void setProjetosHistoricoCompletoStr(
+			ArrayList<String> projetosHistoricoCompletoStr) {
 		HistoricoController.projetosHistoricoCompletoStr = projetosHistoricoCompletoStr;
 	}
 

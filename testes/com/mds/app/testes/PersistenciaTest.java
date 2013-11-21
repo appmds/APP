@@ -14,10 +14,10 @@ public class PersistenciaTest {
 	Persistencia persistencia;
 
 	@Before
-	/*public void setUp() throws Exception {
-		persistencia = new Persistencia();
-	}*/
-
+	/*
+	 * public void setUp() throws Exception { persistencia = new Persistencia();
+	 * }
+	 */
 	@After
 	public void tearDown() throws Exception {
 		persistencia = null;
