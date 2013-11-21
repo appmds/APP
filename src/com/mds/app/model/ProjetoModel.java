@@ -14,8 +14,8 @@ public class ProjetoModel {
 	public ProjetoModel() {
 	}
 
-	public ProjetoModel(String ano, String nome, String sigla, String data,
-			String numero, String explicacao, ParlamentarModel parlamentar) {
+	public ProjetoModel(String ano, String nome, String sigla, String data, String numero, String explicacao,
+			ParlamentarModel parlamentar) {
 		this.ano = ano;
 		this.nome = nome;
 		this.sigla = sigla;
@@ -93,10 +93,8 @@ public class ProjetoModel {
 
 	@Override
 	public String toString() {
-		return "ProjetoModel [ano=" + ano + ", numero=" + numero + ", nome="
-				+ nome + ", sigla=" + sigla + ", data=" + data
-				+ ", explicacao=" + explicacao + ", parlamentar="
-				+ parlamentar.getNome() + "]";
+		return "ProjetoModel [ano=" + ano + ", numero=" + numero + ", nome=" + nome + ", sigla=" + sigla
+				+ ", data=" + data + ", explicacao=" + explicacao + ", parlamentar=" + parlamentar.getNome() + "]";
 	}
 
 }

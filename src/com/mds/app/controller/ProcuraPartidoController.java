@@ -8,8 +8,7 @@ public class ProcuraPartidoController {
 
 	}
 
-	public static void atualizaDadosPesquisaPartido(String uf,
-			String siglaPartido) {
+	public static void atualizaDadosPesquisaPartido(String uf, String siglaPartido) {
 
 		ProcuraPartidoModel.setUf(uf);
 		ProcuraPartidoModel.setSigla(siglaPartido);

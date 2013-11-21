@@ -16,8 +16,7 @@ import com.mds.app.model.ProjetoModel;
 
 public class XMLParser {
 
-	public XMLReader inicializarLeitor() throws ParserConfigurationException,
-			SAXException {
+	public XMLReader inicializarLeitor() throws ParserConfigurationException, SAXException {
 		SAXParserFactory criaParser = SAXParserFactory.newInstance();
 
 		// Instanciando e criando o parser

@@ -24,49 +24,60 @@ public class ProposicaoController extends DefaultHandler {
 	}
 
 	@Override
-	public void startElement(String namespaceURI, String localName,
-			String qName, Attributes atts) throws SAXException {
+	public void startElement(String namespaceURI, String localName, String qName, Attributes atts)
+			throws SAXException {
 
 		buffer.setLength(0);
 
 		if (localName.equals("proposicoes")) {
 			listaProjetos = new ArrayList<ProjetoModel>();
-		} else if (localName.equals("proposicao")) {
+		}
+		else if (localName.equals("proposicao")) {
 			projeto = new ProjetoModel();
 			parlamentar = new ParlamentarModel();
 			partido = new PartidoModel();
-		} else {
+		}
+		else {
 			//
 		}
 	}
 
 	@Override
-	public void endElement(String uri, String localName, String qName)
-			throws SAXException {
+	public void endElement(String uri, String localName, String qName) throws SAXException {
 
 		if (localName.equals("proposicao")) {
 			listaProjetos.add(projeto);
 			projeto.setParlamentar(parlamentar);
 			parlamentar.setPartido(partido);
-		} else if (localName.equals("ano")) {
+		}
+		else if (localName.equals("ano")) {
 			projeto.setAno(buffer.toString());
-		} else if (localName.equals("nome")) {
+		}
+		else if (localName.equals("nome")) {
 			projeto.setNome(buffer.toString());
-		} else if (localName.equals("sigla")) {
+		}
+		else if (localName.equals("sigla")) {
 			projeto.setSigla(buffer.toString());
-		} else if (localName.equals("numero")) {
+		}
+		else if (localName.equals("numero")) {
 			projeto.setNumero(buffer.toString());
-		} else if (localName.equals("datApresentacao")) {
+		}
+		else if (localName.equals("datApresentacao")) {
 			projeto.setData(buffer.toString());
-		} else if (localName.equals("txtEmenta")) {
+		}
+		else if (localName.equals("txtEmenta")) {
 			projeto.setExplicacao(buffer.toString());
-		} else if (localName.equals("txtNomeAutor")) {
+		}
+		else if (localName.equals("txtNomeAutor")) {
 			parlamentar.setNome(buffer.toString());
-		} else if (localName.equals("txtSiglaPartido")) {
+		}
+		else if (localName.equals("txtSiglaPartido")) {
 			partido.setSiglaPartido(buffer.toString());
-		} else if (localName.equals("txtSiglaUF")) {
+		}
+		else if (localName.equals("txtSiglaUF")) {
 			partido.setUf(buffer.toString());
-		} else {
+		}
+		else {
 			// lançar alguma exception
 		}
 
