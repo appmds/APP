@@ -36,8 +36,8 @@ public class FavoritosControllerTest {
 		projetos.add(projetoModel);
 
 		favoritosController = new FavoritosController();
-		favoritosController.setProjetosFavoritados(projetos);
-		favoritosController.setProjetosFavoritadosCompletoStr(new ArrayList<String>());
+		FavoritosController.setProjetosFavoritados(projetos);
+		FavoritosController.setProjetosFavoritadosCompletoStr(new ArrayList<String>());
 	}
 
 	@After
@@ -48,8 +48,8 @@ public class FavoritosControllerTest {
 		projetoModel = null;
 		parlamentarModel = null;
 		partidoModel = null;
-		favoritosController.setProjetosFavoritados(null);
-		favoritosController.setProjetosFavoritadosCompletoStr(null);
+		FavoritosController.setProjetosFavoritados(null);
+		FavoritosController.setProjetosFavoritadosCompletoStr(null);
 	}
 
 	@Test

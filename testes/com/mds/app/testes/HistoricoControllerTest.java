@@ -36,8 +36,8 @@ public class HistoricoControllerTest {
 		projetos.add(projetoModel);
 
 		historicoController = new HistoricoController();
-		historicoController.setProjetosHistorico(projetos);
-		historicoController.setProjetosHistoricoCompletoStr(new ArrayList<String>());
+		HistoricoController.setProjetosHistorico(projetos);
+		HistoricoController.setProjetosHistoricoCompletoStr(new ArrayList<String>());
 	}
 
 	@After
@@ -48,8 +48,8 @@ public class HistoricoControllerTest {
 		projetoModel = null;
 		parlamentarModel = null;
 		partidoModel = null;
-		historicoController.setProjetosHistorico(null);
-		historicoController.setProjetosHistoricoCompletoStr(null);
+		HistoricoController.setProjetosHistorico(null);
+		HistoricoController.setProjetosHistoricoCompletoStr(null);
 	}
 
 	@Test
