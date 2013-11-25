@@ -66,7 +66,15 @@ public class Lista extends Activity {
 		setContentView(listView);
 
 	}
-
+	
+	@Override
+    public void onBackPressed() {
+     super.onBackPressed();
+     Intent i = new Intent(Lista.this,
+				Busca.class);
+		startActivity(i);
+    }
+	
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
 		// Inflate the menu; this adds items to the action bar if it is present.
