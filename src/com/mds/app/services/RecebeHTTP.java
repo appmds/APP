@@ -41,36 +41,19 @@ public class RecebeHTTP {
 
 		try {
 			resposta = cliente.execute(requisicao);
+			inputStream = new BufferedReader(new InputStreamReader(resposta.getEntity().getContent()));
+
+			dadoStringBuffer = new StringBuffer("");
+			anexar = "";
+			while ((anexar = inputStream.readLine()) != null) {
+				dadoStringBuffer.append(anexar);
+			}
+
+			inputStream.close();
 		} catch (ClientProtocolException cpe) {
 			cpe.printStackTrace();
 		} catch (IOException ioe) {
 			ioe.printStackTrace();
-		}
-
-		try {
-			inputStream = new BufferedReader(new InputStreamReader(resposta.getEntity().getContent()));
-		} catch (IllegalStateException ise) {
-			ise.printStackTrace();
-		} catch (IOException ioe) {
-			ioe.printStackTrace();
-		}
-
-		dadoStringBuffer = new StringBuffer("");
-		anexar = "";
-		try {
-			while ((anexar = inputStream.readLine()) != null) {
-				dadoStringBuffer.append(anexar);
-			}
-		} catch (IOException ioe) {
-			ioe.printStackTrace();
-		}
-
-		if (inputStream != null) {
-			try {
-				inputStream.close();
-			} catch (IOException e) {
-				//
-			}
 		}
 
 		dado = dadoStringBuffer.toString();
