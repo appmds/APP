@@ -21,7 +21,7 @@ public class ProcuraPartidoModelTest {
 
 		ProcuraPartidoModel.setUf("DF");
 		ProcuraPartidoModel.setSigla("PMDS");
-		
+
 	}
 
 	@After
@@ -33,7 +33,7 @@ public class ProcuraPartidoModelTest {
 	public void testIntanciaPartido() {
 		assertNotNull(procuraPartidoModel);
 	}
-	
+
 	@Test
 	public void testSetThenGetUf() {
 		assertEquals("DF", ProcuraPartidoModel.getUf());

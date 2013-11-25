@@ -31,9 +31,9 @@ public class ProcuraProjetoControllerTest {
 	public void testInstance() {
 		assertNotNull(procuraProjetoController);
 	}
-	
+
 	@Test
-	public void testarNomeDaClasse(){
+	public void testarNomeDaClasse() {
 		ProcuraProjetoController procura = new ProcuraProjetoController();
 		Assert.assertEquals("ProcuraProjetoController", procura.getClass().getSimpleName());
 	}

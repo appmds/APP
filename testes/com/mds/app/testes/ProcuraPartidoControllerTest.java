@@ -30,9 +30,9 @@ public class ProcuraPartidoControllerTest {
 	public void testInstance() {
 		assertNotNull(procuraPartidoController);
 	}
-	
+
 	@Test
-	public void testarNomeDaClasse(){
+	public void testarNomeDaClasse() {
 		ProcuraPartidoController procura = new ProcuraPartidoController();
 		Assert.assertEquals("ProcuraPartidoController", procura.getClass().getSimpleName());
 	}
@@ -46,5 +46,5 @@ public class ProcuraPartidoControllerTest {
 	public void testAtualizaDadosPesquisaPartido_Sigla() {
 		assertEquals("PMDB", ProcuraPartidoModel.getSigla());
 	}
-	
+
 }

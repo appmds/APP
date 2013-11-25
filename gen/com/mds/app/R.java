@@ -36,13 +36,20 @@ public final class R {
         public static final int naofavorito=0x7f020007;
         public static final int okbutton=0x7f020008;
         public static final int pesquisar2=0x7f020009;
-        public static final int sobre_prov=0x7f02000a;
-        public static final int voltar=0x7f02000b;
+        public static final int sobre1=0x7f02000a;
+        public static final int sobre2=0x7f02000b;
+        public static final int sobre3=0x7f02000c;
+        public static final int sobre_prov=0x7f02000d;
+        public static final int voltar=0x7f02000e;
     }
     public static final class id {
-        public static final int action_settings=0x7f090011;
+        public static final int action_settings=0x7f090014;
         public static final int favoritos=0x7f09000d;
         public static final int historico=0x7f09000c;
+        public static final int horizontalScrollView1=0x7f090010;
+        public static final int imageView1=0x7f090011;
+        public static final int imageView2=0x7f090012;
+        public static final int imageView3=0x7f090013;
         public static final int imgbutton_busca=0x7f09000a;
         public static final int imgbutton_sobre=0x7f09000b;
         public static final int imgviewLogo=0x7f090009;
@@ -57,7 +64,6 @@ public final class R {
         public static final int textNumero=0x7f090004;
         public static final int textSiglaPartido=0x7f090002;
         public static final int texto=0x7f09000e;
-        public static final int voltar=0x7f090010;
     }
     public static final class layout {
         public static final int activity_busca=0x7f030000;

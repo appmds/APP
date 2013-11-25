@@ -37,227 +37,226 @@ public class ProposicaoControllerTest {
 	public void testInstance() {
 		assertNotNull(proposicaoController);
 	}
-	
+
 	@Test
-	public void testStartElementProposicaoParlamentar(){
-		try{
+	public void testStartElementProposicaoParlamentar() {
+		try {
 			proposicaoController.startElement("a", "proposicao", "q", null);
-		}catch(SAXException saxe){
-			
+		} catch (SAXException saxe) {
+
 		}
 		assertNotNull(proposicaoController.getParlamentar());
 	}
-	
+
 	@Test
-	public void testarNomeDaClasse(){
+	public void testarNomeDaClasse() {
 		ProposicaoController p = new ProposicaoController();
 		Assert.assertEquals("ProposicaoController", p.getClass().getSimpleName());
 	}
-	
+
 	@Test
-	public void testStartElementProposicaoProjeto(){
-		try{
+	public void testStartElementProposicaoProjeto() {
+		try {
 			proposicaoController.startElement("a", "proposicao", "q", null);
-		}catch(SAXException saxe){
-			
+		} catch (SAXException saxe) {
+
 		}
 		assertNotNull(proposicaoController.getProjeto());
 	}
-	
+
 	@Test
-	public void testStartElementProposicaoPartido(){
-		try{
+	public void testStartElementProposicaoPartido() {
+		try {
 			proposicaoController.startElement("a", "proposicao", "q", null);
-		}catch(SAXException saxe){
-			
+		} catch (SAXException saxe) {
+
 		}
 		assertNotNull(proposicaoController.getPartido());
 	}
-	
+
 	@Test
-	public void testStartElementProposicoes(){
-		try{
+	public void testStartElementProposicoes() {
+		try {
 			proposicaoController.startElement("a", "proposicoes", "q", null);
-		}catch(SAXException saxe){
-			
+		} catch (SAXException saxe) {
+
 		}
 		assertNotNull(proposicaoController.getListaProjetos());
 	}
-	
-	@Test
-	public void testEndElementProposicaoProjeto(){
-		try{
-			proposicaoController.startElement("a", "proposicao", "q", null);
-			proposicaoController.startElement("a", "proposicoes", "q", null);
-			proposicaoController.endElement("a", "proposicao", "q");
-		}catch(SAXException saxe){
-			
-		}
-		
-		assertEquals(proposicaoController.getProjeto(), proposicaoController.getListaProjetos().get(0));
-	}
-	
-	@Test
-	public void testEndElementProposicaoParlamentar(){
-		try{
-			proposicaoController.startElement("a", "proposicao", "q", null);
-			proposicaoController.startElement("a", "proposicoes", "q", null);
-			proposicaoController.endElement("a", "proposicao", "q");
-		}catch(SAXException saxe){
-			
-		}
-		
-		assertEquals(proposicaoController.getParlamentar(), proposicaoController.getProjeto().getParlamentar());
-	}
-	
-	@Test
-	public void testEndElementProposicaoPartido(){
-		try{
-			proposicaoController.startElement("a", "proposicao", "q", null);
-			proposicaoController.startElement("a", "proposicoes", "q", null);
-			proposicaoController.endElement("a", "proposicao", "q");
-		}catch(SAXException saxe){
-			
-		}
-		
-		assertEquals(proposicaoController.getPartido(), proposicaoController.getParlamentar().getPartido());
-	}
-	
 
 	@Test
-	public void testEndElementProposicaoAno(){
-		try{
+	public void testEndElementProposicaoProjeto() {
+		try {
+			proposicaoController.startElement("a", "proposicao", "q", null);
+			proposicaoController.startElement("a", "proposicoes", "q", null);
+			proposicaoController.endElement("a", "proposicao", "q");
+		} catch (SAXException saxe) {
+
+		}
+
+		assertEquals(proposicaoController.getProjeto(), proposicaoController.getListaProjetos().get(0));
+	}
+
+	@Test
+	public void testEndElementProposicaoParlamentar() {
+		try {
+			proposicaoController.startElement("a", "proposicao", "q", null);
+			proposicaoController.startElement("a", "proposicoes", "q", null);
+			proposicaoController.endElement("a", "proposicao", "q");
+		} catch (SAXException saxe) {
+
+		}
+
+		assertEquals(proposicaoController.getParlamentar(), proposicaoController.getProjeto().getParlamentar());
+	}
+
+	@Test
+	public void testEndElementProposicaoPartido() {
+		try {
+			proposicaoController.startElement("a", "proposicao", "q", null);
+			proposicaoController.startElement("a", "proposicoes", "q", null);
+			proposicaoController.endElement("a", "proposicao", "q");
+		} catch (SAXException saxe) {
+
+		}
+
+		assertEquals(proposicaoController.getPartido(), proposicaoController.getParlamentar().getPartido());
+	}
+
+	@Test
+	public void testEndElementProposicaoAno() {
+		try {
 			proposicaoController.startElement("a", "proposicao", "q", null);
 			proposicaoController.endElement("a", "ano", "q");
-		}catch(SAXException saxe){
+		} catch (SAXException saxe) {
 		}
 		fail("implementar");
 	}
-	
+
 	@Test
-	public void testEndElementProposicaoNome(){
-		try{
+	public void testEndElementProposicaoNome() {
+		try {
 			proposicaoController.startElement("a", "proposicao", "q", null);
 			proposicaoController.endElement("a", "nome", "q");
-		}catch(SAXException saxe){
+		} catch (SAXException saxe) {
 		}
 		fail("implementar");
 	}
-	
+
 	@Test
-	public void testEndElementProposicaoSigla(){
-		try{
+	public void testEndElementProposicaoSigla() {
+		try {
 			proposicaoController.startElement("a", "proposicao", "q", null);
 			proposicaoController.endElement("a", "sigla", "q");
-		}catch(SAXException saxe){
+		} catch (SAXException saxe) {
 		}
 		fail("implementar");
 	}
-	
+
 	@Test
-	public void testEndElementProposicaoNumero(){
-		try{
+	public void testEndElementProposicaoNumero() {
+		try {
 			proposicaoController.startElement("a", "proposicao", "q", null);
 			proposicaoController.endElement("a", "numero", "q");
-		}catch(SAXException saxe){
+		} catch (SAXException saxe) {
 		}
 		fail("implementar");
 	}
-	
+
 	@Test
-	public void testEndElementProposicaoDataApresentacao(){
-		try{
+	public void testEndElementProposicaoDataApresentacao() {
+		try {
 			proposicaoController.startElement("a", "proposicao", "q", null);
 			proposicaoController.endElement("a", "datApresentacao", "q");
-		}catch(SAXException saxe){
+		} catch (SAXException saxe) {
 		}
 		fail("implementar");
 	}
-	
+
 	@Test
-	public void testEndElementProposicaoTextoEmenta(){
-		try{
+	public void testEndElementProposicaoTextoEmenta() {
+		try {
 			proposicaoController.startElement("a", "proposicao", "q", null);
 			proposicaoController.endElement("a", "txtEmenta", "q");
-		}catch(SAXException saxe){
+		} catch (SAXException saxe) {
 		}
 		fail("implementar");
 	}
-	
+
 	@Test
-	public void testEndElementProposicaoTextoNomeAutor(){
-		try{
+	public void testEndElementProposicaoTextoNomeAutor() {
+		try {
 			proposicaoController.startElement("a", "proposicao", "q", null);
 			proposicaoController.endElement("a", "txtNomeAutor", "q");
-		}catch(SAXException saxe){
+		} catch (SAXException saxe) {
 		}
 		fail("");
 	}
-	
+
 	@Test
-	public void testEndElementProposicaoTextoSiglaPartido(){
-		try{
+	public void testEndElementProposicaoTextoSiglaPartido() {
+		try {
 			proposicaoController.startElement("a", "proposicao", "q", null);
 			proposicaoController.endElement("a", "txtSiglaPartido", "q");
-		}catch(SAXException saxe){
+		} catch (SAXException saxe) {
 		}
 		fail("implementar");
 	}
-	
+
 	@Test
-	public void testEndElementProposicaoTextoSiglaUf(){
-		try{
+	public void testEndElementProposicaoTextoSiglaUf() {
+		try {
 			proposicaoController.startElement("a", "proposicao", "q", null);
 			proposicaoController.endElement("a", "txtSiglaUF", "q");
-		}catch(SAXException saxe){
+		} catch (SAXException saxe) {
 		}
 		fail("implementar");
 	}
-	
+
 	@Test
-	public void testGetBuffer(){
+	public void testGetBuffer() {
 		StringBuffer bufferTest = new StringBuffer();
 		assertEquals(bufferTest.toString(), proposicaoController.getBuffer().toString());
 	}
-	
+
 	@Test
-	public void testSetBuffer(){
+	public void testSetBuffer() {
 		StringBuffer bufferTest = new StringBuffer();
 		proposicaoController.setBuffer(bufferTest);
 		assertSame(bufferTest, proposicaoController.getBuffer());
 	}
-	
+
 	@Test
-	public void testSetProjeto(){
+	public void testSetProjeto() {
 		ProjetoModel projeto = new ProjetoModel();
 		proposicaoController.setProjeto(projeto);
-		assertSame(projeto, proposicaoController.getProjeto());	
+		assertSame(projeto, proposicaoController.getProjeto());
 	}
-	
+
 	@Test
-	public void testSetParlamentar(){
+	public void testSetParlamentar() {
 		ParlamentarModel parlamentar = new ParlamentarModel();
 		proposicaoController.setParlamentar(parlamentar);
 		assertSame(parlamentar, proposicaoController.getParlamentar());
 	}
-	
+
 	@Test
-	public void testSetParitdo(){
+	public void testSetParitdo() {
 		PartidoModel partido = new PartidoModel();
 		proposicaoController.setPartido(partido);
-		assertSame(partido, proposicaoController.getPartido());	
+		assertSame(partido, proposicaoController.getPartido());
 	}
-	
+
 	@Test
-	public void testSetListaProjetos(){
+	public void testSetListaProjetos() {
 		ArrayList<ProjetoModel> lista = new ArrayList<ProjetoModel>();
 		proposicaoController.setListaProjetos(lista);
 		assertSame(lista, proposicaoController.getListaProjetos());
 	}
-	
+
 	@Test
-	public void testFail(){
+	public void testFail() {
 		fail("Verificar se implementado todos os gets e sets aqui");
 	}
-	
+
 }

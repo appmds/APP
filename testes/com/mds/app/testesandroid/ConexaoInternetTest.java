@@ -31,9 +31,10 @@ public class ConexaoInternetTest {
 	}
 
 	@Test
-	public void testNomeClasse(){
+	public void testNomeClasse() {
 		Assert.assertEquals("ConexaoInternet", conexaoInternet.getClass().getSimpleName());
 	}
+
 	@Test
 	public void testChecarConexaoInternet() {
 		fail();

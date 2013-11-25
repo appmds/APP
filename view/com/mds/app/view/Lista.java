@@ -31,33 +31,27 @@ public class Lista extends Activity {
 		stringProjetos = listaController.transformarLista();
 		Log.i("LISTA", stringProjetos.toString());
 
-		final StableArrayAdapter adapter = new StableArrayAdapter(this,
-				android.R.layout.simple_list_item_1, stringProjetos);
+		final StableArrayAdapter adapter = new StableArrayAdapter(this, android.R.layout.simple_list_item_1,
+				stringProjetos);
 
 		listView.setAdapter(adapter);
 		listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
 
 			@Override
-			public void onItemClick(AdapterView<?> parent, final View view,
-					final int position, long id) {
-				view.animate().setDuration(1).alpha(1)
-						.withEndAction(new Runnable() {
-							@Override
-							public void run() {
-								if (!stringProjetos.get(position).equals(
-										"Nada encontrado.")) {
-									ListaController
-											.setProjetoAtual(ListaController
-													.getListaProjetos().get(
-															position));
-									Intent i = new Intent(Lista.this,
-											Perfil.class);
-									startActivity(i);
-								} else {
-									longToast("Nenhuma proposicao encontrada.");
-								}
-							}
-						});
+			public void onItemClick(AdapterView<?> parent, final View view, final int position, long id) {
+				view.animate().setDuration(1).alpha(1).withEndAction(new Runnable() {
+					@Override
+					public void run() {
+						if (!stringProjetos.get(position).equals("Nada encontrado.")) {
+							ListaController.setProjetoAtual(ListaController.getListaProjetos().get(position));
+							Intent i = new Intent(Lista.this, Perfil.class);
+							startActivity(i);
+						}
+						else {
+							longToast("Nenhuma proposicao encontrada.");
+						}
+					}
+				});
 			}
 		});
 
@@ -66,15 +60,14 @@ public class Lista extends Activity {
 		setContentView(listView);
 
 	}
-	
+
 	@Override
-    public void onBackPressed() {
-     super.onBackPressed();
-     Intent i = new Intent(Lista.this,
-				Busca.class);
+	public void onBackPressed() {
+		super.onBackPressed();
+		Intent i = new Intent(Lista.this, Busca.class);
 		startActivity(i);
-    }
-	
+	}
+
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
 		// Inflate the menu; this adds items to the action bar if it is present.

@@ -32,10 +32,11 @@ public class ProcuraParlamentarControllerTest {
 	}
 
 	@Test
-	public void testarNomeDaClasse(){
+	public void testarNomeDaClasse() {
 		ProcuraParlamentarController procura = new ProcuraParlamentarController();
 		Assert.assertEquals("ProcuraParlamentarController", procura.getClass().getSimpleName());
 	}
+
 	@Test
 	public void testAtualizarDadosPesquisaParlamentar() {
 		ProcuraParlamentarController.atualizarDadosPesquisaParlamentar("Joao");

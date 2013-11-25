@@ -22,27 +22,28 @@ public class BuscaController {
 		xmlParser = new XMLParser();
 	}
 
-	public String transformaSigla(String sigla){
-		if (sigla.equalsIgnoreCase("Projeto de Lei")){
+	public String transformaSigla(String sigla) {
+		if (sigla.equalsIgnoreCase("Projeto de Lei")) {
 			sigla = "PL";
 		}
-		else if (sigla.equalsIgnoreCase("Propostas de Emenda à Constituição")){
+		else if (sigla.equalsIgnoreCase("Propostas de Emenda à Constituição")) {
 			sigla = "PEC";
 		}
-		else if (sigla.equalsIgnoreCase("Projetos de Lei Complementar")){
+		else if (sigla.equalsIgnoreCase("Projetos de Lei Complementar")) {
 			sigla = "PLP";
 		}
-		else if (sigla.equalsIgnoreCase("Projetos de Decreto Legislativo ")){
+		else if (sigla.equalsIgnoreCase("Projetos de Decreto Legislativo ")) {
 			sigla = "PDC";
 		}
-		else if (sigla.equalsIgnoreCase("Projetos de Resolução")){
+		else if (sigla.equalsIgnoreCase("Projetos de Resolução")) {
 			sigla = "PRC";
 		}
-		else{
-			//não tem outras opções
+		else {
+			// não tem outras opções
 		}
 		return sigla;
 	}
+
 	public String transformaUF(String uf) {
 		if (uf.equalsIgnoreCase("Todos os Estados")) {
 			uf = "";
@@ -164,7 +165,7 @@ public class BuscaController {
 		}
 		uf = transformaUF(uf);
 		sigla = transformaSigla(sigla);
-		
+
 		String erros = "";
 		erros = ValidaEntrada.identificarErros(ano, sigla, numero, dataIni, nomeAutor, siglaPartido, uf);
 		System.out.println(erros);

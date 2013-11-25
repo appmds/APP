@@ -33,14 +33,14 @@ public class ProjetoModelTest {
 	public void testInstance() {
 		assertNotNull(projetoModel);
 	}
-	
+
 	@Test
-	public void testarNomeClasse(){
+	public void testarNomeClasse() {
 		Assert.assertEquals("ParlamentarModel", parlamentarModel.getClass().getSimpleName());
 	}
-	
+
 	@Test
-	public void testarNomeClasse2(){
+	public void testarNomeClasse2() {
 		Assert.assertEquals("ProjetoModel", projetoModel.getClass().getSimpleName());
 	}
 
@@ -136,8 +136,8 @@ public class ProjetoModelTest {
 
 	@Test
 	public void testToString() {
-		ProjetoModel outroProjetoModel = new ProjetoModel("2013", "NomeProjeto", "PL", "16/10/2013", "66", "ExplicacaoProjeto",
-				parlamentarModel);
+		ProjetoModel outroProjetoModel = new ProjetoModel("2013", "NomeProjeto", "PL", "16/10/2013", "66",
+				"ExplicacaoProjeto", parlamentarModel);
 		assertEquals(projetoModel.toString(), outroProjetoModel.toString());
 	}
 

@@ -38,8 +38,7 @@ public class Busca extends Activity {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder()
-				.detectAll().penaltyLog().build();
+		StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().detectAll().penaltyLog().build();
 		StrictMode.setThreadPolicy(policy);
 		setContentView(R.layout.activity_busca);
 
@@ -50,7 +49,8 @@ public class Busca extends Activity {
 
 		if (conexao.ChecarConexaoInternet()) {
 			buscaController.setTemConexao(true);
-		} else {
+		}
+		else {
 			/* implementar nova persistencia */
 		}
 	}
@@ -70,19 +70,16 @@ public class Busca extends Activity {
 			@Override
 			public void onClick(View v) {
 
-				boolean validacao = buscaController.atualizarDadosDaPesquisa(
-						anoTexto.getText().toString(), String.valueOf(spinner1
-								.getSelectedItem()), numeroTexto.getText()
-								.toString(), dataInicialTexto.getText()
-								.toString(), nomeAutorTexto.getText()
-								.toString(), String.valueOf(siglaPartidoTexto
-								.getSelectedItem()), String.valueOf(spinner2
-								.getSelectedItem()));
+				boolean validacao = buscaController.atualizarDadosDaPesquisa(anoTexto.getText().toString(),
+						String.valueOf(spinner1.getSelectedItem()), numeroTexto.getText().toString(),
+						dataInicialTexto.getText().toString(), nomeAutorTexto.getText().toString(),
+						String.valueOf(siglaPartidoTexto.getSelectedItem()),
+						String.valueOf(spinner2.getSelectedItem()));
 				if (validacao) {
 					new PesquisarProjetoTask().execute();
-				} else {
-					Toast.makeText(Busca.this, "Dados Invalidos",
-							Toast.LENGTH_SHORT).show();
+				}
+				else {
+					Toast.makeText(Busca.this, "Dados Invalidos", Toast.LENGTH_SHORT).show();
 				}
 			}
 		});
@@ -95,15 +92,12 @@ public class Busca extends Activity {
 		return true;
 	}
 
-	private class PesquisarProjetoTask extends
-			AsyncTask<Void, Void, List<ProjetoModel>> {
+	private class PesquisarProjetoTask extends AsyncTask<Void, Void, List<ProjetoModel>> {
 
 		@Override
 		protected void onPreExecute() {
-			progressDialog = ProgressDialog.show(Busca.this, "Aguarde...",
-					"Recebendo dados", true, true);
-			progressDialog.setOnCancelListener(new CancelTaskOnCancelListener(
-					this));
+			progressDialog = ProgressDialog.show(Busca.this, "Aguarde...", "Recebendo dados", true, true);
+			progressDialog.setOnCancelListener(new CancelTaskOnCancelListener(this));
 		}
 
 		@Override

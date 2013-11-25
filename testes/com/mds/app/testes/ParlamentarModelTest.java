@@ -35,17 +35,16 @@ public class ParlamentarModelTest {
 		assertNotNull(partido);
 	}
 
-	
 	@Test
-	public void testarNomeClasse(){
+	public void testarNomeClasse() {
 		Assert.assertEquals("PartidoModel", partidoModel.getClass().getSimpleName());
 	}
-	
+
 	@Test
-	public void testarNomeClasse2(){
+	public void testarNomeClasse2() {
 		Assert.assertEquals("ParlamentarModel", parlamentarModel.getClass().getSimpleName());
 	}
-	
+
 	@Test
 	public void testIntanciaParlamentar() {
 		PartidoModel parlamentar = new PartidoModel();

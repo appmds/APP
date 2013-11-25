@@ -25,7 +25,7 @@ public class ValidaEntradaTest {
 	public void tearDown() throws Exception {
 		validaEntradaTeste = null;
 	}
-	
+
 	@Test
 	public void testValidaDataVazia() {
 		assertEquals(true, ValidaEntrada.validaData(""));
