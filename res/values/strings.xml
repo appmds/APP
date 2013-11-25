@@ -22,7 +22,7 @@
     <string name="projetoFrase">Escolha um tipo</string>
     <string name="partidos">Escolha um partido</string>
     <string-array name="partidos">
-        <item>Todos</item>
+        <item>Todos os Partidos</item>
         <item>PMDB</item>
         <item>PT</item>
         <item>PP</item>
@@ -57,11 +57,11 @@
         <item>SDD</item>
     </string-array>
     <string-array name="projetos">
-        <item>PL</item>
-        <item>PEC</item>
-        <item>PLP</item>
-        <item>PDC</item>
-        <item>PRC</item>
+        <item>Projeto de Lei</item>
+        <item>Projeto de Emenda à Constituição</item>
+        <item>Projeto de Lei Complementar</item>
+        <item>Projetos de Decreto Legislativo </item>
+        <item>Projeto de Resolução</item>
     </string-array>
 
     <string name="imgbuttonFavorito">imgbuttonFavorito</string>
@@ -70,7 +70,7 @@
     <string name="estadoFrase">Escolha um estado</string>
 
     <string-array name="estados">
-        <item>Todos</item>
+        <item>Todos os Estados</item>
         <item>Acre</item>
         <item>Alagoas</item>
         <item>Amapá</item>
