@@ -29,26 +29,32 @@
         android:theme="@style/AppTheme" >
         <activity
             android:name="com.mds.app.view.Busca"
+            android:screenOrientation="portrait"
             android:label="@string/app_name" >
         </activity>
         <activity
             android:name="com.mds.app.view.Lista"
+            android:screenOrientation="portrait"
             android:label="@string/app_name" >
         </activity>
         <activity
             android:name="com.mds.app.view.Perfil"
+            android:screenOrientation="portrait"
             android:label="@string/app_name" >
         </activity>
         <activity
             android:name="com.mds.app.view.PerfilFavoritos"
+            android:screenOrientation="portrait"
             android:label="@string/app_name" >
         </activity>
         <activity
             android:name="com.mds.app.view.PerfilHistorico"
+            android:screenOrientation="portrait"
             android:label="@string/app_name" >
         </activity>
         <activity
             android:name="com.mds.app.view.MenuPrincipal"
+            android:screenOrientation="portrait"
             android:label="@string/app_name" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -58,6 +64,7 @@
         </activity>
         <activity
             android:name="com.mds.app.view.Sobre"
+            android:screenOrientation="portrait"
             android:label="@string/title_activity_sobre" >
         </activity>
 

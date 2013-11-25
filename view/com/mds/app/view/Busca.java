@@ -117,6 +117,7 @@ public class Busca extends Activity {
 			runOnUiThread(new Runnable() {
 				@Override
 				public void run() {
+					progressDialog.dismiss();
 					ListaController.setListaProjetos(result);
 					Intent intent = new Intent(Busca.this, Lista.class);
 					startActivity(intent);
