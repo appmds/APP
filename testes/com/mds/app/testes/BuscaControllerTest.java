@@ -6,7 +6,6 @@ import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertNull;
 import static org.junit.Assert.assertSame;
 import static org.junit.Assert.assertTrue;
-import static org.junit.Assert.fail;
 
 import java.util.ArrayList;
 
@@ -87,7 +86,16 @@ public class BuscaControllerTest {
 		buscaController.setTemConexao(true);
 		String responseRetornada = buscaController.receberXml();
 
+		/* as falhas deste teste estao atribuidas a coisas como ex: PLENÁRIO > PLENÃ�RIO */
 		assertEquals(responseEsperada, responseRetornada);
+	}
+
+	@Test
+	public void testReceberXmlSemConexao() {
+		buscaController.setTemConexao(false);
+		String textoOfflineEsperado = null;
+		String textoOfflineRetornado = buscaController.receberXml();
+		assertEquals(textoOfflineEsperado, textoOfflineRetornado);
 	}
 
 	@Test
@@ -127,9 +135,15 @@ public class BuscaControllerTest {
 	}
 
 	@Test
+	public void testAtualizarDadosDaPesquisaVaziosESiglaTodos() {
+		boolean validacao = buscaController.atualizarDadosDaPesquisa("", "", "", "", "", "Todos os Partidos", "");
+		assertTrue(validacao);
+	}
+
+	@Test
 	public void testTransformaUfTodos() {
 		String ufEsperada = "";
-		String resultado = buscaController.transformaUF("Todos");
+		String resultado = buscaController.transformaUF("Todos os estados");
 		assertEquals(ufEsperada, resultado);
 	}
 
@@ -323,9 +337,43 @@ public class BuscaControllerTest {
 	}
 
 	@Test
+	public void testTransformaSiglaPL() {
+		String siglaEsperada = "PL";
+		String retornado = buscaController.transformaSigla("Projeto de Lei");
+		assertEquals(siglaEsperada, retornado);
+	}
+
+	@Test
+	public void testTransformaSiglaPEC() {
+		String siglaEsperada = "PEC";
+		String retornado = buscaController.transformaSigla("Propostas de Emenda à Constituição");
+		assertEquals(siglaEsperada, retornado);
+	}
+
+	@Test
+	public void testTransformaSiglaPLP() {
+		String siglaEsperada = "PLP";
+		String retornado = buscaController.transformaSigla("Projetos de Lei Complementar");
+		assertEquals(siglaEsperada, retornado);
+	}
+
+	@Test
+	public void testTransformaSiglaPDC() {
+		String siglaEsperada = "PDC";
+		String retornado = buscaController.transformaSigla("Projetos de Decreto Legislativo ");
+		assertEquals(siglaEsperada, retornado);
+	}
+
+	@Test
+	public void testTransformaSiglaPRC() {
+		String siglaEsperada = "PRC";
+		String retornado = buscaController.transformaSigla("Projetos de Resolução");
+		assertEquals(siglaEsperada, retornado);
+	}
+
+	@Test
 	public void testarNomeDaClasse() {
-		// Assert.assertEquals("BuscaController", buscaController.getClass().getSimpleName());
-		fail("?");
+		assertEquals("BuscaController", buscaController.getClass().getSimpleName());
 	}
 
 }

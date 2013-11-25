@@ -104,14 +104,14 @@ public class HistoricoControllerTest {
 
 	@Test
 	public void testarNomeDaClasse() {
-		String nomeEsperado = "FavoritosController";
+		String nomeEsperado = "HistoricoController";
 		String nomeRetornado = historicoController.getClass().getSimpleName();
 		assertEquals(nomeEsperado, nomeRetornado);
 	}
 
 	@Test
 	public void testGetMaxProjetos() {
-		int esperado = 3;
+		int esperado = 10;
 		int retornado = HistoricoController.getMaxProjetos();
 		assertEquals(esperado, retornado);
 	}
