@@ -83,11 +83,10 @@ public class HistoricoController implements AlteraArquivos {
 	}
 
 	@Override
-	public void popularProjetos() {
+	public void popularProjetos(String strConteudoHistorico) {
 		ArrayList<String> splitParts;
 
-		Log.i("POPPROJ-H", "Conteudo historico:");
-		String strConteudoHistorico = persistencia.lerDoArquivo(Persistencia.getFileNameHistorico());
+		//Log.i("POPPROJ-H", "Conteudo historico:");
 
 		final int separadoresPorProjeto = 9;
 		final int numeroDeProjetosNoArquivo;
@@ -100,10 +99,10 @@ public class HistoricoController implements AlteraArquivos {
 					numeroDeSeparadores++;
 				}
 			}
-			Log.i("POPPROJ-H", "Separadores: " + numeroDeSeparadores);
+			//Log.i("POPPROJ-H", "Separadores: " + numeroDeSeparadores);
 
 			numeroDeProjetosNoArquivo = (numeroDeSeparadores / separadoresPorProjeto);
-			Log.i("POPPROJ-H", "Numero de projetos: " + numeroDeProjetosNoArquivo);
+			//Log.i("POPPROJ-H", "Numero de projetos: " + numeroDeProjetosNoArquivo);
 
 			for (int i = 0; i < numeroDeProjetosNoArquivo; i++) {
 				splitParts = new ArrayList<String>(numeroDeSeparadores);
@@ -130,18 +129,18 @@ public class HistoricoController implements AlteraArquivos {
 
 				projetosHistorico.add(projeto);
 
-				Log.i("POPPROJ-H", "Adicionando: " + projeto.toString());
+				//Log.i("POPPROJ-H", "Adicionando: " + projeto.toString());
 			}
 		}
 		else {
-			Log.i("POPPROJ-H", "Historico esta vazio");
+			//Log.i("POPPROJ-H", "Historico esta vazio");
 		}
 
 		popularListaComProjetos();
 	}
 
 	@Override
-	public void popularListaComProjetos() {
+	public void popularListaComProjetos(){
 		if (!(projetosHistorico == null)) {
 			for (int i = 0; i < projetosHistorico.size(); i++) {
 				String stringProjeto = "";
@@ -166,7 +165,7 @@ public class HistoricoController implements AlteraArquivos {
 			}
 		}
 		else {
-			Log.i("POPSTR-H", "Historico esta vazio");
+			//Log.i("POPSTR-H", "Historico esta vazio");
 		}
 	}
 
@@ -194,19 +193,15 @@ public class HistoricoController implements AlteraArquivos {
 		return MAX_PROJETOS;
 	}
 
-	public static ProjetoModel getProjetoMaisVelho() {
+	public static ProjetoModel getProjetoMaisVelho() throws NullPointerException {
 		ProjetoModel projeto = projetosHistorico.get(0);
-		if (!projetosHistorico.isEmpty()) {
-			projeto = projetosHistorico.get(0);
-		}
+		projeto = projetosHistorico.get(0);
 		return projeto;
 	}
 
-	public static String getStringProjetoMaisVelho() {
+	public static String getStringProjetoMaisVelho() throws IndexOutOfBoundsException {
 		String projetoString = "";
-		if (!projetosHistoricoCompletoStr.isEmpty()) {
-			projetoString = projetosHistoricoCompletoStr.get(0);
-		}
+		projetoString = projetosHistoricoCompletoStr.get(0);
 		return projetoString;
 	}
 }

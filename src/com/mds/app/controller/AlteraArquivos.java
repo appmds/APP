@@ -10,7 +10,7 @@ public interface AlteraArquivos {
 
 	public String projetosEmString();
 
-	public void popularProjetos();
+	public void popularProjetos(String conteudoArquivo);
 
 	public void popularListaComProjetos();
 

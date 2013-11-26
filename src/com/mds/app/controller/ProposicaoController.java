@@ -38,7 +38,7 @@ public class ProposicaoController extends DefaultHandler {
 			partido = new PartidoModel();
 		}
 		else {
-			//
+			throw new IllegalArgumentException("localName invalida");
 		}
 	}
 
@@ -78,7 +78,7 @@ public class ProposicaoController extends DefaultHandler {
 			partido.setUf(buffer.toString());
 		}
 		else {
-			// lançar alguma exception
+			throw new IllegalArgumentException("localName invalida!");
 		}
 
 	}

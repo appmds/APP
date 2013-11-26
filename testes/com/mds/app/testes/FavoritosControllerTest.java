@@ -12,6 +12,8 @@ import org.junit.Before;
 import org.junit.Test;
 
 import com.mds.app.controller.FavoritosController;
+import com.mds.app.controller.HistoricoController;
+import com.mds.app.controller.ListaController;
 import com.mds.app.model.ParlamentarModel;
 import com.mds.app.model.PartidoModel;
 import com.mds.app.model.ProjetoModel;
@@ -56,6 +58,12 @@ public class FavoritosControllerTest {
 	public void testInstance() {
 		assertNotNull(favoritosController);
 	}
+	
+	@Test
+	public void testRemover() {
+		favoritosController.remover(projetoModel, "ola");
+		fail();
+	}
 
 	@Test
 	public void testAdicionar2() {
@@ -86,6 +94,18 @@ public class FavoritosControllerTest {
 		String esperado = "[Zordon\nNumero: 6663\nAno:  2013\nSigla: PL\nData de Apresentação: 12/01/2013\nDescrição: explicacao marota\nParlamentar: Ranger\nPartido: PMDS\nEstado: AC]";
 		String retornado = FavoritosController.getProjetosFavoritadosCompletoStr().toString();
 		assertEquals(esperado, retornado);
+	}
+	
+	@Test
+	public void testPopularProjetos(){
+		ListaController listaController = new ListaController();
+		ListaController.setProjetoAtual(projetoModel);
+		String stringInput = listaController.getStringCompletaParaArquivo();
+		favoritosController.popularProjetos(stringInput);
+		String esperado = HistoricoController.getProjetosHistorico().get(0).toString();
+		String retornado = projetoModel.toString();
+		
+		assertEquals(esperado,retornado);
 	}
 
 	@Test

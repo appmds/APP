@@ -29,12 +29,16 @@ public class MenuPrincipal extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_menu_principal);
+		
+		Persistencia persistencia = new Persistencia(context);
+		String conteudoHistorico = persistencia.lerDoArquivo(Persistencia.getFileNameHistorico());
+		String conteudoFavoritos = persistencia.lerDoArquivo(Persistencia.getFileNameFavoritos());
 
 		FavoritosController favoritosController = new FavoritosController(context);
-		favoritosController.popularProjetos();
+		favoritosController.popularProjetos(conteudoFavoritos);
 
 		HistoricoController historicoController = new HistoricoController(context);
-		historicoController.popularProjetos();
+		historicoController.popularProjetos(conteudoHistorico);
 
 		busca_addListener();
 		sobre_addListener();

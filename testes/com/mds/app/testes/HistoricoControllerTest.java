@@ -12,6 +12,7 @@ import org.junit.Before;
 import org.junit.Test;
 
 import com.mds.app.controller.HistoricoController;
+import com.mds.app.controller.ListaController;
 import com.mds.app.model.ParlamentarModel;
 import com.mds.app.model.PartidoModel;
 import com.mds.app.model.ProjetoModel;
@@ -55,6 +56,12 @@ public class HistoricoControllerTest {
 	@Test
 	public void testInstance() {
 		assertNotNull(historicoController);
+	}
+	
+	@Test
+	public void testRemover() {
+		historicoController.remover(projetoModel, "ola");
+		fail();
 	}
 
 	@Test
@@ -128,11 +135,37 @@ public class HistoricoControllerTest {
 		ProjetoModel retornado = HistoricoController.getProjetoMaisVelho();
 		assertEquals(projetoModel, retornado);
 	}
+	
+	@Test
+	public void testPopularProjetos(){
+		ListaController listaController = new ListaController();
+		ListaController.setProjetoAtual(projetoModel);
+		String stringInput = listaController.getStringCompletaParaArquivo();
+		historicoController.popularProjetos(stringInput);
+		String esperado = HistoricoController.getProjetosHistorico().get(0).toString();
+		String retornado = projetoModel.toString();
+		
+		assertEquals(esperado,retornado);
+	}
+	
+	@Test(expected = NullPointerException.class)
+	public void testGetProjetoMaisVelhoNull() {
+		HistoricoController.setProjetosHistorico(null);
+		ProjetoModel retornado = HistoricoController.getProjetoMaisVelho();
+	}
 
 	@Test
 	public void testGetStringProjetoMaisVelho() {
-		System.out.println(HistoricoController.getStringProjetoMaisVelho());
-		fail();
+		String esperado = "teste";
+		HistoricoController.getProjetosHistoricoCompletoStr().add(esperado);
+		String retornado = HistoricoController.getStringProjetoMaisVelho();
+		assertEquals(esperado, retornado);
+	}
+	
+	@Test(expected = IndexOutOfBoundsException.class)
+	public void testGetStringProjetoMaisVelhoNull() {
+		String retornado = HistoricoController.getStringProjetoMaisVelho();
+		fail("teste falhou");
 	}
 
 }
