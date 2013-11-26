@@ -40,11 +40,14 @@ public class BuscaController {
 		}
 		else {
 			// não tem outras opções
+			throw new IllegalArgumentException("sigla invalida");
 		}
 		return sigla;
 	}
 
 	public String transformaUF(String uf) {
+		System.out.println(uf);
+		
 		if (uf.equalsIgnoreCase("Todos os Estados")) {
 			uf = "";
 		}
@@ -131,6 +134,7 @@ public class BuscaController {
 		}
 		else {
 			// Nao tem outras opcoes
+			throw new IllegalArgumentException("uf invalida");
 		}
 
 		return uf;

@@ -39,7 +39,7 @@ public class XMLParser {
 			// atribuir o nosso manipulador
 			leitorXml.setContentHandler(projeto);
 			// Sincronizando o parser com o XML
-			leitorXml.parse(new InputSource(new StringReader(xml)));
+
 
 			return projeto.getListaProjetos();
 

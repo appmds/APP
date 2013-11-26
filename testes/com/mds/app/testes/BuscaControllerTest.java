@@ -6,6 +6,7 @@ import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertNull;
 import static org.junit.Assert.assertSame;
 import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.fail;
 
 import java.util.ArrayList;
 
@@ -117,27 +118,34 @@ public class BuscaControllerTest {
 	@Test
 	public void testAtualizarDadosDaPesquisa() {
 		boolean retornado = buscaController.atualizarDadosDaPesquisa("2013", "pl", "1234", "12/44/1234",
-				"nomeautor", "pmds", "df");
+				"nomeautor", "pmds", "Distrito Federal");
 		assertTrue(retornado);
 	}
 
 	@Test
 	public void testAtualizarDadosDaPesquisaErros() {
 		boolean retornado = buscaController.atualizarDadosDaPesquisa("2013", "pl", "1234", "12/44/1234", "12345",
-				"pmds", "df");
+				"pmds", "Distrito Federal");
 		assertFalse(retornado);
 	}
 
 	@Test
 	public void testAtualizarDadosDaPesquisaVazios() {
-		boolean validacao = buscaController.atualizarDadosDaPesquisa("", "", "", "", "", "", "");
+		boolean validacao = buscaController.atualizarDadosDaPesquisa("", "", "", "", "", "", "Todos os Estados");
 		assertTrue(validacao);
 	}
 
 	@Test
 	public void testAtualizarDadosDaPesquisaVaziosESiglaTodos() {
-		boolean validacao = buscaController.atualizarDadosDaPesquisa("", "", "", "", "", "Todos os Partidos", "");
+		boolean validacao = buscaController.atualizarDadosDaPesquisa("", "", "", "", "", "Todos os Partidos",
+				"Todos os Estados");
 		assertTrue(validacao);
+	}
+
+	@Test(expected = IllegalArgumentException.class)
+	public void testTransformaUfCatchException() {
+		String resultado = buscaController.transformaUF("uf invalida");
+		fail("teste falhou");
 	}
 
 	@Test
@@ -334,6 +342,12 @@ public class BuscaControllerTest {
 		String ufEsperada = "TO";
 		String resultado = buscaController.transformaUF("Tocantins");
 		assertEquals(ufEsperada, resultado);
+	}
+
+	@Test(expected = IllegalArgumentException.class)
+	public void testTransformaSiglaCatchException() {
+		String retornado = buscaController.transformaSigla("sigla invalida");
+		fail("teste falhou");
 	}
 
 	@Test
