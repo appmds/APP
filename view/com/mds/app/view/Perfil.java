@@ -2,6 +2,7 @@ package com.mds.app.view;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
@@ -9,7 +10,13 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.ImageButton;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import com.facebook.FacebookOperationCanceledException;
+import com.facebook.Session;
+import com.facebook.SessionState;
+import com.facebook.UiLifecycleHelper;
+import com.facebook.widget.FacebookDialog;
 import com.mds.app.R;
 import com.mds.app.controller.FavoritosController;
 import com.mds.app.controller.HistoricoController;
@@ -24,11 +31,27 @@ public class Perfil extends Activity {
 	private TextView texto;
 	private ImageButton estrelaFavorito;
 	private boolean favoritado;
-	Context context = this;
+	Context context = this;	
+    private boolean isResumed = false;
+	private UiLifecycleHelper uiHelper;
+	private Session.StatusCallback callback = new Session.StatusCallback() {
+        @Override
+        public void call(Session session, SessionState state, Exception exception) {
+            onSessionStateChange(session, state, exception);
+        }
+    };
 
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_perfil);
+		
+		uiHelper = new UiLifecycleHelper(this, callback);
+	    uiHelper.onCreate(savedInstanceState);
+	    
+	    FacebookDialog shareDialog = new FacebookDialog.ShareDialogBuilder(this)
+        .setLink("https://www.google.com")
+        .build();
+uiHelper.trackPendingDialogCall(shareDialog.present());
 
 		projetoAtual = ListaController.getProjetoAtual();
 		listaController = new ListaController();
@@ -60,6 +83,23 @@ public class Perfil extends Activity {
 		}
 		Log.i("LOGGER", "Adicionando ao historico: " + projetoAtual.getNumero());
 
+	}
+	
+	@Override
+	protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+	    super.onActivityResult(requestCode, resultCode, data);
+
+	    uiHelper.onActivityResult(requestCode, resultCode, data, new FacebookDialog.Callback() {
+	        @Override
+	        public void onError(FacebookDialog.PendingCall pendingCall, Exception error, Bundle data) {
+	            Log.e("Activity", String.format("Error: %s", error.toString()));
+	        }
+
+	        @Override
+	        public void onComplete(FacebookDialog.PendingCall pendingCall, Bundle data) {
+	            Log.i("Activity", "Success!");
+	        }
+	    });
 	}
 
 	public boolean onCreateOptionsMenu(Menu menu) {
@@ -104,5 +144,38 @@ public class Perfil extends Activity {
 			}
 		});
 	}
+	@Override
+	protected void onResume() {
+	    super.onResume();
+	    uiHelper.onResume();
+	    isResumed = true;
+	}
+
+	@Override
+	protected void onSaveInstanceState(Bundle outState) {
+	    super.onSaveInstanceState(outState);
+	    uiHelper.onSaveInstanceState(outState);
+	}
+
+	@Override
+	public void onPause() {
+	    super.onPause();
+	    uiHelper.onPause();
+	    isResumed = false;
+	}
+
+	@Override
+	public void onDestroy() {
+	    super.onDestroy();
+	    uiHelper.onDestroy();
+	}
+    private void onSessionStateChange(Session session, SessionState state, Exception exception) {
+        if (isResumed) {
+            if (exception != null && !(exception instanceof FacebookOperationCanceledException)) {
+                Toast.makeText(this, "ERRO!", Toast.LENGTH_SHORT).show();
+                return;
+            }
+        }
+    }
 
 }
