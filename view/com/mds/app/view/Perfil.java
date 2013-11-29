@@ -28,7 +28,11 @@ public class Perfil extends Activity {
 	private ListaController listaController;
 	private ProjetoModel projetoAtual;
 	private String stringProjetoCompleto;
-	private TextView texto;
+	private TextView texto1;
+	private TextView texto2;
+	private TextView texto3;
+	private TextView texto4;
+	private TextView texto5;
 	private ImageButton estrelaFavorito;
 	private ImageButton botaoFacebook;
 	private boolean favoritado;
@@ -57,8 +61,16 @@ public class Perfil extends Activity {
 
 		stringProjetoCompleto = listaController.getStringCompletaParaPerfil();
 
-		texto = (TextView) findViewById(R.id.texto);
-		texto.setText(stringProjetoCompleto);
+		texto1 = (TextView) findViewById(R.id.textoTipoProjeto);
+		texto1.setText(projetoAtual.getNome());
+		texto2 = (TextView) findViewById(R.id.textoCarcteristicasProjeto);
+		texto2.setText("Número: " + projetoAtual.getNumero() + "\n" + "Ano: " + projetoAtual.getAno() + "\n" + "Sigla: "+ projetoAtual.getSigla() + "\n" + "Data de Apresentação: " + "\n" + projetoAtual.getData());
+		texto3 = (TextView) findViewById(R.id.textoDescricao);
+		texto3.setText("\n" + "\n" + "Descrição:" + "\n" + projetoAtual.getExplicacao());
+		texto4 = (TextView) findViewById(R.id.textoParlamentar);
+		texto4.setText("Parlamentar");
+		texto5 = (TextView) findViewById(R.id.textoCarcteristicasParlamentar);
+		texto5.setText("Nome: " + "\n" + projetoAtual.getParlamentar().getNome() + "\n" + "Partido: " + "\n" + projetoAtual.getParlamentar().getPartido().getSiglaPartido());
 
 		favoritar_addListener();
 
@@ -109,7 +121,7 @@ public class Perfil extends Activity {
 
 	private void facebook_addListener() {
 		final Activity activity = this;
-		botaoFacebook = (ImageButton) findViewById(R.id.imgbutton_facebook);
+		botaoFacebook = (ImageButton) findViewById(R.id.logoFacebook);
 
 		botaoFacebook.setOnClickListener(new OnClickListener() {
 			@Override

@@ -9,28 +9,92 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context=".Perfil" >
 
-    
     <TextView
-        android:id="@+id/texto"
+        android:id="@+id/textoTipoProjeto"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"/>
-    
+        android:layout_height="wrap_content"
+        android:textSize="20sp" />
+
+    <TextView
+        android:id="@+id/textoCarcteristicasProjeto"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textoTipoProjeto"
+        android:textSize="18sp" />
+
+    <TextView
+        android:id="@+id/textoDescricao"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textoCarcteristicasProjeto"
+        android:textSize="18sp" />
+
+    <TextView
+        android:id="@+id/textoParlamentar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textoDescricao"
+        android:textSize="20sp" />
+
+    <TextView
+        android:id="@+id/textoCarcteristicasParlamentar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textoParlamentar"
+        android:textSize="18sp" />
+
     <ImageButton
         android:id="@+id/naoFavorito"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentRight="true"
-        android:layout_alignBottom="@+id/texto"
-        android:contentDescription="@string/imgbuttonNaoFavorito"
-        android:background="@drawable/naofavorito" />
+        android:background="@drawable/naofavorito"
+        android:contentDescription="@string/imgbuttonNaoFavorito" />
+
+    <ImageView
+        android:id="@+id/primeiro_quadrado"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/textoTipoProjeto"
+        android:layout_alignTop="@+id/textoTipoProjeto"
+        android:contentDescription="primeiro quadrado"
+        android:src="@drawable/primeiro_quadrado" />
 
     <ImageButton
-        android:id="@+id/imgbutton_facebook"
+        android:id="@+id/logoFacebook"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentRight="true"
-        android:contentDescription="@string/com_facebook_logo_content_description"
-        android:src="@drawable/com_facebook_logo" />
-    
+        android:layout_alignBottom="@+id/primeiro_quadrado"
+        android:layout_toLeftOf="@+id/naoFavorito"
+        android:background="@drawable/facebook"
+        android:contentDescription="Compartilhar" />
+
+    <ImageView
+        android:id="@+id/segundo_quadrado"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/textoTipoProjeto"
+        android:layout_below="@+id/naoFavorito"
+        android:contentDescription="segundo quadrado"
+        android:src="@drawable/segundo_quadrado" />
+
+    <ImageView
+        android:id="@+id/segundo_quadrado"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/textoParlamentar"
+        android:layout_centerVertical="true"
+        android:contentDescription="segundo quadrado"
+        android:src="@drawable/segundo_quadrado" />
+
+    <ImageView
+        android:id="@+id/quarto_quadrado"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/segundo_quadrado"
+        android:layout_below="@+id/segundo_quadrado"
+        android:contentDescription="quarto quadrado"
+        android:src="@drawable/quarto_quadrado" 
+        />
+
 </RelativeLayout>
