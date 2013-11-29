@@ -196,9 +196,20 @@ public class BuscaController {
 		String nomeAutor = ProcuraParlamentarModel.getNome();
 		String siglaPartido = ProcuraPartidoModel.getSigla();
 		String siglaUF = ProcuraPartidoModel.getUf();
-
-		String url = Endereco.construirEndereco(sigla, numero, ano, dataInicio, "", "", nomeAutor, siglaPartido,
-				siglaUF, "", "", "");
+		
+		Endereco.sigla = sigla;
+		Endereco.numero = numero;
+		Endereco.ano = ano;
+		Endereco.dataInicio = dataInicio;
+		Endereco.dataFinal = "";
+		Endereco.autor = "";
+		Endereco.nomeAutor = nomeAutor;
+		Endereco.siglaPartido = siglaPartido;
+		Endereco.siglaUF = siglaUF;
+		Endereco.generoAutor = "";
+		Endereco.codigoEstado = "";
+		Endereco.codigoOrgaoEstado = "";
+		String url = Endereco.construirEndereco();
 		System.out.println(url);
 
 		String response = null;

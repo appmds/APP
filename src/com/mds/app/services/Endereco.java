@@ -18,12 +18,22 @@ public abstract class Endereco {
 	private final static String CODIGO_ESTADO = "codEstado";
 	private final static String CODIGO_ORGAO_ESTADO = "codOrgaoEstado";
 	private final static String TRAMITACAO = "emTramitacao";
+	public static String sigla;
+	public static String numero;
+	public static String ano;
+	public static String dataInicio;
+	public static String dataFinal;
+	public static String autor;
+	public static String nomeAutor;
+	public static String siglaPartido;
+	public static String siglaUF;
+	public static String generoAutor;
+	public static String codigoEstado;
+	public static String codigoOrgaoEstado;
 
 	private final static String ID_TIPO_AUTOR = "idTipoAutor";
 
-	public static String construirEndereco(String sigla, String numero, String ano, String dataInicio,
-			String dataFinal, String autor, String nomeAutor, String siglaPartido, String siglaUF,
-			String generoAutor, String codigoEstado, String codigoOrgaoEstado) {
+	public static String construirEndereco() {
 
 		StringBuffer sb = new StringBuffer();
 		sb.append(BASE_URL);
