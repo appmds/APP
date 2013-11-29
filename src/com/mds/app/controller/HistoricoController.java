@@ -3,7 +3,6 @@ package com.mds.app.controller;
 import java.util.ArrayList;
 
 import android.content.Context;
-import android.util.Log;
 
 import com.mds.app.model.ParlamentarModel;
 import com.mds.app.model.PartidoModel;
@@ -86,7 +85,7 @@ public class HistoricoController implements AlteraArquivos {
 	public void popularProjetos(String strConteudoHistorico) {
 		ArrayList<String> splitParts;
 
-		//Log.i("POPPROJ-H", "Conteudo historico:");
+		// Log.i("POPPROJ-H", "Conteudo historico:");
 
 		final int separadoresPorProjeto = 9;
 		final int numeroDeProjetosNoArquivo;
@@ -99,10 +98,10 @@ public class HistoricoController implements AlteraArquivos {
 					numeroDeSeparadores++;
 				}
 			}
-			//Log.i("POPPROJ-H", "Separadores: " + numeroDeSeparadores);
+			// Log.i("POPPROJ-H", "Separadores: " + numeroDeSeparadores);
 
 			numeroDeProjetosNoArquivo = (numeroDeSeparadores / separadoresPorProjeto);
-			//Log.i("POPPROJ-H", "Numero de projetos: " + numeroDeProjetosNoArquivo);
+			// Log.i("POPPROJ-H", "Numero de projetos: " + numeroDeProjetosNoArquivo);
 
 			for (int i = 0; i < numeroDeProjetosNoArquivo; i++) {
 				splitParts = new ArrayList<String>(numeroDeSeparadores);
@@ -129,18 +128,18 @@ public class HistoricoController implements AlteraArquivos {
 
 				projetosHistorico.add(projeto);
 
-				//Log.i("POPPROJ-H", "Adicionando: " + projeto.toString());
+				// Log.i("POPPROJ-H", "Adicionando: " + projeto.toString());
 			}
 		}
 		else {
-			//Log.i("POPPROJ-H", "Historico esta vazio");
+			// Log.i("POPPROJ-H", "Historico esta vazio");
 		}
 
 		popularListaComProjetos();
 	}
 
 	@Override
-	public void popularListaComProjetos(){
+	public void popularListaComProjetos() {
 		if (!(projetosHistorico == null)) {
 			for (int i = 0; i < projetosHistorico.size(); i++) {
 				String stringProjeto = "";
@@ -165,7 +164,7 @@ public class HistoricoController implements AlteraArquivos {
 			}
 		}
 		else {
-			//Log.i("POPSTR-H", "Historico esta vazio");
+			// Log.i("POPSTR-H", "Historico esta vazio");
 		}
 	}
 

@@ -71,6 +71,7 @@
         <uses-library
             android:name="android.test.runner"
             android:required="false" />
+        <meta-data android:name="com.facebook.sdk.ApplicationId" android:value="@string/app_id"/>
     </application>
 
 </manifest>

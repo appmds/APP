@@ -21,7 +21,6 @@ import com.mds.app.model.ProjetoModel;
 
 public class ProposicaoControllerTest {
 
-	
 	private ProposicaoController proposicaoController;
 
 	@Before
@@ -38,9 +37,9 @@ public class ProposicaoControllerTest {
 	public void testInstance() {
 		assertNotNull(proposicaoController);
 	}
-	
+
 	@Test
-	public void testCharacters(){
+	public void testCharacters() {
 		String inputStr = "abcteste";
 		char input[] = inputStr.toCharArray();
 		proposicaoController.characters(input, 0, 8);
@@ -92,16 +91,6 @@ public class ProposicaoControllerTest {
 
 		}
 		assertNotNull(proposicaoController.getListaProjetos());
-	}
-	
-	@Test(expected = IllegalArgumentException.class)
-	public void testStartElementProposicoesCatchIllegalArgument() {
-		try {
-			proposicaoController.startElement("a", "localnameinvalida", "q", null);
-		} catch (SAXException saxe) {
-
-		}
-		fail("teste falhou");
 	}
 
 	@Test
@@ -227,7 +216,6 @@ public class ProposicaoControllerTest {
 		assertEquals(esperado, retornado);
 	}
 
-
 	@Test
 	public void testEndElementProposicaoTextoNomeAutor() {
 		String esperado = "testenomeautor";
@@ -242,16 +230,6 @@ public class ProposicaoControllerTest {
 		assertEquals(esperado, retornado);
 	}
 
-	@Test(expected = IllegalArgumentException.class)
-	public void testEndElementProposicaoCatchIllegalArgument() {
-		try {
-			proposicaoController.startElement("a", "proposicao", "q", null);
-			proposicaoController.endElement("a", "localnameinvalida", "q");
-		} catch (SAXException saxe) {
-		}
-		fail("teste falhou.");
-	}
-	
 	@Test
 	public void testEndElementProposicaoTextoSiglaPartido() {
 		String esperado = "testesiglapartido";
@@ -279,8 +257,8 @@ public class ProposicaoControllerTest {
 		String retornado = proposicaoController.getPartido().getUf();
 		assertEquals(esperado, retornado);
 	}
-	
-	/*====================GETS E SETS===================*/
+
+	/* ====================GETS E SETS=================== */
 
 	@Test
 	public void testGetBuffer() {
@@ -321,6 +299,28 @@ public class ProposicaoControllerTest {
 		ArrayList<ProjetoModel> lista = new ArrayList<ProjetoModel>();
 		proposicaoController.setListaProjetos(lista);
 		assertSame(lista, proposicaoController.getListaProjetos());
+	}
+
+	// ////////////////
+
+	@Test(expected = IllegalArgumentException.class)
+	public void testStartElementProposicoesCatchIllegalArgument() {
+		try {
+			proposicaoController.startElement("a", "localnameinvalida", "q", null);
+		} catch (SAXException saxe) {
+
+		}
+		fail("teste falhou");
+	}
+
+	@Test(expected = IllegalArgumentException.class)
+	public void testEndElementProposicaoCatchIllegalArgument() {
+		try {
+			proposicaoController.startElement("a", "proposicao", "q", null);
+			proposicaoController.endElement("a", "localnameinvalida", "q");
+		} catch (SAXException saxe) {
+		}
+		fail("teste falhou.");
 	}
 
 }

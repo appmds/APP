@@ -57,15 +57,15 @@ public class HistoricoControllerTest {
 	public void testInstance() {
 		assertNotNull(historicoController);
 	}
-	
+
 	@Test
 	public void testRemover() {
 		historicoController.remover(projetoModel, "ola");
-		fail();
+		fail("");
 	}
 
 	@Test
-	public void testAdicionar2() {
+	public void testAdicionarOutro() {
 		ProjetoModel projetoModel2 = new ProjetoModel("2132", "ZTeste", "PEC", "13/01/2014", "1163",
 				"explicacao marota", parlamentarModel);
 		historicoController.adicionar(projetoModel2, "ola");
@@ -75,7 +75,7 @@ public class HistoricoControllerTest {
 	@Test
 	public void testAdicionar() {
 		historicoController.adicionar(projetoModel, "ola");
-		fail();
+		fail("");
 	}
 
 	@Test
@@ -135,19 +135,19 @@ public class HistoricoControllerTest {
 		ProjetoModel retornado = HistoricoController.getProjetoMaisVelho();
 		assertEquals(projetoModel, retornado);
 	}
-	
+
 	@Test
-	public void testPopularProjetos(){
+	public void testPopularProjetos() {
 		ListaController listaController = new ListaController();
 		ListaController.setProjetoAtual(projetoModel);
 		String stringInput = listaController.getStringCompletaParaArquivo();
 		historicoController.popularProjetos(stringInput);
 		String esperado = HistoricoController.getProjetosHistorico().get(0).toString();
 		String retornado = projetoModel.toString();
-		
-		assertEquals(esperado,retornado);
+
+		assertEquals(esperado, retornado);
 	}
-	
+
 	@Test(expected = NullPointerException.class)
 	public void testGetProjetoMaisVelhoNull() {
 		HistoricoController.setProjetosHistorico(null);
@@ -161,7 +161,7 @@ public class HistoricoControllerTest {
 		String retornado = HistoricoController.getStringProjetoMaisVelho();
 		assertEquals(esperado, retornado);
 	}
-	
+
 	@Test(expected = IndexOutOfBoundsException.class)
 	public void testGetStringProjetoMaisVelhoNull() {
 		String retornado = HistoricoController.getStringProjetoMaisVelho();

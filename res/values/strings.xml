@@ -2,6 +2,7 @@
 <resources>
 
     <string name="app_name">APP</string>
+    <string name="app_id">399084896860704</string>
     <string name="action_settings">Settings</string>
     <string name="title_activity_sobre">Sobre</string>
     <string name="hintProjeto">Insira um tipo de projeto (PL, PLP, PEC, PDC, PRC)</string>

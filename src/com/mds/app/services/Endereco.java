@@ -19,6 +19,8 @@ public abstract class Endereco {
 	private final static String CODIGO_ORGAO_ESTADO = "codOrgaoEstado";
 	private final static String TRAMITACAO = "emTramitacao";
 
+	private final static String ID_TIPO_AUTOR = "idTipoAutor";
+
 	public static String construirEndereco(String sigla, String numero, String ano, String dataInicio,
 			String dataFinal, String autor, String nomeAutor, String siglaPartido, String siglaUF,
 			String generoAutor, String codigoEstado, String codigoOrgaoEstado) {
@@ -68,6 +70,14 @@ public abstract class Endereco {
 		sb.append(CODIGO_ESTADO);
 		sb.append(IGUAL);
 		sb.append(codigoEstado);
+
+		/* temporario, enquanto o site da camara ta errado */
+		sb.append(E);
+		sb.append(ID_TIPO_AUTOR);
+		sb.append(IGUAL);
+		sb.append("");
+		/* ---------------- */
+
 		sb.append(E);
 		sb.append(CODIGO_ORGAO_ESTADO);
 		sb.append(IGUAL);
@@ -76,6 +86,7 @@ public abstract class Endereco {
 		sb.append(TRAMITACAO);
 		sb.append(IGUAL);
 		sb.append("1");
+
 		return sb.toString();
 	}
 

@@ -117,28 +117,29 @@ public class BuscaControllerTest {
 
 	@Test
 	public void testAtualizarDadosDaPesquisa() {
-		boolean retornado = buscaController.atualizarDadosDaPesquisa("2013", "pl", "1234", "12/44/1234",
-				"nomeautor", "pmds", "Distrito Federal");
+		boolean retornado = buscaController.atualizarDadosDaPesquisa("2013", "Projeto de Lei", "1234",
+				"12/44/1234", "nomeautor", "pmds", "Distrito Federal");
 		assertTrue(retornado);
 	}
 
 	@Test
 	public void testAtualizarDadosDaPesquisaErros() {
-		boolean retornado = buscaController.atualizarDadosDaPesquisa("2013", "pl", "1234", "12/44/1234", "12345",
-				"pmds", "Distrito Federal");
+		boolean retornado = buscaController.atualizarDadosDaPesquisa("2013", "Projeto de Lei", "1234",
+				"12/44/1234", "12345", "pmds", "Distrito Federal");
 		assertFalse(retornado);
 	}
 
 	@Test
 	public void testAtualizarDadosDaPesquisaVazios() {
-		boolean validacao = buscaController.atualizarDadosDaPesquisa("", "", "", "", "", "", "Todos os Estados");
+		boolean validacao = buscaController.atualizarDadosDaPesquisa("", "Projeto de Lei", "", "", "", "",
+				"Todos os Estados");
 		assertTrue(validacao);
 	}
 
 	@Test
 	public void testAtualizarDadosDaPesquisaVaziosESiglaTodos() {
-		boolean validacao = buscaController.atualizarDadosDaPesquisa("", "", "", "", "", "Todos os Partidos",
-				"Todos os Estados");
+		boolean validacao = buscaController.atualizarDadosDaPesquisa("", "Projeto de Lei", "", "", "",
+				"Todos os Partidos", "Todos os Estados");
 		assertTrue(validacao);
 	}
 

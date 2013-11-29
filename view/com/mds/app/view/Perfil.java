@@ -30,28 +30,27 @@ public class Perfil extends Activity {
 	private String stringProjetoCompleto;
 	private TextView texto;
 	private ImageButton estrelaFavorito;
+	private ImageButton botaoFacebook;
 	private boolean favoritado;
-	Context context = this;	
-    private boolean isResumed = false;
+	Context context = this;
+	private boolean isResumed = false;
+
 	private UiLifecycleHelper uiHelper;
 	private Session.StatusCallback callback = new Session.StatusCallback() {
-        @Override
-        public void call(Session session, SessionState state, Exception exception) {
-            onSessionStateChange(session, state, exception);
-        }
-    };
+		@Override
+		public void call(Session session, SessionState state, Exception exception) {
+			onSessionStateChange(session, state, exception);
+		}
+	};
 
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_perfil);
-		
+
 		uiHelper = new UiLifecycleHelper(this, callback);
-	    uiHelper.onCreate(savedInstanceState);
-	    
-	    FacebookDialog shareDialog = new FacebookDialog.ShareDialogBuilder(this)
-        .setLink("https://www.google.com")
-        .build();
-uiHelper.trackPendingDialogCall(shareDialog.present());
+		uiHelper.onCreate(savedInstanceState);
+
+		facebook_addListener();
 
 		projetoAtual = ListaController.getProjetoAtual();
 		listaController = new ListaController();
@@ -84,28 +83,43 @@ uiHelper.trackPendingDialogCall(shareDialog.present());
 		Log.i("LOGGER", "Adicionando ao historico: " + projetoAtual.getNumero());
 
 	}
-	
+
 	@Override
 	protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-	    super.onActivityResult(requestCode, resultCode, data);
+		super.onActivityResult(requestCode, resultCode, data);
 
-	    uiHelper.onActivityResult(requestCode, resultCode, data, new FacebookDialog.Callback() {
-	        @Override
-	        public void onError(FacebookDialog.PendingCall pendingCall, Exception error, Bundle data) {
-	            Log.e("Activity", String.format("Error: %s", error.toString()));
-	        }
+		uiHelper.onActivityResult(requestCode, resultCode, data, new FacebookDialog.Callback() {
+			@Override
+			public void onError(FacebookDialog.PendingCall pendingCall, Exception error, Bundle data) {
+				Log.e("Activity", String.format("Error: %s", error.toString()));
+			}
 
-	        @Override
-	        public void onComplete(FacebookDialog.PendingCall pendingCall, Bundle data) {
-	            Log.i("Activity", "Success!");
-	        }
-	    });
+			@Override
+			public void onComplete(FacebookDialog.PendingCall pendingCall, Bundle data) {
+				Log.i("Activity", "Success!");
+			}
+		});
 	}
 
 	public boolean onCreateOptionsMenu(Menu menu) {
 		// Inflate the menu; this adds items to the action bar if it is present.
 		getMenuInflater().inflate(R.menu.main, menu);
 		return true;
+	}
+
+	private void facebook_addListener() {
+		final Activity activity = this;
+		botaoFacebook = (ImageButton) findViewById(R.id.imgbutton_facebook);
+
+		botaoFacebook.setOnClickListener(new OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				FacebookDialog shareDialog = new FacebookDialog.ShareDialogBuilder(activity).setLink(
+						"https://www.google.com").build();
+				uiHelper.trackPendingDialogCall(shareDialog.present());
+			}
+		});
+
 	}
 
 	private void favoritar_addListener() {
@@ -144,38 +158,40 @@ uiHelper.trackPendingDialogCall(shareDialog.present());
 			}
 		});
 	}
+
 	@Override
 	protected void onResume() {
-	    super.onResume();
-	    uiHelper.onResume();
-	    isResumed = true;
+		super.onResume();
+		uiHelper.onResume();
+		isResumed = true;
 	}
 
 	@Override
 	protected void onSaveInstanceState(Bundle outState) {
-	    super.onSaveInstanceState(outState);
-	    uiHelper.onSaveInstanceState(outState);
+		super.onSaveInstanceState(outState);
+		uiHelper.onSaveInstanceState(outState);
 	}
 
 	@Override
 	public void onPause() {
-	    super.onPause();
-	    uiHelper.onPause();
-	    isResumed = false;
+		super.onPause();
+		uiHelper.onPause();
+		isResumed = false;
 	}
 
 	@Override
 	public void onDestroy() {
-	    super.onDestroy();
-	    uiHelper.onDestroy();
+		super.onDestroy();
+		uiHelper.onDestroy();
 	}
-    private void onSessionStateChange(Session session, SessionState state, Exception exception) {
-        if (isResumed) {
-            if (exception != null && !(exception instanceof FacebookOperationCanceledException)) {
-                Toast.makeText(this, "ERRO!", Toast.LENGTH_SHORT).show();
-                return;
-            }
-        }
-    }
+
+	private void onSessionStateChange(Session session, SessionState state, Exception exception) {
+		if (isResumed) {
+			if (exception != null && !(exception instanceof FacebookOperationCanceledException)) {
+				Toast.makeText(this, "ERRO!", Toast.LENGTH_SHORT).show();
+				return;
+			}
+		}
+	}
 
 }

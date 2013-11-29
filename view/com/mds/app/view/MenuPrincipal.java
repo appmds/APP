@@ -29,7 +29,7 @@ public class MenuPrincipal extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_menu_principal);
-		
+
 		Persistencia persistencia = new Persistencia(context);
 		String conteudoHistorico = persistencia.lerDoArquivo(Persistencia.getFileNameHistorico());
 		String conteudoFavoritos = persistencia.lerDoArquivo(Persistencia.getFileNameFavoritos());

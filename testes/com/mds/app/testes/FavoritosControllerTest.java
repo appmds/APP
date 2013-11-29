@@ -58,7 +58,7 @@ public class FavoritosControllerTest {
 	public void testInstance() {
 		assertNotNull(favoritosController);
 	}
-	
+
 	@Test
 	public void testRemover() {
 		favoritosController.remover(projetoModel, "ola");
@@ -66,7 +66,7 @@ public class FavoritosControllerTest {
 	}
 
 	@Test
-	public void testAdicionar2() {
+	public void testAdicionarOutro() {
 		ProjetoModel projetoModel2 = new ProjetoModel("2132", "ZTeste", "PEC", "13/01/2014", "1163",
 				"explicacao marota", parlamentarModel);
 		favoritosController.adicionar(projetoModel2, "ola");
@@ -95,17 +95,16 @@ public class FavoritosControllerTest {
 		String retornado = FavoritosController.getProjetosFavoritadosCompletoStr().toString();
 		assertEquals(esperado, retornado);
 	}
-	
+
 	@Test
-	public void testPopularProjetos(){
+	public void testPopularProjetos() {
 		ListaController listaController = new ListaController();
 		ListaController.setProjetoAtual(projetoModel);
 		String stringInput = listaController.getStringCompletaParaArquivo();
 		favoritosController.popularProjetos(stringInput);
 		String esperado = HistoricoController.getProjetosHistorico().get(0).toString();
 		String retornado = projetoModel.toString();
-		
-		assertEquals(esperado,retornado);
+		assertEquals(esperado, retornado);
 	}
 
 	@Test

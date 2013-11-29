@@ -47,7 +47,7 @@ public class BuscaController {
 
 	public String transformaUF(String uf) {
 		System.out.println(uf);
-		
+
 		if (uf.equalsIgnoreCase("Todos os Estados")) {
 			uf = "";
 		}

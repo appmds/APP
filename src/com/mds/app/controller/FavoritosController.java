@@ -80,7 +80,7 @@ public class FavoritosController implements AlteraArquivos {
 	public void popularProjetos(String strConteudoFavoritos) {
 		ArrayList<String> splitParts;
 
-		//Log.i("POPPROJ-F", "Conteudo favoritos:");
+		// Log.i("POPPROJ-F", "Conteudo favoritos:");
 
 		final int separadoresPorProjeto = 9;
 		final int numeroDeProjetosNoArquivo;
@@ -93,10 +93,10 @@ public class FavoritosController implements AlteraArquivos {
 					numeroDeSeparadores++;
 				}
 			}
-			//Log.i("POPPROJ-F", "Separadores: " + numeroDeSeparadores);
+			// Log.i("POPPROJ-F", "Separadores: " + numeroDeSeparadores);
 
 			numeroDeProjetosNoArquivo = (numeroDeSeparadores / separadoresPorProjeto);
-			//Log.i("POPPROJ-F", "Numero de projetos: " + numeroDeProjetosNoArquivo);
+			// Log.i("POPPROJ-F", "Numero de projetos: " + numeroDeProjetosNoArquivo);
 
 			for (int i = 0; i < numeroDeProjetosNoArquivo; i++) {
 				splitParts = new ArrayList<String>(numeroDeSeparadores);
@@ -123,11 +123,11 @@ public class FavoritosController implements AlteraArquivos {
 
 				projetosFavoritados.add(projeto);
 
-				//Log.i("POPPROJ-F", "Adicionando: " + projeto.toString());
+				// Log.i("POPPROJ-F", "Adicionando: " + projeto.toString());
 			}
 		}
 		else {
-			//Log.i("POPPROJ-F", "Favoritos esta vazio");
+			// Log.i("POPPROJ-F", "Favoritos esta vazio");
 		}
 
 		popularListaComProjetos();
@@ -159,7 +159,7 @@ public class FavoritosController implements AlteraArquivos {
 			}
 		}
 		else {
-			//Log.i("POPSTR-F", "Favoritos esta vazio");
+			// Log.i("POPSTR-F", "Favoritos esta vazio");
 		}
 	}
 
