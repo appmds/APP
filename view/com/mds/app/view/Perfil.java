@@ -66,11 +66,11 @@ public class Perfil extends Activity {
 		texto2 = (TextView) findViewById(R.id.textoCarcteristicasProjeto);
 		texto2.setText("Número: " + projetoAtual.getNumero() + "\n" + "Ano: " + projetoAtual.getAno() + "\n" + "Sigla: "+ projetoAtual.getSigla() + "\n" + "Data de Apresentação: " + "\n" + projetoAtual.getData());
 		texto3 = (TextView) findViewById(R.id.textoDescricao);
-		texto3.setText("\n" + "\n" + "Descrição:" + "\n" + projetoAtual.getExplicacao());
+		texto3.setText("Descrição:" + "\n" + projetoAtual.getExplicacao());
 		texto4 = (TextView) findViewById(R.id.textoParlamentar);
 		texto4.setText("Parlamentar");
 		texto5 = (TextView) findViewById(R.id.textoCarcteristicasParlamentar);
-		texto5.setText("Nome: " + "\n" + projetoAtual.getParlamentar().getNome() + "\n" + "Partido: " + "\n" + projetoAtual.getParlamentar().getPartido().getSiglaPartido());
+		texto5.setText("Nome: " + projetoAtual.getParlamentar().getNome() + "\n" + "Partido: " + projetoAtual.getParlamentar().getPartido().getSiglaPartido());
 
 		favoritar_addListener();
 
