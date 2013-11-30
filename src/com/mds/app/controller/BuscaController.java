@@ -26,21 +26,22 @@ public class BuscaController {
 		if (sigla.equalsIgnoreCase("Projeto de Lei")) {
 			sigla = "PL";
 		}
-		else if (sigla.equalsIgnoreCase("Propostas de Emenda à Constituição")) {
+		else if (sigla.equalsIgnoreCase("Projeto de Emenda à Constituição")) {
 			sigla = "PEC";
 		}
-		else if (sigla.equalsIgnoreCase("Projetos de Lei Complementar")) {
+		else if (sigla.equalsIgnoreCase("Projeto de Lei Complementar")) {
 			sigla = "PLP";
 		}
 		else if (sigla.equalsIgnoreCase("Projetos de Decreto Legislativo ")) {
 			sigla = "PDC";
 		}
-		else if (sigla.equalsIgnoreCase("Projetos de Resolução")) {
+		else if (sigla.equalsIgnoreCase("Projeto de Resolução")) {
 			sigla = "PRC";
 		}
 		else {
 			// não tem outras opções
-			throw new IllegalArgumentException("sigla invalida");
+			System.out.print(sigla + ": ");
+			throw new IllegalArgumentException("Sigla inserida invalida!");
 		}
 		return sigla;
 	}
