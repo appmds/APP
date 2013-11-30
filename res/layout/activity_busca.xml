@@ -19,7 +19,7 @@
 
     <EditText
         android:id="@+id/textNomeAutor"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/textSiglaPartido"
         android:layout_alignLeft="@id/textSiglaPartido"
@@ -32,7 +32,7 @@
 
     <Spinner
         android:id="@+id/textSiglaPartido"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/textDataIni"
         android:layout_alignLeft="@+id/textDataIni"
@@ -42,7 +42,7 @@
 
     <EditText
         android:id="@+id/textDataIni"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/textNumero"
         android:layout_alignLeft="@+id/textNumero"
@@ -61,7 +61,7 @@
     
     <EditText
         android:id="@+id/textAno"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/spinner1"
         android:layout_alignLeft="@+id/spinner1"
