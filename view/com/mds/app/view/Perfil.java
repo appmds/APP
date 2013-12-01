@@ -33,6 +33,7 @@ public class Perfil extends Activity {
 	private TextView texto3;
 	private TextView texto4;
 	private TextView texto5;
+	private TextView texto6;
 	private ImageButton estrelaFavorito;
 	private ImageButton botaoFacebook;
 	private boolean favoritado;
@@ -71,7 +72,10 @@ public class Perfil extends Activity {
 		texto4.setText("Parlamentar");
 		texto5 = (TextView) findViewById(R.id.textoCarcteristicasParlamentar);
 		texto5.setText("Nome: " + projetoAtual.getParlamentar().getNome() + "\n" + "Partido: " + projetoAtual.getParlamentar().getPartido().getSiglaPartido());
+		texto6 = (TextView) findViewById(R.id.textoMais);
+		texto6.setText("Para visualizar o perfil completo do projeto acesse: " + "http://www.camara.gov.br/proposicoesWeb/fichadetramitacao?idProposicao=" + projetoAtual.getId());
 
+		
 		favoritar_addListener();
 
 		final int projetosNoHistorico = HistoricoController.getNumeroDeProjetosNoHistorico();

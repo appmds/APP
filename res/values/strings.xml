@@ -12,6 +12,7 @@
     <string name="hintNomeAutor">Insira o nome do parlamentar</string>
     <string name="hintSiglaPartido">Insira a sigla do partido</string>
     <string name="hintUF">Insira a UF</string>
+    <string name="TextoBusca">Preencha os dados para realizar a pesquisa</string>
     <string name="imgbuttonVoltar">imgbuttonVoltar</string>
     <string name="imgbuttonOK">imgbuttonOK</string>
     <string name="imgbuttonBUSCA">imgbuttonBUSCA</string>

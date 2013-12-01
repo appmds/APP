@@ -2,6 +2,7 @@ package com.mds.app.model;
 
 public class ProjetoModel {
 
+	private String id;
 	private String ano;
 	private String numero;
 	private String nome;
@@ -10,6 +11,7 @@ public class ProjetoModel {
 	private String explicacao;
 	private ParlamentarModel parlamentar;
 	private int cont;
+	private int contId = 0;
 
 	public ProjetoModel() {
 	}
@@ -55,8 +57,19 @@ public class ProjetoModel {
 		this.cont++;
 	}
 
+	public void setId(String id) {
+		if (this.contId == 0) {
+			this.id = id;
+		}
+		this.contId++;
+	}
+
 	public String getSigla() {
 		return sigla;
+	}
+
+	public String getId() {
+		return id;
 	}
 
 	public void setSigla(String sigla) {
