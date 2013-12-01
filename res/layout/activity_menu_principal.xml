@@ -1,4 +1,4 @@
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<AbsoluteLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="wrap_content"
     android:layout_height="match_parent"
@@ -13,45 +13,55 @@
         android:id="@+id/imgviewLogo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
+        android:layout_x="34dp"
+        android:layout_y="30dp"
         android:contentDescription="@string/imgviewLOGO"
         android:scaleType="fitStart"
         android:src="@drawable/app_logo" />
+
+    <ImageView
+        android:id="@+id/fundo_menu_botoes"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_x="34dp"
+        android:layout_y="248dp"
+        android:contentDescription="imgviewFundo"
+        android:src="@drawable/fundo_menu_botoes" />
 
     <ImageButton
         android:id="@+id/imgbutton_busca"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_alignTop="@+id/imgbutton_sobre"
-        android:contentDescription="@string/imgbuttonBUSCA"
-        android:src="@drawable/button_busca_smaller" />
-
+        android:layout_x="50dp"
+        android:layout_y="258dp"
+        android:background="@drawable/botão_busca"
+        android:contentDescription="busca" />
+    
     <ImageButton
-        android:id="@+id/imgbutton_sobre"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentRight="true"
-        android:layout_marginBottom="38dp"
-        android:contentDescription="@string/imgbuttonSOBRE"
-        android:src="@drawable/button_sobre_smaller" />
-
-    <Button
-        android:id="@+id/historico"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/imgbutton_sobre"
-        android:layout_below="@+id/imgbutton_busca"
-        android:text="Histórico" />
-
-    <Button
         android:id="@+id/favoritos"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignRight="@+id/imgbutton_busca"
-        android:layout_below="@+id/imgbutton_busca"
-        android:text="Favoritos" />
+        android:layout_x="52dp"
+        android:layout_y="326dp"
+        android:background="@drawable/botao_favoritos"
+        android:contentDescription="favoritos" />
 
-</RelativeLayout>
+     <ImageButton
+         android:id="@+id/imgbutton_sobre"
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:layout_x="150dp"
+         android:layout_y="258dp"
+         android:background="@drawable/botao_sobre"
+         android:contentDescription="sobre" />
+
+     <ImageButton
+         android:id="@+id/historico"
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:layout_x="150dp"
+         android:layout_y="326dp"
+         android:background="@drawable/botao_historico"
+         android:contentDescription="historico" />
+
+</AbsoluteLayout>
