@@ -131,7 +131,7 @@ public class Perfil extends Activity {
 			@Override
 			public void onClick(View v) {
 				FacebookDialog shareDialog = new FacebookDialog.ShareDialogBuilder(activity).setLink(
-						"https://www.google.com").build();
+						"http://www.camara.gov.br/proposicoesWeb/fichadetramitacao?idProposicao=" + projetoAtual.getId()).build();
 				uiHelper.trackPendingDialogCall(shareDialog.present());
 			}
 		});
