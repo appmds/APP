@@ -21,8 +21,8 @@
         android:id="@+id/textNomeAutor"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/textSiglaPartido"
         android:layout_alignLeft="@id/textSiglaPartido"
+        android:layout_below="@+id/textSiglaPartido"
         android:layout_marginBottom="15dp"
         android:ems="10"
         android:hint="@string/hintNomeAutor" >
@@ -34,37 +34,35 @@
         android:id="@+id/textSiglaPartido"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/textDataIni"
         android:layout_alignLeft="@+id/textDataIni"
-      	android:entries="@array/partidos"
+        android:layout_below="@+id/textDataIni"
+        android:entries="@array/partidos"
         android:prompt="@string/partidos" />
-
 
     <EditText
         android:id="@+id/textDataIni"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/textNumero"
         android:layout_alignLeft="@+id/textNumero"
+        android:layout_below="@+id/textNumero"
         android:ems="10"
         android:hint="@string/hintDataInicio" />
-    
 
     <EditText
         android:id="@+id/textNumero"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/textAno"
         android:layout_alignLeft="@+id/textAno"
+        android:layout_below="@+id/textAno"
         android:ems="10"
         android:hint="@string/hintNumero" />
-    
+
     <EditText
         android:id="@+id/textAno"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/spinner1"
         android:layout_alignLeft="@+id/spinner1"
+        android:layout_below="@+id/spinner1"
         android:ems="10"
         android:hint="@string/hintAno" />
 
@@ -72,8 +70,8 @@
         android:id="@+id/spinner1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/spinner2"
         android:layout_alignLeft="@+id/spinner2"
+        android:layout_below="@+id/spinner2"
         android:entries="@array/projetos"
         android:prompt="@string/projetoFrase" />
 
@@ -92,8 +90,8 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_alignRight="@+id/spinner2"
+        android:background="?android:attr/selectableItemBackground"
         android:contentDescription="@string/imgbuttonOK"
-        android:src="@drawable/pesquisar2"
-        android:background="?android:attr/selectableItemBackground" />
-    
+        android:src="@drawable/pesquisar2" />
+
 </RelativeLayout>
