@@ -56,16 +56,6 @@ public class HistoricoControllerTest extends AndroidTestCase {
 	}
 
 	@Test
-	public void testRemover() {
-		fail("mexe na persistencia");
-	}
-
-	@Test
-	public void testAdicionar() {
-		fail("mexe na persistencia");
-	}
-
-	@Test
 	public void testProjetosEmString() {
 		historicoController.popularListaComProjetos();
 		String esperado = "Zordon\nNumero: 6663\nAno:  2013\nSigla: PL\nData de Apresentação: 12/01/2013\nDescrição: explicacao marota\nParlamentar: Ranger\nPartido: PMDS\nEstado: AC";

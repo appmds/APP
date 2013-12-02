@@ -100,5 +100,6 @@
         <item>Sergipe</item>
         <item>Tocantins</item>
     </string-array>
+        <string name="apptext">Acompanhamento de Projetos Parlamentares</string>
 
 </resources>

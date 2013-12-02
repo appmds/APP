@@ -64,4 +64,14 @@
          android:background="@drawable/botao_historico"
          android:contentDescription="historico" />
 
+     <TextView
+         android:id="@+id/textmenuprincipal"
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:layout_x="0dp"
+         android:layout_y="148dp"
+         android:gravity="center"
+         android:text="@string/apptext"
+         android:textAppearance="?android:attr/textAppearanceMedium" />
+
 </AbsoluteLayout>
