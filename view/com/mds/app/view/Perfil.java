@@ -65,17 +65,20 @@ public class Perfil extends Activity {
 		texto1 = (TextView) findViewById(R.id.textoTipoProjeto);
 		texto1.setText(projetoAtual.getNome());
 		texto2 = (TextView) findViewById(R.id.textoCarcteristicasProjeto);
-		texto2.setText("Número: " + projetoAtual.getNumero() + "\n" + "Ano: " + projetoAtual.getAno() + "\n" + "Sigla: "+ projetoAtual.getSigla() + "\n" + "Data de Apresentação: " + "\n" + projetoAtual.getData());
+		texto2.setText("Número: " + projetoAtual.getNumero() + "\n" + "Ano: " + projetoAtual.getAno() + "\n"
+				+ "Sigla: " + projetoAtual.getSigla() + "\n" + "Data de Apresentação: " + "\n"
+				+ projetoAtual.getData());
 		texto3 = (TextView) findViewById(R.id.textoDescricao);
 		texto3.setText("Descrição:" + "\n" + projetoAtual.getExplicacao());
 		texto4 = (TextView) findViewById(R.id.textoParlamentar);
 		texto4.setText("Parlamentar");
 		texto5 = (TextView) findViewById(R.id.textoCarcteristicasParlamentar);
-		texto5.setText("Nome: " + projetoAtual.getParlamentar().getNome() + "\n" + "Partido: " + projetoAtual.getParlamentar().getPartido().getSiglaPartido());
+		texto5.setText("Nome: " + projetoAtual.getParlamentar().getNome() + "\n" + "Partido: "
+				+ projetoAtual.getParlamentar().getPartido().getSiglaPartido());
 		texto6 = (TextView) findViewById(R.id.textoMais);
-		texto6.setText("Para visualizar o perfil completo do projeto acesse: " + "http://www.camara.gov.br/proposicoesWeb/fichadetramitacao?idProposicao=" + projetoAtual.getId());
+		texto6.setText("Para visualizar o perfil completo do projeto acesse: "
+				+ "http://www.camara.gov.br/proposicoesWeb/fichadetramitacao?idProposicao=" + projetoAtual.getId());
 
-		
 		favoritar_addListener();
 
 		final int projetosNoHistorico = HistoricoController.getNumeroDeProjetosNoHistorico();
@@ -131,7 +134,8 @@ public class Perfil extends Activity {
 			@Override
 			public void onClick(View v) {
 				FacebookDialog shareDialog = new FacebookDialog.ShareDialogBuilder(activity).setLink(
-						"http://www.camara.gov.br/proposicoesWeb/fichadetramitacao?idProposicao=" + projetoAtual.getId()).build();
+						"http://www.camara.gov.br/proposicoesWeb/fichadetramitacao?idProposicao="
+								+ projetoAtual.getId()).build();
 				uiHelper.trackPendingDialogCall(shareDialog.present());
 			}
 		});
