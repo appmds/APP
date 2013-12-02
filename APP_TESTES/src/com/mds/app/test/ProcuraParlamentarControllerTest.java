@@ -1,17 +1,15 @@
 package com.mds.app.test;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotNull;
-import junit.framework.Assert;
-
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
+import android.test.AndroidTestCase;
+
 import com.mds.app.controller.ProcuraParlamentarController;
 import com.mds.app.model.ProcuraParlamentarModel;
 
-public class ProcuraParlamentarControllerTest {
+public class ProcuraParlamentarControllerTest extends AndroidTestCase {
 
 	private ProcuraParlamentarController procuraParlamentarController;
 
@@ -34,7 +32,7 @@ public class ProcuraParlamentarControllerTest {
 	@Test
 	public void testarNomeDaClasse() {
 		ProcuraParlamentarController procura = new ProcuraParlamentarController();
-		Assert.assertEquals("ProcuraParlamentarController", procura.getClass().getSimpleName());
+		assertEquals("ProcuraParlamentarController", procura.getClass().getSimpleName());
 	}
 
 	@Test

@@ -10,13 +10,11 @@ import android.content.Context;
 import android.test.AndroidTestCase;
 
 import com.mds.app.util.StableArrayAdapter;
-import com.mds.app.view.Lista;
 
 public class StableArrayAdapterTest extends AndroidTestCase {
 
 	StableArrayAdapter saa;
 	ArrayList<String> listStr;
-	Lista lista;
 	Context context;
 
 	public StableArrayAdapterTest() {

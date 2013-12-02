@@ -19,32 +19,32 @@ public class PersistenciaTest extends AndroidTestCase {
 		super.setUp();
 		persistencia = new Persistencia(mContext);
 	}
-	
+
 	@Override
 	protected void tearDown() throws Exception {
 		super.tearDown();
 		persistencia = null;
 	}
-	
+
 	@Test
 	public void testGetContext() {
 		assertEquals(mContext, persistencia.getContext());
 	}
 
 	@Test
-	public void testArquivoFavoritosComNomeCerto(){
+	public void testArquivoFavoritosComNomeCerto() {
 		String esperado = Persistencia.getFileNameFavoritos();
 		String retornado = persistencia.getFileFavoritos().getName();
 		assertEquals(esperado, retornado);
 	}
-	
+
 	@Test
-	public void testArquivoHistoricoComNomeCerto(){
+	public void testArquivoHistoricoComNomeCerto() {
 		String esperado = Persistencia.getFileNameHistorico();
 		String retornado = persistencia.getFileHistorico().getName();
 		assertEquals(esperado, retornado);
 	}
-	
+
 	@Test
 	public void testGetFileNameFavoritos() {
 		String esperado = "favoritos";

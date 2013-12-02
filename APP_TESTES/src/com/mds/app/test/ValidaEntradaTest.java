@@ -1,17 +1,16 @@
 package com.mds.app.test;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
-
 import java.util.Arrays;
 
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
+import android.test.AndroidTestCase;
+
 import com.mds.app.exception.ValidaEntrada;
 
-public class ValidaEntradaTest {
+public class ValidaEntradaTest extends AndroidTestCase {
 
 	public ValidaEntrada validaEntradaTeste;
 

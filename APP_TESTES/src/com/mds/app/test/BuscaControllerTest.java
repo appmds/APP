@@ -1,18 +1,12 @@
 package com.mds.app.test;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertNotNull;
-import static org.junit.Assert.assertNull;
-import static org.junit.Assert.assertSame;
-import static org.junit.Assert.assertTrue;
-import static org.junit.Assert.fail;
-
 import java.util.ArrayList;
 
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
+
+import android.test.AndroidTestCase;
 
 import com.mds.app.controller.BuscaController;
 import com.mds.app.controller.ProcuraParlamentarController;
@@ -21,7 +15,7 @@ import com.mds.app.controller.ProcuraProjetoController;
 import com.mds.app.model.ProjetoModel;
 import com.mds.app.services.XMLParser;
 
-public class BuscaControllerTest {
+public class BuscaControllerTest extends AndroidTestCase {
 
 	public BuscaController buscaController;
 

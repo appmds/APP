@@ -1,18 +1,16 @@
 package com.mds.app.test;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotNull;
-import static org.junit.Assert.assertSame;
-
 import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
+import android.test.AndroidTestCase;
+
 import com.mds.app.model.ParlamentarModel;
 import com.mds.app.model.PartidoModel;
 
-public class ParlamentarModelTest {
+public class ParlamentarModelTest extends AndroidTestCase {
 
 	private ParlamentarModel parlamentarModel;
 	private PartidoModel partidoModel;

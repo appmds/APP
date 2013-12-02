@@ -1,15 +1,12 @@
 package com.mds.app.test;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotNull;
-import static org.junit.Assert.assertSame;
-import static org.junit.Assert.fail;
-
 import java.util.ArrayList;
 
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
+
+import android.test.AndroidTestCase;
 
 import com.mds.app.controller.HistoricoController;
 import com.mds.app.controller.ListaController;
@@ -17,7 +14,7 @@ import com.mds.app.model.ParlamentarModel;
 import com.mds.app.model.PartidoModel;
 import com.mds.app.model.ProjetoModel;
 
-public class HistoricoControllerTest {
+public class HistoricoControllerTest extends AndroidTestCase {
 
 	public HistoricoController historicoController;
 	public ArrayList<String> projetosString;
@@ -35,7 +32,7 @@ public class HistoricoControllerTest {
 		projetoModel = new ProjetoModel("2013", "Zordon", "PL", "12/01/2013", "6663", "explicacao marota",
 				parlamentarModel);
 		projetos.add(projetoModel);
-		
+
 		historicoController = new HistoricoController();
 		HistoricoController.setProjetosHistorico(projetos);
 		HistoricoController.setProjetosHistoricoCompletoStr(new ArrayList<String>());
@@ -67,7 +64,7 @@ public class HistoricoControllerTest {
 	public void testAdicionar() {
 		fail("mexe na persistencia");
 	}
-	
+
 	@Test
 	public void testProjetosEmString() {
 		historicoController.popularListaComProjetos();

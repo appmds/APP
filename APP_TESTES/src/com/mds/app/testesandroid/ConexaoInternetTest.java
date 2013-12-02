@@ -1,16 +1,14 @@
 package com.mds.app.testesandroid;
 
-import static org.junit.Assert.assertNotNull;
-import static org.junit.Assert.fail;
-import junit.framework.Assert;
-
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
+import android.test.AndroidTestCase;
+
 import com.mds.app.util.ConexaoInternet;
 
-public class ConexaoInternetTest {
+public class ConexaoInternetTest extends AndroidTestCase {
 
 	public ConexaoInternet conexaoInternet;
 
@@ -32,7 +30,7 @@ public class ConexaoInternetTest {
 
 	@Test
 	public void testNomeClasse() {
-		Assert.assertEquals("ConexaoInternet", conexaoInternet.getClass().getSimpleName());
+		assertEquals("ConexaoInternet", conexaoInternet.getClass().getSimpleName());
 	}
 
 	@Test

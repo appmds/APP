@@ -1,14 +1,14 @@
 package com.mds.app.test;
 
-import static org.junit.Assert.assertEquals;
-
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
+import android.test.AndroidTestCase;
+
 import com.mds.app.services.Endereco;
 
-public class EnderecoTest {
+public class EnderecoTest extends AndroidTestCase {
 
 	Endereco endereco;
 

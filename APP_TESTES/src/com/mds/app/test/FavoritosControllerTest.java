@@ -1,15 +1,12 @@
 package com.mds.app.test;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotNull;
-import static org.junit.Assert.assertSame;
-import static org.junit.Assert.fail;
-
 import java.util.ArrayList;
 
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
+
+import android.test.AndroidTestCase;
 
 import com.mds.app.controller.FavoritosController;
 import com.mds.app.controller.HistoricoController;
@@ -18,7 +15,7 @@ import com.mds.app.model.ParlamentarModel;
 import com.mds.app.model.PartidoModel;
 import com.mds.app.model.ProjetoModel;
 
-public class FavoritosControllerTest {
+public class FavoritosControllerTest extends AndroidTestCase {
 
 	public FavoritosController favoritosController;
 	public ArrayList<String> projetosString;

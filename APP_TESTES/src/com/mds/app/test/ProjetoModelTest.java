@@ -1,17 +1,16 @@
 package com.mds.app.test;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotNull;
-
 import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
+import android.test.AndroidTestCase;
+
 import com.mds.app.model.ParlamentarModel;
 import com.mds.app.model.ProjetoModel;
 
-public class ProjetoModelTest {
+public class ProjetoModelTest extends AndroidTestCase {
 
 	private ProjetoModel projetoModel;
 	private ParlamentarModel parlamentarModel;
@@ -140,53 +139,53 @@ public class ProjetoModelTest {
 				"ExplicacaoProjeto", parlamentarModel);
 		assertEquals(projetoModel.toString(), outroProjetoModel.toString());
 	}
-	
+
 	@Test
-	public void testGetContId(){
+	public void testGetContId() {
 		projetoModel.setId("qualquer coisa");
 		assertEquals(1, projetoModel.getContId());
 	}
-	
+
 	@Test
-	public void testSetContId(){
+	public void testSetContId() {
 		int esperado = 3;
 		projetoModel.setContId(esperado);
 		assertEquals(esperado, projetoModel.getContId());
 	}
-	
+
 	@Test
-	public void testSetCont(){
+	public void testSetCont() {
 		int esperado = 5;
 		projetoModel.setCont(esperado);
 		assertEquals(esperado, projetoModel.getCont());
 	}
-	
+
 	@Test
-	public void testConstrutorVazioNaoNulo(){
+	public void testConstrutorVazioNaoNulo() {
 		ProjetoModel projetoVazio = new ProjetoModel();
 		assertNotNull(projetoVazio);
 	}
-	
+
 	@Test
-	public void testSetIdComContIdMaiorQueZero(){
+	public void testSetIdComContIdMaiorQueZero() {
 		projetoModel.setContId(3);
 		projetoModel.setId("IDZORDON");
 		assertEquals(3, projetoModel.getContId());
 	}
 
 	@Test
-	public void testSetNomeComContMaiorQueUm(){
+	public void testSetNomeComContMaiorQueUm() {
 		projetoModel.setCont(5);
 		projetoModel.setNome("NOMEZORDON");
 		assertEquals(5, projetoModel.getCont());
 	}
-	
+
 	@Test
-	public void testSetThenGetId(){
+	public void testSetThenGetId() {
 		String esperado = "idset";
 		projetoModel.setId(esperado);
 		assertEquals(esperado, projetoModel.getId());
-		
+
 	}
-	
+
 }

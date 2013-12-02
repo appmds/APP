@@ -1,10 +1,5 @@
 package com.mds.app.test;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotNull;
-import static org.junit.Assert.assertSame;
-import static org.junit.Assert.fail;
-
 import java.util.ArrayList;
 
 import junit.framework.Assert;
@@ -14,12 +9,14 @@ import org.junit.Before;
 import org.junit.Test;
 import org.xml.sax.SAXException;
 
+import android.test.AndroidTestCase;
+
 import com.mds.app.controller.ProposicaoController;
 import com.mds.app.model.ParlamentarModel;
 import com.mds.app.model.PartidoModel;
 import com.mds.app.model.ProjetoModel;
 
-public class ProposicaoControllerTest {
+public class ProposicaoControllerTest extends AndroidTestCase {
 
 	private ProposicaoController proposicaoController;
 
@@ -105,7 +102,6 @@ public class ProposicaoControllerTest {
 
 		assertEquals(proposicaoController.getProjeto(), proposicaoController.getListaProjetos().get(0));
 	}
-	
 
 	@Test
 	public void testEndElementProposicaoParlamentar() {
@@ -146,7 +142,7 @@ public class ProposicaoControllerTest {
 		String retornado = proposicaoController.getProjeto().getAno();
 		assertEquals(esperado, retornado);
 	}
-	
+
 	@Test
 	public void testEndElementProposicaoId() {
 		String esperado = "testeid";

@@ -1,15 +1,14 @@
 package com.mds.app.test;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotNull;
-
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
+import android.test.AndroidTestCase;
+
 import com.mds.app.model.ProcuraPartidoModel;
 
-public class ProcuraPartidoModelTest {
+public class ProcuraPartidoModelTest extends AndroidTestCase {
 
 	private ProcuraPartidoModel procuraPartidoModel;
 

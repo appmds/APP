@@ -1,21 +1,19 @@
 package com.mds.app.test;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotNull;
-import static org.junit.Assert.assertSame;
-
 import java.util.ArrayList;
 
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
+import android.test.AndroidTestCase;
+
 import com.mds.app.controller.ListaController;
 import com.mds.app.model.ParlamentarModel;
 import com.mds.app.model.PartidoModel;
 import com.mds.app.model.ProjetoModel;
 
-public class ListaControllerTest {
+public class ListaControllerTest extends AndroidTestCase {
 
 	public ListaController listaController;
 	public ArrayList<String> stringLista;

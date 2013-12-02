@@ -1,7 +1,5 @@
 package com.mds.app.test;
 
-import static org.junit.Assert.assertEquals;
-
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.net.URISyntaxException;
@@ -13,9 +11,11 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
+import android.test.AndroidTestCase;
+
 import com.mds.app.services.RecebeHTTP;
 
-public class RecebeHTTPTest {
+public class RecebeHTTPTest extends AndroidTestCase {
 
 	public RecebeHTTP recebeHTTP;
 	public HttpGet httpGet;

@@ -1,8 +1,5 @@
 package com.mds.app.test;
 
-import static org.junit.Assert.assertNotNull;
-import static org.junit.Assert.assertNull;
-
 import javax.xml.parsers.ParserConfigurationException;
 
 import org.junit.After;
@@ -12,9 +9,11 @@ import org.junit.Test;
 import org.xml.sax.SAXException;
 import org.xml.sax.XMLReader;
 
+import android.test.AndroidTestCase;
+
 import com.mds.app.services.XMLParser;
 
-public class XMLParserTest {
+public class XMLParserTest extends AndroidTestCase {
 
 	private XMLParser xmlParser;
 
