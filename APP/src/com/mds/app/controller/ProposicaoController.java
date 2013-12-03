@@ -68,6 +68,9 @@ public class ProposicaoController extends DefaultHandler {
 		else if (localName.equals("datApresentacao")) {
 			projeto.setData(buffer.toString());
 		}
+		else if (localName.equals("descricao")) {
+			projeto.setStatus(buffer.toString());
+		}
 		else if (localName.equals("txtEmenta")) {
 			projeto.setExplicacao(buffer.toString());
 		}

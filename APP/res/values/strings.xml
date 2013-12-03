@@ -101,5 +101,6 @@
         <item>Tocantins</item>
     </string-array>
         <string name="apptext">Acompanhamento de Projetos Parlamentares</string>
+        <string name="textoTitulo">Prrencha os dados para fazer a pesquisa</string>
 
 </resources>

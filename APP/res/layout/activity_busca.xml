@@ -82,9 +82,20 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignLeft="@+id/linearLayout"
-        android:layout_alignParentTop="true"
+        android:layout_below="@+id/textoTitulo"
         android:entries="@array/estados"
         android:prompt="@string/estadoFrase" />
+    
+    <TextView 
+		android:id="@+id/textoTitulo"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content" 
+		android:layout_alignParentTop="true"
+		android:textSize="18sp" 
+		android:gravity="center"
+		android:textStyle="bold"
+		android:text="@string/textoTitulo"
+	/>
 
     <ImageButton
         android:id="@+id/okbutton"

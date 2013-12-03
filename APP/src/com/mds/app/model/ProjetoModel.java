@@ -9,9 +9,11 @@ public class ProjetoModel {
 	private String sigla;
 	private String data;
 	private String explicacao;
+	private String status;
 	private ParlamentarModel parlamentar;
 	private int cont = 0;
 	private int contId = 0;
+	
 
 	public ProjetoModel() {
 	}
@@ -125,6 +127,15 @@ public class ProjetoModel {
 	public String toString() {
 		return "ProjetoModel [ano=" + ano + ", numero=" + numero + ", nome=" + nome + ", sigla=" + sigla
 				+ ", data=" + data + ", explicacao=" + explicacao + ", parlamentar=" + parlamentar.getNome() + "]";
+	}
+	
+	public String getStatus() {
+		return status;
+	}
+	
+	public void setStatus(String status) {
+		this.status = status;
+		
 	}
 
 }
