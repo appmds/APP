@@ -33,4 +33,8 @@ public class ConexaoInternet {
 		return hasConnection;
 	}
 
+	public Context getContext() {
+		return context;
+	}
+
 }

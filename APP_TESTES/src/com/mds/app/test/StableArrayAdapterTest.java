@@ -1,4 +1,4 @@
-package com.mds.app.testesandroid;
+package com.mds.app.test;
 
 import java.util.ArrayList;
 
@@ -13,7 +13,7 @@ import com.mds.app.util.StableArrayAdapter;
 
 public class StableArrayAdapterTest extends AndroidTestCase {
 
-	StableArrayAdapter saa;
+	StableArrayAdapter stableArrayAdapter;
 	ArrayList<String> listStr;
 	Context context;
 
@@ -32,7 +32,7 @@ public class StableArrayAdapterTest extends AndroidTestCase {
 	@After
 	public void tearDown() throws Exception {
 		super.tearDown();
-		saa = null;
+		stableArrayAdapter = null;
 		listStr = null;
 		context = null;
 	}
@@ -40,32 +40,32 @@ public class StableArrayAdapterTest extends AndroidTestCase {
 	@Test
 	public void testContextNulo() {
 		try {
-			saa = new StableArrayAdapter(null, 20, listStr);
+			stableArrayAdapter = new StableArrayAdapter(null, 20, listStr);
 		} catch (NullPointerException e) {
 		}
-		assertNull(saa);
+		assertNull(stableArrayAdapter);
 	}
 
 	@Test
 	public void testGetItem() {
-		saa = new StableArrayAdapter(context, 77, listStr);
+		stableArrayAdapter = new StableArrayAdapter(context, 77, listStr);
 
-		String str = saa.getItem(0);
+		String str = stableArrayAdapter.getItem(0);
 		assertEquals("teste", str);
 	}
 
 	@Test
 	public void testGetItemId() {
-		saa = new StableArrayAdapter(context, 80, listStr);
+		stableArrayAdapter = new StableArrayAdapter(context, 80, listStr);
 		long esperado = 0;
-		long retornado = saa.getItemId(0);
+		long retornado = stableArrayAdapter.getItemId(0);
 		assertEquals(esperado, retornado);
 	}
 
 	@Test
 	public void testHasStableIds() {
-		saa = new StableArrayAdapter(context, 80, listStr);
-		assertTrue(saa.hasStableIds());
+		stableArrayAdapter = new StableArrayAdapter(context, 80, listStr);
+		assertTrue(stableArrayAdapter.hasStableIds());
 	}
 
 }

@@ -1,4 +1,4 @@
-package com.mds.app.testesandroid;
+package com.mds.app.test;
 
 import org.junit.Test;
 

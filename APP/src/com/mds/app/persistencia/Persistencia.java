@@ -24,12 +24,9 @@ public class Persistencia extends Activity {
 
 	private Context context;
 
-	private FileOutputStream fileOutputStream;
-	private FileInputStream fileInputStream;
-
 	private File fileFavoritos;
 	private File fileHistorico;
-	
+
 	public Persistencia(Context context) {
 		this.context = context;
 		fileFavoritos = new File(this.context.getFilesDir(), fileNameFavoritos);
@@ -38,6 +35,7 @@ public class Persistencia extends Activity {
 
 	public void escreverNoArquivo(String fileName, String data) {
 		final String TAG = "WRITE";
+		FileOutputStream fileOutputStream = null;
 
 		try {
 			verificarFileName(fileName);
@@ -82,6 +80,7 @@ public class Persistencia extends Activity {
 
 	public String lerDoArquivo(String fileName) {
 		final String TAG = "READ";
+		FileInputStream fileInputStream;
 
 		try {
 			verificarFileName(fileName);
@@ -162,22 +161,6 @@ public class Persistencia extends Activity {
 
 	public void setContext(Context context) {
 		this.context = context;
-	}
-
-	public FileOutputStream getFileOutputStream() {
-		return fileOutputStream;
-	}
-
-	public void setFileOutputStream(FileOutputStream fileOutputStream) {
-		this.fileOutputStream = fileOutputStream;
-	}
-
-	public FileInputStream getFileInputStream() {
-		return fileInputStream;
-	}
-
-	public void setFileInputStream(FileInputStream fileInputStream) {
-		this.fileInputStream = fileInputStream;
 	}
 
 	public File getFileFavoritos() {

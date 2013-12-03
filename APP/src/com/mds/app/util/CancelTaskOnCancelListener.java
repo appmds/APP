@@ -8,6 +8,10 @@ public class CancelTaskOnCancelListener implements OnCancelListener {
 
 	private AsyncTask<?, ?, ?> task;
 
+	public CancelTaskOnCancelListener() {
+
+	}
+
 	public CancelTaskOnCancelListener(AsyncTask<?, ?, ?> task) {
 		this.task = task;
 	}
@@ -17,6 +21,10 @@ public class CancelTaskOnCancelListener implements OnCancelListener {
 		if (task != null) {
 			task.cancel(true);
 		}
+	}
+
+	public AsyncTask<?, ?, ?> getTask() {
+		return this.task;
 	}
 
 }

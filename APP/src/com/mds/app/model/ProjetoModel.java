@@ -53,7 +53,7 @@ public class ProjetoModel {
 		if (this.cont == 1) {
 			this.nome = nome;
 		}
-		else{
+		else {
 			// fazer nada
 		}
 		this.cont++;
@@ -64,7 +64,7 @@ public class ProjetoModel {
 			this.id = id;
 			this.contId++;
 		}
-		else{
+		else {
 			// fazer nada
 		}
 	}

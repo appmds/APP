@@ -162,8 +162,8 @@ public class BuscaController {
 		if (siglaPartido.equals("Todos os Partidos")) {
 			siglaPartido = "";
 		}
-		
-		if(sigla.isEmpty() || uf.isEmpty()){
+
+		if (sigla.isEmpty() || uf.isEmpty()) {
 			System.out.println("IUAS8YUGDI8AGE8F7WQGFGQ");
 		}
 
@@ -196,7 +196,7 @@ public class BuscaController {
 		String nomeAutor = ProcuraParlamentarModel.getNome();
 		String siglaPartido = ProcuraPartidoModel.getSigla();
 		String siglaUF = ProcuraPartidoModel.getUf();
-		
+
 		Endereco.sigla = sigla;
 		Endereco.numero = numero;
 		Endereco.ano = ano;
