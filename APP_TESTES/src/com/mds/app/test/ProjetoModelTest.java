@@ -119,6 +119,13 @@ public class ProjetoModelTest extends AndroidTestCase {
 		projetoModel.setNumero("67");
 		assertEquals("67", projetoModel.getNumero());
 	}
+	
+	@Test
+	public void testSetThenGetStatus(){
+		String esperado = "statusteste";
+		projetoModel.setStatus(esperado);
+		assertEquals(esperado, projetoModel.getStatus());
+	}
 
 	@Test
 	public void testSetExplicacao() {
@@ -138,6 +145,14 @@ public class ProjetoModelTest extends AndroidTestCase {
 		ProjetoModel outroProjetoModel = new ProjetoModel("2013", "NomeProjeto", "PL", "16/10/2013", "66",
 				"ExplicacaoProjeto", parlamentarModel);
 		assertEquals(projetoModel.toString(), outroProjetoModel.toString());
+	}
+	
+	@Test
+	public void testSetThenGetId() {
+		String esperado = "idset";
+		projetoModel.setId(esperado);
+		assertEquals(esperado, projetoModel.getId());
+
 	}
 
 	@Test
@@ -178,14 +193,6 @@ public class ProjetoModelTest extends AndroidTestCase {
 		projetoModel.setCont(5);
 		projetoModel.setNome("NOMEZORDON");
 		assertEquals(5, projetoModel.getCont());
-	}
-
-	@Test
-	public void testSetThenGetId() {
-		String esperado = "idset";
-		projetoModel.setId(esperado);
-		assertEquals(esperado, projetoModel.getId());
-
-	}
+	}	
 
 }

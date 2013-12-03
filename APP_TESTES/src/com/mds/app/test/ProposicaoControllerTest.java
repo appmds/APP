@@ -156,6 +156,20 @@ public class ProposicaoControllerTest extends AndroidTestCase {
 		String retornado = proposicaoController.getProjeto().getId();
 		assertEquals(esperado, retornado);
 	}
+	
+	@Test
+	public void testEndElementProposicaoStatus() {
+		String esperado = "testestatus";
+		int esperadoLength = esperado.length();
+		try {
+			proposicaoController.startElement("a", "proposicao", "q", null);
+			proposicaoController.characters(esperado.toCharArray(), 0, esperadoLength);
+			proposicaoController.endElement("a", "descricao", "q");
+		} catch (SAXException saxe) {
+		}
+		String retornado = proposicaoController.getProjeto().getStatus();
+		assertEquals(esperado, retornado);
+	}
 
 	@Test
 	public void testEndElementProposicaoNome() {
