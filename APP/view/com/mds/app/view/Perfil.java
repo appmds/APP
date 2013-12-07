@@ -81,7 +81,7 @@ public class Perfil extends Activity {
 				+ "http://www.camara.gov.br/proposicoesWeb/fichadetramitacao?idProposicao=" + projetoAtual.getId());
 		texto7 = (TextView) findViewById(R.id.textoStatus);
 		texto7.setText("Status: " + projetoAtual.getStatus());
-		
+
 		favoritar_addListener();
 
 		final int projetosNoHistorico = HistoricoController.getNumeroDeProjetosNoHistorico();

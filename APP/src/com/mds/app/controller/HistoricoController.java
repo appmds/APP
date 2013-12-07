@@ -3,6 +3,7 @@ package com.mds.app.controller;
 import java.util.ArrayList;
 
 import android.content.Context;
+import android.util.Log;
 
 import com.mds.app.model.ParlamentarModel;
 import com.mds.app.model.PartidoModel;
@@ -33,14 +34,13 @@ public class HistoricoController implements AlteraArquivos {
 				persistencia.escreverNoArquivo(Persistencia.getFileNameHistorico(), conteudo);
 			}
 			else {
-				System.out.println("ELSE DENTRO ADICIONAR HISTORICO");
+				Log.i("LOGGER", "ELSE DENTRO ADICIONAR HISTORICO");
 			}
 		}
 		else {
 			// projeto que ja existe foi visto, e portanto pula pro
 			// "final da fila"
-			// Log.i("LOGGER", "ELSE ADICIONAR HISTORICO");
-			System.out.println("ELSE FORA ADICIONAR HISTORICO");
+			Log.i("LOGGER", "ELSE ADICIONAR HISTORICO");
 			projetosHistorico.remove(projeto);
 			ArrayList<ProjetoModel> atualizadaProjetosHistorico = new ArrayList<ProjetoModel>(MAX_PROJETOS);
 			atualizadaProjetosHistorico.add(0, projeto);
@@ -85,9 +85,9 @@ public class HistoricoController implements AlteraArquivos {
 	public void popularProjetos(String strConteudoHistorico) {
 		ArrayList<String> splitParts;
 
-		// Log.i("POPPROJ-H", "Conteudo historico:");
+		Log.i("POPPROJ-H", "Conteudo historico:");
 
-		final int separadoresPorProjeto = 9;
+		final int separadoresPorProjeto = 11;
 		final int numeroDeProjetosNoArquivo;
 		int numeroDeSeparadores = 0;
 		projetosHistorico = new ArrayList<ProjetoModel>();
@@ -98,10 +98,10 @@ public class HistoricoController implements AlteraArquivos {
 					numeroDeSeparadores++;
 				}
 			}
-			// Log.i("POPPROJ-H", "Separadores: " + numeroDeSeparadores);
+			Log.i("POPPROJ-H", "Separadores: " + numeroDeSeparadores);
 
 			numeroDeProjetosNoArquivo = (numeroDeSeparadores / separadoresPorProjeto);
-			// Log.i("POPPROJ-H", "Numero de projetos: " + numeroDeProjetosNoArquivo);
+			Log.i("POPPROJ-H", "Numero de projetos: " + numeroDeProjetosNoArquivo);
 
 			for (int i = 0; i < numeroDeProjetosNoArquivo; i++) {
 				splitParts = new ArrayList<String>(numeroDeSeparadores);
@@ -111,28 +111,32 @@ public class HistoricoController implements AlteraArquivos {
 					splitParts.add(j, parts[j + (separadoresPorProjeto * i)]);
 				}
 
-				String siglaPartido = splitParts.get(7);
-				String ufPartido = splitParts.get(8);
-				String nomeParlamentar = splitParts.get(6);
+				String siglaPartido = splitParts.get(8);
+				String ufPartido = splitParts.get(9);
+				String nomeParlamentar = splitParts.get(7);
 				String nomeProjeto = splitParts.get(0);
 				String numeroProjeto = splitParts.get(1);
 				String anoProjeto = splitParts.get(2);
 				String siglaProjeto = splitParts.get(3);
 				String dataProjeto = splitParts.get(4);
 				String explicacaoProjeto = splitParts.get(5);
+				String statusProjeto = splitParts.get(6);
+				String idProjeto = splitParts.get(10);
 
 				PartidoModel partido = new PartidoModel(siglaPartido, ufPartido);
 				ParlamentarModel parlamentar = new ParlamentarModel(nomeParlamentar, partido);
 				ProjetoModel projeto = new ProjetoModel(anoProjeto, nomeProjeto, siglaProjeto, dataProjeto,
 						numeroProjeto, explicacaoProjeto, parlamentar);
+				projeto.setStatus(statusProjeto);
+				projeto.setId(idProjeto);
 
 				projetosHistorico.add(projeto);
 
-				// Log.i("POPPROJ-H", "Adicionando: " + projeto.toString());
+				Log.i("POPPROJ-H", "Adicionando: " + projeto.toString());
 			}
 		}
 		else {
-			// Log.i("POPPROJ-H", "Historico esta vazio");
+			Log.i("POPPROJ-H", "Historico esta vazio");
 		}
 
 		popularListaComProjetos();

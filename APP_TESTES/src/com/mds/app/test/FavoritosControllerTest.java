@@ -79,7 +79,7 @@ public class FavoritosControllerTest extends AndroidTestCase {
 		ListaController.setProjetoAtual(projetoModel);
 		String stringInput = listaController.getStringCompletaParaArquivo();
 		favoritosController.popularProjetos(stringInput);
-		String esperado = HistoricoController.getProjetosHistorico().get(0).toString();
+		String esperado = FavoritosController.getProjetosFavoritados().get(0).toString();
 		String retornado = projetoModel.toString();
 		assertEquals(esperado, retornado);
 	}

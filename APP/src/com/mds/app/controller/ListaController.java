@@ -87,11 +87,15 @@ public class ListaController {
 			stringProjeto += SEPARADOR;
 			stringProjeto += getProjetoAtual().getExplicacao();
 			stringProjeto += SEPARADOR;
+			stringProjeto += getProjetoAtual().getStatus();
+			stringProjeto += SEPARADOR;
 			stringProjeto += getProjetoAtual().getParlamentar().getNome();
 			stringProjeto += SEPARADOR;
 			stringProjeto += getProjetoAtual().getParlamentar().getPartido().getSiglaPartido();
 			stringProjeto += SEPARADOR;
 			stringProjeto += getProjetoAtual().getParlamentar().getPartido().getUf();
+			stringProjeto += SEPARADOR;
+			stringProjeto += getProjetoAtual().getId();
 			stringProjeto += SEPARADOR;
 		}
 		else {

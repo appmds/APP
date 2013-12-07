@@ -60,8 +60,7 @@ public class FavoritosController implements AlteraArquivos {
 		}
 		else {
 			// mesma coisa
-			// Log.i("LOGGER", "ELSE REMOVER FAVORITOS");
-			System.out.println("ELSE REMOVER FAVORITOS");
+			Log.i("LOGGER", "ELSE REMOVER FAVORITOS");
 		}
 	}
 
@@ -80,9 +79,9 @@ public class FavoritosController implements AlteraArquivos {
 	public void popularProjetos(String strConteudoFavoritos) {
 		ArrayList<String> splitParts;
 
-		// Log.i("POPPROJ-F", "Conteudo favoritos:");
+		Log.i("POPPROJ-F", "Conteudo favoritos:");
 
-		final int separadoresPorProjeto = 9;
+		final int separadoresPorProjeto = 11;
 		final int numeroDeProjetosNoArquivo;
 		int numeroDeSeparadores = 0;
 		projetosFavoritados = new ArrayList<ProjetoModel>();
@@ -93,10 +92,10 @@ public class FavoritosController implements AlteraArquivos {
 					numeroDeSeparadores++;
 				}
 			}
-			// Log.i("POPPROJ-F", "Separadores: " + numeroDeSeparadores);
+			Log.i("POPPROJ-F", "Separadores: " + numeroDeSeparadores);
 
 			numeroDeProjetosNoArquivo = (numeroDeSeparadores / separadoresPorProjeto);
-			// Log.i("POPPROJ-F", "Numero de projetos: " + numeroDeProjetosNoArquivo);
+			Log.i("POPPROJ-F", "Numero de projetos: " + numeroDeProjetosNoArquivo);
 
 			for (int i = 0; i < numeroDeProjetosNoArquivo; i++) {
 				splitParts = new ArrayList<String>(numeroDeSeparadores);
@@ -106,28 +105,32 @@ public class FavoritosController implements AlteraArquivos {
 					splitParts.add(j, parts[j + (separadoresPorProjeto * i)]);
 				}
 
-				String siglaPartido = splitParts.get(7);
-				String ufPartido = splitParts.get(8);
-				String nomeParlamentar = splitParts.get(6);
+				String siglaPartido = splitParts.get(8);
+				String ufPartido = splitParts.get(9);
+				String nomeParlamentar = splitParts.get(7);
 				String nomeProjeto = splitParts.get(0);
 				String numeroProjeto = splitParts.get(1);
 				String anoProjeto = splitParts.get(2);
 				String siglaProjeto = splitParts.get(3);
 				String dataProjeto = splitParts.get(4);
 				String explicacaoProjeto = splitParts.get(5);
+				String statusProjeto = splitParts.get(6);
+				String idProjeto = splitParts.get(10);
 
 				PartidoModel partido = new PartidoModel(siglaPartido, ufPartido);
 				ParlamentarModel parlamentar = new ParlamentarModel(nomeParlamentar, partido);
 				ProjetoModel projeto = new ProjetoModel(anoProjeto, nomeProjeto, siglaProjeto, dataProjeto,
 						numeroProjeto, explicacaoProjeto, parlamentar);
+				projeto.setStatus(statusProjeto);
+				projeto.setId(idProjeto);
 
 				projetosFavoritados.add(projeto);
 
-				// Log.i("POPPROJ-F", "Adicionando: " + projeto.toString());
+				Log.i("POPPROJ-F", "Adicionando: " + projeto.toString());
 			}
 		}
 		else {
-			// Log.i("POPPROJ-F", "Favoritos esta vazio");
+			Log.i("POPPROJ-F", "Favoritos esta vazio");
 		}
 
 		popularListaComProjetos();

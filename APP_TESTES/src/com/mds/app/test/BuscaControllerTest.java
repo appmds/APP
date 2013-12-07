@@ -369,7 +369,7 @@ public class BuscaControllerTest extends AndroidTestCase {
 	@Test
 	public void testTransformaSiglaPDC() {
 		String siglaEsperada = "PDC";
-		String retornado = buscaController.transformaSigla("Projetos de Decreto Legislativo ");
+		String retornado = buscaController.transformaSigla("Projetos de Decreto Legislativo");
 		assertEquals(siglaEsperada, retornado);
 	}
 

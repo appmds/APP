@@ -5,6 +5,7 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.nio.charset.Charset;
 
 import android.app.Activity;
 import android.content.Context;
@@ -23,6 +24,8 @@ public class Persistencia extends Activity {
 	private static final String fileNameHistorico = "historico";
 
 	private Context context;
+	
+	private final Charset charset = Charset.forName("UTF-8");
 
 	private File fileFavoritos;
 	private File fileHistorico;
@@ -59,7 +62,7 @@ public class Persistencia extends Activity {
 			e.printStackTrace();
 		}
 		try {
-			fileOutputStream.write(data.getBytes());
+			fileOutputStream.write(data.getBytes(charset));
 		} catch (IOException e) {
 			Log.i(TAG, e.getMessage());
 			e.printStackTrace();

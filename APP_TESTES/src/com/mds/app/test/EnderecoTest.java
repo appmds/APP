@@ -25,8 +25,11 @@ public class EnderecoTest extends AndroidTestCase {
 
 	@Test
 	public void testConstruirEndereco() {
-		String enderecoEsperado = "http://www.camara.gov.br/SitCamaraWS/Proposicoes.asmx/ListarProposicoes?sigla=PL&numero=&ano=2011&datApresentacaoIni=14/11/2011&datApresentacaoFim=16/11/2011&autor=&parteNomeAutor=&siglaPartidoAutor=&siglaUFAutor=&generoAutor=&codEstado=&codOrgaoEstado=&emTramitacao=1";
+		//String enderecoEsperado = "http://www.camara.gov.br/SitCamaraWS/Proposicoes.asmx/ListarProposicoes?sigla=PL&numero=&ano=2011&datApresentacaoIni=14/11/2011&datApresentacaoFim=16/11/2011&autor=&parteNomeAutor=&siglaPartidoAutor=&siglaUFAutor=&generoAutor=&codEstado=&codOrgaoEstado=&emTramitacao=1";
 
+		//hotfix
+		String enderecoEsperado = "http://www.camara.gov.br/SitCamaraWS/Proposicoes.asmx/ListarProposicoes?sigla=PL&numero=&ano=2011&datApresentacaoIni=14/11/2011&datApresentacaoFim=16/11/2011&autor=&parteNomeAutor=&siglaPartidoAutor=&siglaUFAutor=&generoAutor=&codEstado=&idTipoAutor=&codOrgaoEstado=&emTramitacao=1";
+		
 		Endereco.sigla = "PL";
 		Endereco.numero = "";
 		Endereco.ano = "2011";
@@ -41,7 +44,6 @@ public class EnderecoTest extends AndroidTestCase {
 		Endereco.codigoOrgaoEstado = "";
 		String endercoRetornado = Endereco.construirEndereco();
 
-		/* falhando por causa do hotfix, devido ao bug no BD da camara */
 		assertEquals(enderecoEsperado, endercoRetornado);
 	}
 }

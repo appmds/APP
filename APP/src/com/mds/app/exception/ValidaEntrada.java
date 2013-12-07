@@ -70,6 +70,24 @@ public abstract class ValidaEntrada {
 		return entradas;
 	}
 
+	public static String garanteResultadoPartido(String uf, String partido) {
+		if (!uf.isEmpty() && !partido.isEmpty()) {
+			return "";
+		}
+		else {
+			return partido;
+		}
+	}
+	
+	public static String garanteResultadoAutor(String autor, String partido) {
+		if (!autor.isEmpty() && !partido.isEmpty()) {
+			return "";
+		}
+		else {
+			return partido;
+		}
+	}
+
 	public static String identificarErros(String ano, String sigla, String numero, String dataIni, String autor,
 			String partido, String uf) {
 		boolean recebeValidacao[];

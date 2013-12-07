@@ -192,7 +192,7 @@ public class ProjetoModelTest extends AndroidTestCase {
 	public void testSetNomeComContMaiorQueUm() {
 		projetoModel.setCont(5);
 		projetoModel.setNome("NOMEZORDON");
-		assertEquals(5, projetoModel.getCont());
+		assertEquals(6, projetoModel.getCont());
 	}	
 
 }

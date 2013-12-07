@@ -2,6 +2,8 @@ package com.mds.app.controller;
 
 import java.util.ArrayList;
 
+import android.util.Log;
+
 import com.mds.app.exception.ValidaEntrada;
 import com.mds.app.model.ProcuraParlamentarModel;
 import com.mds.app.model.ProcuraPartidoModel;
@@ -23,6 +25,7 @@ public class BuscaController {
 	}
 
 	public String transformaSigla(String sigla) {
+		
 		if (sigla.equalsIgnoreCase("Projeto de Lei")) {
 			sigla = "PL";
 		}
@@ -32,7 +35,7 @@ public class BuscaController {
 		else if (sigla.equalsIgnoreCase("Projeto de Lei Complementar")) {
 			sigla = "PLP";
 		}
-		else if (sigla.equalsIgnoreCase("Projetos de Decreto Legislativo ")) {
+		else if (sigla.equalsIgnoreCase("Projetos de Decreto Legislativo")) {
 			sigla = "PDC";
 		}
 		else if (sigla.equalsIgnoreCase("Projeto de Resolução")) {
@@ -40,7 +43,6 @@ public class BuscaController {
 		}
 		else {
 			// não tem outras opções
-			System.out.print(sigla + ": ");
 			throw new IllegalArgumentException("Sigla inserida invalida!");
 		}
 		return sigla;
@@ -164,7 +166,7 @@ public class BuscaController {
 		}
 
 		if (sigla.isEmpty() || uf.isEmpty()) {
-			System.out.println("IUAS8YUGDI8AGE8F7WQGFGQ");
+			Log.i("BSCC", "atencao");
 		}
 
 		uf = transformaUF(uf);
@@ -174,6 +176,8 @@ public class BuscaController {
 		erros = ValidaEntrada.identificarErros(ano, sigla, numero, dataIni, nomeAutor, siglaPartido, uf);
 		System.out.println(erros);
 		System.out.println(dataIni);
+		siglaPartido = ValidaEntrada.garanteResultadoPartido(uf,siglaPartido);
+		siglaPartido = ValidaEntrada.garanteResultadoPartido(nomeAutor,siglaPartido);
 
 		if (erros == "") {
 			ProcuraProjetoController.atualizarDadosPesquisaProjeto(ano, sigla, numero, dataIni);

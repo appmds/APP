@@ -254,6 +254,17 @@ public class ProposicaoControllerTest extends AndroidTestCase {
 		String retornado = proposicaoController.getParlamentar().getNome();
 		assertEquals(esperado, retornado);
 	}
+	
+	@Test
+	public void testEndElementProposicaoDiferente() {
+		try {
+			proposicaoController.startElement("a", "localnamediferente1", "q", null);
+			proposicaoController.endElement("a", "localnamediferente2", "q");
+		} catch (SAXException saxe) {
+		}
+		/* Testando os ramo elses, que nao fazem nada */
+		assertTrue(true);
+	}
 
 	@Test
 	public void testEndElementProposicaoTextoSiglaPartido() {
@@ -326,26 +337,5 @@ public class ProposicaoControllerTest extends AndroidTestCase {
 		assertSame(lista, proposicaoController.getListaProjetos());
 	}
 
-	// ////////////////
-
-	@Test(expected = IllegalArgumentException.class)
-	public void testStartElementProposicoesCatchIllegalArgument() {
-		try {
-			proposicaoController.startElement("a", "localnameinvalida", "q", null);
-		} catch (SAXException saxe) {
-
-		}
-		fail("teste falhou");
-	}
-
-	@Test(expected = IllegalArgumentException.class)
-	public void testEndElementProposicaoCatchIllegalArgument() {
-		try {
-			proposicaoController.startElement("a", "proposicao", "q", null);
-			proposicaoController.endElement("a", "localnameinvalida", "q");
-		} catch (SAXException saxe) {
-		}
-		fail("teste falhou.");
-	}
 
 }
